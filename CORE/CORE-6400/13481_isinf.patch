@@ -1,0 +1,232 @@
+diff --git a/src/common/classes/FpeControl.h b/src/common/classes/FpeControl.h
+index 2290302619..10a9525cbd 100644
+--- a/src/common/classes/FpeControl.h
++++ b/src/common/classes/FpeControl.h
+@@ -213,34 +213,14 @@ private:
+ 
+ };
+ 
+-} //namespace Firebird
+-
+-
+-// getting a portable isinf() is harder than you would expect
+-#ifdef WIN_NT
+-inline bool isinf(double x)
+-{
+-	return (!_finite (x) && !isnan(x));
+-}
+-#elif !defined(DARWIN)
+-#ifndef isinf
+-template <typename F>
+-inline bool isinf(F x)
++inline bool isNegativeInf(double x)
+ {
+-	return !isnan(x) && isnan(x - x);
+-}
+-#endif // isinf
+-#endif // WIN_NT
+-
+-namespace Firebird {
+-	inline bool isNegativeInf(double x)
+-	{
+ #ifdef WIN_NT
+-		return _fpclass(x) == _FPCLASS_NINF;
++	return _fpclass(x) == _FPCLASS_NINF;
+ #else
+-		return x == -INFINITY;
++	return x == -INFINITY;
+ #endif
+-	}
++}
+ }
+ 
+ #endif //CLASSES_FPE_CONTROL_H
+diff --git a/src/common/cvt.cpp b/src/common/cvt.cpp
+index 608358445c..3b22cb299b 100644
+--- a/src/common/cvt.cpp
++++ b/src/common/cvt.cpp
+@@ -36,6 +36,7 @@
+  */
+ 
+ #include "firebird.h"
++#include <cmath>
+ #include <stdio.h>
+ #include <string.h>
+ #include <stdlib.h>
+@@ -1268,7 +1269,7 @@ double CVT_get_double(const dsc* desc, ErrorFunction err)
+ 			else if (scale < 0)
+ 				value *= CVT_power_of_ten(-scale);
+ 
+-			if (isinf(value))
++			if (std::isinf(value))
+ 				err(Arg::Gds(isc_arith_except) << Arg::Gds(isc_numeric_out_of_range));
+ 		}
+ 		return value;
+diff --git a/src/dsql/ExprNodes.cpp b/src/dsql/ExprNodes.cpp
+index 494f6ae897..4d8fe8283e 100644
+--- a/src/dsql/ExprNodes.cpp
++++ b/src/dsql/ExprNodes.cpp
+@@ -19,6 +19,7 @@
+  */
+ 
+ #include "firebird.h"
++#include <cmath>
+ #include <math.h>
+ #include <ctype.h>
+ #include "../common/classes/FpeControl.h"
+@@ -1596,7 +1597,7 @@ dsc* ArithmeticNode::execute(thread_db* tdbb, jrd_req* request) const
+ 
+ 				impure->vlu_misc.vlu_double = MOV_get_double(desc1) / divisor;
+ 
+-				if (isinf(impure->vlu_misc.vlu_double))
++				if (std::isinf(impure->vlu_misc.vlu_double))
+ 				{
+ 					ERR_post(Arg::Gds(isc_arith_except) <<
+ 							 Arg::Gds(isc_exception_float_overflow));
+@@ -1667,7 +1668,7 @@ dsc* ArithmeticNode::add(const dsc* desc, impure_value* value, const ValueExprNo
+ 
+ 		value->vlu_misc.vlu_double = (blrOp == blr_subtract) ? d2 - d1 : d1 + d2;
+ 
+-		if (isinf(value->vlu_misc.vlu_double))
++		if (std::isinf(value->vlu_misc.vlu_double))
+ 			ERR_post(Arg::Gds(isc_arith_except) << Arg::Gds(isc_exception_float_overflow));
+ 
+ 		result->dsc_dtype = DEFAULT_DOUBLE;
+@@ -1726,7 +1727,7 @@ dsc* ArithmeticNode::add2(const dsc* desc, impure_value* value, const ValueExprN
+ 
+ 		value->vlu_misc.vlu_double = (blrOp == blr_subtract) ? d2 - d1 : d1 + d2;
+ 
+-		if (isinf(value->vlu_misc.vlu_double))
++		if (std::isinf(value->vlu_misc.vlu_double))
+ 			ERR_post(Arg::Gds(isc_arith_except) << Arg::Gds(isc_exception_float_overflow));
+ 
+ 		result->dsc_dtype = DEFAULT_DOUBLE;
+@@ -1791,7 +1792,7 @@ dsc* ArithmeticNode::multiply(const dsc* desc, impure_value* value) const
+ 		const double d2 = MOV_get_double(&value->vlu_desc);
+ 		value->vlu_misc.vlu_double = d1 * d2;
+ 
+-		if (isinf(value->vlu_misc.vlu_double))
++		if (std::isinf(value->vlu_misc.vlu_double))
+ 		{
+ 			ERR_post(Arg::Gds(isc_arith_except) <<
+ 					 Arg::Gds(isc_exception_float_overflow));
+@@ -1865,7 +1866,7 @@ dsc* ArithmeticNode::multiply2(const dsc* desc, impure_value* value) const
+ 		const double d2 = MOV_get_double(&value->vlu_desc);
+ 		value->vlu_misc.vlu_double = d1 * d2;
+ 
+-		if (isinf(value->vlu_misc.vlu_double))
++		if (std::isinf(value->vlu_misc.vlu_double))
+ 		{
+ 			ERR_post(Arg::Gds(isc_arith_except) <<
+ 					 Arg::Gds(isc_exception_float_overflow));
+@@ -1945,7 +1946,7 @@ dsc* ArithmeticNode::divide2(const dsc* desc, impure_value* value) const
+ 		}
+ 		const double d1 = MOV_get_double(&value->vlu_desc);
+ 		value->vlu_misc.vlu_double = d1 / d2;
+-		if (isinf(value->vlu_misc.vlu_double))
++		if (std::isinf(value->vlu_misc.vlu_double))
+ 		{
+ 			ERR_post(Arg::Gds(isc_arith_except) <<
+ 					 Arg::Gds(isc_exception_float_overflow));
+diff --git a/src/isql/isql.epp b/src/isql/isql.epp
+index 4b4db43596..706f4dbcdf 100644
+--- a/src/isql/isql.epp
++++ b/src/isql/isql.epp
+@@ -44,6 +44,7 @@
+ */
+ 
+ #include "firebird.h"
++#include <cmath>
+ #include <stdio.h>
+ #include "../jrd/intl.h"
+ #include <stdlib.h>
+@@ -6954,7 +6955,7 @@ static bool checkSpecial(TEXT* const p, const int length, const double value)
+ 	const TEXT* t = NULL;
+ 	if (isnan(value))
+ 		t = "NaN";
+-	else if (isinf(value))
++	else if (std::isinf(value))
+ 		t = Firebird::isNegativeInf(value) ? "-Infinity" : "Infinity";
+ 	else
+ 		return false;
+diff --git a/src/jrd/SysFunction.cpp b/src/jrd/SysFunction.cpp
+index 5830f9d34e..6743bc6a05 100644
+--- a/src/jrd/SysFunction.cpp
++++ b/src/jrd/SysFunction.cpp
+@@ -51,6 +51,7 @@
+ #include "../jrd/trace/TraceObjects.h"
+ #include "../jrd/Collation.h"
+ #include "../common/classes/FpeControl.h"
++#include <cmath>
+ #include <math.h>
+ 
+ using namespace Firebird;
+@@ -1171,7 +1172,7 @@ dsc* evlStdMath(thread_db* tdbb, const SysFunction* function, const NestValueArr
+ 		return NULL;
+ 	}
+ 
+-	if (isinf(rc))
++	if (std::isinf(rc))
+ 	{
+ 		status_exception::raise(Arg::Gds(isc_arith_except) <<
+ 								Arg::Gds(isc_sysf_fp_overflow) << Arg::Str(function->name));
+@@ -2048,7 +2049,7 @@ dsc* evlExp(thread_db* tdbb, const SysFunction*, const NestValueArray& args,
+ 	const double rc = exp(MOV_get_double(value));
+ 	if (rc == HUGE_VAL) // unlikely to trap anything
+ 		status_exception::raise(Arg::Gds(isc_arith_except) << Arg::Gds(isc_exception_float_overflow));
+-	if (isinf(rc))
++	if (std::isinf(rc))
+ 		status_exception::raise(Arg::Gds(isc_arith_except) << Arg::Gds(isc_exception_float_overflow));
+ 
+ 	impure->vlu_misc.vlu_double = rc;
+@@ -3236,7 +3237,7 @@ dsc* evlPower(thread_db* tdbb, const SysFunction* function, const NestValueArray
+ 	}
+ 
+ 	const double rc = pow(v1, v2);
+-	if (isinf(rc))
++	if (std::isinf(rc))
+ 		status_exception::raise(Arg::Gds(isc_arith_except) << Arg::Gds(isc_exception_float_overflow));
+ 
+ 	impure->vlu_misc.vlu_double = rc;
+diff --git a/src/jrd/fun.epp b/src/jrd/fun.epp
+index 44fd5dde67..42d1fe27ab 100644
+--- a/src/jrd/fun.epp
++++ b/src/jrd/fun.epp
+@@ -31,6 +31,7 @@
+  */
+ 
+ #include "firebird.h"
++#include <cmath>
+ #include <stdlib.h>
+ #include <stdio.h>
+ #include <string.h>
+@@ -744,7 +745,7 @@ void FUN_evaluate(thread_db* tdbb, const Function* function, const NestValueArra
+ 	{
+ 		if (value->vlu_desc.dsc_dtype == dtype_double)
+ 		{
+-			if (isinf(value->vlu_misc.vlu_double))
++			if (std::isinf(value->vlu_misc.vlu_double))
+ 			{
+ 				status_exception::raise(Arg::Gds(isc_expression_eval_err) <<
+ 									Arg::Gds(isc_udf_fp_overflow) <<
+diff --git a/src/qli/picstr.cpp b/src/qli/picstr.cpp
+index 3365c14b1d..7905b7c678 100644
+--- a/src/qli/picstr.cpp
++++ b/src/qli/picstr.cpp
+@@ -22,6 +22,7 @@
+  */
+ 
+ #include "firebird.h"
++#include <cmath>
+ #include <stdio.h>
+ #include <string.h>
+ 
+@@ -736,7 +737,7 @@ static void edit_float( const dsc* desc, pics* picture, TEXT** output)
+ 
+ 	if (isnan(number))
+ 		sprintf(temp, "NaN");
+-	else if (isinf(number))
++	else if (std::isinf(number))
+ 		sprintf(temp, "Infinity");
+ 	else if (picture->pic_exponents)
+ 	{

@@ -1,0 +1,21 @@
+diff -urN a/source/FirebirdSql.Data.Firebird/FbConnectionPool.cs b/source/FirebirdSql.Data.Firebird/FbConnectionPool.cs
+--- a/source/FirebirdSql.Data.Firebird/FbConnectionPool.cs	2004-06-10 18:20:00.000000000 +0200
++++ b/source/FirebirdSql.Data.Firebird/FbConnectionPool.cs	2004-08-09 11:16:06.609693767 +0200
+@@ -256,7 +256,7 @@
+ 							{
+ 								if (connection.Lifetime != 0)
+ 								{
+-									if ((now - connection.Created) > connection.Lifetime)
++									if (TimeSpan.FromTicks(now - connection.Created).Seconds > connection.Lifetime)
+ 									{
+ 										this.unlocked.Remove(connection);
+ 										this.expire(connection);
+@@ -482,7 +482,7 @@
+ 						if (this.checkMinPoolSize())
+ 						{
+ 							if (connection.Lifetime != 0 &&
+-								(now - connection.Created) >= connection.Lifetime)
++								TimeSpan.FromTicks(now - connection.Created).Seconds >= connection.Lifetime)
+ 							{
+ 								this.unlocked.Remove(connection);
+ 								this.expire(connection);

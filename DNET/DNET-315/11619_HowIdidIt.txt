@@ -1,0 +1,98 @@
+/****** in FbConnectionString.cs *****/
+
+private void SetDefaultOptions()
+		{
+			if (this.options == null)
+			{
+				this.options = new Dictionary<string, object>();
+			}
+
+			this.options.Clear();
+
+			// Add default key pairs values
+			this.options.Add("data source", string.Empty);
+			this.options.Add("port number", 3050);
+			this.options.Add("user id", string.Empty);
+			this.options.Add("password", string.Empty);
+			this.options.Add("role name", string.Empty);
+			this.options.Add("catalog", string.Empty);
+			this.options.Add("character set", "NONE");
+			this.options.Add("dialect", 3);
+			this.options.Add("packet size", 8192);
+			this.options.Add("pooling", true);
+			this.options.Add("connection lifetime", 0);
+			this.options.Add("min pool size", 0);
+			this.options.Add("max pool size", 100);
+			this.options.Add("connection timeout", 15);
+			this.options.Add("fetch size", 200);
+			this.options.Add("server type", FbServerType.Default);
+			this.options.Add("isolation level", IsolationLevel.ReadCommitted.ToString());
+			this.options.Add("records affected", true);
+			this.options.Add("context connection", false);
+			this.options.Add("enlist", false);
+			this.options.Add("client library", "fbembed");
+		    this.options.Add("dbcachepages", 0);
+		}
+
+
+
+
+Another synonym to the static dictionary -             {"dbcachepages","dbcachepages"}
+
+/******* in FbConnectionStringBuilder.cs *****/
+
+public int DbCachePages
+        {
+            get { return this.GetInt32("dbcachepages"); }
+            set { this.SetValue("dbcachepages",0);}
+        }
+
+
+/******* in FbConnectionInternal.cs  *****/
+
+  private int GetProcessID()
+        {
+#if (NET_CF) 
+            // not sure about it
+            return 0;
+#else
+            // showing ApplicationPhysicalPath may be wrong because of connection pooling; better idea?
+            if (System.Web.Hosting.HostingEnvironment.IsHosted)
+            {
+                int AppID;
+                return Int32.TryParse(System.Web.Hosting.HostingEnvironment.ApplicationID,out AppID) ? AppID : 0;
+            }
+            else
+                return Process.GetCurrentProcess().Id;
+#endif
+        }
+
+
+      private DatabaseParameterBuffer BuildDpb(IDatabase db, FbConnectionString options)
+        {
+            DatabaseParameterBuffer dpb = new DatabaseParameterBuffer();
+
+            dpb.Append(IscCodes.isc_dpb_version1);
+            dpb.Append(IscCodes.isc_dpb_dummy_packet_interval, new byte[] { 120, 10, 0, 0 });
+            dpb.Append(IscCodes.isc_dpb_sql_dialect, new byte[] { Convert.ToByte(options.Dialect), 0, 0, 0 });
+            dpb.Append(IscCodes.isc_dpb_lc_ctype, options.Charset);
+            if (!string.IsNullOrEmpty(options.Role))
+            {
+                dpb.Append(IscCodes.isc_dpb_sql_role_name, options.Role);
+            }
+            dpb.Append(IscCodes.isc_dpb_connect_timeout, options.ConnectionTimeout);
+
+            if (!options.FallIntoTrustedAuth)
+            {
+                dpb.Append(IscCodes.isc_dpb_user_name, options.UserID);
+                dpb.Append(IscCodes.isc_dpb_password, options.Password);
+            }
+            if (options.DbCachePages > 0)
+            {
+                dpb.Append(IscCodes.isc_dpb_num_buffers, options.DbCachePages);
+            }
+            dpb.Append(IscCodes.isc_dpb_process_name, GetProcessName());
+            dpb.Append(IscCodes.isc_dpb_process_id, GetProcessID());
+            return dpb;
+        }
+

@@ -1,0 +1,25 @@
+timings orig 2.0.5 with fix
+ PLAN (PO INDEX (INDX_PAON2))
+ PLAN JOIN (P NATURAL, PT INDEX (FIX_BUG1))
+
+ real	0m0.206s
+ user	0m0.138s
+ sys	0m0.030s
+
+timings orig 2.1.3 WITH fix
+PLAN (PO INDEX (INDX_PAON2))
+PLAN JOIN (PT INDEX (FIX_BUG1), P NATURAL)
+
+real	0m0.489s
+user	0m0.097s
+sys	0m0.053s
+
+timings orig 2.1.3 without fix
+PLAN (PO INDEX (INDX_PAON2))
+PLAN JOIN (P NATURAL, PT NATURAL)
+
+real	0m31.276s
+user	0m28.578s
+sys	0m2.642s
+
+

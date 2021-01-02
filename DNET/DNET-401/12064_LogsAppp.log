@@ -1,0 +1,454 @@
+2011-12-02 02:08:43,280 [12] DEBUG LogInFile Exception
+System.Web.HttpUnhandledException (0x80004005): Exception of type 'System.Web.HttpUnhandledException' was thrown. ---> System.NullReferenceException: Sessão finalizada ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at FirebirdSql.Data.Client.Managed.Version10.GdsTransaction.BeginTransaction(TransactionParameterBuffer tpb) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\Client\Managed\Version10\GdsTransaction.cs:line 142
+   at FirebirdSql.Data.Client.Managed.Version10.GdsDatabase.BeginTransaction(TransactionParameterBuffer tpb) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\Client\Managed\Version10\GdsDatabase.cs:line 573
+   at FirebirdSql.Data.FirebirdClient.FbTransaction.BeginTransaction() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbTransaction.cs:line 363
+   at FirebirdSql.Data.FirebirdClient.FbCommand.Prepare(Boolean returnsSet) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 1148
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteCommand(CommandBehavior behavior, Boolean returnsSet) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 1210
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteReader(CommandBehavior behavior) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 561
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteReader() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 539
+   at FirebirdSql.Data.FirebirdClient.FbDataReader.GetSchemaTable() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbDataReader.cs:line 298
+   at System.Data.ProviderBase.SchemaMapping..ctor(DataAdapter adapter, DataSet dataset, DataTable datatable, DataReaderContainer dataReader, Boolean keyInfo, SchemaType schemaType, String sourceTableName, Boolean gettingData, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.FillMapping(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 schemaCount, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   at System.Data.Common.LoadAdapter.FillFromReader(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   at System.Data.DataTable.Load(IDataReader reader, LoadOption loadOption, FillErrorEventHandler errorHandler)
+   at Imobiliaria.UserControls.ListaImoveisAscx.Consulta_Dados_Horizontal()
+   --- End of inner exception stack trace ---
+   at Imobiliaria.UserControls.ListaImoveisAscx.ImoveisPesquisarHorizontal(Boolean resetpager)
+   at Imobiliaria.UserControls.ListaImoveisAscx.Page_Load(Object sender, EventArgs e)
+   at System.Web.UI.Control.OnLoad(EventArgs e)
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.AsyncPageProcessRequestBeforeAsyncPointCancellableCallback(Object state)
+   at System.Web.HttpContext.InvokeCancellableCallback(WaitCallback callback, Object state)
+   at System.Web.UI.Page.AsyncPageBeginProcessRequest(HttpContext context, AsyncCallback callback, Object extraData)
+   at ASP.publ_imoveis_aspx.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object data)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2011-12-02 02:08:43,280 [12] DEBUG LogInFile InnerException
+System.NullReferenceException: Sessão finalizada ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at FirebirdSql.Data.Client.Managed.Version10.GdsTransaction.BeginTransaction(TransactionParameterBuffer tpb) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\Client\Managed\Version10\GdsTransaction.cs:line 142
+   at FirebirdSql.Data.Client.Managed.Version10.GdsDatabase.BeginTransaction(TransactionParameterBuffer tpb) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\Client\Managed\Version10\GdsDatabase.cs:line 573
+   at FirebirdSql.Data.FirebirdClient.FbTransaction.BeginTransaction() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbTransaction.cs:line 363
+   at FirebirdSql.Data.FirebirdClient.FbCommand.Prepare(Boolean returnsSet) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 1148
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteCommand(CommandBehavior behavior, Boolean returnsSet) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 1210
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteReader(CommandBehavior behavior) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 561
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteReader() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 539
+   at FirebirdSql.Data.FirebirdClient.FbDataReader.GetSchemaTable() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbDataReader.cs:line 298
+   at System.Data.ProviderBase.SchemaMapping..ctor(DataAdapter adapter, DataSet dataset, DataTable datatable, DataReaderContainer dataReader, Boolean keyInfo, SchemaType schemaType, String sourceTableName, Boolean gettingData, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.FillMapping(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 schemaCount, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   at System.Data.Common.LoadAdapter.FillFromReader(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   at System.Data.DataTable.Load(IDataReader reader, LoadOption loadOption, FillErrorEventHandler errorHandler)
+   at Imobiliaria.UserControls.ListaImoveisAscx.Consulta_Dados_Horizontal()
+   --- End of inner exception stack trace ---
+   at Imobiliaria.UserControls.ListaImoveisAscx.ImoveisPesquisarHorizontal(Boolean resetpager)
+   at Imobiliaria.UserControls.ListaImoveisAscx.Page_Load(Object sender, EventArgs e)
+   at System.Web.UI.Control.OnLoad(EventArgs e)
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+2011-12-02 02:08:43,280 [12] DEBUG LogInFile InnerException
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at FirebirdSql.Data.Client.Managed.Version10.GdsTransaction.BeginTransaction(TransactionParameterBuffer tpb) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\Client\Managed\Version10\GdsTransaction.cs:line 142
+   at FirebirdSql.Data.Client.Managed.Version10.GdsDatabase.BeginTransaction(TransactionParameterBuffer tpb) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\Client\Managed\Version10\GdsDatabase.cs:line 573
+   at FirebirdSql.Data.FirebirdClient.FbTransaction.BeginTransaction() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbTransaction.cs:line 363
+   at FirebirdSql.Data.FirebirdClient.FbCommand.Prepare(Boolean returnsSet) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 1148
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteCommand(CommandBehavior behavior, Boolean returnsSet) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 1210
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteReader(CommandBehavior behavior) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 561
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteReader() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 539
+   at FirebirdSql.Data.FirebirdClient.FbDataReader.GetSchemaTable() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbDataReader.cs:line 298
+   at System.Data.ProviderBase.SchemaMapping..ctor(DataAdapter adapter, DataSet dataset, DataTable datatable, DataReaderContainer dataReader, Boolean keyInfo, SchemaType schemaType, String sourceTableName, Boolean gettingData, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.FillMapping(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 schemaCount, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   at System.Data.Common.LoadAdapter.FillFromReader(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   at System.Data.DataTable.Load(IDataReader reader, LoadOption loadOption, FillErrorEventHandler errorHandler)
+   at Imobiliaria.UserControls.ListaImoveisAscx.Consulta_Dados_Horizontal()
+2011-12-02 02:09:08,733 [1] DEBUG LogInFile Exception
+FirebirdSql.Data.FirebirdClient.FbException (0x80004005): Unable to complete network request to host "No message for error code 335544721 found. ---> Unable to complete network request to host "No message for error code 335544721 found.
+   at FirebirdSql.Data.FirebirdClient.FbConnectionInternal.Connect() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbConnectionInternal.cs:line 229
+   at FirebirdSql.Data.FirebirdClient.FbConnectionPool.Create() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbConnectionPool.cs:line 196
+   at FirebirdSql.Data.FirebirdClient.FbConnectionPool.CheckOut() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbConnectionPool.cs:line 156
+   at FirebirdSql.Data.FirebirdClient.FbConnection.Open() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbConnection.cs:line 593
+   at Imobiliaria.UserControls.ListaImoveisAscx.Consulta_Dados_Vertical()
+2011-12-02 02:09:08,733 [1] DEBUG LogInFile InnerException
+Unable to complete network request to host "No message for error code 335544721 found.
+2011-12-02 02:09:14,436 [1] DEBUG LogInFile Exception
+System.Web.HttpUnhandledException (0x80004005): Exception of type 'System.Web.HttpUnhandledException' was thrown. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at FirebirdSql.Data.Client.Managed.Version10.GdsDatabase.ProcessAttachResponse(GenericResponse response) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\Client\Managed\Version10\GdsDatabase.cs:line 236
+   at FirebirdSql.Data.Client.Managed.Version10.GdsDatabase.Attach(DatabaseParameterBuffer dpb, String dataSource, Int32 port, String database) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\Client\Managed\Version10\GdsDatabase.cs:line 207
+   at FirebirdSql.Data.FirebirdClient.FbConnectionInternal.Connect() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbConnectionInternal.cs:line 204
+   at FirebirdSql.Data.FirebirdClient.FbConnectionPool.Create() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbConnectionPool.cs:line 196
+   at FirebirdSql.Data.FirebirdClient.FbConnectionPool.CheckOut() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbConnectionPool.cs:line 156
+   at FirebirdSql.Data.FirebirdClient.FbConnection.Open() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbConnection.cs:line 593
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   at System.Web.UI.WebControls.SqlDataSourceView.ExecuteSelect(DataSourceSelectArguments arguments)
+   at System.Web.UI.DataSourceView.Select(DataSourceSelectArguments arguments, DataSourceViewSelectCallback callback)
+   at System.Web.UI.WebControls.DataBoundControl.PerformSelect()
+   at System.Web.UI.WebControls.BaseDataBoundControl.DataBind()
+   at System.Web.UI.WebControls.GridView.DataBind()
+   at System.Web.UI.WebControls.BaseDataBoundControl.EnsureDataBound()
+   at System.Web.UI.WebControls.CompositeDataBoundControl.CreateChildControls()
+   at System.Web.UI.Control.EnsureChildControls()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.AsyncPageProcessRequestBeforeAsyncPointCancellableCallback(Object state)
+   at System.Web.HttpContext.InvokeCancellableCallback(WaitCallback callback, Object state)
+   at System.Web.UI.Page.AsyncPageBeginProcessRequest(HttpContext context, AsyncCallback callback, Object extraData)
+   at ASP.default_aspx.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object data)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2011-12-02 02:09:14,436 [1] DEBUG LogInFile InnerException
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at FirebirdSql.Data.Client.Managed.Version10.GdsDatabase.ProcessAttachResponse(GenericResponse response) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\Client\Managed\Version10\GdsDatabase.cs:line 236
+   at FirebirdSql.Data.Client.Managed.Version10.GdsDatabase.Attach(DatabaseParameterBuffer dpb, String dataSource, Int32 port, String database) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\Client\Managed\Version10\GdsDatabase.cs:line 207
+   at FirebirdSql.Data.FirebirdClient.FbConnectionInternal.Connect() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbConnectionInternal.cs:line 204
+   at FirebirdSql.Data.FirebirdClient.FbConnectionPool.Create() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbConnectionPool.cs:line 196
+   at FirebirdSql.Data.FirebirdClient.FbConnectionPool.CheckOut() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbConnectionPool.cs:line 156
+   at FirebirdSql.Data.FirebirdClient.FbConnection.Open() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbConnection.cs:line 593
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   at System.Web.UI.WebControls.SqlDataSourceView.ExecuteSelect(DataSourceSelectArguments arguments)
+   at System.Web.UI.DataSourceView.Select(DataSourceSelectArguments arguments, DataSourceViewSelectCallback callback)
+   at System.Web.UI.WebControls.DataBoundControl.PerformSelect()
+   at System.Web.UI.WebControls.BaseDataBoundControl.DataBind()
+   at System.Web.UI.WebControls.GridView.DataBind()
+   at System.Web.UI.WebControls.BaseDataBoundControl.EnsureDataBound()
+   at System.Web.UI.WebControls.CompositeDataBoundControl.CreateChildControls()
+   at System.Web.UI.Control.EnsureChildControls()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+2011-12-02 02:09:39,405 [14] DEBUG LogInFile Exception
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at DC.Web.HttpCompress.HttpModule.context_PostReleaseRequestState(Object sender, EventArgs e) in C:\Desenvolvimento\projetos\trunk\HttpCompress\HttpModule.cs:line 160
+   at System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2011-12-02 05:55:34,639 [1] DEBUG LogInFile Exception
+System.Web.HttpException (0x80004005): The file '/ac/Enderecos.asmx' does not exist.
+   at System.Web.UI.Util.CheckVirtualFileExists(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResult(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResult(HttpContext context, VirtualPath virtualPath)
+   at System.Web.UI.WebServiceParser.GetCompiledType(String inputFile, HttpContext context)
+   at System.Web.Services.Protocols.WebServiceHandlerFactory.GetCompiledType(String url, HttpContext context)
+   at System.Web.Services.Protocols.WebServiceHandlerFactory.GetHandler(HttpContext context, String verb, String url, String filePath)
+   at System.Web.Script.Services.ScriptHandlerFactory.GetHandler(HttpContext context, String requestType, String url, String pathTranslated)
+   at System.Web.HttpApplication.MapHttpHandler(HttpContext context, String requestType, VirtualPath path, String pathTranslated, Boolean useAppConfig)
+   at System.Web.HttpApplication.MapHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2011-12-02 06:17:21,327 [7] DEBUG LogInFile Exception
+System.Web.HttpException (0x80004005): The file '/publ/informativo/14/pai-podera-usar-seu-fgts-em-imovel-do-filho-a.aspx' does not exist.
+   at System.Web.UI.Util.CheckVirtualFileExists(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp)
+   at System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   at System.Web.UI.PageHandlerFactory.System.Web.IHttpHandlerFactory2.GetHandler(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   at System.Web.HttpApplication.MapHttpHandler(HttpContext context, String requestType, VirtualPath path, String pathTranslated, Boolean useAppConfig)
+   at System.Web.HttpApplication.MapHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2011-12-02 06:17:31,155 [13] DEBUG LogInFile Exception
+System.Web.HttpException (0x80004005): The file '/publ/informativo/13/seu-financiamento-imobiliario-20-mais-barato.aspx' does not exist.
+   at System.Web.UI.Util.CheckVirtualFileExists(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp)
+   at System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   at System.Web.UI.PageHandlerFactory.System.Web.IHttpHandlerFactory2.GetHandler(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   at System.Web.HttpApplication.MapHttpHandler(HttpContext context, String requestType, VirtualPath path, String pathTranslated, Boolean useAppConfig)
+   at System.Web.HttpApplication.MapHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2011-12-02 06:17:42,827 [1] DEBUG LogInFile Exception
+System.Web.HttpException (0x80004005): The file '/publ/informativo/15/centro-de-varginha-area-de-900-00-m2-negocio-de-ocasiao.aspx' does not exist.
+   at System.Web.UI.Util.CheckVirtualFileExists(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp)
+   at System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   at System.Web.UI.PageHandlerFactory.System.Web.IHttpHandlerFactory2.GetHandler(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   at System.Web.HttpApplication.MapHttpHandler(HttpContext context, String requestType, VirtualPath path, String pathTranslated, Boolean useAppConfig)
+   at System.Web.HttpApplication.MapHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2011-12-02 06:17:49,671 [15] DEBUG LogInFile Exception
+System.Web.HttpException (0x80004005): The file '/publ/informativo/8/fgts-abate-ate-80-da-prestacao.aspx' does not exist.
+   at System.Web.UI.Util.CheckVirtualFileExists(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp)
+   at System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   at System.Web.UI.PageHandlerFactory.System.Web.IHttpHandlerFactory2.GetHandler(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   at System.Web.HttpApplication.MapHttpHandler(HttpContext context, String requestType, VirtualPath path, String pathTranslated, Boolean useAppConfig)
+   at System.Web.HttpApplication.MapHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2011-12-02 08:56:43,374 [5] DEBUG LogInFile Exception
+System.Web.HttpUnhandledException (0x80004005): Exception of type 'System.Web.HttpUnhandledException' was thrown. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at FirebirdSql.Data.Client.Managed.Version10.GdsTransaction.BeginTransaction(TransactionParameterBuffer tpb) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\Client\Managed\Version10\GdsTransaction.cs:line 142
+   at FirebirdSql.Data.Client.Managed.Version10.GdsDatabase.BeginTransaction(TransactionParameterBuffer tpb) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\Client\Managed\Version10\GdsDatabase.cs:line 573
+   at FirebirdSql.Data.FirebirdClient.FbTransaction.BeginTransaction() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbTransaction.cs:line 363
+   at FirebirdSql.Data.FirebirdClient.FbCommand.Prepare(Boolean returnsSet) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 1148
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteCommand(CommandBehavior behavior, Boolean returnsSet) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 1210
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteReader(CommandBehavior behavior) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 561
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 661
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at Dal.DtsImobiliariaTableAdapters.TdpPaisesEstadosCidadesBairrosTableAdapter.GetDataByBAIR_PK(Int32 BAIR_PK) in C:\Desenvolvimento\projetos\trunk\CamadasDados\Firebird\DAL\DtsImobiliaria.Designer.vb:line 12215
+   at Imobiliaria.Publ.ImoveisGaleriaAspx.Page_Load(Object sender, EventArgs e)
+   at System.Web.UI.Control.OnLoad(EventArgs e)
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.AsyncPageProcessRequestBeforeAsyncPointCancellableCallback(Object state)
+   at System.Web.HttpContext.InvokeCancellableCallback(WaitCallback callback, Object state)
+   at System.Web.UI.Page.AsyncPageBeginProcessRequest(HttpContext context, AsyncCallback callback, Object extraData)
+   at ASP.publ_detalhes_aspx.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object data)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2011-12-02 08:56:43,452 [5] DEBUG LogInFile InnerException
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at FirebirdSql.Data.Client.Managed.Version10.GdsTransaction.BeginTransaction(TransactionParameterBuffer tpb) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\Client\Managed\Version10\GdsTransaction.cs:line 142
+   at FirebirdSql.Data.Client.Managed.Version10.GdsDatabase.BeginTransaction(TransactionParameterBuffer tpb) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\Client\Managed\Version10\GdsDatabase.cs:line 573
+   at FirebirdSql.Data.FirebirdClient.FbTransaction.BeginTransaction() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbTransaction.cs:line 363
+   at FirebirdSql.Data.FirebirdClient.FbCommand.Prepare(Boolean returnsSet) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 1148
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteCommand(CommandBehavior behavior, Boolean returnsSet) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 1210
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteReader(CommandBehavior behavior) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 561
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 661
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at Dal.DtsImobiliariaTableAdapters.TdpPaisesEstadosCidadesBairrosTableAdapter.GetDataByBAIR_PK(Int32 BAIR_PK) in C:\Desenvolvimento\projetos\trunk\CamadasDados\Firebird\DAL\DtsImobiliaria.Designer.vb:line 12215
+   at Imobiliaria.Publ.ImoveisGaleriaAspx.Page_Load(Object sender, EventArgs e)
+   at System.Web.UI.Control.OnLoad(EventArgs e)
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+2011-12-02 09:24:38,421 [9] DEBUG LogInFile Exception
+System.Web.HttpUnhandledException (0x80004005): Exception of type 'System.Web.HttpUnhandledException' was thrown. ---> System.NullReferenceException: Sessão finalizada ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at FirebirdSql.Data.Client.Managed.Version10.GdsTransaction.BeginTransaction(TransactionParameterBuffer tpb) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\Client\Managed\Version10\GdsTransaction.cs:line 142
+   at FirebirdSql.Data.Client.Managed.Version10.GdsDatabase.BeginTransaction(TransactionParameterBuffer tpb) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\Client\Managed\Version10\GdsDatabase.cs:line 573
+   at FirebirdSql.Data.FirebirdClient.FbTransaction.BeginTransaction() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbTransaction.cs:line 363
+   at FirebirdSql.Data.FirebirdClient.FbCommand.Prepare(Boolean returnsSet) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 1148
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteCommand(CommandBehavior behavior, Boolean returnsSet) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 1210
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteReader(CommandBehavior behavior) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 561
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 661
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Imobiliaria.UserControls.ListaImoveisAscx.Consulta_Dados_Vertical()
+   --- End of inner exception stack trace ---
+   at Imobiliaria.UserControls.ListaImoveisAscx.ImoveisPesquisarVertical(Boolean resetpager)
+   at Imobiliaria.UserControls.ListaImoveisAscx.grv_pesquisa_PageIndexChanging(Object sender, GridViewPageEventArgs e)
+   at System.Web.UI.WebControls.GridView.OnPageIndexChanging(GridViewPageEventArgs e)
+   at System.Web.UI.WebControls.GridView.HandlePage(Int32 newPage)
+   at System.Web.UI.WebControls.GridView.HandleEvent(EventArgs e, Boolean causesValidation, String validationGroup)
+   at System.Web.UI.WebControls.GridView.RaisePostBackEvent(String eventArgument)
+   at System.Web.UI.WebControls.GridView.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   at System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   at System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.AsyncPageProcessRequestBeforeAsyncPointCancellableCallback(Object state)
+   at System.Web.HttpContext.InvokeCancellableCallback(WaitCallback callback, Object state)
+   at System.Web.UI.Page.AsyncPageBeginProcessRequest(HttpContext context, AsyncCallback callback, Object extraData)
+   at ASP.default_aspx.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object data)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2011-12-02 09:24:38,421 [9] DEBUG LogInFile InnerException
+System.NullReferenceException: Sessão finalizada ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at FirebirdSql.Data.Client.Managed.Version10.GdsTransaction.BeginTransaction(TransactionParameterBuffer tpb) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\Client\Managed\Version10\GdsTransaction.cs:line 142
+   at FirebirdSql.Data.Client.Managed.Version10.GdsDatabase.BeginTransaction(TransactionParameterBuffer tpb) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\Client\Managed\Version10\GdsDatabase.cs:line 573
+   at FirebirdSql.Data.FirebirdClient.FbTransaction.BeginTransaction() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbTransaction.cs:line 363
+   at FirebirdSql.Data.FirebirdClient.FbCommand.Prepare(Boolean returnsSet) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 1148
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteCommand(CommandBehavior behavior, Boolean returnsSet) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 1210
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteReader(CommandBehavior behavior) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 561
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 661
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Imobiliaria.UserControls.ListaImoveisAscx.Consulta_Dados_Vertical()
+   --- End of inner exception stack trace ---
+   at Imobiliaria.UserControls.ListaImoveisAscx.ImoveisPesquisarVertical(Boolean resetpager)
+   at Imobiliaria.UserControls.ListaImoveisAscx.grv_pesquisa_PageIndexChanging(Object sender, GridViewPageEventArgs e)
+   at System.Web.UI.WebControls.GridView.OnPageIndexChanging(GridViewPageEventArgs e)
+   at System.Web.UI.WebControls.GridView.HandlePage(Int32 newPage)
+   at System.Web.UI.WebControls.GridView.HandleEvent(EventArgs e, Boolean causesValidation, String validationGroup)
+   at System.Web.UI.WebControls.GridView.RaisePostBackEvent(String eventArgument)
+   at System.Web.UI.WebControls.GridView.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   at System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   at System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+2011-12-02 09:24:38,421 [9] DEBUG LogInFile InnerException
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at FirebirdSql.Data.Client.Managed.Version10.GdsTransaction.BeginTransaction(TransactionParameterBuffer tpb) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\Client\Managed\Version10\GdsTransaction.cs:line 142
+   at FirebirdSql.Data.Client.Managed.Version10.GdsDatabase.BeginTransaction(TransactionParameterBuffer tpb) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\Client\Managed\Version10\GdsDatabase.cs:line 573
+   at FirebirdSql.Data.FirebirdClient.FbTransaction.BeginTransaction() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbTransaction.cs:line 363
+   at FirebirdSql.Data.FirebirdClient.FbCommand.Prepare(Boolean returnsSet) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 1148
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteCommand(CommandBehavior behavior, Boolean returnsSet) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 1210
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteReader(CommandBehavior behavior) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 561
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 661
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Imobiliaria.UserControls.ListaImoveisAscx.Consulta_Dados_Vertical()
+2011-12-02 09:24:38,483 [14] DEBUG LogInFile Exception
+System.Web.HttpUnhandledException (0x80004005): Exception of type 'System.Web.HttpUnhandledException' was thrown. ---> System.NullReferenceException: Sessão finalizada ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at FirebirdSql.Data.Client.Managed.Version10.GdsTransaction.BeginTransaction(TransactionParameterBuffer tpb) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\Client\Managed\Version10\GdsTransaction.cs:line 142
+   at FirebirdSql.Data.Client.Managed.Version10.GdsDatabase.BeginTransaction(TransactionParameterBuffer tpb) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\Client\Managed\Version10\GdsDatabase.cs:line 573
+   at FirebirdSql.Data.FirebirdClient.FbTransaction.BeginTransaction() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbTransaction.cs:line 363
+   at FirebirdSql.Data.FirebirdClient.FbCommand.Prepare(Boolean returnsSet) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 1148
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteCommand(CommandBehavior behavior, Boolean returnsSet) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 1210
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteReader(CommandBehavior behavior) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 561
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteReader() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 539
+   at FirebirdSql.Data.FirebirdClient.FbDataReader.GetSchemaTable() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbDataReader.cs:line 298
+   at System.Data.ProviderBase.SchemaMapping..ctor(DataAdapter adapter, DataSet dataset, DataTable datatable, DataReaderContainer dataReader, Boolean keyInfo, SchemaType schemaType, String sourceTableName, Boolean gettingData, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.FillMapping(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 schemaCount, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   at System.Data.Common.LoadAdapter.FillFromReader(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   at System.Data.DataTable.Load(IDataReader reader, LoadOption loadOption, FillErrorEventHandler errorHandler)
+   at Imobiliaria.UserControls.ListaImoveisAscx.Consulta_Dados_Horizontal()
+   --- End of inner exception stack trace ---
+   at Imobiliaria.UserControls.ListaImoveisAscx.ImoveisPesquisarHorizontal(Boolean resetpager)
+   at Imobiliaria.UserControls.ListaImoveisAscx.Page_Load(Object sender, EventArgs e)
+   at System.Web.UI.Control.OnLoad(EventArgs e)
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.AsyncPageProcessRequestBeforeAsyncPointCancellableCallback(Object state)
+   at System.Web.HttpContext.InvokeCancellableCallback(WaitCallback callback, Object state)
+   at System.Web.UI.Page.AsyncPageBeginProcessRequest(HttpContext context, AsyncCallback callback, Object extraData)
+   at ASP.publ_venda_aspx.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object data)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2011-12-02 09:24:38,483 [14] DEBUG LogInFile InnerException
+System.NullReferenceException: Sessão finalizada ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at FirebirdSql.Data.Client.Managed.Version10.GdsTransaction.BeginTransaction(TransactionParameterBuffer tpb) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\Client\Managed\Version10\GdsTransaction.cs:line 142
+   at FirebirdSql.Data.Client.Managed.Version10.GdsDatabase.BeginTransaction(TransactionParameterBuffer tpb) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\Client\Managed\Version10\GdsDatabase.cs:line 573
+   at FirebirdSql.Data.FirebirdClient.FbTransaction.BeginTransaction() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbTransaction.cs:line 363
+   at FirebirdSql.Data.FirebirdClient.FbCommand.Prepare(Boolean returnsSet) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 1148
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteCommand(CommandBehavior behavior, Boolean returnsSet) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 1210
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteReader(CommandBehavior behavior) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 561
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteReader() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 539
+   at FirebirdSql.Data.FirebirdClient.FbDataReader.GetSchemaTable() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbDataReader.cs:line 298
+   at System.Data.ProviderBase.SchemaMapping..ctor(DataAdapter adapter, DataSet dataset, DataTable datatable, DataReaderContainer dataReader, Boolean keyInfo, SchemaType schemaType, String sourceTableName, Boolean gettingData, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.FillMapping(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 schemaCount, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   at System.Data.Common.LoadAdapter.FillFromReader(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   at System.Data.DataTable.Load(IDataReader reader, LoadOption loadOption, FillErrorEventHandler errorHandler)
+   at Imobiliaria.UserControls.ListaImoveisAscx.Consulta_Dados_Horizontal()
+   --- End of inner exception stack trace ---
+   at Imobiliaria.UserControls.ListaImoveisAscx.ImoveisPesquisarHorizontal(Boolean resetpager)
+   at Imobiliaria.UserControls.ListaImoveisAscx.Page_Load(Object sender, EventArgs e)
+   at System.Web.UI.Control.OnLoad(EventArgs e)
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+2011-12-02 09:24:38,483 [14] DEBUG LogInFile InnerException
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at FirebirdSql.Data.Client.Managed.Version10.GdsTransaction.BeginTransaction(TransactionParameterBuffer tpb) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\Client\Managed\Version10\GdsTransaction.cs:line 142
+   at FirebirdSql.Data.Client.Managed.Version10.GdsDatabase.BeginTransaction(TransactionParameterBuffer tpb) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\Client\Managed\Version10\GdsDatabase.cs:line 573
+   at FirebirdSql.Data.FirebirdClient.FbTransaction.BeginTransaction() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbTransaction.cs:line 363
+   at FirebirdSql.Data.FirebirdClient.FbCommand.Prepare(Boolean returnsSet) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 1148
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteCommand(CommandBehavior behavior, Boolean returnsSet) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 1210
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteReader(CommandBehavior behavior) in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 561
+   at FirebirdSql.Data.FirebirdClient.FbCommand.ExecuteReader() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbCommand.cs:line 539
+   at FirebirdSql.Data.FirebirdClient.FbDataReader.GetSchemaTable() in C:\Users\Jiri\Desktop\NETProvider\source\FirebirdSql\Data\FirebirdClient\FbDataReader.cs:line 298
+   at System.Data.ProviderBase.SchemaMapping..ctor(DataAdapter adapter, DataSet dataset, DataTable datatable, DataReaderContainer dataReader, Boolean keyInfo, SchemaType schemaType, String sourceTableName, Boolean gettingData, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.FillMapping(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 schemaCount, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   at System.Data.Common.LoadAdapter.FillFromReader(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   at System.Data.DataTable.Load(IDataReader reader, LoadOption loadOption, FillErrorEventHandler errorHandler)
+   at Imobiliaria.UserControls.ListaImoveisAscx.Consulta_Dados_Horizontal()

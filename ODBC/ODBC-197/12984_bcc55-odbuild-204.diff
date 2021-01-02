@@ -1,0 +1,10 @@
+--- OdbcJdbc.204.orig/Builds/Bcc55.win/build.bat	2006-07-19 15:35:20.000000000 +0300
++++ OdbcJdbc.204.test/Builds/Bcc55.win/build.bat	2016-07-07 10:04:22.395053700 +0300
+@@ -10,6 +10,6 @@
+ rem
+ 
+ 
+-%1\bin\make -f makefile.bcc55 COMPDIR=%1 VER_NT=%2
++%1\bin\make -f makefile.bcc55 COMPDIR=%1 VER_NT=%2 createdirs OdbcJdbc
+ 
+ @echo on

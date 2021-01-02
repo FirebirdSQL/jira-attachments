@@ -1,0 +1,136 @@
+fbsv	Sat Feb  2 02:15:11 2013
+	Fatal lock manager error: invalid lock id (0), errno: 0
+
+
+fbsv (Client)	Sat Feb  2 02:16:06 2013
+	/opt/firebird/bin/fbguard: /opt/firebird/bin/fb_smp_server terminated abnormally (-1)
+
+
+
+fbsv (Client)	Sat Feb  2 02:16:06 2013
+	/opt/firebird/bin/fbguard: guardian starting /opt/firebird/bin/fb_smp_server
+
+
+
+fbsv	Sat Feb  2 02:16:06 2013
+	Database: /opt/firebird/security2.fdb
+	I/O error during "open" operation for file "er error: invalid lock id (0), errno: 0
+--Success
+"
+	Error while trying to open file
+	No such file or directory
+
+
+fbsv (Client)	Sat Feb  2 02:16:06 2013
+	/opt/firebird/bin/fbguard: /opt/firebird/bin/fb_smp_server terminated abnormally (-1)
+
+
+
+fbsv (Client)	Sat Feb  2 02:16:07 2013
+	/opt/firebird/bin/fbguard: guardian starting /opt/firebird/bin/fb_smp_server
+
+
+
+fbsv	Sat Feb  2 02:16:07 2013
+	Database: /opt/firebird/security2.fdb
+	I/O error during "open" operation for file " "open" operation for file "er error: invalid lock id (0), errno: 0
+--Success
+"
+-Error while trying to open file
+-No such file or directory
+"
+	Error while trying to open file
+	No such file or directory
+
+
+fbsv (Client)	Sat Feb  2 02:16:07 2013
+	/opt/firebird/bin/fbguard: /opt/firebird/bin/fb_smp_server terminated abnormally (-1)
+
+
+
+fbsv (Client)	Sat Feb  2 02:16:08 2013
+	/opt/firebird/bin/fbguard: guardian starting /opt/firebird/bin/fb_smp_server
+
+
+
+fbsv	Sat Feb  2 02:16:08 2013
+	Database: /opt/firebird/security2.fdb
+	I/O error during "open" operation for file " "open" operation for file " "open" operation for file "er error: invalid lock id (0), errno: 0
+--Success
+"
+-Error while trying to open file
+-No such file or directory
+"
+-Error while trying to open file
+-No such file or directory
+"
+	Error while trying to open file
+	No such file or directory
+
+
+fbsv (Client)	Sat Feb  2 02:16:08 2013
+	/opt/firebird/bin/fbguard: /opt/firebird/bin/fb_smp_server terminated abnormally (-1)
+
+
+
+fbsv (Client)	Sat Feb  2 02:16:09 2013
+	/opt/firebird/bin/fbguard: guardian starting /opt/firebird/bin/fb_smp_server
+
+
+
+fbsv	Sat Feb  2 02:16:10 2013
+	Database: /opt/firebird/security2.fdb
+	I/O error during "open" operation for file " "open" operation for file " "open" operation for file " "open" operation for file "er error: invalid lock id (0), errno: 0
+--Success
+"
+-Error while trying to open file
+-No such file or directory
+"
+-Error while trying to open file
+-No such file or directory
+"
+-Error while trying to open file
+-No such file or directory
+"
+	Error while trying to open file
+	File name too long
+
+
+fbsv (Client)	Sat Feb  2 02:16:10 2013
+	/opt/firebird/bin/fbguard: /opt/firebird/bin/fb_smp_server terminated abnormally (-1)
+
+
+
+fbsv (Client)	Sat Feb  2 02:16:10 2013
+	/opt/firebird/bin/fbguard: guardian starting /opt/firebird/bin/fb_smp_server
+
+
+
+fbsv	Sat Feb  2 02:16:10 2013
+	Database: /opt/firebird/security2.fdb
+	I/O error during "open" operation for file " "open" operation for file " "open" operation for file " "open" operation for file " "open" operation for file "er error: invalid lock id (0), errno: 0
+--Success
+"
+-Error while trying to open file
+-No such file or directory
+"
+-Error while trying to open file
+-No such file or directory
+"
+-Error while trying to open file
+-No such file or directory
+"
+-Error while trying to open file
+-File name too long
+"
+	Error while trying to open file
+	File name too long
+
+
+fbsv (Client)	Sat Feb  2 02:16:10 2013
+	/opt/firebird/bin/fbguard: /opt/firebird/bin/fb_smp_server terminated abnormally (-1)
+
+
+
+fbsv (Client)	Sat Feb  2 02:16:11 2013
+	/opt/firebird/bin/fbguard: guardian starting /opt/firebird/bin/fb_smp_server

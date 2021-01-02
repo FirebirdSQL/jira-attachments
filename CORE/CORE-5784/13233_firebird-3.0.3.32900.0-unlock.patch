@@ -1,0 +1,109 @@
+--- firebird.org/src/common/os/posix/os_utils.cpp	2018-02-02 00:05:43.000000000 +0000
++++ firebird/src/common/os/posix/os_utils.cpp	2018-04-03 12:46:25.690000000 +0000
+@@ -73,6 +73,12 @@
+ #include <sys/signal.h>
+ #endif
+ 
++//#ifdef HAVE_STDIO_H
++#include <stdio.h>
++#include <linux/fs.h>
++#include <sys/syscall.h>
++//#endif
++
+ using namespace Firebird;
+ 
+ namespace os_utils
+@@ -136,40 +142,59 @@ namespace
+ // create directory for lock files and set appropriate access rights
+ void createLockDirectory(const char* pathname)
+ {
+-	do
+-	{
+-		if (access(pathname, R_OK | W_OK | X_OK) == 0)
+-		{
+-			struct stat st;
+-			while (stat(pathname, &st) != 0)
+-			{
+-				if (SYSCALL_INTERRUPTED(errno))
+-				{
+-					continue;
+-				}
+-				system_call_failed::raise("stat");
+-			}
+-
+-			if (S_ISDIR(st.st_mode))
+-			{
+-				return;
+-			}
+-
+-			// not exactly original meaning, but very close to it
+-			system_call_failed::raise("access", ENOTDIR);
+-		}
+-	} while (SYSCALL_INTERRUPTED(errno));
+-
+-	while (mkdir(pathname, 0700) != 0)		// anyway need chmod to avoid umask effects
+-	{
+-		if (SYSCALL_INTERRUPTED(errno))
+-		{
+-			continue;
+-		}
+-		(Arg::Gds(isc_lock_dir_access) << pathname).raise();
+-	}
+-
+-	changeFileRights(pathname, 0770);
++  struct stat st;
++  for(;;) {
++    if (access(pathname, R_OK | W_OK | X_OK) == 0) {
++      if (stat(pathname, &st) != 0)
++        system_call_failed::raise("stat");
++      if (S_ISDIR(st.st_mode))
++        return;
++      // not exactly original meaning, but very close to it
++      system_call_failed::raise("access", ENOTDIR);
++    }
++    if (SYSCALL_INTERRUPTED(errno))
++      continue;
++    if (errno == ENOENT)
++      break;
++    system_call_failed::raise("access", ENOTDIR);
++  }
++  if (strlen(pathname)+11 >= MAXPATHLEN)
++    (Arg::Gds(isc_lock_dir_access) << pathname).raise();
++  char pathname2[MAXPATHLEN];
++  strcpy(pathname2, pathname);
++  strcat(pathname2, ".tmp.XXXXXX");
++  while (mkdtemp(pathname2) == NULL) {
++    if (SYSCALL_INTERRUPTED(errno))
++      continue;
++    (Arg::Gds(isc_lock_dir_access) << pathname).raise();
++  }
++  changeFileRights(pathname2, 0770);
++  while (syscall(SYS_renameat2, AT_FDCWD, pathname2, AT_FDCWD, pathname, RENAME_NOREPLACE) != 0) {
++    if (SYSCALL_INTERRUPTED(errno))
++      continue;
++    if (errno == EEXIST) {
++      while (rmdir(pathname2) != 0) {
++        if (SYSCALL_INTERRUPTED(errno))
++          continue;
++        (Arg::Gds(isc_lock_dir_access) << pathname).raise();
++      }
++      for(;;) {
++        if (access(pathname, R_OK | W_OK | X_OK) == 0) {
++          if (stat(pathname, &st) != 0)
++            system_call_failed::raise("stat");
++          if (S_ISDIR(st.st_mode))
++            return;
++          // not exactly original meaning, but very close to it
++          system_call_failed::raise("access", ENOTDIR);
++        }
++        if (SYSCALL_INTERRUPTED(errno))
++          continue;
++        system_call_failed::raise("access", ENOTDIR);
++      }
++      return;
++    }
++    (Arg::Gds(isc_lock_dir_access) << pathname).raise();
++  }
+ }
+ 
+ #ifndef S_IREAD

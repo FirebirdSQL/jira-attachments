@@ -1,0 +1,77 @@
+C:\MIX\firebird\QA\fbt-repo\tmp>C:\MIX\firebird\oldfb251\bin\isql /:e25 -z -i c5146.sql
+ISQL Version: WI-V2.5.1.26351 Firebird 2.5
+Server version:
+WI-V2.5.1.26351 Firebird 2.5 ------------------------------- official 2.5.1
+WI-V2.5.1.26351 Firebird 2.5/tcp (csprog)/P12
+WI-V2.5.1.26351 Firebird 2.5/tcp (csprog)/P12
+
+PLAN JOIN (HE ORDER HE_DATEVL, HI INDEX (HI_ITEMID, HI_PROJID))
+
+
+
+C:\MIX\firebird\QA\fbt-repo\tmp>C:\MIX\firebird\oldfb252\bin\isql /:e25 -z -i c5146.sql
+ISQL Version: WI-V2.5.2.26540 Firebird 2.5
+Server version:
+WI-V2.5.2.26540 Firebird 2.5 ------------------------ official 2.5.2
+WI-V2.5.2.26540 Firebird 2.5/tcp (csprog)/P12
+WI-V2.5.2.26540 Firebird 2.5/tcp (csprog)/P12
+
+PLAN JOIN (HE ORDER HE_DATEVL, HI INDEX (HI_ITEMID, HI_PROJID))
+
+
+
+
+C:\MIX\firebird\QA\fbt-repo\tmp>C:\MIX\firebird\oldfb253\bin\isql /:e25 -z -i c5146.sql
+ISQL Version: WI-V2.5.3.26780 Firebird 2.5
+Server version:
+WI-V2.5.3.26780 Firebird 2.5 -------------------------- official 2.5.3
+WI-V2.5.3.26780 Firebird 2.5/tcp (csprog)/P12
+WI-V2.5.3.26780 Firebird 2.5/tcp (csprog)/P12
+
+PLAN JOIN (HE ORDER HE_DATEVL, HI INDEX (HI_ITEMID, HI_PROJID))
+
+
+
+C:\MIX\firebird\QA\fbt-repo\tmp>C:\MIX\firebird\oldfb254\bin\isql /:e25 -z -i c5146.sql
+ISQL Version: WI-V2.5.4.26856 Firebird 2.5
+Server version:
+WI-V2.5.4.26856 Firebird 2.5 ------------------------------ official 2.5.4
+WI-V2.5.4.26856 Firebird 2.5/tcp (csprog)/P12
+WI-V2.5.4.26856 Firebird 2.5/tcp (csprog)/P12
+
+PLAN JOIN (HE ORDER HE_DATEVL, HI INDEX (HI_ITEMID, HI_PROJID))
+
+
+
+C:\MIX\firebird\QA\fbt-repo\tmp>C:\MIX\firebird\oldfb255\bin\isql /:e25 -z -i c5146.sql
+ISQL Version: WI-V2.5.5.26952 Firebird 2.5
+Server version:
+WI-V2.5.5.26952 Firebird 2.5---------------------------- official 2.5.5
+WI-V2.5.5.26952 Firebird 2.5/tcp (csprog)/P12
+WI-V2.5.5.26952 Firebird 2.5/tcp (csprog)/P12
+
+PLAN JOIN (HE ORDER HE_DATEVL, HI INDEX (HI_ITEMID, HI_PROJID))
+
+
+
+
+C:\MIX\firebird\QA\fbt-repo\tmp>C:\MIX\firebird\fb25cs\bin\isql /:e25 -z -i c5146.sql
+ISQL Version: WI-V2.5.6.26980 Firebird 2.5
+Server version:
+WI-V2.5.6.26980 Firebird 2.5
+WI-V2.5.6.26980 Firebird 2.5/tcp (csprog)/P12
+WI-V2.5.6.26980 Firebird 2.5/tcp (csprog)/P12
+
+PLAN JOIN (HE ORDER HE_DATEVL, HI INDEX (HI_ITEMID, HI_PROJID))
+
+
+
+
+C:\MIX\firebird\QA\fbt-repo\tmp>C:\MIX\firebird\fb25\bin\isql /:e25 -z -i c5146.sql
+ISQL Version: WI-V2.5.6.26990 Firebird 2.5
+Server version:
+WI-V2.5.6.26990 Firebird 2.5
+WI-V2.5.6.26990 Firebird 2.5/tcp (csprog)/P12
+WI-V2.5.6.26990 Firebird 2.5/tcp (csprog)/P12
+
+PLAN JOIN (HE ORDER HE_DATEVL, HI INDEX (HI_ITEMID, HI_PROJID))

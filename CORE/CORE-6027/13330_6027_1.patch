@@ -1,0 +1,91 @@
+diff --git a/src/jrd/trace/TraceConfigStorage.cpp b/src/jrd/trace/TraceConfigStorage.cpp
+index 2abec11586..05fce3211a 100644
+--- a/src/jrd/trace/TraceConfigStorage.cpp
++++ b/src/jrd/trace/TraceConfigStorage.cpp
+@@ -144,6 +144,8 @@ void ConfigStorage::shutdown()
+ 	if (!m_timer)
+ 		return;
+ 
++	MutexLockGuard localGuard(m_localMutex, FB_FUNCTION);
++
+ 	m_timer->stop();
+ 	m_timer = NULL;
+ 
+@@ -290,6 +292,9 @@ void ConfigStorage::checkFile()
+ 
+ void ConfigStorage::acquire()
+ {
++	if (!m_sharedMemory)
++		(Arg::Gds(isc_random) << "Trace shared memory can not be accessed").raise();
++
+ 	fb_assert(m_recursive >= 0);
+ 	const ThreadId currTID = getThreadId();
+ 
+@@ -309,6 +314,8 @@ void ConfigStorage::acquire()
+ 
+ void ConfigStorage::release()
+ {
++	fb_assert(m_sharedMemory);
++
+ 	fb_assert(m_recursive > 0);
+ 	fb_assert(m_mutexTID == getThreadId());
+ 
+diff --git a/src/jrd/trace/TraceConfigStorage.h b/src/jrd/trace/TraceConfigStorage.h
+index 9aa5fc6568..48fe4903da 100644
+--- a/src/jrd/trace/TraceConfigStorage.h
++++ b/src/jrd/trace/TraceConfigStorage.h
+@@ -67,6 +67,9 @@ public:
+ 	void release();
+ 
+ 	void shutdown();
++
++	Firebird::Mutex m_localMutex;
++
+ private:
+ 	void mutexBug(int osErrorCode, const char* text);
+ 	bool initialize(Firebird::SharedMemoryBase*, bool);
+@@ -163,12 +166,11 @@ public:
+ };
+ 
+ 
+-
+-class StorageGuard
++class StorageGuard : public Firebird::MutexLockGuard
+ {
+ public:
+ 	explicit StorageGuard(ConfigStorage* storage) :
+-		m_storage(storage)
++		Firebird::MutexLockGuard(storage->m_localMutex, FB_FUNCTION), m_storage(storage)
+ 	{
+ 		m_storage->acquire();
+ 	}
+diff --git a/src/utilities/fbtracemgr/traceMgrMain.cpp b/src/utilities/fbtracemgr/traceMgrMain.cpp
+index a522321b51..05a7aeeb18 100644
+--- a/src/utilities/fbtracemgr/traceMgrMain.cpp
++++ b/src/utilities/fbtracemgr/traceMgrMain.cpp
+@@ -297,6 +297,15 @@ static void atexit_fb_shutdown()
+ 	fb_shutdown(0, fb_shutrsn_app_stopped);
+ }
+ 
++class FbShutdown
++{
++public:
++	~FbShutdown()
++	{
++		fb_shutdown(0, fb_shutrsn_app_stopped);
++	}
++};
++
+ 
+ int CLIB_ROUTINE main(int argc, char* argv[])
+ {
+@@ -320,7 +329,8 @@ int CLIB_ROUTINE main(int argc, char* argv[])
+ 	_setmode(binout, _O_BINARY);
+ #endif
+ 
+-	atexit(&atexit_fb_shutdown);
++//	atexit(&atexit_fb_shutdown);
++	FbShutdown returnShutdown;
+ 
+ 	AutoPtr<UtilSvc> uSvc(UtilSvc::createStandalone(argc, argv));
+ 	try

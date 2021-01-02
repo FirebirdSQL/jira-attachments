@@ -1,0 +1,52 @@
+LOCK_HEADER BLOCK
+        Version: 146, Creation timestamp: 2019-06-12 01:58:02
+        Active owner:      0, Length: 33554432, Used: 271640
+        Enqs:    307, Converts:     14, Rejects:      6, Blocks:      2
+        Deadlock scans:      0, Deadlocks:      0, Scan interval:  10
+        Acquires:    558, Acquire blocks:      0, Spin count:   0
+        Mutex wait: 0.0%
+        Hash slots: 30011, Hash lengths (min/avg/max):    0/   0/   4
+        Remove node:      0, Insert queue:      0, Insert prior:      0
+        Owners (4):     forward: 252888, backward: 253000
+        Free owners: *empty*
+        Free locks (17):        forward: 253456, backward: 263048
+        Free requests (2):      forward: 268984, backward: 269992
+		
+		
+		
+Database header page information:
+        Flags                   0
+        Generation              24
+        System Change Number    0
+        Page size               8192
+        ODS version             12.0
+        Oldest transaction      22
+        Oldest active           23
+        Oldest snapshot         23
+        Next transaction        24
+        Sequence number         0
+        Next attachment ID      13
+        Implementation          HW=AMD/Intel/x64 little-endian OS=Windows CC=MSVC
+        Shadow count            0
+        Page buffers            131072
+        Next header page        0
+        Database dialect        3
+        Creation date           Jun 12, 2019 1:58:02
+        Attributes              force write
+
+    Variable header data:
+        Sweep interval:         20000
+        *END*
+Gstat completion time Mon Jun 17 08:20:03 2019
+
+
+FIREBIRD	Mon Jun 17 08:26:43 2019
+	Sweep is started by SYSDBA
+	Database "D:\RESTORE\SECURITY3.FDB.RESTORED" 
+	OIT 48, OAT 49, OST 49, Next 50
+
+
+FIREBIRD	Mon Jun 17 08:26:43 2019
+	Sweep is finished
+	Database "D:\RESTORE\SECURITY3.FDB.RESTORED" 
+	OIT 50, OAT 49, OST 49, Next 51

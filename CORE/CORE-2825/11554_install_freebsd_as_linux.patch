@@ -1,0 +1,40 @@
+# Description: Treat Debian/k*BSD architectures as linux installation-wise
+#  The plain freebsd install makefile does not provide image building
+# Author: Damyan Ivanov <dmn@debian.org>
+# Bug: http://tracker.firebirdsql.org/browse/CORE-2825
+--- a/configure.in
++++ b/configure.in
+@@ -112,7 +112,15 @@ dnl CPU_TYPE=ppc64
+ 
+   amd64-*-freebsd* | x86_64*-*-k*bsd*-gnu)
+     MAKEFILE_PREFIX=freebsd
+-    PLATFORM=FREEBSD
++    case "$target" in
++        amd64-*-freebsd*)
++            PLATFORM=FREEBSD
++            ;;
++        x86_64*-*-k*bsd-gnu)      # Debian/kFreeBSD
++            PLATFORM=LINUX
++            INSTALL_PREFIX=linux
++            ;;
++    esac
+     AC_DEFINE(FREEBSD, 1, [Define this if OS is FreeBSD])
+     AC_DEFINE(AMD64, 1, [Define this if CPU is amd64])
+     EDITLINE_FLG=Y
+@@ -129,7 +137,15 @@ dnl CPU_TYPE=ppc64
+ 
+   *-*-freebsd* | *-*-k*bsd*-gnu)
+     MAKEFILE_PREFIX=freebsd
+-    PLATFORM=FREEBSD
++    case "$target" in
++        *-*-freebsd*)
++            PLATFORM=FREEBSD
++            ;;
++        *-*-k*bsd-gnu)      # Debian/kFreeBSD
++            PLATFORM=LINUX
++            INSTALL_PREFIX=linux
++            ;;
++    esac
+     AC_DEFINE(FREEBSD, 1, [Define this if OS is FreeBSD])
+     EDITLINE_FLG=Y
+     SHRLIB_EXT=so

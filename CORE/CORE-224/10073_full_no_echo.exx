@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// For FB 1.0 use employee.gdb, and link with gds32_ms.lib.
+// for FB 1.5 use employee.fdb, and link with fbclient_ms.lib.
+
+
+EXEC SQL
+  BEGIN DECLARE SECTION;
+char db_name[128];
+char sqlString[256];
+DATABASE DB = COMPILETIME "C:\\Program Files\\Firebird\\examples\\employee.fdb"
+              RUNTIME db_name;
+EXEC SQL
+  END DECLARE SECTION;
+
+EXEC SQL
+  INCLUDE SQLCA;
+
+
+int main(int argc, char** argv)
+  {
+  XSQLDA* sqlda;
+
+  // Set database name.
+  strcpy(db_name, "C:\\Program Files\\Firebird\\examples\\employee.fdb");
+
+  // Open database and start tansaction.
+  EXEC SQL
+    CONNECT DB USER 'SYSDBA' PASSWORD 'masterkey';
+
+  gds_trans = (isc_tr_handle) 0;
+  EXEC SQL
+    SET TRANSACTION NAME gds_trans;
+
+  // Set up SQLDA for SELECTs, allow up to 2 fields to be selected.
+  sqlda = (XSQLDA*) malloc(XSQLDA_LENGTH(2));
+  sqlda->version = SQLDA_VERSION1;
+  sqlda->sqln = 2;
+
+  // Prepare a query.
+  strcpy(sqlString, "SELECT * FROM COUNTRY");
+  EXEC SQL
+    PREPARE TRANSACTION gds_trans Q1 INTO sqlda FROM :sqlString;
+
+  EXEC SQL 
+    COMMIT TRANSACTION gds_trans RELEASE;
+
+  return 0;
+  }

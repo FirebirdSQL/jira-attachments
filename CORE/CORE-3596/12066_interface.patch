@@ -1,0 +1,40 @@
+Index: interface.cpp
+===================================================================
+--- interface.cpp	(revision 53649)
++++ interface.cpp	(working copy)
+@@ -4678,7 +4678,11 @@
+ 	// quietly (sic) return.
+ 
+ #if defined(WIN_NT)
+-	if (ISC_analyze_pclan(file_name, node_name)) {
++	if (ISC_analyze_pclan(file_name, node_name))
++	{
++		ISC_unescape(node_name);
++		ISC_utf8ToSystem(node_name);
++
+ 		return WNET_analyze(file_name, status_vector, node_name.c_str(), /*user_string,*/ uv_flag);
+ 	}
+ #endif
+@@ -4687,6 +4691,9 @@
+ 	{
+ 		if (ISC_analyze_tcp(file_name, node_name))
+ 		{
++			ISC_unescape(node_name);
++			ISC_utf8ToSystem(node_name);
++
+ 			port = INET_analyze(file_name, status_vector,
+ 								node_name.c_str(), user_string, uv_flag, dpb);
+ 
+@@ -4705,8 +4712,12 @@
+ 			{
+ 				if (ISC_analyze_nfs(file_name, node_name))
+ 				{
++					ISC_unescape(node_name);
++					ISC_utf8ToSystem(node_name);
++
+ 					port = INET_analyze(file_name, status_vector,
+ 										node_name.c_str(), user_string, uv_flag, dpb);
++
+ 					if (!port)
+ 					{
+ 						// retry in case multiclient inet server not forked yet

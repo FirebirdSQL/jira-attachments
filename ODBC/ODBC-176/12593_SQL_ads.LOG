@@ -1,0 +1,610 @@
+
+vfp8            1a10-1e38	ENTER SQLAllocEnv 
+		HENV *              0x008DE1A8
+
+vfp8            1a10-1e38	EXIT  SQLAllocEnv  with return code 0 (SQL_SUCCESS)
+		HENV *              0x008DE1A8 ( 0x00CABE98)
+
+vfp8            1a10-1e38	ENTER SQLAllocConnect 
+		HENV                0x00CABE98
+		HDBC *              0x0018FA90
+
+vfp8            1a10-1e38	EXIT  SQLAllocConnect  with return code 0 (SQL_SUCCESS)
+		HENV                0x00CABE98
+		HDBC *              0x0018FA90 ( 0x00CABF18)
+
+vfp8            1a10-1e38	ENTER SQLSetConnectOption 
+		HDBC                0x00CABF18
+		SQLINTEGER                 103 <SQL_LOGIN_TIMEOUT>
+		SQLPOINTER                15
+
+vfp8            1a10-1e38	EXIT  SQLSetConnectOption  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+		SQLINTEGER                 103 <SQL_LOGIN_TIMEOUT>
+		SQLPOINTER                15
+
+vfp8            1a10-1e38	ENTER SQLSetConnectOption 
+		HDBC                0x00CABF18
+		SQLINTEGER                 112 <SQL_PACKET_SIZE>
+		SQLPOINTER              4096
+
+vfp8            1a10-1e38	EXIT  SQLSetConnectOption  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+		SQLINTEGER                 112 <SQL_PACKET_SIZE>
+		SQLPOINTER              4096
+
+vfp8            1a10-1e38	ENTER SQLSetConnectOption 
+		HDBC                0x00CABF18
+		SQLINTEGER                 102 <SQL_AUTOCOMMIT>
+		SQLPOINTER                 1 <SQL_AUTOCOMMIT_ON>
+
+vfp8            1a10-1e38	EXIT  SQLSetConnectOption  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+		SQLINTEGER                 102 <SQL_AUTOCOMMIT>
+		SQLPOINTER                 1 <SQL_AUTOCOMMIT_ON>
+
+vfp8            1a10-1e38	ENTER SQLSetConnectOption 
+		HDBC                0x00CABF18
+		SQLINTEGER                 110 <SQL_ODBC_CURSORS>
+		SQLPOINTER                 0 <SQL_CUR_USE_IF_NEEDED>
+
+vfp8            1a10-1e38	EXIT  SQLSetConnectOption  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+		SQLINTEGER                 110 <SQL_ODBC_CURSORS>
+		SQLPOINTER                 0 <SQL_CUR_USE_IF_NEEDED>
+
+vfp8            1a10-1e38	ENTER SQLDriverConnectW 
+		HDBC                0x00CABF18
+		HWND                0x009D02C4
+		WCHAR *             0x5C1954F4 [      -3] "******\ 0"
+		SWORD                       -3 
+		WCHAR *             0x5C1954F4 
+		SWORD                       -3 
+		SWORD *             0x00000000
+		UWORD                        1 <SQL_DRIVER_COMPLETE>
+
+vfp8            1a10-1e38	EXIT  SQLDriverConnectW  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+		HWND                0x009D02C4
+		WCHAR *             0x5C1954F4 [      -3] "******\ 0"
+		SWORD                       -3 
+		WCHAR *             0x5C1954F4 <Invalid buffer length!> [-3]
+		SWORD                       -3 
+		SWORD *             0x00000000
+		UWORD                        1 <SQL_DRIVER_COMPLETE>
+
+vfp8            1a10-1e38	ENTER SQLGetInfoW 
+		HDBC                0x00CABF18
+		UWORD                        6 <SQL_DRIVER_NAME>
+		PTR                 0x00CAABB8 
+		SWORD                      128 
+		SWORD *             0x0018F5A8
+
+vfp8            1a10-1e38	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+		UWORD                        6 <SQL_DRIVER_NAME>
+		PTR                 0x00CAABB8 [      12] "OdbcFb"
+		SWORD                      128 
+		SWORD *             0x0018F5A8 (12)
+
+vfp8            1a10-1e38	ENTER SQLGetInfoW 
+		HDBC                0x00CABF18
+		UWORD                       17 <SQL_DBMS_NAME>
+		PTR                 0x00CAABB8 
+		SWORD                      128 
+		SWORD *             0x0018F5A8
+
+vfp8            1a10-1e38	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+		UWORD                       17 <SQL_DBMS_NAME>
+		PTR                 0x00CAABB8 [      16] "Firebird"
+		SWORD                      128 
+		SWORD *             0x0018F5A8 (16)
+
+vfp8            1a10-1e38	ENTER SQLGetInfoW 
+		HDBC                0x00CABF18
+		UWORD                       77 <SQL_DRIVER_ODBC_VER>
+		PTR                 0x00CAABB8 
+		SWORD                      128 
+		SWORD *             0x0018F5A8
+
+vfp8            1a10-1e38	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+		UWORD                       77 <SQL_DRIVER_ODBC_VER>
+		PTR                 0x00CAABB8 [      10] "03.51"
+		SWORD                      128 
+		SWORD *             0x0018F5A8 (10)
+
+vfp8            1a10-1e38	ENTER SQLGetInfoW 
+		HDBC                0x00CABF18
+		UWORD                       47 <SQL_USER_NAME>
+		PTR                 0x00CAABB8 
+		SWORD                      128 
+		SWORD *             0x0018F5A8
+
+vfp8            1a10-1e38	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+		UWORD                       47 <SQL_USER_NAME>
+		PTR                 0x00CAABB8 [       8] "pere"
+		SWORD                      128 
+		SWORD *             0x0018F5A8 (8)
+
+vfp8            1a10-1e38	ENTER SQLGetInfoW 
+		HDBC                0x00CABF18
+		UWORD                       28 <SQL_IDENTIFIER_CASE>
+		PTR                 0x0018F5A4
+		SWORD                        2 
+		SWORD *             0x0018F5A8
+
+vfp8            1a10-1e38	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+		UWORD                       28 <SQL_IDENTIFIER_CASE>
+		PTR                 0x0018F5A4 (1) <SQL_IC_UPPER>
+		SWORD                        2 
+		SWORD *             0x0018F5A8 (2)
+
+vfp8            1a10-1e38	ENTER SQLGetInfoW 
+		HDBC                0x00CABF18
+		UWORD                       29 <SQL_IDENTIFIER_QUOTE_CHAR>
+		PTR                 0x00CAABB8 
+		SWORD                      128 
+		SWORD *             0x0018F5A8
+
+vfp8            1a10-1e38	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+		UWORD                       29 <SQL_IDENTIFIER_QUOTE_CHAR>
+		PTR                 0x00CAABB8 [       2] """
+		SWORD                      128 
+		SWORD *             0x0018F5A8 (2)
+
+vfp8            1a10-1e38	ENTER SQLGetInfoW 
+		HDBC                0x00CABF18
+		UWORD                       41 <SQL_CATALOG_NAME_SEPARATOR>
+		PTR                 0x00CAABB8 
+		SWORD                      128 
+		SWORD *             0x0018F5A8
+
+vfp8            1a10-1e38	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+		UWORD                       41 <SQL_CATALOG_NAME_SEPARATOR>
+		PTR                 0x00CAABB8 [       2] "."
+		SWORD                      128 
+		SWORD *             0x0018F5A8 (2)
+
+vfp8            1a10-1e38	ENTER SQLGetInfoW 
+		HDBC                0x00CABF18
+		UWORD                       36 <SQL_MULT_RESULT_SETS>
+		PTR                 0x00CAABB8 
+		SWORD                      128 
+		SWORD *             0x0018F5A8
+
+vfp8            1a10-1e38	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+		UWORD                       36 <SQL_MULT_RESULT_SETS>
+		PTR                 0x00CAABB8 [       2] "N"
+		SWORD                      128 
+		SWORD *             0x0018F5A8 (2)
+
+vfp8            1a10-1e38	ENTER SQLGetFunctions 
+		HDBC                0x00CABF18
+		UWORD                       59 
+		UWORD *             0x0018F598
+
+vfp8            1a10-1e38	EXIT  SQLGetFunctions  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+		UWORD                       59 
+		UWORD *             0x0018F598 (1)
+
+vfp8            1a10-1e38	ENTER SQLGetInfoW 
+		HDBC                0x00CABF18
+		UWORD                       81 <SQL_GETDATA_EXTENSIONS>
+		PTR                 0x0018F5A0
+		SWORD                        4 
+		SWORD *             0x0018F5A8
+
+vfp8            1a10-1e38	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+		UWORD                       81 <SQL_GETDATA_EXTENSIONS>
+		PTR                 0x0018F5A0 ( 0x0000000F)
+		SWORD                        4 
+		SWORD *             0x0018F5A8 (4)
+
+vfp8            1a10-1e38	ENTER SQLGetInfoW 
+		HDBC                0x00CABF18
+		UWORD                       55 <SQL_CONVERT_BIT>
+		PTR                 0x0018F59C
+		SWORD                        4 
+		SWORD *             0x0018F5A8
+
+vfp8            1a10-1e38	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+		UWORD                       55 <SQL_CONVERT_BIT>
+		PTR                 0x0018F59C ( 0x00000000)
+		SWORD                        4 
+		SWORD *             0x0018F5A8 (4)
+
+vfp8            1a10-1e38	ENTER SQLGetInfoW 
+		HDBC                0x00CABF18
+		UWORD                       56 <SQL_CONVERT_CHAR>
+		PTR                 0x0018F59C
+		SWORD                        4 
+		SWORD *             0x0018F5A8
+
+vfp8            1a10-1e38	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+		UWORD                       56 <SQL_CONVERT_CHAR>
+		PTR                 0x0018F59C ( 0x0002F9FF)
+		SWORD                        4 
+		SWORD *             0x0018F5A8 (4)
+
+vfp8            1a10-1e38	ENTER SQLGetInfoW 
+		HDBC                0x00CABF18
+		UWORD                       58 <SQL_CONVERT_DECIMAL>
+		PTR                 0x0018F59C
+		SWORD                        4 
+		SWORD *             0x0018F5A8
+
+vfp8            1a10-1e38	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+		UWORD                       58 <SQL_CONVERT_DECIMAL>
+		PTR                 0x0018F59C ( 0x000070FF)
+		SWORD                        4 
+		SWORD *             0x0018F5A8 (4)
+
+vfp8            1a10-1e38	ENTER SQLGetInfoW 
+		HDBC                0x00CABF18
+		UWORD                       59 <SQL_CONVERT_DOUBLE>
+		PTR                 0x0018F59C
+		SWORD                        4 
+		SWORD *             0x0018F5A8
+
+vfp8            1a10-1e38	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+		UWORD                       59 <SQL_CONVERT_DOUBLE>
+		PTR                 0x0018F59C ( 0x000070FF)
+		SWORD                        4 
+		SWORD *             0x0018F5A8 (4)
+
+vfp8            1a10-1e38	ENTER SQLGetInfoW 
+		HDBC                0x00CABF18
+		UWORD                       60 <SQL_CONVERT_FLOAT>
+		PTR                 0x0018F59C
+		SWORD                        4 
+		SWORD *             0x0018F5A8
+
+vfp8            1a10-1e38	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+		UWORD                       60 <SQL_CONVERT_FLOAT>
+		PTR                 0x0018F59C ( 0x000070FF)
+		SWORD                        4 
+		SWORD *             0x0018F5A8 (4)
+
+vfp8            1a10-1e38	ENTER SQLGetInfoW 
+		HDBC                0x00CABF18
+		UWORD                       61 <SQL_CONVERT_INTEGER>
+		PTR                 0x0018F59C
+		SWORD                        4 
+		SWORD *             0x0018F5A8
+
+vfp8            1a10-1e38	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+		UWORD                       61 <SQL_CONVERT_INTEGER>
+		PTR                 0x0018F59C ( 0x000070FF)
+		SWORD                        4 
+		SWORD *             0x0018F5A8 (4)
+
+vfp8            1a10-1e38	ENTER SQLGetInfoW 
+		HDBC                0x00CABF18
+		UWORD                       63 <SQL_CONVERT_NUMERIC>
+		PTR                 0x0018F59C
+		SWORD                        4 
+		SWORD *             0x0018F5A8
+
+vfp8            1a10-1e38	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+		UWORD                       63 <SQL_CONVERT_NUMERIC>
+		PTR                 0x0018F59C ( 0x000070BF)
+		SWORD                        4 
+		SWORD *             0x0018F5A8 (4)
+
+vfp8            1a10-1e38	ENTER SQLGetInfoW 
+		HDBC                0x00CABF18
+		UWORD                       67 <SQL_CONVERT_TIMESTAMP>
+		PTR                 0x0018F59C
+		SWORD                        4 
+		SWORD *             0x0018F5A8
+
+vfp8            1a10-1e38	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+		UWORD                       67 <SQL_CONVERT_TIMESTAMP>
+		PTR                 0x0018F59C ( 0x0003C487)
+		SWORD                        4 
+		SWORD *             0x0018F5A8 (4)
+
+vfp8            1a10-1e38	ENTER SQLGetInfoW 
+		HDBC                0x00CABF18
+		UWORD                       70 <SQL_CONVERT_VARCHAR>
+		PTR                 0x0018F59C
+		SWORD                        4 
+		SWORD *             0x0018F5A8
+
+vfp8            1a10-1e38	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+		UWORD                       70 <SQL_CONVERT_VARCHAR>
+		PTR                 0x0018F59C ( 0x0003F1FF)
+		SWORD                        4 
+		SWORD *             0x0018F5A8 (4)
+
+vfp8            1a10-1e38	ENTER SQLGetInfoW 
+		HDBC                0x00CABF18
+		UWORD                       62 <SQL_CONVERT_LONGVARCHAR>
+		PTR                 0x0018F59C
+		SWORD                        4 
+		SWORD *             0x0018F5A8
+
+vfp8            1a10-1e38	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+		UWORD                       62 <SQL_CONVERT_LONGVARCHAR>
+		PTR                 0x0018F59C ( 0x000070BF)
+		SWORD                        4 
+		SWORD *             0x0018F5A8 (4)
+
+vfp8            1a10-1e38	ENTER SQLAllocStmt 
+		HDBC                0x00CABF18
+		HSTMT *             0x0018FA80
+
+vfp8            1a10-1e38	EXIT  SQLAllocStmt  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+		HSTMT *             0x0018FA80 ( 0x00CAC698)
+
+vfp8            1a10-1e38	ENTER SQLSetStmtOption 
+		HSTMT               0x00CAC698
+		UWORD                        0 <SQL_QUERY_TIMEOUT>
+		SQLPOINTER                 0
+
+vfp8            1a10-1e38	EXIT  SQLSetStmtOption  with return code 0 (SQL_SUCCESS)
+		HSTMT               0x00CAC698
+		UWORD                        0 <SQL_QUERY_TIMEOUT>
+		SQLPOINTER                 0
+
+vfp8            1a10-1e38	ENTER SQLSetStmtOption 
+		HSTMT               0x00CAC698
+		UWORD                        4 <SQL_ASYNC_ENABLE>
+		SQLPOINTER                 0 <SQL_ASYNC_ENABLE_OFF>
+
+vfp8            1a10-1e38	EXIT  SQLSetStmtOption  with return code 0 (SQL_SUCCESS)
+		HSTMT               0x00CAC698
+		UWORD                        4 <SQL_ASYNC_ENABLE>
+		SQLPOINTER                 0 <SQL_ASYNC_ENABLE_OFF>
+
+vfp8            1a10-1e38	ENTER SQLExecDirect 
+		HSTMT               0x00CAC698
+		UCHAR *             0x04998298 [      -3] "UPDATE SYS_EMPRESES SET ACTIVITAT='XX'\ 0"
+		SDWORD                    -3
+
+vfp8            1a10-1e38	EXIT  SQLExecDirect  with return code 0 (SQL_SUCCESS)
+		HSTMT               0x00CAC698
+		UCHAR *             0x04998298 [      -3] "UPDATE SYS_EMPRESES SET ACTIVITAT='XX'\ 0"
+		SDWORD                    -3
+
+vfp8            1a10-1e38	ENTER SQLNumResultCols 
+		HSTMT               0x00CAC698
+		SWORD *             0x0018F980
+
+vfp8            1a10-1e38	EXIT  SQLNumResultCols  with return code 0 (SQL_SUCCESS)
+		HSTMT               0x00CAC698
+		SWORD *             0x0018F980 (0)
+
+vfp8            1a10-1e38	ENTER SQLMoreResults 
+		HSTMT               0x00CAC698
+
+vfp8            1a10-1e38	EXIT  SQLMoreResults  with return code 100 (SQL_NO_DATA_FOUND)
+		HSTMT               0x00CAC698
+
+vfp8            1a10-1e38	ENTER SQLFreeStmt 
+		HSTMT               0x00CAC698
+		UWORD                        0 <SQL_CLOSE>
+
+vfp8            1a10-1e38	EXIT  SQLFreeStmt  with return code 0 (SQL_SUCCESS)
+		HSTMT               0x00CAC698
+		UWORD                        0 <SQL_CLOSE>
+
+vfp8            1a10-1e38	ENTER SQLFreeStmt 
+		HSTMT               0x00CAC698
+		UWORD                        3 <SQL_RESET_PARAMS>
+
+vfp8            1a10-1e38	EXIT  SQLFreeStmt  with return code 0 (SQL_SUCCESS)
+		HSTMT               0x00CAC698
+		UWORD                        3 <SQL_RESET_PARAMS>
+
+vfp8            1a10-1e38	ENTER SQLExecDirect 
+		HSTMT               0x00CAC698
+		UCHAR *             0x0498BF78 [      -3] "SET TRANSACTION READ WRITE WAIT READ COMMITTED RECORD_VERSION   \ 0"
+		SDWORD                    -3
+
+vfp8            1a10-1e38	EXIT  SQLExecDirect  with return code 0 (SQL_SUCCESS)
+		HSTMT               0x00CAC698
+		UCHAR *             0x0498BF78 [      -3] "SET TRANSACTION READ WRITE WAIT READ COMMITTED RECORD_VERSION   \ 0"
+		SDWORD                    -3
+
+vfp8            1a10-1e38	ENTER SQLNumResultCols 
+		HSTMT               0x00CAC698
+		SWORD *             0x0018F980
+
+vfp8            1a10-1e38	EXIT  SQLNumResultCols  with return code 0 (SQL_SUCCESS)
+		HSTMT               0x00CAC698
+		SWORD *             0x0018F980 (0)
+
+vfp8            1a10-1e38	ENTER SQLMoreResults 
+		HSTMT               0x00CAC698
+
+vfp8            1a10-1e38	EXIT  SQLMoreResults  with return code 100 (SQL_NO_DATA_FOUND)
+		HSTMT               0x00CAC698
+
+vfp8            1a10-1e38	ENTER SQLFreeStmt 
+		HSTMT               0x00CAC698
+		UWORD                        0 <SQL_CLOSE>
+
+vfp8            1a10-1e38	EXIT  SQLFreeStmt  with return code 0 (SQL_SUCCESS)
+		HSTMT               0x00CAC698
+		UWORD                        0 <SQL_CLOSE>
+
+vfp8            1a10-1e38	ENTER SQLFreeStmt 
+		HSTMT               0x00CAC698
+		UWORD                        3 <SQL_RESET_PARAMS>
+
+vfp8            1a10-1e38	EXIT  SQLFreeStmt  with return code 0 (SQL_SUCCESS)
+		HSTMT               0x00CAC698
+		UWORD                        3 <SQL_RESET_PARAMS>
+
+vfp8            1a10-1e38	ENTER SQLExecDirect 
+		HSTMT               0x00CAC698
+		UCHAR *             0x0498DC68 [      -3] "COMMIT\ 0"
+		SDWORD                    -3
+
+vfp8            1a10-1e38	EXIT  SQLExecDirect  with return code 0 (SQL_SUCCESS)
+		HSTMT               0x00CAC698
+		UCHAR *             0x0498DC68 [      -3] "COMMIT\ 0"
+		SDWORD                    -3
+
+vfp8            1a10-1e38	ENTER SQLNumResultCols 
+		HSTMT               0x00CAC698
+		SWORD *             0x0018F980
+
+vfp8            1a10-1e38	EXIT  SQLNumResultCols  with return code 0 (SQL_SUCCESS)
+		HSTMT               0x00CAC698
+		SWORD *             0x0018F980 (0)
+
+vfp8            1a10-1e38	ENTER SQLMoreResults 
+		HSTMT               0x00CAC698
+
+vfp8            1a10-1e38	EXIT  SQLMoreResults  with return code 100 (SQL_NO_DATA_FOUND)
+		HSTMT               0x00CAC698
+
+vfp8            1a10-1e38	ENTER SQLFreeStmt 
+		HSTMT               0x00CAC698
+		UWORD                        0 <SQL_CLOSE>
+
+vfp8            1a10-1e38	EXIT  SQLFreeStmt  with return code 0 (SQL_SUCCESS)
+		HSTMT               0x00CAC698
+		UWORD                        0 <SQL_CLOSE>
+
+vfp8            1a10-1e38	ENTER SQLFreeStmt 
+		HSTMT               0x00CAC698
+		UWORD                        3 <SQL_RESET_PARAMS>
+
+vfp8            1a10-1e38	EXIT  SQLFreeStmt  with return code 0 (SQL_SUCCESS)
+		HSTMT               0x00CAC698
+		UWORD                        3 <SQL_RESET_PARAMS>
+
+vfp8            1a10-1e38	ENTER SQLExecDirect 
+		HSTMT               0x00CAC698
+		UCHAR *             0x04994688 [      -3] "UPDATE SYS_EMPRESES SET ACTIVITAT='ZZ'\ 0"
+		SDWORD                    -3
+
+vfp8            1a10-1e38	EXIT  SQLExecDirect  with return code 0 (SQL_SUCCESS)
+		HSTMT               0x00CAC698
+		UCHAR *             0x04994688 [      -3] "UPDATE SYS_EMPRESES SET ACTIVITAT='ZZ'\ 0"
+		SDWORD                    -3
+
+vfp8            1a10-1e38	ENTER SQLNumResultCols 
+		HSTMT               0x00CAC698
+		SWORD *             0x0018F980
+
+vfp8            1a10-1e38	EXIT  SQLNumResultCols  with return code 0 (SQL_SUCCESS)
+		HSTMT               0x00CAC698
+		SWORD *             0x0018F980 (0)
+
+vfp8            1a10-1e38	ENTER SQLMoreResults 
+		HSTMT               0x00CAC698
+
+vfp8            1a10-1e38	EXIT  SQLMoreResults  with return code 100 (SQL_NO_DATA_FOUND)
+		HSTMT               0x00CAC698
+
+vfp8            1a10-1e38	ENTER SQLFreeStmt 
+		HSTMT               0x00CAC698
+		UWORD                        0 <SQL_CLOSE>
+
+vfp8            1a10-1e38	EXIT  SQLFreeStmt  with return code 0 (SQL_SUCCESS)
+		HSTMT               0x00CAC698
+		UWORD                        0 <SQL_CLOSE>
+
+vfp8            1a10-1e38	ENTER SQLFreeStmt 
+		HSTMT               0x00CAC698
+		UWORD                        3 <SQL_RESET_PARAMS>
+
+vfp8            1a10-1e38	EXIT  SQLFreeStmt  with return code 0 (SQL_SUCCESS)
+		HSTMT               0x00CAC698
+		UWORD                        3 <SQL_RESET_PARAMS>
+
+vfp8            1a10-1e38	ENTER SQLExecDirect 
+		HSTMT               0x00CAC698
+		UCHAR *             0x0498DC68 [      -3] "COMMIT\ 0"
+		SDWORD                    -3
+
+vfp8            1a10-1e38	EXIT  SQLExecDirect  with return code 0 (SQL_SUCCESS)
+		HSTMT               0x00CAC698
+		UCHAR *             0x0498DC68 [      -3] "COMMIT\ 0"
+		SDWORD                    -3
+
+vfp8            1a10-1e38	ENTER SQLNumResultCols 
+		HSTMT               0x00CAC698
+		SWORD *             0x0018F980
+
+vfp8            1a10-1e38	EXIT  SQLNumResultCols  with return code 0 (SQL_SUCCESS)
+		HSTMT               0x00CAC698
+		SWORD *             0x0018F980 (0)
+
+vfp8            1a10-1e38	ENTER SQLMoreResults 
+		HSTMT               0x00CAC698
+
+vfp8            1a10-1e38	EXIT  SQLMoreResults  with return code 100 (SQL_NO_DATA_FOUND)
+		HSTMT               0x00CAC698
+
+vfp8            1a10-1e38	ENTER SQLFreeStmt 
+		HSTMT               0x00CAC698
+		UWORD                        0 <SQL_CLOSE>
+
+vfp8            1a10-1e38	EXIT  SQLFreeStmt  with return code 0 (SQL_SUCCESS)
+		HSTMT               0x00CAC698
+		UWORD                        0 <SQL_CLOSE>
+
+vfp8            1a10-1e38	ENTER SQLFreeStmt 
+		HSTMT               0x00CAC698
+		UWORD                        3 <SQL_RESET_PARAMS>
+
+vfp8            1a10-1e38	EXIT  SQLFreeStmt  with return code 0 (SQL_SUCCESS)
+		HSTMT               0x00CAC698
+		UWORD                        3 <SQL_RESET_PARAMS>
+
+vfp8            1a10-1e38	ENTER SQLCancel 
+		HSTMT               0x00CAC698
+
+vfp8            1a10-1e38	EXIT  SQLCancel  with return code 0 (SQL_SUCCESS)
+		HSTMT               0x00CAC698
+
+vfp8            1a10-1e38	ENTER SQLFreeStmt 
+		HSTMT               0x00CAC698
+		UWORD                        1 <SQL_DROP>
+
+vfp8            1a10-1e38	EXIT  SQLFreeStmt  with return code 0 (SQL_SUCCESS)
+		HSTMT               0x00CAC698
+		UWORD                        1 <SQL_DROP>
+
+vfp8            1a10-1e38	ENTER SQLDisconnect 
+		HDBC                0x00CABF18
+
+vfp8            1a10-1e38	EXIT  SQLDisconnect  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+
+vfp8            1a10-1e38	ENTER SQLFreeConnect 
+		HDBC                0x00CABF18
+
+vfp8            1a10-1e38	EXIT  SQLFreeConnect  with return code 0 (SQL_SUCCESS)
+		HDBC                0x00CABF18
+
+vfp8            1a10-1e38	ENTER SQLFreeEnv 
+		HENV                0x00CABE98
+
+vfp8            1a10-1e38	EXIT  SQLFreeEnv  with return code 0 (SQL_SUCCESS)
+		HENV                0x00CABE98

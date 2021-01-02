@@ -1,0 +1,50 @@
+Index: NETProvider/source/FirebirdSql/Data/Isql/FbBatchExecution.cs
+===================================================================
+--- NETProvider/source/FirebirdSql/Data/Isql/FbBatchExecution.cs	(revision 51301)
++++ NETProvider/source/FirebirdSql/Data/Isql/FbBatchExecution.cs	(working copy)
+@@ -265,6 +265,7 @@
+                             this.OnCommandExecuted(sqlStatement, null, -1);
+                             break;
+ 
++                        case SqlStatementType.CommentOn:
+                         case SqlStatementType.CreateDomain:
+                         case SqlStatementType.CreateException:
+                         case SqlStatementType.CreateGenerator:
+@@ -781,6 +782,10 @@
+                     {
+                         return SqlStatementType.AlterProcedure;
+                     }
++                    if (StringParser.StartsWith(sqlStatement, "ALTER SEQUENCE", true))
++                    {
++                        return SqlStatementType.SetGenerator;
++                    }
+                     if (StringParser.StartsWith(sqlStatement, "ALTER TABLE", true))
+                     {
+                         return SqlStatementType.AlterTable;
+@@ -802,6 +807,10 @@
+                             throw new Exception("The type of the SQL statement could not be determinated.");
+ 
+                         case 'O':
++                            if (StringParser.StartsWith(sqlStatement, "COMMENT ON", true))
++                            {
++                                return SqlStatementType.CommentOn;
++                            }
+                             if (StringParser.StartsWith(sqlStatement, "COMMIT", true))
+                             {
+                                 return SqlStatementType.Commit;
+Index: NETProvider/source/FirebirdSql/Data/Isql/SqlStatementType.cs
+===================================================================
+--- NETProvider/source/FirebirdSql/Data/Isql/SqlStatementType.cs	(revision 51301)
++++ NETProvider/source/FirebirdSql/Data/Isql/SqlStatementType.cs	(working copy)
+@@ -69,6 +69,11 @@
+         Close,
+ 
+         /// <summary>
++        /// Represents the SQL statement: <b>COMMENT ON</b>
++        /// </summary>
++        CommentOn,
++
++		/// <summary>
+         /// Represents the SQL statement: <b>COMMIT</b>
+         /// </summary>
+         Commit,

@@ -1,0 +1,92 @@
+diff --binary -Nru3 OdbcJdbc.204.orig/Builds/Bcc55.win/makefile.bcc55 OdbcJdbc.204.test/Builds/Bcc55.win/makefile.bcc55
+--- OdbcJdbc.204.orig/Builds/Bcc55.win/makefile.bcc55	2008-09-21 16:06:16.000000000 +0300
++++ OdbcJdbc.204.test/Builds/Bcc55.win/makefile.bcc55	2016-07-07 09:57:15.181595700 +0300
+@@ -11,7 +11,7 @@
+ VER_WINNT	= "_WIN32_WINNT=0x0500"
+ !endif
+ #
+-!include ../makefile.environ
++!include ../makefile.environ-bcc55.win
+ !include ../makefile.sources
+ #
+ !ifdef DEBUG
+@@ -23,16 +23,17 @@
+ BUILDDIR 	= $(TARGETDIR)\obj
+ #
+ COMPFLAGS	= -n$(BUILDDIR) \
+-		  -w- -a8 -jb -j1 -Hc -H=$(BUILDDIR)\bcc.csm \
++		  -w- -a8 -jb -j1 -O2 -Oc \
+ 		  -DWIN32 -D_WIN32 -D_WINDOWS -D$(VER_WINNT) -DISOLATION_AWARE_ENABLED \
+-		  -I.\ -I$(FBINCDIR) -I$(COMPDIR)\Include -I$(ISCDBCDIR) -I$(ODBCJDBCDIR)
++		  -I.\ -I$(FBINCDIR) -I$(COMPDIR)\Include -I$(ISCDBCDIR) -I$(ODBCJDBCDIR) \
++		  -Dintptr_t=int -Duintptr_t=unsigned -D_INTPTR_T_DEFINED
+ #		  -w- -a8 -VM -VF -jb -j1 -Hc -H=$(BUILDDIR)\bcc.csm \
+ #
+ RCINCLUDE       = -i$(COMPDIR)\Include
+ BRCC 		= $(COMPDIR)\bin\brcc32 -dWIN32 -d_WIN32
+ LD		= $(COMPDIR)\bin\ilink32
+ BCC 		= $(COMPDIR)\bin\bcc32
+-LINKFLAGS	= -q -Gn -Gi -Tpd -ad -L$(COMPDIR)\lib -L$(COMPDIR)\lib\PSDK -x
++LINKFLAGS	= -q -Gn -Gi -Tpd -ad -L$(COMPDIR)\lib -L$(COMPDIR)\lib\PSDK -x -L$(FBLIBDIR:/=\)
+ STARTUP		= c0d32.obj
+ LIBRARIES	= import32.lib cw32mt.lib wsock32.lib
+ ISCDBCDLL       = $(TARGETDIR)\IscDbc.dll
+diff --binary -Nru3 OdbcJdbc.204.orig/Builds/makefile.environ-bcc55.win OdbcJdbc.204.test/Builds/makefile.environ-bcc55.win
+--- OdbcJdbc.204.orig/Builds/makefile.environ-bcc55.win	1970-01-01 02:00:00.000000000 +0200
++++ OdbcJdbc.204.test/Builds/makefile.environ-bcc55.win	2016-07-07 09:50:43.715414000 +0300
+@@ -0,0 +1,28 @@
++!ifdef FIREBIRD
++FBINCDIR	= $(FIREBIRD)/include
++FBLIBDIR	= $(FIREBIRD)/lib
++!else
++!ifdef INTERBASE
++FBINCDIR	= $(INTERBASE)/include
++FBLIBDIR	= $(INTERBASE)/lib
++!endif
++!endif
++
++!ifdef FBINCDIR
++!message FBINCDIR is $(FBINCDIR)
++!else
++!error FBINCDIR is undefined
++!endif
++
++!ifdef FBLIBDIR
++!message FBLIBDIR is $(FBLIBDIR)
++!else
++!error FBLIBDIR is undefined
++!endif
++
++#
++ISCDBCDIR 		= ../../IscDbc
++ODBCJDBCDIR 		= ../..
++ODBCJDBCSETUPDIR 	= ../../OdbcJdbcSetup
++#
++
+diff --binary -Nru3 OdbcJdbc.204.orig/IscDbc/IscStatement.cpp OdbcJdbc.204.test/IscDbc/IscStatement.cpp
+--- OdbcJdbc.204.orig/IscDbc/IscStatement.cpp	2014-01-05 23:02:58.000000000 +0200
++++ OdbcJdbc.204.test/IscDbc/IscStatement.cpp	2016-07-07 09:50:43.731037100 +0300
+@@ -826,7 +826,11 @@
+ 				break;
+ 
+ 			case SQL_BOOLEAN:
++			#ifdef __BORLANDC__
++				value->setValue ((int) *(TYPE_BOOLEAN*) var->sqldata, var->sqlscale);
++			#else
+ 				value->setValue (*(TYPE_BOOLEAN*) var->sqldata, var->sqlscale);
++			#endif
+ 				break;
+ 
+ 			case SQL_SHORT:
+diff --binary -Nru3 OdbcJdbc.204.orig/OdbcJdbc.def OdbcJdbc.204.test/OdbcJdbc.def
+--- OdbcJdbc.204.orig/OdbcJdbc.def	2007-03-22 20:01:56.000000000 +0200
++++ OdbcJdbc.204.test/OdbcJdbc.def	2016-07-07 09:50:43.731037100 +0300
+@@ -116,3 +116,8 @@
+ 	SQLProceduresW
+ 	SQLTablePrivilegesW
+ 	SQLDriversW
++; SetupDLL
++	ConfigDSN
++	DllRegisterServer
++	DllUnregisterServer
++	DllInstall

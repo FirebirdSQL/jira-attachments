@@ -1,0 +1,17 @@
+Index: isc_file.cpp
+===================================================================
+--- isc_file.cpp	(revision 60528)
++++ isc_file.cpp	(working copy)
+@@ -1375,8 +1375,11 @@
+ 	// Include non-NFS (local) mounts - some may be longer than
+ 	// NFS mount points, therefore ignore mnt_type
+ 
+-	const char* iflag = strchr(mptr->mnt_fsname, ':');
++	const char* iflag = 0;
++	if (strncmp(mptr->mnt_fsname, "/dev/", 5) != 0)
++		iflag = strchr(mptr->mnt_fsname, ':');
+ 
++	
+ 	if (iflag)
+ 	{
+ 		node = tstring(mptr->mnt_fsname, iflag - mptr->mnt_fsname);

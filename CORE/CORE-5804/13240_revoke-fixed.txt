@@ -1,0 +1,340 @@
+
+create database 'localhost:/tmp/26133.fdb';
+create or alter user u password 'pass';
+create table t(f1 int, f2 int);
+create role r1;
+create role r2;
+commit;show grants;
+
+-- GRANT OPTION --
+------------------
+
+-- check revoke grant option for all table --
+---------------------------------------------
+grant update(f1, f2) on table t to u with grant option;
+commit;show grants;
+
+/* Grant permissions for this database */
+GRANT UPDATE (F1) ON T TO USER U WITH GRANT OPTION
+GRANT UPDATE (F2) ON T TO USER U WITH GRANT OPTION
+
+revoke grant option for update on table t from u;
+commit;show grants;
+
+/* Grant permissions for this database */
+GRANT UPDATE (F1) ON T TO USER U
+GRANT UPDATE (F2) ON T TO USER U
+
+revoke all on all from u;
+commit;show grants;
+
+-- check revoke grant option for the first field --
+---------------------------------------------------
+grant update(f1, f2) on table t to u with grant option;
+commit;show grants;
+
+/* Grant permissions for this database */
+GRANT UPDATE (F1) ON T TO USER U WITH GRANT OPTION
+GRANT UPDATE (F2) ON T TO USER U WITH GRANT OPTION
+
+revoke grant option for update(f1) on table t from u;
+commit;show grants;
+
+/* Grant permissions for this database */
+GRANT UPDATE (F1) ON T TO USER U
+GRANT UPDATE (F2) ON T TO USER U WITH GRANT OPTION
+
+revoke all on all from u;
+commit;show grants;
+
+-- check revoke grant option for the second field --
+----------------------------------------------------
+grant update(f1, f2) on table t to u with grant option;
+commit;show grants;
+
+/* Grant permissions for this database */
+GRANT UPDATE (F1) ON T TO USER U WITH GRANT OPTION
+GRANT UPDATE (F2) ON T TO USER U WITH GRANT OPTION
+
+revoke grant option for update(f2) on table t from u;
+commit;show grants;
+
+/* Grant permissions for this database */
+GRANT UPDATE (F1) ON T TO USER U WITH GRANT OPTION
+GRANT UPDATE (F2) ON T TO USER U
+
+revoke all on all from u;
+commit;show grants;
+
+-- check revoke grant option for every field --
+-----------------------------------------------
+grant update(f1, f2) on table t to u with grant option;
+commit;show grants;
+
+/* Grant permissions for this database */
+GRANT UPDATE (F1) ON T TO USER U WITH GRANT OPTION
+GRANT UPDATE (F2) ON T TO USER U WITH GRANT OPTION
+
+revoke grant option for update(f1, f2) on table t from u;
+commit;show grants;
+
+/* Grant permissions for this database */
+GRANT UPDATE (F1) ON T TO USER U
+GRANT UPDATE (F2) ON T TO USER U
+
+revoke all on all from u;
+commit;show grants;
+ 
+-- UPDATE --
+------------
+
+-- check revoke update for all table --
+---------------------------------------
+grant update(f1, f2) on table t to u with grant option;
+commit;show grants;
+
+/* Grant permissions for this database */
+GRANT UPDATE (F1) ON T TO USER U WITH GRANT OPTION
+GRANT UPDATE (F2) ON T TO USER U WITH GRANT OPTION
+
+revoke update on table t from u;
+commit;show grants;
+
+revoke all on all from u;
+commit;show grants;
+
+-- check revoke update for the first field --
+---------------------------------------------
+grant update(f1, f2) on table t to u with grant option;
+commit;show grants;
+
+/* Grant permissions for this database */
+GRANT UPDATE (F1) ON T TO USER U WITH GRANT OPTION
+GRANT UPDATE (F2) ON T TO USER U WITH GRANT OPTION
+
+revoke update(f1) on table t from u;
+commit;show grants;
+
+/* Grant permissions for this database */
+GRANT UPDATE (F2) ON T TO USER U WITH GRANT OPTION
+
+revoke all on all from u;
+commit;show grants;
+
+-- check revoke update the second field --
+------------------------------------------
+grant update(f1, f2) on table t to u with grant option;
+commit;show grants;
+
+/* Grant permissions for this database */
+GRANT UPDATE (F1) ON T TO USER U WITH GRANT OPTION
+GRANT UPDATE (F2) ON T TO USER U WITH GRANT OPTION
+
+revoke update(f2) on table t from u;
+commit;show grants;
+
+/* Grant permissions for this database */
+GRANT UPDATE (F1) ON T TO USER U WITH GRANT OPTION
+
+revoke all on all from u;
+commit;show grants;
+
+-- check revoke update for every field --
+-----------------------------------------
+grant update(f1, f2) on table t to u with grant option;
+commit;show grants;
+
+/* Grant permissions for this database */
+GRANT UPDATE (F1) ON T TO USER U WITH GRANT OPTION
+GRANT UPDATE (F2) ON T TO USER U WITH GRANT OPTION
+
+revoke update(f1, f2) on table t from u;
+commit;show grants;
+
+revoke all on all from u;
+commit;show grants;
+
+-- ROLES --
+-----------
+
+-- check revoke role --
+-----------------------
+grant r1 to role r2;
+commit; show grants;
+
+/* Grant permissions for this database */
+GRANT R1 TO R2
+
+revoke r1 from role r2;
+commit; show grants;
+
+-- check revoke default of role --
+----------------------------------
+grant default r1 to role r2;
+commit; show grants;
+
+/* Grant permissions for this database */
+GRANT DEFAULT R1 TO R2
+
+revoke default r1 from role r2;-- revoke only default option
+commit; show grants;
+
+/* Grant permissions for this database */
+GRANT R1 TO R2
+
+revoke r1 from role r2;-- revoke whole role
+commit; show grants;
+
+-- check revoke whole default role --
+-------------------------------------
+grant default r1 to role r2;
+commit; show grants;
+
+/* Grant permissions for this database */
+GRANT DEFAULT R1 TO R2
+
+revoke r1 from role r2;
+commit; show grants;
+
+-- check revoke admin option --
+-------------------------------
+grant r1 to role r2 with admin option;
+commit; show grants;
+
+/* Grant permissions for this database */
+GRANT R1 TO R2 WITH ADMIN OPTION
+
+revoke admin option for r1 from role r2;
+commit; show grants;
+
+/* Grant permissions for this database */
+GRANT R1 TO R2
+
+-- check revoke default from role granted with admin option --
+--------------------------------------------------------------
+grant default r1 to role r2 with admin option;
+commit; show grants;
+
+/* Grant permissions for this database */
+GRANT DEFAULT R1 TO R2 WITH ADMIN OPTION
+
+revoke default r1 from role r2;
+commit; show grants;
+
+/* Grant permissions for this database */
+GRANT R1 TO R2 WITH ADMIN OPTION
+
+
+-- check revoke admin option from default role --
+-------------------------------------------------
+grant default r1 to role r2 with admin option;
+commit; show grants;
+
+/* Grant permissions for this database */
+GRANT DEFAULT R1 TO R2 WITH ADMIN OPTION
+
+revoke admin option for r1 from role r2;
+commit; show grants;
+
+/* Grant permissions for this database */
+GRANT DEFAULT R1 TO R2
+
+
+-- check revoke both GO and AO from granted role --
+---------------------------------------------------
+grant default r1 to role r2 with admin option;
+commit; show grants;
+
+/* Grant permissions for this database */
+GRANT DEFAULT R1 TO R2 WITH ADMIN OPTION
+
+revoke admin option for default r1 from role r2;
+commit; show grants;
+
+/* Grant permissions for this database */
+GRANT R1 TO R2
+
+
+-- adding options to role grants --
+-----------------------------------
+drop role r1;
+create role r1;
+drop role r2;
+create role r2;
+grant default r1 to role r2;
+grant r1 to role r2 with admin option;
+show grants;
+
+/* Grant permissions for this database */
+GRANT DEFAULT R1 TO R2 WITH ADMIN OPTION
+
+recreate table t (i int);
+grant select on t to u;
+show grants;
+
+/* Grant permissions for this database */
+GRANT SELECT ON T TO USER U
+GRANT DEFAULT R1 TO R2 WITH ADMIN OPTION
+
+grant select on t to u with grant option;
+show grants;
+
+/* Grant permissions for this database */
+GRANT SELECT ON T TO USER U WITH GRANT OPTION
+GRANT DEFAULT R1 TO R2 WITH ADMIN OPTION
+
+grant select on t to u;
+show grants;
+
+/* Grant permissions for this database */
+GRANT SELECT ON T TO USER U WITH GRANT OPTION
+GRANT DEFAULT R1 TO R2 WITH ADMIN OPTION
+
+drop role r1;
+drop role r2;
+create role r1;
+create role r2;
+grant r1 to role r2;
+show grants;
+
+/* Grant permissions for this database */
+GRANT SELECT ON T TO USER U WITH GRANT OPTION
+GRANT R1 TO R2
+
+grant r1 to role r2 with admin option;
+show grants;
+
+/* Grant permissions for this database */
+GRANT SELECT ON T TO USER U WITH GRANT OPTION
+GRANT R1 TO R2 WITH ADMIN OPTION
+
+grant default r1 to role r2 with admin option;
+show grants;
+
+/* Grant permissions for this database */
+GRANT SELECT ON T TO USER U WITH GRANT OPTION
+GRANT DEFAULT R1 TO R2 WITH ADMIN OPTION
+
+grant default r1 to role r2;
+show grants;
+
+/* Grant permissions for this database */
+GRANT SELECT ON T TO USER U WITH GRANT OPTION
+GRANT DEFAULT R1 TO R2 WITH ADMIN OPTION
+
+drop role r1;
+drop role r2;
+create role r1;
+create role r2;
+grant default r1 to role r2;
+show grants;
+
+/* Grant permissions for this database */
+GRANT SELECT ON T TO USER U WITH GRANT OPTION
+GRANT DEFAULT R1 TO R2
+grant r1 to role r2 with admin option;
+show grants;
+
+/* Grant permissions for this database */
+GRANT SELECT ON T TO USER U WITH GRANT OPTION
+GRANT DEFAULT R1 TO R2 WITH ADMIN OPTION

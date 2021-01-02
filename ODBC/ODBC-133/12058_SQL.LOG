@@ -1,0 +1,1044 @@
+
+vfp8            e44-9f4	ENTER SQLFreeEnv 
+		HENV                02AA1788
+
+vfp8            e44-9f4	EXIT  SQLFreeEnv  with return code 0 (SQL_SUCCESS)
+		HENV                02AA1788
+
+vfp8            94-d00	ENTER SQLAllocEnv 
+		HENV *              008DE1A8
+
+vfp8            94-d00	EXIT  SQLAllocEnv  with return code 0 (SQL_SUCCESS)
+		HENV *              0x008DE1A8 ( 0x02aa1788)
+
+vfp8            94-d00	ENTER SQLAllocConnect 
+		HENV                02AA1788
+		HDBC *              0012FAB8
+
+vfp8            94-d00	EXIT  SQLAllocConnect  with return code 0 (SQL_SUCCESS)
+		HENV                02AA1788
+		HDBC *              0x0012FAB8 ( 0x02aa1830)
+
+vfp8            94-d00	ENTER SQLSetConnectOption 
+		HDBC                02AA1830
+		SQLINTEGER                 103 <SQL_LOGIN_TIMEOUT>
+		SQLPOINTER          0x0000000F
+
+vfp8            94-d00	EXIT  SQLSetConnectOption  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+		SQLINTEGER                 103 <SQL_LOGIN_TIMEOUT>
+		SQLPOINTER          0x0000000F (BADMEM)
+
+vfp8            94-d00	ENTER SQLSetConnectOption 
+		HDBC                02AA1830
+		SQLINTEGER                 112 <SQL_PACKET_SIZE>
+		SQLPOINTER          0x00001000
+
+vfp8            94-d00	EXIT  SQLSetConnectOption  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+		SQLINTEGER                 112 <SQL_PACKET_SIZE>
+		SQLPOINTER          0x00001000 (BADMEM)
+
+vfp8            94-d00	ENTER SQLSetConnectOption 
+		HDBC                02AA1830
+		SQLINTEGER                 102 <SQL_AUTOCOMMIT>
+		SQLPOINTER          0x00000001
+
+vfp8            94-d00	EXIT  SQLSetConnectOption  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+		SQLINTEGER                 102 <SQL_AUTOCOMMIT>
+		SQLPOINTER          0x00000001 (BADMEM)
+
+vfp8            94-d00	ENTER SQLSetConnectOption 
+		HDBC                02AA1830
+		SQLINTEGER                 110 <SQL_ODBC_CURSORS>
+		SQLPOINTER          0x00000000
+
+vfp8            94-d00	EXIT  SQLSetConnectOption  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+		SQLINTEGER                 110 <SQL_ODBC_CURSORS>
+		SQLPOINTER          0x00000000
+
+vfp8            94-d00	ENTER SQLDriverConnectW 
+		HDBC                02AA1830
+		HWND                000904BC
+		WCHAR *             0x745E9110 [      -3] "******\ 0"
+		SWORD                       -3 
+		WCHAR *             0x745E9110 
+		SWORD                        2 
+		SWORD *             0x00000000
+		UWORD                        1 <SQL_DRIVER_COMPLETE>
+
+vfp8            94-d00	EXIT  SQLDriverConnectW  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+		HWND                000904BC
+		WCHAR *             0x745E9110 [      -3] "******\ 0"
+		SWORD                       -3 
+		WCHAR *             0x745E9110 
+		SWORD                        2 
+		SWORD *             0x00000000
+		UWORD                        1 <SQL_DRIVER_COMPLETE>
+
+vfp8            94-d00	ENTER SQLGetInfoW 
+		HDBC                02AA1830
+		UWORD                        6 <SQL_DRIVER_NAME>
+		PTR                 0x02AA1CA0 
+		SWORD                      128 
+		SWORD *             0x0012F5D0
+
+vfp8            94-d00	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+		UWORD                        6 <SQL_DRIVER_NAME>
+		PTR                 0x02AA1CA0 [      12] "OdbcFb"
+		SWORD                      128 
+		SWORD *             0x0012F5D0 (12)
+
+vfp8            94-d00	ENTER SQLGetInfoW 
+		HDBC                02AA1830
+		UWORD                       17 <SQL_DBMS_NAME>
+		PTR                 0x02AA1CA0 
+		SWORD                      128 
+		SWORD *             0x0012F5D0
+
+vfp8            94-d00	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+		UWORD                       17 <SQL_DBMS_NAME>
+		PTR                 0x02AA1CA0 [      16] "Firebird"
+		SWORD                      128 
+		SWORD *             0x0012F5D0 (16)
+
+vfp8            94-d00	ENTER SQLGetInfoW 
+		HDBC                02AA1830
+		UWORD                       77 <SQL_DRIVER_ODBC_VER>
+		PTR                 0x02AA1CA0 
+		SWORD                      128 
+		SWORD *             0x0012F5D0
+
+vfp8            94-d00	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+		UWORD                       77 <SQL_DRIVER_ODBC_VER>
+		PTR                 0x02AA1CA0 [      10] "03.51"
+		SWORD                      128 
+		SWORD *             0x0012F5D0 (10)
+
+vfp8            94-d00	ENTER SQLGetInfoW 
+		HDBC                02AA1830
+		UWORD                       47 <SQL_USER_NAME>
+		PTR                 0x02AA1CA0 
+		SWORD                      128 
+		SWORD *             0x0012F5D0
+
+vfp8            94-d00	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+		UWORD                       47 <SQL_USER_NAME>
+		PTR                 0x02AA1CA0 [      12] "SYSDBA"
+		SWORD                      128 
+		SWORD *             0x0012F5D0 (12)
+
+vfp8            94-d00	ENTER SQLGetInfoW 
+		HDBC                02AA1830
+		UWORD                       28 <SQL_IDENTIFIER_CASE>
+		PTR                 0x0012F5CC
+		SWORD                        2 
+		SWORD *             0x0012F5D0
+
+vfp8            94-d00	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+		UWORD                       28 <SQL_IDENTIFIER_CASE>
+		PTR                 0x0012F5CC (1)
+		SWORD                        2 
+		SWORD *             0x0012F5D0 (2)
+
+vfp8            94-d00	ENTER SQLGetInfoW 
+		HDBC                02AA1830
+		UWORD                       29 <SQL_IDENTIFIER_QUOTE_CHAR>
+		PTR                 0x02AA1CA0 
+		SWORD                      128 
+		SWORD *             0x0012F5D0
+
+vfp8            94-d00	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+		UWORD                       29 <SQL_IDENTIFIER_QUOTE_CHAR>
+		PTR                 0x02AA1CA0 [       2] """
+		SWORD                      128 
+		SWORD *             0x0012F5D0 (2)
+
+vfp8            94-d00	ENTER SQLGetInfoW 
+		HDBC                02AA1830
+		UWORD                       41 <SQL_CATALOG_NAME_SEPARATOR>
+		PTR                 0x02AA1CA0 
+		SWORD                      128 
+		SWORD *             0x0012F5D0
+
+vfp8            94-d00	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+		UWORD                       41 <SQL_CATALOG_NAME_SEPARATOR>
+		PTR                 0x02AA1CA0 [       2] "."
+		SWORD                      128 
+		SWORD *             0x0012F5D0 (2)
+
+vfp8            94-d00	ENTER SQLGetInfoW 
+		HDBC                02AA1830
+		UWORD                       36 <SQL_MULT_RESULT_SETS>
+		PTR                 0x02AA1CA0 
+		SWORD                      128 
+		SWORD *             0x0012F5D0
+
+vfp8            94-d00	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+		UWORD                       36 <SQL_MULT_RESULT_SETS>
+		PTR                 0x02AA1CA0 [       2] "N"
+		SWORD                      128 
+		SWORD *             0x0012F5D0 (2)
+
+vfp8            94-d00	ENTER SQLGetFunctions 
+		HDBC                02AA1830
+		UWORD                       59 
+		UWORD *             0x0012F5C0
+
+vfp8            94-d00	EXIT  SQLGetFunctions  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+		UWORD                       59 
+		UWORD *             0x0012F5C0 (1)
+
+vfp8            94-d00	ENTER SQLGetInfoW 
+		HDBC                02AA1830
+		UWORD                       81 <SQL_GETDATA_EXTENSIONS>
+		PTR                 0012F5C8
+		SWORD                        4 
+		SWORD *             0x0012F5D0
+
+vfp8            94-d00	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+		UWORD                       81 <SQL_GETDATA_EXTENSIONS>
+		PTR                 0012F5C8
+		SWORD                        4 
+		SWORD *             0x0012F5D0 (4)
+
+vfp8            94-d00	ENTER SQLGetInfoW 
+		HDBC                02AA1830
+		UWORD                       55 <SQL_CONVERT_BIT>
+		PTR                 0012F5C4
+		SWORD                        4 
+		SWORD *             0x0012F5D0
+
+vfp8            94-d00	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+		UWORD                       55 <SQL_CONVERT_BIT>
+		PTR                 0012F5C4
+		SWORD                        4 
+		SWORD *             0x0012F5D0 (4)
+
+vfp8            94-d00	ENTER SQLGetInfoW 
+		HDBC                02AA1830
+		UWORD                       56 <SQL_CONVERT_CHAR>
+		PTR                 0012F5C4
+		SWORD                        4 
+		SWORD *             0x0012F5D0
+
+vfp8            94-d00	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+		UWORD                       56 <SQL_CONVERT_CHAR>
+		PTR                 0012F5C4
+		SWORD                        4 
+		SWORD *             0x0012F5D0 (4)
+
+vfp8            94-d00	ENTER SQLGetInfoW 
+		HDBC                02AA1830
+		UWORD                       58 <SQL_CONVERT_DECIMAL>
+		PTR                 0012F5C4
+		SWORD                        4 
+		SWORD *             0x0012F5D0
+
+vfp8            94-d00	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+		UWORD                       58 <SQL_CONVERT_DECIMAL>
+		PTR                 0012F5C4
+		SWORD                        4 
+		SWORD *             0x0012F5D0 (4)
+
+vfp8            94-d00	ENTER SQLGetInfoW 
+		HDBC                02AA1830
+		UWORD                       59 <SQL_CONVERT_DOUBLE>
+		PTR                 0012F5C4
+		SWORD                        4 
+		SWORD *             0x0012F5D0
+
+vfp8            94-d00	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+		UWORD                       59 <SQL_CONVERT_DOUBLE>
+		PTR                 0012F5C4
+		SWORD                        4 
+		SWORD *             0x0012F5D0 (4)
+
+vfp8            94-d00	ENTER SQLGetInfoW 
+		HDBC                02AA1830
+		UWORD                       60 <SQL_CONVERT_FLOAT>
+		PTR                 0012F5C4
+		SWORD                        4 
+		SWORD *             0x0012F5D0
+
+vfp8            94-d00	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+		UWORD                       60 <SQL_CONVERT_FLOAT>
+		PTR                 0012F5C4
+		SWORD                        4 
+		SWORD *             0x0012F5D0 (4)
+
+vfp8            94-d00	ENTER SQLGetInfoW 
+		HDBC                02AA1830
+		UWORD                       61 <SQL_CONVERT_INTEGER>
+		PTR                 0012F5C4
+		SWORD                        4 
+		SWORD *             0x0012F5D0
+
+vfp8            94-d00	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+		UWORD                       61 <SQL_CONVERT_INTEGER>
+		PTR                 0012F5C4
+		SWORD                        4 
+		SWORD *             0x0012F5D0 (4)
+
+vfp8            94-d00	ENTER SQLGetInfoW 
+		HDBC                02AA1830
+		UWORD                       63 <SQL_CONVERT_NUMERIC>
+		PTR                 0012F5C4
+		SWORD                        4 
+		SWORD *             0x0012F5D0
+
+vfp8            94-d00	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+		UWORD                       63 <SQL_CONVERT_NUMERIC>
+		PTR                 0012F5C4
+		SWORD                        4 
+		SWORD *             0x0012F5D0 (4)
+
+vfp8            94-d00	ENTER SQLGetInfoW 
+		HDBC                02AA1830
+		UWORD                       67 <SQL_CONVERT_TIMESTAMP>
+		PTR                 0012F5C4
+		SWORD                        4 
+		SWORD *             0x0012F5D0
+
+vfp8            94-d00	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+		UWORD                       67 <SQL_CONVERT_TIMESTAMP>
+		PTR                 0012F5C4
+		SWORD                        4 
+		SWORD *             0x0012F5D0 (4)
+
+vfp8            94-d00	ENTER SQLGetInfoW 
+		HDBC                02AA1830
+		UWORD                       70 <SQL_CONVERT_VARCHAR>
+		PTR                 0012F5C4
+		SWORD                        4 
+		SWORD *             0x0012F5D0
+
+vfp8            94-d00	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+		UWORD                       70 <SQL_CONVERT_VARCHAR>
+		PTR                 0012F5C4
+		SWORD                        4 
+		SWORD *             0x0012F5D0 (4)
+
+vfp8            94-d00	ENTER SQLGetInfoW 
+		HDBC                02AA1830
+		UWORD                       62 <SQL_CONVERT_LONGVARCHAR>
+		PTR                 0012F5C4
+		SWORD                        4 
+		SWORD *             0x0012F5D0
+
+vfp8            94-d00	EXIT  SQLGetInfoW  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+		UWORD                       62 <SQL_CONVERT_LONGVARCHAR>
+		PTR                 0012F5C4
+		SWORD                        4 
+		SWORD *             0x0012F5D0 (4)
+
+vfp8            94-d00	ENTER SQLAllocStmt 
+		HDBC                02AA1830
+		HSTMT *             0012FAA8
+
+vfp8            94-d00	EXIT  SQLAllocStmt  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+		HSTMT *             0x0012FAA8 ( 0x02aa1d38)
+
+vfp8            94-d00	ENTER SQLSetStmtOption 
+		HSTMT               02AA1D38
+		UWORD                        0 <SQL_QUERY_TIMEOUT>
+		SQLPOINTER          0x00000000
+
+vfp8            94-d00	EXIT  SQLSetStmtOption  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        0 <SQL_QUERY_TIMEOUT>
+		SQLPOINTER          0x00000000
+
+vfp8            94-d00	ENTER SQLSetStmtOption 
+		HSTMT               02AA1D38
+		UWORD                        4 <SQL_ASYNC_ENABLE>
+		SQLPOINTER          0x00000000
+
+vfp8            94-d00	EXIT  SQLSetStmtOption  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        4 <SQL_ASYNC_ENABLE>
+		SQLPOINTER          0x00000000
+
+vfp8            94-d00	ENTER SQLExecDirect 
+		HSTMT               02AA1D38
+		UCHAR *             0x010E82C0 [      -3] "SELECT CAST(SUM(QUANTITY1) AS INTEGER) AS Q1,CAST(SUM(QUANTITY2) AS INTEGER) AS Q2,SUM(QUANTITY3) AS Q3,SUM(QUANTITY4) AS Q4  FROM TEST\ 0"
+		SDWORD                    -3
+
+vfp8            94-d00	EXIT  SQLExecDirect  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UCHAR *             0x010E82C0 [      -3] "SELECT CAST(SUM(QUANTITY1) AS INTEGER) AS Q1,CAST(SUM(QUANTITY2) AS INTEGER) AS Q2,SUM(QUANTITY3) AS Q3,SUM(QUANTITY4) AS Q4  FROM TEST\ 0"
+		SDWORD                    -3
+
+vfp8            94-d00	ENTER SQLNumResultCols 
+		HSTMT               02AA1D38
+		SWORD *             0x0012F9B4
+
+vfp8            94-d00	EXIT  SQLNumResultCols  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		SWORD *             0x0012F9B4 (4)
+
+vfp8            94-d00	ENTER SQLNumResultCols 
+		HSTMT               02AA1D38
+		SWORD *             0x0012F748
+
+vfp8            94-d00	EXIT  SQLNumResultCols  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		SWORD *             0x0012F748 (4)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        1 
+		UWORD                        2 <SQL_COLUMN_TYPE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        1 
+		UWORD                        2 <SQL_COLUMN_TYPE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (4)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        1 
+		UWORD                        6 <SQL_COLUMN_DISPLAY_SIZE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        1 
+		UWORD                        6 <SQL_COLUMN_DISPLAY_SIZE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (11)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        1 
+		UWORD                        4 <SQL_COLUMN_PRECISION>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        1 
+		UWORD                        4 <SQL_COLUMN_PRECISION>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (10)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        1 
+		UWORD                        5 <SQL_COLUMN_SCALE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        1 
+		UWORD                        5 <SQL_COLUMN_SCALE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (0)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        1 
+		UWORD                        7 <SQL_COLUMN_NULLABLE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        1 
+		UWORD                        7 <SQL_COLUMN_NULLABLE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (1)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        1 
+		UWORD                        9 <SQL_COLUMN_MONEY>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        1 
+		UWORD                        9 <SQL_COLUMN_MONEY>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (0)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        1 
+		UWORD                        1 <SQL_COLUMN_NAME>
+		PTR                0x0012F4D4
+		SWORD                      255 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        1 
+		UWORD                        1 <SQL_COLUMN_NAME>
+		PTR                0x0012F4D4
+		SWORD                      255 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (0)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        2 
+		UWORD                        2 <SQL_COLUMN_TYPE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        2 
+		UWORD                        2 <SQL_COLUMN_TYPE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (4)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        2 
+		UWORD                        6 <SQL_COLUMN_DISPLAY_SIZE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        2 
+		UWORD                        6 <SQL_COLUMN_DISPLAY_SIZE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (11)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        2 
+		UWORD                        4 <SQL_COLUMN_PRECISION>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        2 
+		UWORD                        4 <SQL_COLUMN_PRECISION>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (10)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        2 
+		UWORD                        5 <SQL_COLUMN_SCALE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        2 
+		UWORD                        5 <SQL_COLUMN_SCALE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (0)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        2 
+		UWORD                        7 <SQL_COLUMN_NULLABLE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        2 
+		UWORD                        7 <SQL_COLUMN_NULLABLE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (1)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        2 
+		UWORD                        9 <SQL_COLUMN_MONEY>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        2 
+		UWORD                        9 <SQL_COLUMN_MONEY>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (0)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        2 
+		UWORD                        1 <SQL_COLUMN_NAME>
+		PTR                0x0012F4D4
+		SWORD                      255 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        2 
+		UWORD                        1 <SQL_COLUMN_NAME>
+		PTR                0x0012F4D4
+		SWORD                      255 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (0)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        3 
+		UWORD                        2 <SQL_COLUMN_TYPE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        3 
+		UWORD                        2 <SQL_COLUMN_TYPE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (2)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        3 
+		UWORD                        6 <SQL_COLUMN_DISPLAY_SIZE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        3 
+		UWORD                        6 <SQL_COLUMN_DISPLAY_SIZE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (20)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        3 
+		UWORD                        4 <SQL_COLUMN_PRECISION>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        3 
+		UWORD                        4 <SQL_COLUMN_PRECISION>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (18)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        3 
+		UWORD                        5 <SQL_COLUMN_SCALE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        3 
+		UWORD                        5 <SQL_COLUMN_SCALE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (2)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        3 
+		UWORD                        7 <SQL_COLUMN_NULLABLE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        3 
+		UWORD                        7 <SQL_COLUMN_NULLABLE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (1)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        3 
+		UWORD                        9 <SQL_COLUMN_MONEY>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        3 
+		UWORD                        9 <SQL_COLUMN_MONEY>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (0)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        3 
+		UWORD                        1 <SQL_COLUMN_NAME>
+		PTR                0x0012F4D4
+		SWORD                      255 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        3 
+		UWORD                        1 <SQL_COLUMN_NAME>
+		PTR                0x0012F4D4
+		SWORD                      255 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (0)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        4 
+		UWORD                        2 <SQL_COLUMN_TYPE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        4 
+		UWORD                        2 <SQL_COLUMN_TYPE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (8)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        4 
+		UWORD                        6 <SQL_COLUMN_DISPLAY_SIZE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        4 
+		UWORD                        6 <SQL_COLUMN_DISPLAY_SIZE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (57)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        4 
+		UWORD                        4 <SQL_COLUMN_PRECISION>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        4 
+		UWORD                        4 <SQL_COLUMN_PRECISION>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (53)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        4 
+		UWORD                        5 <SQL_COLUMN_SCALE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        4 
+		UWORD                        5 <SQL_COLUMN_SCALE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (0)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        4 
+		UWORD                        7 <SQL_COLUMN_NULLABLE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        4 
+		UWORD                        7 <SQL_COLUMN_NULLABLE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (1)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        4 
+		UWORD                        9 <SQL_COLUMN_MONEY>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        4 
+		UWORD                        9 <SQL_COLUMN_MONEY>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (0)
+
+vfp8            94-d00	ENTER SQLColAttributes 
+		HSTMT               02AA1D38
+		UWORD                        4 
+		UWORD                        1 <SQL_COLUMN_NAME>
+		PTR                0x0012F4D4
+		SWORD                      255 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            94-d00	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        4 
+		UWORD                        1 <SQL_COLUMN_NAME>
+		PTR                0x0012F4D4
+		SWORD                      255 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (0)
+
+vfp8            94-d00	ENTER SQLFetch 
+		HSTMT               02AA1D38
+
+vfp8            94-d00	EXIT  SQLFetch  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+
+vfp8            94-d00	ENTER SQLGetData 
+		HSTMT               02AA1D38
+		UWORD                        1 
+		SWORD                        4 <SQL_C_LONG>
+		PTR                 <unknown type>
+		SQLLEN                     5
+		SQLLEN *            0x0012F5CC
+
+vfp8            94-d00	EXIT  SQLGetData  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        1 
+		SWORD                        4 <SQL_C_LONG>
+		PTR                 <unknown type>
+		SQLLEN                     5
+		SQLLEN *            0x0012F5CC (4)
+
+vfp8            94-d00	ENTER SQLGetData 
+		HSTMT               02AA1D38
+		UWORD                        2 
+		SWORD                        4 <SQL_C_LONG>
+		PTR                 <unknown type>
+		SQLLEN                     5
+		SQLLEN *            0x0012F5CC
+
+vfp8            94-d00	EXIT  SQLGetData  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        2 
+		SWORD                        4 <SQL_C_LONG>
+		PTR                 <unknown type>
+		SQLLEN                     5
+		SQLLEN *            0x0012F5CC (4)
+
+vfp8            94-d00	ENTER SQLGetData 
+		HSTMT               02AA1D38
+		UWORD                        3 
+		SWORD                        1 <SQL_C_CHAR>
+		PTR                 0x01DE51E1 
+		SQLLEN                    21
+		SQLLEN *            0x0012F5CC
+
+vfp8            94-d00	EXIT  SQLGetData  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        3 
+		SWORD                        1 <SQL_C_CHAR>
+		PTR                 0x01DE51E1 [       5] "26.00"
+		SQLLEN                    21
+		SQLLEN *            0x0012F5CC (5)
+
+vfp8            94-d00	ENTER SQLGetData 
+		HSTMT               02AA1D38
+		UWORD                        4 
+		SWORD                        8 <SQL_C_DOUBLE>
+		PTR                 <unknown type>
+		SQLLEN                     9
+		SQLLEN *            0x0012F5CC
+
+vfp8            94-d00	EXIT  SQLGetData  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        4 
+		SWORD                        8 <SQL_C_DOUBLE>
+		PTR                 <unknown type>
+		SQLLEN                     9
+		SQLLEN *            0x0012F5CC (8)
+
+vfp8            94-d00	ENTER SQLFetch 
+		HSTMT               02AA1D38
+
+vfp8            94-d00	EXIT  SQLFetch  with return code 100 (SQL_NO_DATA_FOUND)
+		HSTMT               02AA1D38
+
+vfp8            94-d00	ENTER SQLMoreResults 
+		HSTMT               02AA1D38
+
+vfp8            94-d00	EXIT  SQLMoreResults  with return code 100 (SQL_NO_DATA_FOUND)
+		HSTMT               02AA1D38
+
+vfp8            94-d00	ENTER SQLFreeStmt 
+		HSTMT               02AA1D38
+		UWORD                        0 <SQL_CLOSE>
+
+vfp8            94-d00	EXIT  SQLFreeStmt  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        0 <SQL_CLOSE>
+
+vfp8            94-d00	ENTER SQLFreeStmt 
+		HSTMT               02AA1D38
+		UWORD                        3 <SQL_RESET_PARAMS>
+
+vfp8            94-d00	EXIT  SQLFreeStmt  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        3 <SQL_RESET_PARAMS>
+
+vfp8            94-d00	ENTER SQLCancel 
+		HSTMT               02AA1D38
+
+vfp8            94-d00	EXIT  SQLCancel  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+
+vfp8            94-d00	ENTER SQLFreeStmt 
+		HSTMT               02AA1D38
+		UWORD                        1 <SQL_DROP>
+
+vfp8            94-d00	EXIT  SQLFreeStmt  with return code 0 (SQL_SUCCESS)
+		HSTMT               02AA1D38
+		UWORD                        1 <SQL_DROP>
+
+vfp8            94-d00	ENTER SQLDisconnect 
+		HDBC                02AA1830
+
+vfp8            94-d00	EXIT  SQLDisconnect  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+
+vfp8            94-d00	ENTER SQLFreeConnect 
+		HDBC                02AA1830
+
+vfp8            94-d00	EXIT  SQLFreeConnect  with return code 0 (SQL_SUCCESS)
+		HDBC                02AA1830
+
+vfp8            94-d00	ENTER SQLFreeEnv 
+		HENV                02AA1788
+
+vfp8            94-d00	EXIT  SQLFreeEnv  with return code 0 (SQL_SUCCESS)
+		HENV                02AA1788

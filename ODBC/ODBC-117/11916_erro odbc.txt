@@ -1,0 +1,54 @@
+Routine to open the database via odbc
+
+    caminho = GetSetting(App.Title, "Configuração", "Caminho", "Não Configurado")
+    dsn = GetSetting(App.Title, "Configuração", "DSN", "Não Configurado")
+    driver = GetSetting(App.Title, "Configuração", "Driver", "Não Configurado")
+    pwd = GetSetting(App.Title, "configuração", "PWD", "Não Configurado")
+    uid = GetSetting(App.Title, "Configuração", "UID", "Não Configurado")
+    If caminho = "Não Configurado" Or dsn = "Não Configurado" Or driver = "Não Configurado" Or pwd = "Não Configurado" Or uid = "Não Configurado" Then
+        setupsystem.Show
+        Unload Me
+        Exit Sub
+    End If
+    
+    Data1.Connect = "ODBC;DSN=" & dsn & ";Driver=" & driver & ";PWD=" & pwd & ";UID=" & uid
+    Data1.Refresh
+    Set bdados = OpenDatabase(caminho, False, False, "ODBC;DSN=" & dsn & ";Driver=" & driver & ";Dbname=" & caminho & ";pwd=" & pwd & ";UID=" & uid)
+
+	Routine wich gives error in vb6 under windows xo pr windows vista
+	
+	        If ação = "LIBERAR" Then
+            teste.FindFirst ("descricao_teste = '" & descricao_teste & "' and descricao_exame = '" & descricao_exame & "'") ' and status <> 'REORDEM'")
+            If Not teste.EOF Then
+                'aqui inserimos a rotina para o cálculo dos testes
+                If teste!calculado = 1 Then
+                    retorno = teste.Bookmark
+                    Set definicao = bdados.OpenRecordset("select * from TESTE where nome = '" & descricao_teste & "'")
+                    If Not definicao.EOF Then
+                        formula = definicao!formula
+                        resultado = calculeformula(formula, Label11)
+                        teste.Bookmark = retorno
+                        'teste.Edit
+                        teste!resultado_liberado = resultado
+                        teste!resultado_alfanumerico = Null
+                    End If
+                Else
+                    If IsNumeric(resultado) Then
+                        teste.Edit
+                        teste!resultado_liberado = resultado
+                        teste!resultado_alfanumerico = Null
+                    Else
+                        teste.Edit
+                        teste!resultado_alfanumerico = resultado
+                        teste!resultado_liberado = Null
+                    End If
+                End If
+                teste!data_liberacao = Format$(Now, "dd/mm/yyyy")
+                teste!Status = "LIBERADO"
+                teste!cod_perm_cliente = Label19
+                teste!id_perm_cliente = Label12
+                teste!ativo = 0
+                teste!liberadopor = UCase(operador)
+                teste!hora_liberacao = Format$(Now, "hh:mm")
+                teste!obs = UCase(obs)
+                teste.Update			'The error ocurs in this line

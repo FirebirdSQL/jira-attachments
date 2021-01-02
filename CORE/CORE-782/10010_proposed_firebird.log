@@ -1,0 +1,10 @@
+#Software: Firebird
+#Version: 1.5.2
+#Fields: date time ip source errno status description
+11/12/2005 21:38:03 127.0.0.1 Client 6 0 The guardian was unable to launch the server thread. 
+12/23/2005 10:59:59 127.0.0.1 Server 128 1 The Firebird server failed to startup because a needed resource is in use. Insure that all previously connected Firebird client applications have terminated and try again.
+12/25/2005 09:17:58 127.0.0.1 Client 1061 0 Control services error.
+12/27/2005 16:26:12 127.0.0.1 Client 10061 0 INET/inet_error
+01/03/2006 03:15:27 127.0.0.1 Client 10060 0 INET/inet_error
+
+

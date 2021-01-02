@@ -1,0 +1,121 @@
+diff --git a/src/jrd/svc.cpp b/src/jrd/svc.cpp
+index 5112422bd5..65a7006376 100644
+--- a/src/jrd/svc.cpp
++++ b/src/jrd/svc.cpp
+@@ -136,6 +136,12 @@ namespace {
+ 	GlobalPtr<AllServices> allServices;	// protected by globalServicesMutex
+ 	volatile bool svcShutdown = false;
+ 
++#ifdef THREAD_COLLECT
++	typedef Array<Thread::Handle> AllThreads;
++	GlobalPtr<AllThreads> threads;
++	GlobalPtr<Mutex> threadsMutex;
++#endif
++
+ 	void spbVersionError()
+ 	{
+ 		ERR_post(Arg::Gds(isc_bad_spb_form) <<
+@@ -656,6 +662,9 @@ Service::Service(const TEXT* service_name, USHORT spb_length, const UCHAR* spb_d
+ 	svc_existence(FB_NEW_POOL(*getDefaultMemoryPool()) SvcMutex(this)),
+ 	svc_stdin_size_requested(0), svc_stdin_buffer(NULL), svc_stdin_size_preload(0),
+ 	svc_stdin_preload_requested(0), svc_stdin_user_size(0)
++#ifdef THREAD_COLLECT
++	, svc_thread(0)
++#endif
+ #ifdef DEV_BUILD
+ 	, svc_debug(false)
+ #endif
+@@ -988,6 +997,20 @@ void Service::shutdownServices()
+ 
+ 		++pos;
+ 	}
++
++#ifdef THREAD_COLLECT
++	// join threads to be sure they are gone when shutdown is complete
++	AllThreads& t(*(&threads));
++
++	fprintf(stderr, "Clear %d threads @shutdown\n", t.getCount());
++
++	while (t.hasData())
++	{
++		Thread::Handle h(t.pop());
++		Thread::waitForCompletion(h);
++	}
++#endif
++
+ }
+ 
+ 
+@@ -1912,6 +1935,13 @@ THREAD_ENTRY_DECLARE Service::run(THREAD_ENTRY_PARAM arg)
+ 		RefPtr<SvcMutex> ref(svc->svc_existence);
+ 		exit_code = svc->svc_service_run->serv_thd(svc);
+ 
++#ifdef THREAD_COLLECT
++		{
++			MutexLockGuard g(threadsMutex, FB_FUNCTION);
++			threads->add(svc->svc_thread);
++			fprintf(stderr, "Add thread to cleanup queue\n");
++		}
++#endif
+ 		svc->started();
+ 		svc->svc_sem_full.release();
+ 		svc->finish(SVC_finished);
+@@ -2074,7 +2104,32 @@ void Service::start(USHORT spb_length, const UCHAR* spb_data)
+ 
+ 		svc_stdout_head = svc_stdout_tail = 0;
+ 
++#ifdef THREAD_COLLECT
++		Thread::start(run, this, THREAD_medium, &svc_thread);
++#else
+ 		Thread::start(run, this, THREAD_medium);
++#endif
++
++#ifdef THREAD_COLLECT
++		// good time for housekeeping - join finished threads while new one starts
++		if (threads->hasData())
++		{
++			AllThreads t;
++			{
++				MutexLockGuard g(threadsMutex, FB_FUNCTION);
++				t.assign(*(&threads));
++				threads->clear();
++			}
++
++			fprintf(stderr, "Clear %d threads @start\n", t.getCount());
++
++			while (t.hasData())
++			{
++				Thread::Handle h(t.pop());
++				Thread::waitForCompletion(h);
++			}
++		}
++#endif
+ 
+ 		// Check for the service being detached. This will prevent the thread
+ 		// from waiting infinitely if the client goes away.
+diff --git a/src/jrd/svc.h b/src/jrd/svc.h
+index c69ddaacc2..650d1e84d7 100644
+--- a/src/jrd/svc.h
++++ b/src/jrd/svc.h
+@@ -43,6 +43,10 @@
+ #include "../burp/split/spit.h"
+ #include "../jrd/status.h"
+ 
++#ifndef WIN_NT
++#define THREAD_COLLECT
++#endif
++
+ // forward decl.
+ 
+ namespace Jrd {
+@@ -392,6 +396,10 @@ private:
+ 	ULONG svc_stdin_user_size;
+ 	static const ULONG PRELOAD_BUFFER_SIZE = SVC_IO_BUFFER_SIZE;
+ 
++#ifdef THREAD_COLLECT
++	Thread::Handle svc_thread;
++#endif
++
+ #ifdef DEV_BUILD
+ 	bool svc_debug;
+ #endif

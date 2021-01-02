@@ -1,0 +1,42 @@
+Query
+------------------------------------------------
+SELECT DOCUMENTO,SUM(PEDIDO_QUANTIDADE) 
+       FROM TESTE_DB 
+       WHERE (EMPRESA = '001') AND 
+             (PEDIDO_NUMERO = 'TESTE') AND 
+             (PEDIDO_ITEM = 1) AND 
+             (PEDIDO_QUANTIDADE > 0) 
+       GROUP BY 1 
+       ORDER BY 1
+
+Plan
+------------------------------------------------
+PLAN SORT ((TESTE_DB INDEX (TESTE_DB_IDX2)))
+
+Query Time
+------------------------------------------------
+Prepare       : 0,00 ms
+Execute       : 0,00 ms
+Avg fetch time: 0,00 ms
+
+Memory
+------------------------------------------------
+Current: 1.425.300
+Max    : 1.512.848
+Buffers: 75
+
+Operations
+------------------------------------------------
+Read   : 1
+Writes : 0
+Fetches: 8
+Marks  : 0
+
+
+Enchanced Info:
++-------------------------------+-----------+-----------+-------------+---------+---------+---------+----------+----------+----------+
+|          Table Name           |  Records  |  Indexed  | Non-Indexed | Updates | Deletes | Inserts | Backouts |  Purges  | Expunges |
+|                               |   Total   |   reads   |    reads    |         |         |         |          |          |          |
++-------------------------------+-----------+-----------+-------------+---------+---------+---------+----------+----------+----------+
+|TESTE_DB                       |         0 |         1 |           0 |       0 |       0 |       0 |        0 |        0 |        0 |
++-------------------------------+-----------+-----------+-------------+---------+---------+---------+----------+----------+----------+

@@ -1,0 +1,231 @@
+Got connection org.firebirdsql.jdbc.FBConnection@5afec107
+Removed table TEST_TABLE
+Created table TEST_TABLE
+Connection org.firebirdsql.jdbc.FBConnection@5afec107 is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@5afec107
+
+
+====== Beginning tests using requests without parameters ======
+
+Will insert a line with a short name
+Got connection org.firebirdsql.jdbc.FBConnection@28d08633
+Connection org.firebirdsql.jdbc.FBConnection@28d08633 is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@28d08633
+
+Will insert a line with a name whose length is the max length
+Got connection org.firebirdsql.jdbc.FBConnection@1cf11404
+Connection org.firebirdsql.jdbc.FBConnection@1cf11404 is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@1cf11404
+
+Will insert a line with a name whose length is max length + 1. This must fail.
+Got connection org.firebirdsql.jdbc.FBConnection@21f3aa07
+Request "INSERT INTO TEST_TABLE values (3, 'abcdefghij1')" failed as expected, error message : org.firebirdsql.jdbc.FBSQLException: GDS Exception. 335544321. arithmetic exception, numeric overflow, or string truncation
+Connection org.firebirdsql.jdbc.FBConnection@21f3aa07 is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@21f3aa07
+
+Will insert a line with a name whose length is max length + 2. This must fail.
+Got connection org.firebirdsql.jdbc.FBConnection@79f6f296
+Request "INSERT INTO TEST_TABLE values (4, 'abcdefghij12')" failed as expected, error message : org.firebirdsql.jdbc.FBSQLException: GDS Exception. 335544321. arithmetic exception, numeric overflow, or string truncation
+Connection org.firebirdsql.jdbc.FBConnection@79f6f296 is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@79f6f296
+
+Will insert a line with a name whose length is max length + 3. This must fail.
+Got connection org.firebirdsql.jdbc.FBConnection@45b9ce4b
+Request "INSERT INTO TEST_TABLE values (5, 'abcdefghij123')" failed as expected, error message : org.firebirdsql.jdbc.FBSQLException: GDS Exception. 335544321. arithmetic exception, numeric overflow, or string truncation
+Connection org.firebirdsql.jdbc.FBConnection@45b9ce4b is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@45b9ce4b
+
+Will try to update line 2 with a name whose length is max length + 1. This must fail.
+Got connection org.firebirdsql.jdbc.FBConnection@4bdb699b
+Request "UPDATE TEST_TABLE SET NAME = 'abcdefghij1' WHERE ID = 1" failed as expected, error message : org.firebirdsql.jdbc.FBSQLException: GDS Exception. 335544321. arithmetic exception, numeric overflow, or string truncation
+Connection org.firebirdsql.jdbc.FBConnection@4bdb699b is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@4bdb699b
+
+Will try to update line 2 with a name whose length is max length + 2. This must fail.
+Got connection org.firebirdsql.jdbc.FBConnection@19968e23
+Request "UPDATE TEST_TABLE SET NAME = 'abcdefghij12' WHERE ID = 1" failed as expected, error message : org.firebirdsql.jdbc.FBSQLException: GDS Exception. 335544321. arithmetic exception, numeric overflow, or string truncation
+Connection org.firebirdsql.jdbc.FBConnection@19968e23 is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@19968e23
+
+Will try to update line 2 with a name whose length is max length + 3. This must fail.
+Got connection org.firebirdsql.jdbc.FBConnection@7e5a9de6
+Request "UPDATE TEST_TABLE SET NAME = 'abcdefghij123' WHERE ID = 1" failed as expected, error message : org.firebirdsql.jdbc.FBSQLException: GDS Exception. 335544321. arithmetic exception, numeric overflow, or string truncation
+Connection org.firebirdsql.jdbc.FBConnection@7e5a9de6 is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@7e5a9de6
+
+Will select lines with "NAME = 'abcdefghij'"
+Got connection org.firebirdsql.jdbc.FBConnection@584fce71
+For request 'SELECT * FROM TEST_TABLE WHERE NAME = 'abcdefghij'', expected 1 line(s), got 1 : ok
+Connection org.firebirdsql.jdbc.FBConnection@584fce71 is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@584fce71
+
+Will select lines with "NAME LIKE 'abcdefghij'"
+Got connection org.firebirdsql.jdbc.FBConnection@4a79717e
+For request 'SELECT * FROM TEST_TABLE WHERE NAME LIKE 'abcdefghij'', expected 1 line(s), got 1 : ok
+Connection org.firebirdsql.jdbc.FBConnection@4a79717e is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@4a79717e
+
+Will select lines with "NAME = 'abcdefghij%'"
+Got connection org.firebirdsql.jdbc.FBConnection@6262937c
+For request 'SELECT * FROM TEST_TABLE WHERE NAME = 'abcdefghij%'', expected 0 line(s), got 0 : ok
+Connection org.firebirdsql.jdbc.FBConnection@6262937c is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@6262937c
+
+Will select lines with "NAME = '%abcdefghij%'"
+Got connection org.firebirdsql.jdbc.FBConnection@6db3f829
+For request 'SELECT * FROM TEST_TABLE WHERE NAME = '%abcdefghij%'', expected 0 line(s), got 0 : ok
+Connection org.firebirdsql.jdbc.FBConnection@6db3f829 is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@6db3f829
+
+Will select lines with "NAME LIKE 'abcdefghij%'"
+Got connection org.firebirdsql.jdbc.FBConnection@377653ae
+For request 'SELECT * FROM TEST_TABLE WHERE NAME LIKE 'abcdefghij%'', expected 1 line(s), got 1 : ok
+Connection org.firebirdsql.jdbc.FBConnection@377653ae is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@377653ae
+
+Will select lines with "NAME LIKE '%abcdefghij%'"
+Got connection org.firebirdsql.jdbc.FBConnection@27431340
+For request 'SELECT * FROM TEST_TABLE WHERE NAME LIKE '%abcdefghij%'', expected 1 line(s), got 1 : ok
+Connection org.firebirdsql.jdbc.FBConnection@27431340 is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@27431340
+
+Will select lines with "NAME LIKE 'abcdefghij1'"
+Got connection org.firebirdsql.jdbc.FBConnection@77827284
+For request 'SELECT * FROM TEST_TABLE WHERE NAME LIKE 'abcdefghij1'', expected 0 line(s), got 0 : ok
+Connection org.firebirdsql.jdbc.FBConnection@77827284 is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@77827284
+
+Will select lines with "NAME LIKE '%abcdefghij1%'"
+Got connection org.firebirdsql.jdbc.FBConnection@bc92535
+For request 'SELECT * FROM TEST_TABLE WHERE NAME LIKE '%abcdefghij1%'', expected 0 line(s), got 0 : ok
+Connection org.firebirdsql.jdbc.FBConnection@bc92535 is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@bc92535
+
+
+====== Beginning tests using requests with parameters ======
+
+Will insert a line with a short name
+Got connection org.firebirdsql.jdbc.FBConnection@7cf1bb78
+Connection org.firebirdsql.jdbc.FBConnection@7cf1bb78 is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@7cf1bb78
+
+Will insert a line with a name whose length is the max length
+Got connection org.firebirdsql.jdbc.FBConnection@1d10c424
+Connection org.firebirdsql.jdbc.FBConnection@1d10c424 is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@1d10c424
+
+Will insert a line with a name whose length is max length + 1. This must fail.
+Got connection org.firebirdsql.jdbc.FBConnection@10382a9
+Request "INSERT INTO TEST_TABLE values (?, ?)" failed as expected for args [103, abcdefghij1], error message : java.sql.DataTruncation: Data truncation
+Connection org.firebirdsql.jdbc.FBConnection@10382a9 is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@10382a9
+
+Will insert a line with a name whose length is max length + 2. This must fail.
+Got connection org.firebirdsql.jdbc.FBConnection@5430d082
+Request "INSERT INTO TEST_TABLE values (?, ?)" failed as expected for args [104, abcdefghij12], error message : java.sql.DataTruncation: Data truncation
+Connection org.firebirdsql.jdbc.FBConnection@5430d082 is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@5430d082
+
+Will insert a line with a name whose length is max length + 3. This must fail.
+Got connection org.firebirdsql.jdbc.FBConnection@52cc95d
+Request "INSERT INTO TEST_TABLE values (?, ?)" failed as expected for args [105, abcdefghij123], error message : java.sql.DataTruncation: Data truncation
+Connection org.firebirdsql.jdbc.FBConnection@52cc95d is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@52cc95d
+
+Will try to update line 2 with a name whose length is max length + 1. This must fail.
+Got connection org.firebirdsql.jdbc.FBConnection@13c695a6
+Request "UPDATE TEST_TABLE SET NAME = ? WHERE ID = ?" failed as expected for args [abcdefghij1, 101], error message : java.sql.DataTruncation: Data truncation
+Connection org.firebirdsql.jdbc.FBConnection@13c695a6 is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@13c695a6
+
+Will try to update line 2 with a name whose length is max length + 2. This must fail.
+Got connection org.firebirdsql.jdbc.FBConnection@3cccc588
+Request "UPDATE TEST_TABLE SET NAME = ? WHERE ID = ?" failed as expected for args [abcdefghij12, 101], error message : java.sql.DataTruncation: Data truncation
+Connection org.firebirdsql.jdbc.FBConnection@3cccc588 is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@3cccc588
+
+Will try to update line 2 with a name whose length is max length + 3. This must fail.
+Got connection org.firebirdsql.jdbc.FBConnection@6eb02efa
+Request "UPDATE TEST_TABLE SET NAME = ? WHERE ID = ?" failed as expected for args [abcdefghij123, 101], error message : java.sql.DataTruncation: Data truncation
+Connection org.firebirdsql.jdbc.FBConnection@6eb02efa is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@6eb02efa
+
+Will select lines with "NAME = 'abcdefghij'"
+Got connection org.firebirdsql.jdbc.FBConnection@bbe0f0a
+For request 'SELECT * FROM TEST_TABLE WHERE NAME = ?', expected 1 line(s), got 2 : KO !
+Connection org.firebirdsql.jdbc.FBConnection@bbe0f0a is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@bbe0f0a
+
+Will select lines with "NAME LIKE 'abcdefghij'"
+Got connection org.firebirdsql.jdbc.FBConnection@5c73a7ab
+For request 'SELECT * FROM TEST_TABLE WHERE NAME LIKE ?', expected 1 line(s), got 2 : KO !
+Connection org.firebirdsql.jdbc.FBConnection@5c73a7ab is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@5c73a7ab
+
+Will select lines with "NAME = 'abcdefghij%'"
+Got connection org.firebirdsql.jdbc.FBConnection@7546c1d4
+====== ERROR : request "SELECT * FROM TEST_TABLE WHERE NAME = ?" failed for args [abcdefghij%], should not have. Stacktrace is :
+java.sql.DataTruncation: Data truncationConnection org.firebirdsql.jdbc.FBConnection@7546c1d4 is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@7546c1d4
+	at org.firebirdsql.jdbc.field.FBWorkaroundStringField.setString(FBWorkaroundStringField.java:107)
+	at org.firebirdsql.jdbc.field.FBField.setObject(FBField.java:752)
+	at org.firebirdsql.jdbc.AbstractPreparedStatement.setObject(AbstractPreparedStatement.java:372)
+	at test.FBParametersTestCase.select(FBParametersTestCase.java:186)
+	at test.FBParametersTestCase.executeTestsWithParametersInRequests(FBParametersTestCase.java:156)
+	at test.FBParametersTestCase.test(FBParametersTestCase.java:65)
+	at test.FBParametersTestCase.main(FBParametersTestCase.java:41)
+
+
+Will select lines with "NAME = '%abcdefghij%'"
+Got connection org.firebirdsql.jdbc.FBConnection@34fbb7cb
+For request 'SELECT * FROM TEST_TABLE WHERE NAME = ?', expected 0 line(s), got 0 : ok
+Connection org.firebirdsql.jdbc.FBConnection@34fbb7cb is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@34fbb7cb
+
+Will select lines with "NAME LIKE 'abcdefghij%'"
+Got connection org.firebirdsql.jdbc.FBConnection@2fcac6db
+====== ERROR : request "SELECT * FROM TEST_TABLE WHERE NAME LIKE ?" failed for args [abcdefghij%], should not have. Stacktrace is :
+java.sql.DataTruncation: Data truncation
+	at org.firebirdsql.jdbc.field.FBWorkaroundStringField.setString(FBWorkaroundStringField.java:107)
+	at org.firebirdsql.jdbc.field.FBField.setObject(FBField.java:752)
+	at org.firebirdsql.jdbc.AbstractPreparedStatement.setObject(AbstractPreparedStatement.java:372)
+	at test.FBParametersTestCase.select(FBParametersTestCase.java:186)
+	at test.FBParametersTestCase.executeTestsWithParametersInRequests(FBParametersTestCase.java:162)
+	at test.FBParametersTestCase.test(FBParametersTestCase.java:65)
+	at test.FBParametersTestCase.main(FBParametersTestCase.java:41)
+Connection org.firebirdsql.jdbc.FBConnection@2fcac6db is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@2fcac6db
+
+Will select lines with "NAME LIKE '%abcdefghij%'"
+Got connection org.firebirdsql.jdbc.FBConnection@2b5ac3c9
+For request 'SELECT * FROM TEST_TABLE WHERE NAME LIKE ?', expected 1 line(s), got 0 : KO !
+Connection org.firebirdsql.jdbc.FBConnection@2b5ac3c9 is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@2b5ac3c9
+
+Will select lines with "NAME LIKE 'abcdefghij1'"
+Got connection org.firebirdsql.jdbc.FBConnection@7825d2b2
+====== ERROR : request "SELECT * FROM TEST_TABLE WHERE NAME LIKE ?" failed for args [abcdefghij1], should not have. Stacktrace is :
+java.sql.DataTruncation: Data truncation
+	at org.firebirdsql.jdbc.field.FBWorkaroundStringField.setString(FBWorkaroundStringField.java:107)
+	at org.firebirdsql.jdbc.field.FBField.setObject(FBField.java:752)
+	at org.firebirdsql.jdbc.AbstractPreparedStatement.setObject(AbstractPreparedStatement.java:372)
+	at test.FBParametersTestCase.select(FBParametersTestCase.java:186)
+	at test.FBParametersTestCase.executeTestsWithParametersInRequests(FBParametersTestCase.java:168)
+	at test.FBParametersTestCase.test(FBParametersTestCase.java:65)
+	at test.FBParametersTestCase.main(FBParametersTestCase.java:41)
+Connection org.firebirdsql.jdbc.FBConnection@7825d2b2 is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@7825d2b2
+
+Will select lines with "NAME LIKE '%abcdefghij1%'"
+Got connection org.firebirdsql.jdbc.FBConnection@1572e449
+====== ERROR : request "SELECT * FROM TEST_TABLE WHERE NAME LIKE ?" failed for args [%abcdefghij1%], should not have. Stacktrace is :
+java.sql.DataTruncation: Data truncation
+	at org.firebirdsql.jdbc.field.FBWorkaroundStringField.setString(FBWorkaroundStringField.java:107)
+	at org.firebirdsql.jdbc.field.FBField.setObject(FBField.java:752)
+	at org.firebirdsql.jdbc.AbstractPreparedStatement.setObject(AbstractPreparedStatement.java:372)
+	at test.FBParametersTestCase.select(FBParametersTestCase.java:186)
+	at test.FBParametersTestCase.executeTestsWithParametersInRequests(FBParametersTestCase.java:171)
+	at test.FBParametersTestCase.test(FBParametersTestCase.java:65)
+	at test.FBParametersTestCase.main(FBParametersTestCase.java:41)
+Connection org.firebirdsql.jdbc.FBConnection@1572e449 is still valid
+Closing connection org.firebirdsql.jdbc.FBConnection@1572e449

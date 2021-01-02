@@ -1,0 +1,63 @@
+>	gds32.dll!Firebird::MemoryPool::internal_alloc(unsigned int size=88, short type=14)  Line 1297	C++
+ 	gds32.dll!Firebird::MemoryPool::allocate_nothrow(unsigned int size=80, short type=14)  Line 577 + 0x11 bytes	C++
+ 	gds32.dll!Firebird::MemoryPool::allocate(unsigned int size=80, short type=14)  Line 735 + 0x10 bytes	C++
+ 	gds32.dll!PAR_make_node(Jrd::thread_db * tdbb=0x0207eb14, int size=15)  Line 539 + 0x19 bytes	C++
+ 	gds32.dll!par_rse(Jrd::thread_db * tdbb=0x0207eb14, Jrd::CompilerScratch * csb=0x00000000, short rse_op=119)  Line 2116 + 0x15 bytes	C++
+ 	gds32.dll!parse(Jrd::thread_db * tdbb=0x05b80077, Jrd::CompilerScratch * csb=0x00000077, unsigned short expected=5, unsigned short expected_optional=4)  Line 2660 + 0x10 bytes	C++
+ 	gds32.dll!par_rse(Jrd::thread_db * tdbb=0x0207eb14, Jrd::CompilerScratch * csb=0x00000000, short rse_op=119)  Line 2123 + 0xf bytes	C++
+ 	gds32.dll!parse(Jrd::thread_db * tdbb=0x05b80077, Jrd::CompilerScratch * csb=0x00000077, unsigned short expected=5, unsigned short expected_optional=4)  Line 2660 + 0x10 bytes	C++
+ 	gds32.dll!par_rse(Jrd::thread_db * tdbb=0x0207eb14, Jrd::CompilerScratch * csb=0x00000000, short rse_op=119)  Line 2123 + 0xf bytes	C++
+ 	gds32.dll!parse(Jrd::thread_db * tdbb=0x05b80077, Jrd::CompilerScratch * csb=0x00000077, unsigned short expected=5, unsigned short expected_optional=4)  Line 2660 + 0x10 bytes	C++
+ 	gds32.dll!par_rse(Jrd::thread_db * tdbb=0x0207eb14, Jrd::CompilerScratch * csb=0x00000000, short rse_op=119)  Line 2123 + 0xf bytes	C++
+ 	gds32.dll!parse(Jrd::thread_db * tdbb=0x05b80077, Jrd::CompilerScratch * csb=0x00000077, unsigned short expected=5, unsigned short expected_optional=4)  Line 2660 + 0x10 bytes	C++
+ 	gds32.dll!par_rse(Jrd::thread_db * tdbb=0x0207eb14, Jrd::CompilerScratch * csb=0x00000000, short rse_op=119)  Line 2123 + 0xf bytes	C++
+ 	gds32.dll!parse(Jrd::thread_db * tdbb=0x03cb0077, Jrd::CompilerScratch * csb=0x00000077, unsigned short expected=5, unsigned short expected_optional=4)  Line 2660 + 0x10 bytes	C++
+ 	gds32.dll!par_rse(Jrd::thread_db * tdbb=0x0207eb14, Jrd::CompilerScratch * csb=0x00000000, short rse_op=119)  Line 2123 + 0xf bytes	C++
+ 	gds32.dll!parse(Jrd::thread_db * tdbb=0x03cb0077, Jrd::CompilerScratch * csb=0x00000077, unsigned short expected=5, unsigned short expected_optional=4)  Line 2660 + 0x10 bytes	C++
+ 	gds32.dll!par_rse(Jrd::thread_db * tdbb=0x0207eb14, Jrd::CompilerScratch * csb=0x00000000, short rse_op=119)  Line 2123 + 0xf bytes	C++
+ 	gds32.dll!parse(Jrd::thread_db * tdbb=0x05b80077, Jrd::CompilerScratch * csb=0x00000077, unsigned short expected=5, unsigned short expected_optional=4)  Line 2660 + 0x10 bytes	C++
+ 	gds32.dll!par_rse(Jrd::thread_db * tdbb=0x0207eb14, Jrd::CompilerScratch * csb=0x00000000, short rse_op=119)  Line 2123 + 0xf bytes	C++
+ 	gds32.dll!parse(Jrd::thread_db * tdbb=0x05b80077, Jrd::CompilerScratch * csb=0x00000077, unsigned short expected=5, unsigned short expected_optional=4)  Line 2660 + 0x10 bytes	C++
+ 	gds32.dll!par_rse(Jrd::thread_db * tdbb=0x0207eb14, Jrd::CompilerScratch * csb=0x00000000, short rse_op=119)  Line 2123 + 0xf bytes	C++
+ 	gds32.dll!parse(Jrd::thread_db * tdbb=0x05b80077, Jrd::CompilerScratch * csb=0x00000077, unsigned short expected=5, unsigned short expected_optional=4)  Line 2660 + 0x10 bytes	C++
+ 	gds32.dll!par_rse(Jrd::thread_db * tdbb=0x0207eb14, Jrd::CompilerScratch * csb=0x00000000, short rse_op=119)  Line 2123 + 0xf bytes	C++
+ 	gds32.dll!parse(Jrd::thread_db * tdbb=0x05b80077, Jrd::CompilerScratch * csb=0x00000077, unsigned short expected=5, unsigned short expected_optional=4)  Line 2660 + 0x10 bytes	C++
+ 	gds32.dll!par_rse(Jrd::thread_db * tdbb=0x0207eb14, Jrd::CompilerScratch * csb=0x00000000, short rse_op=119)  Line 2123 + 0xf bytes	C++
+ 	gds32.dll!parse(Jrd::thread_db * tdbb=0x05290077, Jrd::CompilerScratch * csb=0x00000077, unsigned short expected=5, unsigned short expected_optional=4)  Line 2660 + 0x10 bytes	C++
+ 	gds32.dll!par_rse(Jrd::thread_db * tdbb=0x0207eb14, Jrd::CompilerScratch * csb=0x00000000, short rse_op=67)  Line 2123 + 0xf bytes	C++
+ 	gds32.dll!parse(Jrd::thread_db * tdbb=0x06ab0043, Jrd::CompilerScratch * csb=0x00000043, unsigned short expected=4, unsigned short expected_optional=0)  Line 2660 + 0x10 bytes	C++
+ 	gds32.dll!parse(Jrd::thread_db * tdbb=0x06ab0007, Jrd::CompilerScratch * csb=0x00000007, unsigned short expected=1, unsigned short expected_optional=0)  Line 2616 + 0xb bytes	C++
+ 	gds32.dll!parse(Jrd::thread_db * tdbb=0x0207000c, Jrd::CompilerScratch * csb=0x0000000c, unsigned short expected=1, unsigned short expected_optional=0)  Line 2901 + 0xa bytes	C++
+ 	gds32.dll!parse(Jrd::thread_db * tdbb=0x02070002, Jrd::CompilerScratch * csb=0x00000002, unsigned short expected=0, unsigned short expected_optional=0)  Line 2851 + 0xa bytes	C++
+ 	gds32.dll!PAR_parse(Jrd::thread_db * tdbb=0x0207eb14, const unsigned char * blr=0x0571f18c, unsigned short internal_flag=0)  Line 579	C++
+ 	gds32.dll!CMP_compile2(Jrd::thread_db * tdbb=0x0207eb14, const unsigned char * blr=0x0571f18c, unsigned short internal_flag=0)  Line 560 + 0x12 bytes	C++
+ 	gds32.dll!jrd8_compile_request(long * user_status=0x0207f090, Jrd::Attachment * * db_handle=0x0d19f5b0, Jrd::jrd_req * * req_handle=0x0207eba4, short blr_length=1606, const char * blr=0x0571f18c)  Line 1671	C++
+ 	gds32.dll!isc_compile_request(long * user_status=0x0207f090, void * * db_handle=0x01b6f060, void * * req_handle=0x052dec3c, unsigned short blr_length=1606, const char * blr=0x0571f18c)  Line 1222 + 0x25 bytes	C++
+ 	gds32.dll!prepare(dsql_req * request=0x052deb00, unsigned short string_length=0, const char * string=0x00000000, unsigned short client_dialect=1606, unsigned short parser_version=2)  Line 4754 + 0x20 bytes	C++
+ 	gds32.dll!GDS_DSQL_PREPARE_CPP(long * user_status=0x0207f090, void * * trans_handle=0x14acb024, dsql_req * * req_handle=0x014f3bdc, unsigned short length=2966, const char * string=0x14962008, unsigned short dialect=3, unsigned short item_length=12, const unsigned char * items=0x014572e8, unsigned short buffer_length=3472, unsigned char * buffer=0x07dfb6fc)  Line 1395 + 0x15 bytes	C++
+ 	gds32.dll!isc_dsql_prepare_m(long * user_status=0x0207f090, void * * tra_handle=0x14acb024, void * * stmt_handle=0x14b5cf3c, unsigned short length=0, const char * string=0x14962008, unsigned short dialect=3, unsigned short item_length=12, const char * items=0x014572e8, unsigned short buffer_length=3472, char * buffer=0x07dfb6fc)  Line 3360	C++
+ 	gds32.dll!isc_dsql_prepare(long * user_status=0x0207f090, void * * tra_handle=0x14acb024, void * * stmt_handle=0x14b5cf3c, unsigned short length=0, const char * string=0x14962008, unsigned short dialect=3, XSQLDA * sqlda=0x148d0190)  Line 3284 + 0x34 bytes	C++
+ 	IBProv.dll!45e486c8() 	
+ 	[Frames below may be incorrect and/or missing, no symbols loaded for IBProv.dll]	
+ 	msvcr80.dll!___RTDynamicCast()  + 0x1a bytes	
+ 	msvcr80.dll!___RTDynamicCast()  + 0x1a bytes	
+ 	msvcp80.dll!std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::assign()  + 0x5f bytes	
+ 	0207f1a0()	
+ 	IBProv.dll!45e2558f() 	
+ 	IBProv.dll!45e5fe05() 	
+ 	IBProv.dll!45e5cbdd() 	
+ 	IBProv.dll!45e5a638() 	
+ 	IBProv.dll!45e249fa() 	
+ 	ole32.dll!_CoSetErrorInfo@8()  + 0x6e bytes	
+ 	IBProv.dll!45e20e29() 	
+ 	MFServer.exe!ATL::CCommandBase::Prepare(unsigned long cExpectedRuns=100)  Line 6434 + 0xf bytes	C++
+ 	MFServer.exe!CCachedDBSession::GetOrCreateCachedCommand(const ATL::CStringT<unsigned short,StrTraitMFC<unsigned short,ATL::ChTraitsCRT<unsigned short> > > & szSQL=<Bad Ptr>, CMDynamicAccessorWithParams & accwp={...}, boost::shared_ptr<ATL::CCommand<CMDynamicAccessorWithParams,ATL::CRowset,ATL::CNoMultipleResults> > & shpcmd={...})  Line 161 + 0x21 bytes	C++
+ 	MFServer.exe!CCachedDBSession::OpenRowset(const ATL::CStringT<unsigned short,StrTraitMFC<unsigned short,ATL::ChTraitsCRT<unsigned short> > > & szSQL=<Bad Ptr>, CMDynamicAccessorWithParams & accwp={...}, boost::shared_ptr<ATL::CCommand<CMDynamicAccessorWithParams,ATL::CRowset,ATL::CNoMultipleResults> > & shpcmd={...})  Line 230 + 0x27 bytes	C++
+ 	MFServer.exe!RPCDocumentOperationsHelper::GetPropertiesOfMultipleDocuments(CDBSession & dbsess={...}, const CMFSession * pmfsess=0x0717c0c0, unsigned long ulObjCount=14, const CMF_ObjVer * pobjvers=0x0cda8538, bool bIncludeDocLevelProperties=true, const std::vector<long,std::allocator<long> > * pvecPropertyDefConditions=[3](...,...), bool bBypassDocVersionExistenceAndVisibilityChecks=true, bool bBypassVLItemsVisibilityChecks=false, CMF_PropertyValueArray * parrPropValArrays=0x070f9ed0, CMF_PVACLArray * parrPVACLArrays=0x00000000)  Line 8324 + 0x34 bytes	C++
+ 	MFServer.exe!MF_GetVersionCommentHistory(void * IDL_handle=0x0eed1688, _SESSIONID sessID={...}, _MF_ObjVer objver_={...}, unsigned long * pulCount=0x0207fb98, _MF_ObjVerProperties * * ppovpropsResults=0x0207fba8, _MF_MetaDataVersion * pmdver=0x0207fbb8, unsigned long * pulErrorCount=0x0207fbc8, _RPCErrorInfo * * ppErrorValues=0x0207fbd8)  Line 659 + 0x5d bytes	C++
+ 	rpcrt4.dll!77c70f4b() 	
+ 	ntdll.dll!_RtlpAllocateFromHeapLookaside@4()  + 0x13 bytes	
+ 	ntdll.dll!_RtlAllocateHeap@12()  + 0xe2 bytes	
+ 	mswsock.dll!_WSPSend@36()  + 0x14a bytes	
+ 	ntdll.dll!_NtDeviceIoControlFile@40()  + 0xc bytes	
+ 	ws2_32.dll!_WSARecv@28()  + 0x9a bytes	

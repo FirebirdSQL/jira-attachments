@@ -1,0 +1,10 @@
+  <system.data>
+
+    <DbProviderFactories>
+      <add name="FirebirdSql Data Provider"
+              invariant="FirebirdSql.Data.FirebirdClient"
+              description="FirebirdClient - ADO.NET Data Provider"
+              type="FirebirdSql.Data.FirebirdClient.FirebirdClientFactory,
+                  FirebirdSql.Data.FirebirdClient" />
+    </DbProviderFactories>
+  </system.data>

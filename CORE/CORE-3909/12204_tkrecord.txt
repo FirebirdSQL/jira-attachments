@@ -1,0 +1,57 @@
+CREATE TABLE TKRECORD 
+(
+  TKRECORDID                  NUMERIC( 18, 0) NOT NULL,
+  CUTOFFCODE             TEXTCODELONG ,
+  BADGENO                     BADGENO ,
+  NAME                        VARCHAR(    55)  COLLATE ISO8859_1,
+  BUCODE                         CHAR(     5)  COLLATE ISO8859_1,
+  LOCATIONCODE                   CHAR(     4)  COLLATE ISO8859_1,
+  LOCATIONDESC             MEDIUMTEXT ,
+  SOURCETBL               SHORTERTEXT NOT NULL,
+  TRANSID                     NUMERIC( 18, 0) NOT NULL,
+  TKREMARKS                LONGERTEXT ,
+  CREATEDDATE               TIMESTAMP,
+  CREATEDBY                MEDIUMTEXT ,
+  LASTUPDATEDATE            TIMESTAMP,
+  LASTUPDATEBY             MEDIUMTEXT ,
+ CONSTRAINT PK_TKRECORD PRIMARY KEY (TKRECORDID)
+);
+ALTER TABLE TKRECORD ADD CONSTRAINT U_TKRECORD_SOURCE UNIQUE 
+  (SOURCETBL, TRANSID);
+SET TERM ^^ ;
+CREATE TRIGGER TKRECORD_CREATED FOR TKRECORD ACTIVE BEFORE INSERT POSITION 1 AS
+/*
+  You can change this template in the template editor:
+  File | Preferences | Object Templates
+  Changed  :
+*/
+begin
+     NEW.CREATEDDATE = 'now';
+     NEW.CREATEDBY = user;
+end ^^
+SET TERM ; ^^
+SET TERM ^^ ;
+CREATE TRIGGER TKRECORD_ID FOR TKRECORD ACTIVE BEFORE INSERT POSITION 0 AS
+/*
+  You can change this template in the template editor:
+  File | Preferences | Object Templates
+*/
+begin
+  if ( (new.TKRECORDID is null) or (new.TKRECORDID = 0) )
+  then new.TKRECORDID = gen_id(TKRECORD_GEN, 1);
+end ^^
+SET TERM ; ^^
+SET TERM ^^ ;
+CREATE TRIGGER TKRECORD_UPDATED FOR TKRECORD ACTIVE BEFORE UPDATE POSITION 0 AS
+
+/*
+  You can change this template in the template editor:
+  File | Preferences | Object Templates
+
+*/
+
+begin
+     NEW.LASTUPDATEDATE = 'now';
+     NEW.LASTUPDATEBY = user;
+end ^^
+SET TERM ; ^^

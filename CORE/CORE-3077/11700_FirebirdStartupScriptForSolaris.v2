@@ -1,0 +1,68 @@
+#!/bin/sh
+#
+
+# This file belongs in /etc/init.d where it will be run
+# on system startup and shutdown to start the background
+# Firebird/interbase database server daemon 
+
+mode=$1
+
+# To run more instances of firebird:
+#   Copy @prefix@ somewhere
+#   Copy this script under a new name
+#   Change INSTANCE and FIREBIRD below (all instance names should be unique)
+#   Edit the copied firebird.conf to change at least RemoteServicePort
+INSTANCE=default
+FIREBIRD=/usr/local/firebird
+# No changes needed below for multiple instances
+
+INTERBASE=$FIREBIRD
+export INTERBASE
+export FIREBIRD
+
+LD_LIBRARY_PATH=$FIREBIRD/lib:$FIREBIRD/intl
+export LD_LIBRARY_PATH
+
+FBRunUser=firebird
+PidDir=/var/run/firebird
+if [ ! -d $PidDir ]
+then
+	mkdir $PidDir
+	chown $FBRunUser $PidDir
+fi
+PidFile=$PidDir/$INSTANCE.pid
+FULLNAME="Firebird SS [$INSTANCE]"
+MANAGER=$FIREBIRD/bin/fbmgr.bin
+
+usage_error() {
+      echo "  $0 start             (start Firebird SS server process)"
+      echo "  $0 stop              (stop Firebird SS server process)"
+      echo " "
+}
+
+if [ ! -d "$FIREBIRD" ]
+then
+	echo "$FULLNAME directory ($FIREBIRD) does not exist!"
+	exit 1
+fi
+
+case "$mode" in
+
+'start')
+	echo "trying to start $FULLNAME Server.."
+	/usr/bin/su - $FBRunUser -c "$MANAGER -pidfile $pidfile -start -forever"
+	;;
+
+'stop') 	
+	echo "trying to stop $FULLNAME Server.."
+	kill `cat $pidfile`
+	sleep 1
+	;;
+
+*)
+	usage_error
+	exit 1
+	;;
+esac
+
+exit 0

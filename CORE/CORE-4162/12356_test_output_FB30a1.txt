@@ -1,0 +1,48 @@
+Output for Firebird 3.0
+Database "D:\DATA\DB\DIALECTTEST.FDB"
+Database header page information:
+	Flags			0
+	Generation		2
+	System Change Number	0
+	Page size		4096
+	ODS version		12.0
+	Oldest transaction	1
+	Oldest active		0
+	Oldest snapshot		0
+	Next transaction	0
+	Sequence number		0
+	Next attachment ID	3
+	Implementation		HW=AMD/Intel/x64 little-endian OS=Windows CC=MSVC
+	Shadow count		0
+	Page buffers		0
+	Next header page	0
+	Database dialect	3
+	Creation date		Aug 4, 2013 12:00:17
+	Attributes		force write
+
+    Variable header data:
+	*END*
+
+Database "D:\DATA\DB\DIALECTTEST.FDB"
+Database header page information:
+	Flags			0
+	Generation		4
+	System Change Number	0
+	Page size		4096
+	ODS version		12.0
+	Oldest transaction	1
+	Oldest active		0
+	Oldest snapshot		0
+	Next transaction	0
+	Sequence number		0
+	Next attachment ID	6
+	Implementation		HW=AMD/Intel/x64 little-endian OS=Windows CC=MSVC
+	Shadow count		0
+	Page buffers		0
+	Next header page	0
+	Database dialect	1
+	Creation date		Aug 4, 2013 12:00:17
+	Attributes		force write
+
+    Variable header data:
+	*END*

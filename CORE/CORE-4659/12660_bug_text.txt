@@ -1,0 +1,20 @@
+C:\fb30.b1>isql /3064:koko -user sysdba -pass masterkey
+Database:  /3064:koko, User: sysdba
+SQL> select * from sec$users;
+
+SEC$USER_NAME                   SEC$FIRST_NAME                   SEC$MIDDLE_NAME
+                  SEC$LAST_NAME                    SEC$ACTIVE SEC$ADMIN   SEC$DE
+SCRIPTION SEC$PLUGIN
+=============================== ================================ ===============
+================= ================================ ========== ========= ========
+========= ===============================
+Statement failed, SQLSTATE = 28000
+Missing security context for C:\FB30.B1\SECURITY3.FDB
+SQL> quit;
+
+C:\fb30.b1>isql /3064:koko -user sysdba -pass masterkey
+Database:  /3064:koko, User: sysdba
+SQL> create user test123 password '123';
+Statement failed, SQLSTATE = 28000
+Missing security context for C:\FB30.B1\SECURITY3.FDB
+SQL>

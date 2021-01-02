@@ -1,0 +1,3283 @@
+XSERV-7BF62F (Server)	Wed Aug 11 09:13:54 2010
+	Database: D:\BAZA\BAZA.EWI
+	Index 4 is corrupt on page 360167 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:13:54 2010
+	Database: D:\BAZA\BAZA.EWI
+	Index 4 is corrupt on page 360167 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1649
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:14:09 2010
+	Database: D:\BAZA\BAZA.EWI
+	Relation has 479 orphan backversions (1670 in use) in table GPRS_DB (167)
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:15:42 2010
+	Database: D:\BAZA\BAZA.EWI
+	Index 1 is corrupt on page 57306 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table GPRSTEST_DB (171)
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:15:42 2010
+	Database: D:\BAZA\BAZA.EWI
+	Index 1 is corrupt on page 57306 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1649
+	 in table GPRSTEST_DB (171)
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:17:53 2010
+	Database: D:\BAZA\BAZA.EWI
+	Index 5 is corrupt on page 393068 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1649
+	 in table HIST_DB (173)
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 63330 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 63842 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 66980 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 88401 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 88402 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 88452 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 88476 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 88503 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 88504 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 88507 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 89949 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 89950 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 89951 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 90004 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 90012 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 90021 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 90022 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 90024 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 90025 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 442153 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 442161 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 442186 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 442221 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 442245 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 442289 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 442410 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 442429 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 442442 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 442464 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 442533 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 442580 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 442638 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 442667 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 442668 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 442719 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 442799 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 442808 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 442973 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443118 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443137 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443146 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443210 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443212 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443240 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443267 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443288 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443314 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443326 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443373 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443381 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443402 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443468 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443496 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443541 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443546 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443612 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443632 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443717 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443815 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443834 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443848 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443879 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443891 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443903 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443926 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443956 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443960 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 443984 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444011 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444085 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444138 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444146 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444195 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444202 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444251 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444274 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444316 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444333 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444354 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444380 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444399 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444419 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444431 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444445 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444455 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444481 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444484 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444497 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444526 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444529 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444550 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444577 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444581 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444618 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444661 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444695 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444760 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444775 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444791 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444801 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444835 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444860 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444896 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444912 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444923 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444955 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444982 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 444994 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445048 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445078 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445081 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445100 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445109 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445163 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445172 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445222 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445229 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445257 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445340 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445407 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445433 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445477 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445488 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445503 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445517 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445540 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445555 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445584 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445615 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445622 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445688 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445719 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445744 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445751 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445765 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445787 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445815 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445833 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445845 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445862 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445876 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445902 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445918 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 445955 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446028 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446054 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446088 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446102 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446140 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446166 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446210 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446242 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446298 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446312 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446327 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446349 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446373 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446399 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446412 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446431 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446447 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446512 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446566 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446582 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446599 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446620 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446651 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446661 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446684 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446707 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446731 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446744 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446758 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446773 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446803 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446821 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446838 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446853 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446869 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446899 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446910 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446923 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446957 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 446988 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447018 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447078 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447108 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447117 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447138 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447152 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447173 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447185 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447198 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447230 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447298 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447312 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447345 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447367 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447380 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447401 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447464 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447487 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447505 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447548 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447584 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447603 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447626 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447642 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447660 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447675 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447690 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447725 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447752 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447769 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447893 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447910 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447930 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447973 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447988 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 447995 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448008 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448033 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448077 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448091 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448108 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448123 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448227 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448251 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448309 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448321 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448358 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448387 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448411 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448426 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448442 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448471 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448570 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448609 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448635 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448642 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448659 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448674 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448699 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448723 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448733 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448743 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448763 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448786 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448831 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448841 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448853 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448911 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448919 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448932 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448949 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 448971 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449004 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449010 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449023 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449032 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449068 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449077 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449094 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449116 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449132 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449146 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449161 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449182 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449194 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449206 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449298 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449307 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449363 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449377 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449399 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449411 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449422 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449433 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449455 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449515 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449555 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449562 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449586 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449687 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449735 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449791 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449804 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449851 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449889 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449901 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449919 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449927 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449947 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 449976 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450029 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450044 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450055 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450068 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450079 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450106 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450116 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450133 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450177 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450190 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450264 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450289 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450311 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450368 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450394 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450406 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450420 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450458 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450471 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450479 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450506 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450530 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450551 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450645 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450689 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450701 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450722 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450756 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450778 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450806 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450843 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450864 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450876 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450892 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450911 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450929 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450939 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450949 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450969 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 450990 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451006 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451021 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451043 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451051 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451061 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451075 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451136 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451153 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451174 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451186 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451194 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451209 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451224 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451232 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451290 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451314 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451324 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451343 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451365 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451373 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451384 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451412 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451458 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451477 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451485 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451497 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451556 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451564 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451600 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451608 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451642 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451670 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451711 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451773 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451790 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451801 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451815 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451827 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451835 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451851 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451884 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 451910 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452016 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452027 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452034 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452056 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452077 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452155 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452163 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452175 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452185 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452208 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452228 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452238 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452304 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452356 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452366 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452413 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452428 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452448 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452467 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452484 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452501 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452513 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452527 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452544 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452561 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452586 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452597 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452607 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452619 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452662 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452675 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452692 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452700 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452746 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452755 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452788 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452796 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452806 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452818 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452846 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452854 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452887 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452898 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452927 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452934 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452946 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452962 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452991 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 452998 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453027 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453034 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453052 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453061 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453077 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453093 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453100 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453117 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453132 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453141 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453208 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453217 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453225 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453233 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453240 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453268 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453276 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453296 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453308 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453314 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453326 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453334 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453343 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453376 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453386 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453418 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453433 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453443 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453450 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453463 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453480 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453491 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453523 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453546 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453555 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453563 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453571 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453595 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453615 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453623 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453633 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453641 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453664 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453671 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453774 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453784 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453798 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453806 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453815 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453834 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453843 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453868 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453875 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453884 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453896 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453909 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453918 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453953 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453972 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453980 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 453998 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454004 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454010 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454018 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454026 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454042 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454050 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454085 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454093 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454106 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454116 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454124 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454135 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454149 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454159 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454167 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454176 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454193 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454203 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454227 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454234 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454265 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454301 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454308 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454316 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454400 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454414 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454422 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454429 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454441 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454462 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454469 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454488 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454552 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454556 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454581 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454590 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454607 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454613 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454621 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454640 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454687 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454709 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454720 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454726 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454733 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454789 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454797 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454805 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454831 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454836 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454860 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454895 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454906 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454928 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454934 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454945 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454959 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 454990 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455008 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455017 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455028 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455036 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455042 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455048 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455067 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455074 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455096 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455112 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455118 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455138 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455174 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455180 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455207 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455224 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455232 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455288 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455297 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455303 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455318 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455328 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455349 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455357 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455428 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455444 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455453 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455467 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455483 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455504 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455517 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455531 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455539 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455556 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455565 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455573 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455589 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455596 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455622 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455637 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455646 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455673 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455690 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455697 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455724 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455740 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455773 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455796 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455802 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455808 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455816 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455840 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455868 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455877 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455886 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455910 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455943 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455974 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 455981 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456018 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456035 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456040 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456049 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456062 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456074 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456088 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456098 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456104 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456115 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456126 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456139 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456147 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456163 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456188 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456197 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456213 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456229 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456235 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456259 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456268 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456281 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456305 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456332 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456342 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456350 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456362 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456371 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456379 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456387 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456402 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456411 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456433 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456440 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456448 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456467 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456474 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456482 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 456490 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 457086 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 462200 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 464460 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 467221 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 467562 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 467900 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 469347 is an orphan
+
+
+XSERV-7BF62F (Server)	Wed Aug 11 09:19:23 2010
+	Database: D:\BAZA\BAZA.EWI
+	Page 469721 is an orphan

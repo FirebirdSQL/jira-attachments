@@ -1,0 +1,26 @@
+From 7bd881478d208ca8a11d1deff41507674d3fc372 Mon Sep 17 00:00:00 2001
+From: Alexpux <alexey.pawlow@gmail.com>
+Date: Thu, 20 Nov 2014 20:17:46 +0300
+Subject: [PATCH] Mingw don't support Win98.
+
+---
+ src/common/classes/locks.cpp | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/common/classes/locks.cpp b/src/common/classes/locks.cpp
+index 5a44ad4..68b64d6 100644
+--- a/src/common/classes/locks.cpp
++++ b/src/common/classes/locks.cpp
+@@ -25,7 +25,9 @@
+  *  Contributor(s): ______________________________________.
+  */
+ 
++#ifndef __MINGW32__
+ #define _WIN32_WINNT 0x0403
++#endif
+ 
+ #include "firebird.h"
+ 
+-- 
+2.1.3
+

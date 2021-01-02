@@ -1,0 +1,27 @@
+From f5595a114017b3fd00fce767597dca8e61da176c Mon Sep 17 00:00:00 2001
+From: Alexpux <alexey.pawlow@gmail.com>
+Date: Wed, 19 Nov 2014 06:17:29 +0300
+Subject: [PATCH] Remove hardcoded march to allow 64-bit builds.
+
+---
+ builds/posix/prefix.mingw | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/builds/posix/prefix.mingw b/builds/posix/prefix.mingw
+index b2d434b..5f8dde8 100644
+--- a/builds/posix/prefix.mingw
++++ b/builds/posix/prefix.mingw
+@@ -20,8 +20,8 @@
+ # 
+ 
+ # -Wno-unused-variable is used due to unused gpre generated variables
+-PROD_FLAGS=-O2  -march=i586 -DMINGW -Wall -Wshadow -Wundef -Wno-long-long -Wno-unused-variable -Wno-sign-compare -Wno-parentheses -Wno-switch -fmessage-length=0 -Dlint -DWIN32_LEAN_AND_MEAN -MMD -mthreads -Wno-non-virtual-dtor
+-DEV_FLAGS=-ggdb -march=i586 -DMINGW -Wall -Wshadow -Wundef -Wno-long-long -Wno-unused-variable -Wno-sign-compare -Wno-parentheses -Wno-switch -fmessage-length=0 -Dlint -DWIN32_LEAN_AND_MEAN -MMD -mthreads -Wno-non-virtual-dtor
++PROD_FLAGS=-O2  -DMINGW -Wall -Wshadow -Wundef -Wno-long-long -Wno-unused-variable -Wno-sign-compare -Wno-parentheses -Wno-switch -fmessage-length=0 -Dlint -DWIN32_LEAN_AND_MEAN -MMD -mthreads -Wno-non-virtual-dtor
++DEV_FLAGS=-ggdb -DMINGW -Wall -Wshadow -Wundef -Wno-long-long -Wno-unused-variable -Wno-sign-compare -Wno-parentheses -Wno-switch -fmessage-length=0 -Dlint -DWIN32_LEAN_AND_MEAN -MMD -mthreads -Wno-non-virtual-dtor
+ 
+ PLATFORM_PATH=os/win32
+ 
+-- 
+2.1.3
+

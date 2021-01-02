@@ -1,0 +1,13 @@
+--- dyn_del.epp	Sun Aug 22 18:33:25 2010
++++ dyn_del.new	Sun Aug 22 18:33:14 2010
+@@ -442,8 +442,8 @@
+ 	}
+ 	else
+ 	{
+-		DYN_error_punt(false, 214, t.c_str());
+-	    // msg 214: "Generator %s not found"
++		status_exception::raise(Arg::Gds(isc_no_meta_update) << Arg::Gds(isc_gennotdef) << Arg::Str(t));
++	    // msg 214: "generator %s not defined"
+ 	}
+ }
+ 

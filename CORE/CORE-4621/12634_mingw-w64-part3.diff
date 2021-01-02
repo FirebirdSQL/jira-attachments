@@ -1,0 +1,28 @@
+From ee4210ed503a3520723f0318deeff73693a759ba Mon Sep 17 00:00:00 2001
+From: Alexpux <alexey.pawlow@gmail.com>
+Date: Wed, 19 Nov 2014 08:59:48 +0300
+Subject: [PATCH] Define AMD64 for 64-bit mingw.
+
+---
+ configure.ac | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/configure.ac b/configure.ac
+index 801b316..d6be272 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -462,6 +462,11 @@ dnl CPU_TYPE=ppc64
+     EDITLINE_FLG=N
+     RAW_DEVICES_FLG=N
+     SHRLIB_EXT=dll
++    case "$target" in
++        x86_64-*-mingw*)
++            AC_DEFINE(AMD64, 1, [Define this if CPU is amd64])
++        ;;
++    esac
+     ;;
+ 
+   *)
+-- 
+2.1.3
+

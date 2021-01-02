@@ -1,0 +1,187 @@
+Oct 31 11:10:39 dbsanc kernel: fb_smp_server[3107]: segfault at 0 ip 00007fe8b2606b05 sp 00007fe7ee634350 error 4 in libfbembed.so.2.5.6[7fe8b24aa000+4cd000]
+Oct 31 11:13:50 dbsanc kernel: INFO: task fb_smp_server:1183 blocked for more than 120 seconds.
+Oct 31 11:13:50 dbsanc kernel:      Not tainted 2.6.32-504.23.4.el6.x86_64 #1
+Oct 31 11:13:50 dbsanc kernel: "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+Oct 31 11:13:50 dbsanc kernel: fb_smp_server D 0000000000000002     0  1183  10410 0x00000080
+Oct 31 11:13:50 dbsanc kernel: ffff8808e5285c98 0000000000000082 0000000000000000 dead000000100100
+Oct 31 11:13:50 dbsanc kernel: dead000000200200 ffff8808c3477618 001c3f95bcb4812c ffffffff810b2f00
+Oct 31 11:13:50 dbsanc kernel: ffff880000000000 00000002d98aa8ed ffff8808d3a025f8 ffff8808e5285fd8
+Oct 31 11:13:50 dbsanc kernel: Call Trace:
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff810b2f00>] ? exit_robust_list+0x90/0x160
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81079af5>] exit_mm+0x95/0x180
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81079f3f>] do_exit+0x15f/0x870
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff811a5d10>] ? pollwake+0x0/0x60
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8107a6a8>] do_group_exit+0x58/0xd0
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81090356>] get_signal_to_deliver+0x1f6/0x460
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff811a5d10>] ? pollwake+0x0/0x60
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100a265>] do_signal+0x75/0x870
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100aaf0>] do_notify_resume+0x90/0xc0
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100b3c1>] int_signal+0x12/0x17
+Oct 31 11:13:50 dbsanc kernel: INFO: task fb_smp_server:1186 blocked for more than 120 seconds.
+Oct 31 11:13:50 dbsanc kernel:      Not tainted 2.6.32-504.23.4.el6.x86_64 #1
+Oct 31 11:13:50 dbsanc kernel: "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+Oct 31 11:13:50 dbsanc kernel: fb_smp_server D 0000000000000000     0  1186  10410 0x00000080
+Oct 31 11:13:50 dbsanc kernel: ffff880a5d183c98 0000000000000082 ffffffff81297f9c ffff88006a4fbcb8
+Oct 31 11:13:50 dbsanc kernel: 0000000000000001 ffff88006a4fbcd0 0000000000000000 0000000000000000
+Oct 31 11:13:50 dbsanc kernel: ffff880a5d183c18 ffffffff81064bf2 ffff8808b0543ad8 ffff880a5d183fd8
+Oct 31 11:13:50 dbsanc kernel: Call Trace:
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81297f9c>] ? __get_user_8+0x1c/0x23
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81064bf2>] ? default_wake_function+0x12/0x20
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81079af5>] exit_mm+0x95/0x180
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81079f3f>] do_exit+0x15f/0x870
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8107a6a8>] do_group_exit+0x58/0xd0
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81090356>] get_signal_to_deliver+0x1f6/0x460
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100a265>] do_signal+0x75/0x870
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff810b585b>] ? sys_futex+0x7b/0x170
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100aaf0>] do_notify_resume+0x90/0xc0
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100b3c1>] int_signal+0x12/0x17
+Oct 31 11:13:50 dbsanc kernel: INFO: task fb_smp_server:1187 blocked for more than 120 seconds.
+Oct 31 11:13:50 dbsanc kernel:      Not tainted 2.6.32-504.23.4.el6.x86_64 #1
+Oct 31 11:13:50 dbsanc kernel: "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+Oct 31 11:13:50 dbsanc kernel: fb_smp_server D 000000000000000b     0  1187  10410 0x00000080
+Oct 31 11:13:50 dbsanc kernel: ffff8808b4dc3c98 0000000000000082 0000000000000000 ffffffff810a3f3d
+Oct 31 11:13:50 dbsanc kernel: ffffffff8100bcce ffff8808b4dc3c78 001c3f95bcb3fdb9 ffffffff810b2f00
+Oct 31 11:13:50 dbsanc kernel: 0000000000000000 00000002d98aa8ef ffff8808b39fc5f8 ffff8808b4dc3fd8
+Oct 31 11:13:50 dbsanc kernel: Call Trace:
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff810a3f3d>] ? hrtimer_try_to_cancel+0x3d/0xd0
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100bcce>] ? invalidate_interrupt2+0xe/0x20
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff810b2f00>] ? exit_robust_list+0x90/0x160
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81079af5>] exit_mm+0x95/0x180
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81079f3f>] do_exit+0x15f/0x870
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100bcce>] ? invalidate_interrupt2+0xe/0x20
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8107a6a8>] do_group_exit+0x58/0xd0
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81090356>] get_signal_to_deliver+0x1f6/0x460
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100a265>] do_signal+0x75/0x870
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff811b0ca4>] ? mnt_drop_write+0x34/0x40
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff811b09e0>] ? mntput_no_expire+0x30/0x110
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff810b585b>] ? sys_futex+0x7b/0x170
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100aaf0>] do_notify_resume+0x90/0xc0
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100b3c1>] int_signal+0x12/0x17
+Oct 31 11:13:50 dbsanc kernel: INFO: task fb_smp_server:17168 blocked for more than 120 seconds.
+Oct 31 11:13:50 dbsanc kernel:      Not tainted 2.6.32-504.23.4.el6.x86_64 #1
+Oct 31 11:13:50 dbsanc kernel: "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+Oct 31 11:13:50 dbsanc kernel: fb_smp_server D 0000000000000013     0 17168  10410 0x00000080
+Oct 31 11:13:50 dbsanc kernel: ffff880104d13c98 0000000000000082 0000000000000000 ffff880104d13c88
+Oct 31 11:13:50 dbsanc kernel: ffffffff8100bcce ffff880104d13c78 ffff880104d13c68 ffffffff810b2f00
+Oct 31 11:13:50 dbsanc kernel: 0000000000000000 0000000000000000 ffff880873357068 ffff880104d13fd8
+Oct 31 11:13:50 dbsanc kernel: Call Trace:
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100bcce>] ? invalidate_interrupt2+0xe/0x20
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff810b2f00>] ? exit_robust_list+0x90/0x160
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81079af5>] exit_mm+0x95/0x180
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81079f3f>] do_exit+0x15f/0x870
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8107a6a8>] do_group_exit+0x58/0xd0
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81090356>] get_signal_to_deliver+0x1f6/0x460
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100a265>] do_signal+0x75/0x870
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff810b585b>] ? sys_futex+0x7b/0x170
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100aaf0>] do_notify_resume+0x90/0xc0
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100b3c1>] int_signal+0x12/0x17
+Oct 31 11:13:50 dbsanc kernel: INFO: task fb_smp_server:17169 blocked for more than 120 seconds.
+Oct 31 11:13:50 dbsanc kernel:      Not tainted 2.6.32-504.23.4.el6.x86_64 #1
+Oct 31 11:13:50 dbsanc kernel: "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+Oct 31 11:13:50 dbsanc kernel: fb_smp_server D 0000000000000013     0 17169  10410 0x00000080
+Oct 31 11:13:50 dbsanc kernel: ffff880104d17c98 0000000000000082 0000000000000000 ffff880104d17c88
+Oct 31 11:13:50 dbsanc kernel: ffff880104d17c90 ffff880873356040 001c3f95bcb40b05 ffff880104d17c98
+Oct 31 11:13:50 dbsanc kernel: 0000000000000000 00000002d98aa8ed ffff8808733565f8 ffff880104d17fd8
+Oct 31 11:13:50 dbsanc kernel: Call Trace:
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8152c1cd>] ? down_read+0x1d/0x30
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81079af5>] exit_mm+0x95/0x180
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81079f3f>] do_exit+0x15f/0x870
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8107a6a8>] do_group_exit+0x58/0xd0
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81090356>] get_signal_to_deliver+0x1f6/0x460
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100a265>] do_signal+0x75/0x870
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff810b585b>] ? sys_futex+0x7b/0x170
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100aaf0>] do_notify_resume+0x90/0xc0
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100b3c1>] int_signal+0x12/0x17
+Oct 31 11:13:50 dbsanc kernel: INFO: task fb_smp_server:28701 blocked for more than 120 seconds.
+Oct 31 11:13:50 dbsanc kernel:      Not tainted 2.6.32-504.23.4.el6.x86_64 #1
+Oct 31 11:13:50 dbsanc kernel: "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+Oct 31 11:13:50 dbsanc kernel: fb_smp_server D 0000000000000004     0 28701  10410 0x00000080
+Oct 31 11:13:50 dbsanc kernel: ffff880103c69c98 0000000000000082 ffff880103c69c60 ffff880103c69c5c
+Oct 31 11:13:50 dbsanc kernel: ffff880103c69c90 ffff88087fc24b00 001c3f95bcb40f47 ffff8800282f58c0
+Oct 31 11:13:50 dbsanc kernel: 0000000000000400 00000002d98aa89a ffff8808f2659068 ffff880103c69fd8
+Oct 31 11:13:50 dbsanc kernel: Call Trace:
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81079af5>] exit_mm+0x95/0x180
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81079f3f>] do_exit+0x15f/0x870
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8107a6a8>] do_group_exit+0x58/0xd0
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81090356>] get_signal_to_deliver+0x1f6/0x460
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100a265>] do_signal+0x75/0x870
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100bcce>] ? invalidate_interrupt2+0xe/0x20
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100aaf0>] do_notify_resume+0x90/0xc0
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100b3c1>] int_signal+0x12/0x17
+Oct 31 11:13:50 dbsanc kernel: INFO: task fb_smp_server:29477 blocked for more than 120 seconds.
+Oct 31 11:13:50 dbsanc kernel:      Not tainted 2.6.32-504.23.4.el6.x86_64 #1
+Oct 31 11:13:50 dbsanc kernel: "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+Oct 31 11:13:50 dbsanc kernel: fb_smp_server D 0000000000000004     0 29477  10410 0x00000080
+Oct 31 11:13:50 dbsanc kernel: ffff880078c6bc98 0000000000000082 ffff880078c6bc60 ffff880078c6bc5c
+Oct 31 11:13:50 dbsanc kernel: ffffffff8100bcce ffff88087fc24b00 001c3f95bcb3e5ea ffff8800282558c0
+Oct 31 11:13:50 dbsanc kernel: 00000000000006f5 00000002d98aa89a ffff880871925068 ffff880078c6bfd8
+Oct 31 11:13:50 dbsanc kernel: Call Trace:
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100bcce>] ? invalidate_interrupt2+0xe/0x20
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81079af5>] exit_mm+0x95/0x180
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81079f3f>] do_exit+0x15f/0x870
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8107a6a8>] do_group_exit+0x58/0xd0
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81090356>] get_signal_to_deliver+0x1f6/0x460
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100a265>] do_signal+0x75/0x870
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81529a1e>] ? thread_return+0x4e/0x7d0
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100aaf0>] do_notify_resume+0x90/0xc0
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100bb5c>] retint_signal+0x48/0x8c
+Oct 31 11:13:50 dbsanc kernel: INFO: task fb_smp_server:1605 blocked for more than 120 seconds.
+Oct 31 11:13:50 dbsanc kernel:      Not tainted 2.6.32-504.23.4.el6.x86_64 #1
+Oct 31 11:13:50 dbsanc kernel: "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+Oct 31 11:13:50 dbsanc kernel: fb_smp_server D 0000000000000006     0  1605  10410 0x00000080
+Oct 31 11:13:50 dbsanc kernel: ffff880078d0dc98 0000000000000082 ffffea0035fa6548 ffffea0000000000
+Oct 31 11:13:50 dbsanc kernel: ffffffff8100bcce ffff880078d0dc78 ffff880078d0dc68 ffffffff810b2f00
+Oct 31 11:13:50 dbsanc kernel: 0000000000000000 0000000000000000 ffff8800497a3068 ffff880078d0dfd8
+Oct 31 11:13:50 dbsanc kernel: Call Trace:
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100bcce>] ? invalidate_interrupt2+0xe/0x20
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff810b2f00>] ? exit_robust_list+0x90/0x160
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81079af5>] exit_mm+0x95/0x180
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81079f3f>] do_exit+0x15f/0x870
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100be2e>] ? call_function_single_interrupt+0xe/0x20
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8107a6a8>] do_group_exit+0x58/0xd0
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81090356>] get_signal_to_deliver+0x1f6/0x460
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100a265>] do_signal+0x75/0x870
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8123aa9b>] ? selinux_file_permission+0xfb/0x150
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8118ea3f>] ? vfs_read+0x12f/0x1a0
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100aaf0>] do_notify_resume+0x90/0xc0
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100bb5c>] retint_signal+0x48/0x8c
+Oct 31 11:13:50 dbsanc kernel: INFO: task fb_smp_server:2384 blocked for more than 120 seconds.
+Oct 31 11:13:50 dbsanc kernel:      Not tainted 2.6.32-504.23.4.el6.x86_64 #1
+Oct 31 11:13:50 dbsanc kernel: "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+Oct 31 11:13:50 dbsanc kernel: fb_smp_server D 000000000000000e     0  2384  10410 0x00000080
+Oct 31 11:13:50 dbsanc kernel: ffff8801bbe79c98 0000000000000082 0000000000000000 ffffffff810a3f3d
+Oct 31 11:13:50 dbsanc kernel: ffffffff8100bcce ffff8801bbe79c78 001c3f95bcb3f3e3 ffffffff810b2f00
+Oct 31 11:13:50 dbsanc kernel: 0000000000000000 00000002d98aa8ed ffff8808732f1068 ffff8801bbe79fd8
+Oct 31 11:13:50 dbsanc kernel: Call Trace:
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff810a3f3d>] ? hrtimer_try_to_cancel+0x3d/0xd0
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100bcce>] ? invalidate_interrupt2+0xe/0x20
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff810b2f00>] ? exit_robust_list+0x90/0x160
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81079af5>] exit_mm+0x95/0x180
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81079f3f>] do_exit+0x15f/0x870
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8107a6a8>] do_group_exit+0x58/0xd0
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81090356>] get_signal_to_deliver+0x1f6/0x460
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100a265>] do_signal+0x75/0x870
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81448c85>] ? sys_sendto+0x185/0x190
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff810b585b>] ? sys_futex+0x7b/0x170
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100aaf0>] do_notify_resume+0x90/0xc0
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100b3c1>] int_signal+0x12/0x17
+Oct 31 11:13:50 dbsanc kernel: INFO: task fb_smp_server:2406 blocked for more than 120 seconds.
+Oct 31 11:13:50 dbsanc kernel:      Not tainted 2.6.32-504.23.4.el6.x86_64 #1
+Oct 31 11:13:50 dbsanc kernel: "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+Oct 31 11:13:50 dbsanc kernel: fb_smp_server D 0000000000000014     0  2406  10410 0x00000080
+Oct 31 11:13:50 dbsanc kernel: ffff88096f5b1c98 0000000000000082 0000000000000000 ffffffff810a3f3d
+Oct 31 11:13:50 dbsanc kernel: ffffffff8100bcce ffff88096f5b1c78 001c3f95bcb3f2ba ffffffff810b2f00
+Oct 31 11:13:50 dbsanc kernel: 0000000000000000 00000002d98aa8ed ffff88013cd865f8 ffff88096f5b1fd8
+Oct 31 11:13:50 dbsanc kernel: Call Trace:
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff810a3f3d>] ? hrtimer_try_to_cancel+0x3d/0xd0
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100bcce>] ? invalidate_interrupt2+0xe/0x20
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff810b2f00>] ? exit_robust_list+0x90/0x160
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81079af5>] exit_mm+0x95/0x180
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81079f3f>] do_exit+0x15f/0x870
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8107a6a8>] do_group_exit+0x58/0xd0
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff81090356>] get_signal_to_deliver+0x1f6/0x460
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100a265>] do_signal+0x75/0x870
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8123aa9b>] ? selinux_file_permission+0xfb/0x150
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff810b585b>] ? sys_futex+0x7b/0x170
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100aaf0>] do_notify_resume+0x90/0xc0
+Oct 31 11:13:50 dbsanc kernel: [<ffffffff8100b3c1>] int_signal+0x12/0x17

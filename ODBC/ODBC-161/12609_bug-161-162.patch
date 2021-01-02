@@ -1,0 +1,160 @@
+Index: OdbcConvert.cpp
+===================================================================
+--- OdbcConvert.cpp	(revision 46)
++++ OdbcConvert.cpp	(revision 47)
+@@ -737,7 +737,7 @@
+ 				}
+ 				return &OdbcConvert::convStringToBigint;
+ 			case SQL_C_CHAR:
+-				if ( to->type == SQL_VARCHAR )
++				if ( to->type == SQL_VARCHAR || to->type == SQL_LONGVARCHAR )
+ 				{
+ 					if ( to->isIndicatorSqlDa )
+ 					{
+@@ -756,7 +756,7 @@
+ 				bIdentity = true;
+ 				return &OdbcConvert::convStringToString;
+ 			case SQL_C_WCHAR:
+-				if ( to->type == SQL_VARCHAR )
++				if ( to->type == SQL_VARCHAR || to->type == SQL_LONGVARCHAR )
+ 				{
+ 					if ( to->isIndicatorSqlDa )
+ 					{
+@@ -901,7 +901,7 @@
+ 				}
+ 				return &OdbcConvert::convStringToBigint;
+ 			case SQL_C_CHAR:
+-				if ( to->type == SQL_VARCHAR )
++				if ( to->type == SQL_VARCHAR || to->type == SQL_LONGVARCHAR )
+ 				{
+ 					if ( to->isIndicatorSqlDa )
+ 					{
+@@ -919,7 +919,7 @@
+ 				}
+ 				return &OdbcConvert::convStringToString;
+ 			case SQL_C_WCHAR:
+-				if ( to->type == SQL_VARCHAR )
++				if ( to->type == SQL_VARCHAR || to->type == SQL_LONGVARCHAR )
+ 				{
+ 					if ( to->isIndicatorSqlDa )
+ 					{
+@@ -3370,12 +3370,13 @@
+ 
+ 	GET_WLEN_FROM_OCTETLENGTHPTR;
+ 
+-	len = MIN( len, (int)MAX(0, (int)to->length));
++	lenMbs = (SQLUINTEGER)to->WcsToMbs( NULL, pointerFrom, 0 );
++	lenMbs = MIN( lenMbs, (int)MAX(0, (int)to->length));
+ 
+-	if ( len > 0 )
++	if ( lenMbs > 0 )
+ 	{
+-		char* tempValue = new char[len];
+-		lenMbs = (SQLUINTEGER)to->WcsToMbs( tempValue, pointerFrom, len );
++		char* tempValue = new char[lenMbs + 1];
++		lenMbs = (SQLUINTEGER)to->WcsToMbs( tempValue, pointerFrom, lenMbs );
+ 		to->dataBlobPtr->writeStringHexToBlob(pointerTo, tempValue, lenMbs);
+ 		delete [] tempValue;
+ 	}
+Index: OdbcStatement.cpp
+===================================================================
+--- OdbcStatement.cpp	(revision 46)
++++ OdbcStatement.cpp	(revision 47)
+@@ -3120,20 +3120,33 @@
+ 			binding->beginBlobDataTransfer();
+ 
+ 		if ( valueSize == SQL_NTS )
+-			if ( binding->conciseType == SQL_C_CHAR )
++			if ( binding->conciseType == SQL_C_WCHAR )
++				valueSize = (SQLINTEGER)wcslen( (wchar_t*)value ) * sizeof(wchar_t);
++			else // if ( binding->conciseType == SQL_C_CHAR )
+ 				valueSize = (SQLINTEGER)strlen( (char*)value );
+-			else // if ( binding->conciseType == SQL_C_WCHAR )
+-				valueSize = (SQLINTEGER)wcslen( (wchar_t*)value );
+ 
+ 		if( valueSize )
+ 		{
+ 			if ( binding->conciseType == SQL_C_WCHAR )
+ 			{
+-				int lenMbs = valueSize / sizeof( wchar_t );
+-				char* tempValue = new char[lenMbs];
+-				binding->WcsToMbs(tempValue, (const wchar_t*)value, lenMbs );
++				CBindColumn &bindParam = (*listBindIn)[ parameterNeedData - 1 ];
++
++				// for WcsToMbs we need to assure a L'\0' terminated source buffer
++				wchar_t* wcEnd = ((wchar_t*) value) + valueSize / sizeof(wchar_t);
++				wchar_t wcSave = *wcEnd;
++				*wcEnd = L'\0';
++
++				// ipd->headSqlVarPtr->getSqlMultiple() cannot be used to calculate the conversion
++				// buffer size, because for blobs it seems to return always 1
++				// so we call the conversion function to calculate the required buffer size
++				// size_t lenMbs = valueSize / sizeof(wchar_t) * ipd->headSqlVarPtr->getSqlMultiple();
++				size_t lenMbs = bindParam.impRecord->WcsToMbs(NULL, (const wchar_t*)value, 0 );
++				char* tempValue = new char[lenMbs+1];
++				lenMbs = bindParam.impRecord->WcsToMbs(tempValue, (const wchar_t*)value, lenMbs );
+ 				binding->putBlobSegmentData (lenMbs, tempValue);
+ 				delete [] tempValue;
++
++				*wcEnd = wcSave;
+ 			}
+ 			else
+ 				binding->putBlobSegmentData (valueSize, value);
+@@ -3145,10 +3158,10 @@
+ 			binding->startedTransfer = true;
+ 
+ 		if ( valueSize == SQL_NTS )
+-			if ( binding->conciseType == SQL_C_CHAR )
++			if ( binding->conciseType == SQL_C_WCHAR )
++				valueSize = (SQLINTEGER)wcslen( (wchar_t*)value ) * sizeof(wchar_t);
++			else // if ( binding->conciseType == SQL_C_CHAR )
+ 				valueSize = (SQLINTEGER)strlen( (char*)value );
+-			else // if ( binding->conciseType == SQL_C_WCHAR )
+-				valueSize = (SQLINTEGER)wcslen( (wchar_t*)value );
+ 
+ 		CBindColumn &bindParam = (*listBindIn)[ parameterNeedData - 1 ];
+ 		SQLPOINTER valueSave = binding->dataPtr;
+Index: OdbcDesc.cpp
+===================================================================
+--- OdbcDesc.cpp	(revision 46)
++++ OdbcDesc.cpp	(revision 47)
+@@ -1279,14 +1279,16 @@
+ 	switch ( type )
+ 	{
+ 	case JDBC_LONGVARBINARY:
+-	case JDBC_LONGVARCHAR:
+-	case JDBC_WLONGVARCHAR:
++	case JDBC_BINARY:
++	case JDBC_VARBINARY:
+ 		return SQL_C_BINARY;
+ 
++	case JDBC_LONGVARCHAR:
+ 	case JDBC_CHAR:
+ 	case JDBC_VARCHAR:
+ 		return SQL_C_CHAR;
+ 
++	case JDBC_WLONGVARCHAR:
+ 	case JDBC_WCHAR:
+ 	case JDBC_WVARCHAR:
+ 		return SQL_C_WCHAR;
+Index: IscDbc/IscStatementMetaData.cpp
+===================================================================
+--- IscDbc/IscStatementMetaData.cpp	(revision 46)
++++ IscDbc/IscStatementMetaData.cpp	(revision 47)
+@@ -211,12 +211,14 @@
+ 
+ WCSTOMBS IscStatementMetaData::getAdressWcsToMbs( int index )
+ {
+-	return adressWcsToMbs( sqlda->getSubType( index ) & 0xff );
++	int charsetCode = isBlobOrArray( index ) ? statement->connection->getConnectionCharsetCode() : sqlda->getSubType( index ) & 0xff;
++	return adressWcsToMbs( charsetCode );
+ }
+ 
+ MBSTOWCS IscStatementMetaData::getAdressMbsToWcs( int index )
+ {
+-	return adressMbsToWcs( sqlda->getSubType( index ) & 0xff );
++	int charsetCode = isBlobOrArray( index ) ? statement->connection->getConnectionCharsetCode() : sqlda->getSubType( index ) & 0xff;
++	return adressMbsToWcs( charsetCode );
+ }
+ 
+ int IscStatementMetaData::objectVersion()

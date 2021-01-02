@@ -1,0 +1,118 @@
+Process	PID	CPU	Private Bytes	Working Set	Description	Company Name
+System Idle Process	0	93.33	0 K	16 K		
+ Interrupts	n/a	0.95	0 K	0 K	Hardware Interrupts	
+ DPCs	n/a		0 K	0 K	Deferred Procedure Calls	
+ System	4	0.95	0 K	212 K		
+explorer.exe	1996		13 616 K	22 148 K	Windows Explorer	Microsoft Corporation
+ openvpn-gui.exe	1288		2 212 K	4 332 K		
+ VBoxTray.exe	372		856 K	2 364 K	VirtualBox Guest Additions Tray Application	Oracle Corporation
+ procexp.exe	4068	3.81	7 208 K	11 032 K	Sysinternals Process Explorer	Sysinternals - www.sysinternals.com
+ Neptis.exe	960		12 920 K	20 892 K	Facturation Tactile pour Points de Vente	CRISALID
+
+Process: Neptis.exe Pid: 960
+
+Type	Name
+Desktop	\Default
+Directory	\KnownDlls
+Directory	\Windows
+Directory	\BaseNamedObjects
+Event	\BaseNamedObjects\c__docume~1_admini~1_locals~1_temp_fb_960.lck_event
+Event	\BaseNamedObjects\c__docume~1_admini~1_locals~1_temp_fb_960.lck_mutex_FM_EVT
+Event	\BaseNamedObjects\c__docume~1_admini~1_locals~1_temp_fb_960.evn_event
+Event	\BaseNamedObjects\c__docume~1_admini~1_locals~1_temp_fb_960.evn_mutex_FM_EVT
+Event	\BaseNamedObjects\_firebird_process960_signal1200
+File	C:\Program Files\Crisalid\Crisalid
+File	\Device\KsecDD
+File	\Device\Tcp
+File	C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.2600.2180_x-ww_a84f1ff9
+File	\Device\Tcp
+File	\Device\Ip
+File	\Device\Ip
+File	\Device\Ip
+File	\Device\NamedPipe\Win32Pipes.000003c0.00000001
+File	\Device\NamedPipe\Win32Pipes.000003c0.00000001
+File	\Device\Tcp6
+File	\Device\Tcp6
+File	\Device\Ip6
+File	C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.2600.2180_x-ww_a84f1ff9
+File	\Device\Ip6
+File	\Device\Ip6
+File	C:\Program Files\Crisalid\Crisalid
+File	C:\Documents and Settings\Administrator\Local Settings\Temp\fb_960.lck
+File	C:\Program Files\Crisalid\Crisalid
+File	C:\Documents and Settings\Administrator\Local Settings\Temp\fb_960.evn
+Key	HKLM
+Key	HKLM\SYSTEM\ControlSet001\Control\NetworkProvider\HwOrder
+Key	HKLM\SYSTEM\ControlSet001\Services\Tcpip\Linkage
+Key	HKLM\SYSTEM\ControlSet001\Services\Tcpip\Parameters
+Key	HKLM\SYSTEM\ControlSet001\Services\NetBT\Parameters\Interfaces
+Key	HKLM\SYSTEM\ControlSet001\Services\NetBT\Parameters
+Key	HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+Key	HKCU
+Key	HKCR
+Key	HKCU\Software\Classes
+Key	HKLM\SOFTWARE\Microsoft\COM3
+Key	HKU
+Key	HKCR
+Key	HKU
+Key	HKLM\SOFTWARE\Microsoft\COM3
+Key	HKLM\SOFTWARE\Microsoft\COM3
+Key	HKCR\CLSID
+Key	HKCR
+Key	HKLM\SOFTWARE\Microsoft\COM3
+Key	HKU
+Key	HKLM\SOFTWARE\Microsoft\COM3
+Key	HKLM\SOFTWARE\Microsoft\COM3
+Key	HKCR\CLSID
+Key	HKCU\Software\Classes
+Key	HKCU\Software\Classes
+Key	HKCU\Software\Classes
+Key	HKLM\SYSTEM\ControlSet001\Control\Nls\Locale
+Key	HKLM\SYSTEM\ControlSet001\Control\Nls\Locale\Alternate Sorts
+Key	HKLM\SYSTEM\ControlSet001\Control\Nls\Language Groups
+Key	HKCU\Software\Classes
+Key	HKCU\Software\Classes
+Key	HKCU\Software\Microsoft\Windows NT\CurrentVersion\Windows
+KeyedEvent	\KernelObjects\CritSecOutOfMemoryEvent
+Mutant	\BaseNamedObjects\oleacc-msaa-loaded
+Mutant	\BaseNamedObjects\ShimCacheMutex
+Mutant	\BaseNamedObjects\madToolsMsgHandlerMutex$290$41f63c
+Mutant	\BaseNamedObjects\TheWonderfioulNeptisMutex
+Mutant	\BaseNamedObjects\firebird_trace_mutex
+Mutant	\BaseNamedObjects\DBWinMutex
+Port	\RPC Control\OLE26721A223B4D440EB67BD21E164A
+Section	\BaseNamedObjects\ShimSharedMemory
+Section	\BaseNamedObjects\FastMM_PID_000003C0
+Section	\BaseNamedObjects\madExceptThreadNameBuf$3c0
+Section	\BaseNamedObjects\madExceptSettingsBuf$3c0
+Section	\BaseNamedObjects\__R_00000000000e_SMem__
+Section	\BaseNamedObjects\c__docume~1_admini~1_locals~1_temp_fb_960.lck_mapping
+Section	\BaseNamedObjects\c__docume~1_admini~1_locals~1_temp_fb_960.lck_mapping0
+Section	\BaseNamedObjects\c__docume~1_admini~1_locals~1_temp_fb_960.lck_mutex_FM_MAP
+Section	\BaseNamedObjects\c__docume~1_admini~1_locals~1_temp_fb_960.evn_mapping
+Section	\BaseNamedObjects\c__docume~1_admini~1_locals~1_temp_fb_960.evn_mapping0
+Section	\BaseNamedObjects\c__docume~1_admini~1_locals~1_temp_fb_960.evn_mutex_FM_MAP
+Semaphore	\BaseNamedObjects\shell.{A48F1A32-A340-11D1-BC6B-00A0C90312E1}
+Thread	Neptis.exe(960): 656
+Thread	Neptis.exe(960): 732
+Thread	Neptis.exe(960): 732
+Thread	Neptis.exe(960): 1208
+Thread	Neptis.exe(960): 1208
+Thread	Neptis.exe(960): 656
+Thread	Neptis.exe(960): 1376
+Thread	Neptis.exe(960): 1376
+Thread	Neptis.exe(960): 2640
+Thread	Neptis.exe(960): 1436
+Thread	Neptis.exe(960): 1436
+Thread	Neptis.exe(960): 656
+Thread	Neptis.exe(960): 1860
+Thread	Neptis.exe(960): 1884
+Thread	Neptis.exe(960): 1844
+Thread	Neptis.exe(960): 1628
+Thread	Neptis.exe(960): 876
+Thread	Neptis.exe(960): 728
+Thread	Neptis.exe(960): 3540
+Thread	Neptis.exe(960): 1988
+Thread	Neptis.exe(960): 1988
+WindowStation	\Windows\WindowStations\WinSta0
+WindowStation	\Windows\WindowStations\WinSta0

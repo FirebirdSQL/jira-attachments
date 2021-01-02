@@ -1,0 +1,30 @@
+Index: source/FirebirdSql/Data/Client/Native/FbClientFactory.cs
+===================================================================
+--- source/FirebirdSql/Data/Client/Native/FbClientFactory.cs	(revision 57499)
++++ source/FirebirdSql/Data/Client/Native/FbClientFactory.cs	(working copy)
+@@ -58,7 +58,11 @@
+ 		{
+ 			if (string.IsNullOrEmpty(dllName))
+ 			{
+-				dllName = DefaultDllName;
++                string architectureSpecificFile = Environment.ExpandEnvironmentVariables(@"%PROCESSOR_ARCHITECTURE%\fbembed.dll");
++                if (System.IO.File.Exists(architectureSpecificFile))
++                    dllName = architectureSpecificFile;
++                else
++                    dllName = DefaultDllName;
+ 			}
+ 
+ 			IFbClient fbClient;
+Index: source/FirebirdSql/Data/FirebirdClient/FbConnectionString.cs
+===================================================================
+--- source/FirebirdSql/Data/FirebirdClient/FbConnectionString.cs	(revision 57499)
++++ source/FirebirdSql/Data/FirebirdClient/FbConnectionString.cs	(working copy)
+@@ -397,7 +397,7 @@
+ 			this.options.Add("records affected", true);
+ 			this.options.Add("context connection", false);
+ 			this.options.Add("enlist", false);
+-			this.options.Add("client library", "fbembed");
++			this.options.Add("client library", string.Empty);
+ 			this.options.Add("cache pages", 0);
+ 			this.options.Add("no db triggers", false);
+ 		}

@@ -1,0 +1,1707 @@
+INFO: [BlazeDS]Channel endpoint my-amf received request.
+INFO: [BlazeDS]Deserializing AMF/HTTP request
+Version: 3
+  (Message #0 targetURI=null, responseURI=/12)
+    (Array #0)
+      [0] = (Typed Object #0 'flex.messaging.messages.RemotingMessage')
+        source = null
+        operation = "create"
+        destination = "movieEJBDestination"
+        timestamp = 0
+        body = (Array #1)
+          [0] = (Typed Object #2 'fr.cinematheque.model.Movie')
+            id = NaN
+            status = 0
+            dateRelease = 2155
+            title = "Test 2"
+        clientId = "10882936-3E09-3C4E-4DEE-3645F970728C"
+        messageId = "91784445-690C-EBAF-C550-A2D4BC0440FA"
+        headers = (Object #3)
+          DSEndpoint = "my-amf"
+          DSId = "10882643-D908-3B7B-DBE6-E552C396DA11"
+        timeToLive = 0
+
+PLUS FIN: client acquired: 15784017
+PLUS FIN: TX binding to tx mgr, status=STATUS_ACTIVE
+PLUS FIN: acquire unit of work: 644429
+LE PLUS FIN: persist() operation called on: fr.cinematheque.model.Movie[ id=0 ].
+LE PLUS FIN: Execute query ValueReadQuery(sql="SELECT GEN_ID(GEN_MOVIE_ID, 1) FROM RDB$DATABASE")
+LE PLUS FIN: Connection acquired from connection pool [read].
+LE PLUS FIN: reconnecting to external connection pool
+INFO: RAR7114: Unable to get ClientInfo for connection 
+FIN: SELECT GEN_ID(GEN_MOVIE_ID, 1) FROM RDB$DATABASE
+INFO: RAR7115: Unable to set ClientInfo for connection
+LE PLUS FIN: Connection released to connection pool [read].
+LE PLUS FIN: assign sequence to the object (29 -> fr.cinematheque.model.Movie[ id=0 ])
+PLUS FIN: TX beforeCompletion callback, status=STATUS_ACTIVE
+PLUS FIN: begin unit of work commit
+PLUS FIN: TX beginTransaction, status=STATUS_ACTIVE
+LE PLUS FIN: Execute query InsertObjectQuery(fr.cinematheque.model.Movie[ id=29 ])
+LE PLUS FIN: Connection acquired from connection pool [default].
+LE PLUS FIN: reconnecting to external connection pool
+INFO: RAR7114: Unable to get ClientInfo for connection 
+FIN: INSERT INTO MOVIE (ID, DATE_RELEASE, STATUS, TITLE) VALUES (?, ?, ?, ?)
+	bind => [4 parameters bound]
+FIN: SELECT 1 FROM RDB$DATABASE
+ATTENTION: Local Exception Stack: 
+Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.3.0.v20110604-r9504): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.firebirdsql.jdbc.FBSQLException: GDS Exception. 335544665. violation of PRIMARY or UNIQUE KEY constraint "UNQ_MOVIE_TITLE" on table "MOVIE"
+Error Code: 335544665
+Call: INSERT INTO MOVIE (ID, DATE_RELEASE, STATUS, TITLE) VALUES (?, ?, ?, ?)
+	bind => [4 parameters bound]
+Query: InsertObjectQuery(fr.cinematheque.model.Movie[ id=29 ])
+	at org.eclipse.persistence.exceptions.DatabaseException.sqlException(DatabaseException.java:324)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeDirectNoSelect(DatabaseAccessor.java:840)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeNoSelect(DatabaseAccessor.java:906)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.basicExecuteCall(DatabaseAccessor.java:592)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeCall(DatabaseAccessor.java:535)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.basicExecuteCall(AbstractSession.java:1702)
+	at org.eclipse.persistence.sessions.server.ClientSession.executeCall(ClientSession.java:253)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:207)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:193)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.insertObject(DatasourceCallQueryMechanism.java:342)
+	at org.eclipse.persistence.internal.queries.StatementQueryMechanism.insertObject(StatementQueryMechanism.java:162)
+	at org.eclipse.persistence.internal.queries.StatementQueryMechanism.insertObject(StatementQueryMechanism.java:177)
+	at org.eclipse.persistence.internal.queries.DatabaseQueryMechanism.insertObjectForWrite(DatabaseQueryMechanism.java:472)
+	at org.eclipse.persistence.queries.InsertObjectQuery.executeCommit(InsertObjectQuery.java:80)
+	at org.eclipse.persistence.queries.InsertObjectQuery.executeCommitWithChangeSet(InsertObjectQuery.java:90)
+	at org.eclipse.persistence.internal.queries.DatabaseQueryMechanism.executeWriteWithChangeSet(DatabaseQueryMechanism.java:287)
+	at org.eclipse.persistence.queries.WriteObjectQuery.executeDatabaseQuery(WriteObjectQuery.java:58)
+	at org.eclipse.persistence.queries.DatabaseQuery.execute(DatabaseQuery.java:829)
+	at org.eclipse.persistence.queries.DatabaseQuery.executeInUnitOfWork(DatabaseQuery.java:728)
+	at org.eclipse.persistence.queries.ObjectLevelModifyQuery.executeInUnitOfWorkObjectLevelModifyQuery(ObjectLevelModifyQuery.java:108)
+	at org.eclipse.persistence.queries.ObjectLevelModifyQuery.executeInUnitOfWork(ObjectLevelModifyQuery.java:85)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.internalExecuteQuery(UnitOfWorkImpl.java:2863)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1501)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1483)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1443)
+	at org.eclipse.persistence.internal.sessions.CommitManager.commitNewObjectsForClassWithChangeSet(CommitManager.java:224)
+	at org.eclipse.persistence.internal.sessions.CommitManager.commitAllObjectsWithChangeSet(CommitManager.java:123)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.writeAllObjectsWithChangeSet(AbstractSession.java:3784)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitToDatabase(UnitOfWorkImpl.java:1407)
+	at org.eclipse.persistence.internal.sessions.RepeatableWriteUnitOfWork.commitToDatabase(RepeatableWriteUnitOfWork.java:634)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitToDatabaseWithChangeSet(UnitOfWorkImpl.java:1497)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.issueSQLbeforeCompletion(UnitOfWorkImpl.java:3135)
+	at org.eclipse.persistence.internal.sessions.RepeatableWriteUnitOfWork.issueSQLbeforeCompletion(RepeatableWriteUnitOfWork.java:344)
+	at org.eclipse.persistence.transaction.AbstractSynchronizationListener.beforeCompletion(AbstractSynchronizationListener.java:157)
+	at org.eclipse.persistence.transaction.JTASynchronizationListener.beforeCompletion(JTASynchronizationListener.java:68)
+	at com.sun.enterprise.transaction.JavaEETransactionImpl.commit(JavaEETransactionImpl.java:435)
+	at com.sun.enterprise.transaction.JavaEETransactionManagerSimplified.commit(JavaEETransactionManagerSimplified.java:852)
+	at com.sun.ejb.containers.BaseContainer.completeNewTx(BaseContainer.java:5114)
+	at com.sun.ejb.containers.BaseContainer.postInvokeTx(BaseContainer.java:4879)
+	at com.sun.ejb.containers.BaseContainer.postInvoke(BaseContainer.java:2039)
+	at com.sun.ejb.containers.BaseContainer.postInvoke(BaseContainer.java:1990)
+	at com.sun.ejb.containers.EJBLocalObjectInvocationHandler.invoke(EJBLocalObjectInvocationHandler.java:222)
+	at com.sun.ejb.containers.EJBLocalObjectInvocationHandlerDelegate.invoke(EJBLocalObjectInvocationHandlerDelegate.java:88)
+	at $Proxy319.create(Unknown Source)
+	at fr.cinematheque.dao.__EJB31_Generated__MovieEJB__Intf____Bean__.create(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at flex.messaging.services.remoting.adapters.JavaAdapter.invoke(JavaAdapter.java:418)
+	at flex.messaging.services.RemotingService.serviceMessage(RemotingService.java:183)
+	at flex.messaging.MessageBroker.routeMessageToService(MessageBroker.java:1400)
+	at flex.messaging.endpoints.AbstractEndpoint.serviceMessage(AbstractEndpoint.java:1005)
+	at flex.messaging.endpoints.amf.MessageBrokerFilter.invoke(MessageBrokerFilter.java:103)
+	at flex.messaging.endpoints.amf.LegacyFilter.invoke(LegacyFilter.java:158)
+	at flex.messaging.endpoints.amf.SessionFilter.invoke(SessionFilter.java:44)
+	at flex.messaging.endpoints.amf.BatchProcessFilter.invoke(BatchProcessFilter.java:67)
+	at flex.messaging.endpoints.amf.SerializationFilter.invoke(SerializationFilter.java:166)
+	at flex.messaging.endpoints.BaseHTTPEndpoint.service(BaseHTTPEndpoint.java:291)
+	at flex.messaging.MessageBrokerServlet.service(MessageBrokerServlet.java:353)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:847)
+	at org.apache.catalina.core.StandardWrapper.service(StandardWrapper.java:1539)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:281)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:175)
+	at org.apache.catalina.core.StandardPipeline.doInvoke(StandardPipeline.java:655)
+	at org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:595)
+	at com.sun.enterprise.web.WebPipeline.invoke(WebPipeline.java:98)
+	at com.sun.enterprise.web.PESessionLockingStandardPipeline.invoke(PESessionLockingStandardPipeline.java:91)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:162)
+	at org.apache.catalina.connector.CoyoteAdapter.doService(CoyoteAdapter.java:330)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:231)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:174)
+	at com.sun.grizzly.http.ProcessorTask.invokeAdapter(ProcessorTask.java:828)
+	at com.sun.grizzly.http.ProcessorTask.doProcess(ProcessorTask.java:725)
+	at com.sun.grizzly.http.ProcessorTask.process(ProcessorTask.java:1019)
+	at com.sun.grizzly.http.DefaultProtocolFilter.execute(DefaultProtocolFilter.java:225)
+	at com.sun.grizzly.DefaultProtocolChain.executeProtocolFilter(DefaultProtocolChain.java:137)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:104)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:90)
+	at com.sun.grizzly.http.HttpProtocolChain.execute(HttpProtocolChain.java:79)
+	at com.sun.grizzly.ProtocolChainContextTask.doCall(ProtocolChainContextTask.java:54)
+	at com.sun.grizzly.SelectionKeyContextTask.call(SelectionKeyContextTask.java:59)
+	at com.sun.grizzly.ContextTask.run(ContextTask.java:71)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:532)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.run(AbstractThreadPool.java:513)
+	at java.lang.Thread.run(Thread.java:662)
+Caused by: org.firebirdsql.jdbc.FBSQLException: GDS Exception. 335544665. violation of PRIMARY or UNIQUE KEY constraint "UNQ_MOVIE_TITLE" on table "MOVIE"
+	at org.firebirdsql.jdbc.AbstractPreparedStatement.internalExecute(AbstractPreparedStatement.java:730)
+	at org.firebirdsql.jdbc.AbstractPreparedStatement.executeUpdate(AbstractPreparedStatement.java:190)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeDirectNoSelect(DatabaseAccessor.java:831)
+	... 84 more
+
+ATTENTION: Local Exception Stack: 
+Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.3.0.v20110604-r9504): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.firebirdsql.jdbc.FBSQLException: GDS Exception. 335544665. violation of PRIMARY or UNIQUE KEY constraint "UNQ_MOVIE_TITLE" on table "MOVIE"
+Error Code: 335544665
+Call: INSERT INTO MOVIE (ID, DATE_RELEASE, STATUS, TITLE) VALUES (?, ?, ?, ?)
+	bind => [4 parameters bound]
+Query: InsertObjectQuery(fr.cinematheque.model.Movie[ id=29 ])
+	at org.eclipse.persistence.exceptions.DatabaseException.sqlException(DatabaseException.java:324)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeDirectNoSelect(DatabaseAccessor.java:840)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeNoSelect(DatabaseAccessor.java:906)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.basicExecuteCall(DatabaseAccessor.java:592)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeCall(DatabaseAccessor.java:535)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.basicExecuteCall(AbstractSession.java:1702)
+	at org.eclipse.persistence.sessions.server.ClientSession.executeCall(ClientSession.java:253)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:207)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:193)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.insertObject(DatasourceCallQueryMechanism.java:342)
+	at org.eclipse.persistence.internal.queries.StatementQueryMechanism.insertObject(StatementQueryMechanism.java:162)
+	at org.eclipse.persistence.internal.queries.StatementQueryMechanism.insertObject(StatementQueryMechanism.java:177)
+	at org.eclipse.persistence.internal.queries.DatabaseQueryMechanism.insertObjectForWrite(DatabaseQueryMechanism.java:472)
+	at org.eclipse.persistence.queries.InsertObjectQuery.executeCommit(InsertObjectQuery.java:80)
+	at org.eclipse.persistence.queries.InsertObjectQuery.executeCommitWithChangeSet(InsertObjectQuery.java:90)
+	at org.eclipse.persistence.internal.queries.DatabaseQueryMechanism.executeWriteWithChangeSet(DatabaseQueryMechanism.java:287)
+	at org.eclipse.persistence.queries.WriteObjectQuery.executeDatabaseQuery(WriteObjectQuery.java:58)
+	at org.eclipse.persistence.queries.DatabaseQuery.execute(DatabaseQuery.java:829)
+	at org.eclipse.persistence.queries.DatabaseQuery.executeInUnitOfWork(DatabaseQuery.java:728)
+	at org.eclipse.persistence.queries.ObjectLevelModifyQuery.executeInUnitOfWorkObjectLevelModifyQuery(ObjectLevelModifyQuery.java:108)
+	at org.eclipse.persistence.queries.ObjectLevelModifyQuery.executeInUnitOfWork(ObjectLevelModifyQuery.java:85)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.internalExecuteQuery(UnitOfWorkImpl.java:2863)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1501)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1483)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1443)
+	at org.eclipse.persistence.internal.sessions.CommitManager.commitNewObjectsForClassWithChangeSet(CommitManager.java:224)
+	at org.eclipse.persistence.internal.sessions.CommitManager.commitAllObjectsWithChangeSet(CommitManager.java:123)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.writeAllObjectsWithChangeSet(AbstractSession.java:3784)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitToDatabase(UnitOfWorkImpl.java:1407)
+	at org.eclipse.persistence.internal.sessions.RepeatableWriteUnitOfWork.commitToDatabase(RepeatableWriteUnitOfWork.java:634)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitToDatabaseWithChangeSet(UnitOfWorkImpl.java:1497)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.issueSQLbeforeCompletion(UnitOfWorkImpl.java:3135)
+	at org.eclipse.persistence.internal.sessions.RepeatableWriteUnitOfWork.issueSQLbeforeCompletion(RepeatableWriteUnitOfWork.java:344)
+	at org.eclipse.persistence.transaction.AbstractSynchronizationListener.beforeCompletion(AbstractSynchronizationListener.java:157)
+	at org.eclipse.persistence.transaction.JTASynchronizationListener.beforeCompletion(JTASynchronizationListener.java:68)
+	at com.sun.enterprise.transaction.JavaEETransactionImpl.commit(JavaEETransactionImpl.java:435)
+	at com.sun.enterprise.transaction.JavaEETransactionManagerSimplified.commit(JavaEETransactionManagerSimplified.java:852)
+	at com.sun.ejb.containers.BaseContainer.completeNewTx(BaseContainer.java:5114)
+	at com.sun.ejb.containers.BaseContainer.postInvokeTx(BaseContainer.java:4879)
+	at com.sun.ejb.containers.BaseContainer.postInvoke(BaseContainer.java:2039)
+	at com.sun.ejb.containers.BaseContainer.postInvoke(BaseContainer.java:1990)
+	at com.sun.ejb.containers.EJBLocalObjectInvocationHandler.invoke(EJBLocalObjectInvocationHandler.java:222)
+	at com.sun.ejb.containers.EJBLocalObjectInvocationHandlerDelegate.invoke(EJBLocalObjectInvocationHandlerDelegate.java:88)
+	at $Proxy319.create(Unknown Source)
+	at fr.cinematheque.dao.__EJB31_Generated__MovieEJB__Intf____Bean__.create(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at flex.messaging.services.remoting.adapters.JavaAdapter.invoke(JavaAdapter.java:418)
+	at flex.messaging.services.RemotingService.serviceMessage(RemotingService.java:183)
+	at flex.messaging.MessageBroker.routeMessageToService(MessageBroker.java:1400)
+	at flex.messaging.endpoints.AbstractEndpoint.serviceMessage(AbstractEndpoint.java:1005)
+	at flex.messaging.endpoints.amf.MessageBrokerFilter.invoke(MessageBrokerFilter.java:103)
+	at flex.messaging.endpoints.amf.LegacyFilter.invoke(LegacyFilter.java:158)
+	at flex.messaging.endpoints.amf.SessionFilter.invoke(SessionFilter.java:44)
+	at flex.messaging.endpoints.amf.BatchProcessFilter.invoke(BatchProcessFilter.java:67)
+	at flex.messaging.endpoints.amf.SerializationFilter.invoke(SerializationFilter.java:166)
+	at flex.messaging.endpoints.BaseHTTPEndpoint.service(BaseHTTPEndpoint.java:291)
+	at flex.messaging.MessageBrokerServlet.service(MessageBrokerServlet.java:353)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:847)
+	at org.apache.catalina.core.StandardWrapper.service(StandardWrapper.java:1539)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:281)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:175)
+	at org.apache.catalina.core.StandardPipeline.doInvoke(StandardPipeline.java:655)
+	at org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:595)
+	at com.sun.enterprise.web.WebPipeline.invoke(WebPipeline.java:98)
+	at com.sun.enterprise.web.PESessionLockingStandardPipeline.invoke(PESessionLockingStandardPipeline.java:91)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:162)
+	at org.apache.catalina.connector.CoyoteAdapter.doService(CoyoteAdapter.java:330)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:231)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:174)
+	at com.sun.grizzly.http.ProcessorTask.invokeAdapter(ProcessorTask.java:828)
+	at com.sun.grizzly.http.ProcessorTask.doProcess(ProcessorTask.java:725)
+	at com.sun.grizzly.http.ProcessorTask.process(ProcessorTask.java:1019)
+	at com.sun.grizzly.http.DefaultProtocolFilter.execute(DefaultProtocolFilter.java:225)
+	at com.sun.grizzly.DefaultProtocolChain.executeProtocolFilter(DefaultProtocolChain.java:137)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:104)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:90)
+	at com.sun.grizzly.http.HttpProtocolChain.execute(HttpProtocolChain.java:79)
+	at com.sun.grizzly.ProtocolChainContextTask.doCall(ProtocolChainContextTask.java:54)
+	at com.sun.grizzly.SelectionKeyContextTask.call(SelectionKeyContextTask.java:59)
+	at com.sun.grizzly.ContextTask.run(ContextTask.java:71)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:532)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.run(AbstractThreadPool.java:513)
+	at java.lang.Thread.run(Thread.java:662)
+Caused by: org.firebirdsql.jdbc.FBSQLException: GDS Exception. 335544665. violation of PRIMARY or UNIQUE KEY constraint "UNQ_MOVIE_TITLE" on table "MOVIE"
+	at org.firebirdsql.jdbc.AbstractPreparedStatement.internalExecute(AbstractPreparedStatement.java:730)
+	at org.firebirdsql.jdbc.AbstractPreparedStatement.executeUpdate(AbstractPreparedStatement.java:190)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeDirectNoSelect(DatabaseAccessor.java:831)
+	... 84 more
+
+INFO: RAR7115: Unable to set ClientInfo for connection
+LE PLUS FIN: Connection released to connection pool [default].
+ATTENTION: DTX5014: Caught exception in beforeCompletion() callback:
+Local Exception Stack: 
+Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.3.0.v20110604-r9504): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.firebirdsql.jdbc.FBSQLException: GDS Exception. 335544665. violation of PRIMARY or UNIQUE KEY constraint "UNQ_MOVIE_TITLE" on table "MOVIE"
+Error Code: 335544665
+Call: INSERT INTO MOVIE (ID, DATE_RELEASE, STATUS, TITLE) VALUES (?, ?, ?, ?)
+	bind => [4 parameters bound]
+Query: InsertObjectQuery(fr.cinematheque.model.Movie[ id=29 ])
+	at org.eclipse.persistence.exceptions.DatabaseException.sqlException(DatabaseException.java:324)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeDirectNoSelect(DatabaseAccessor.java:840)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeNoSelect(DatabaseAccessor.java:906)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.basicExecuteCall(DatabaseAccessor.java:592)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeCall(DatabaseAccessor.java:535)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.basicExecuteCall(AbstractSession.java:1702)
+	at org.eclipse.persistence.sessions.server.ClientSession.executeCall(ClientSession.java:253)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:207)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:193)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.insertObject(DatasourceCallQueryMechanism.java:342)
+	at org.eclipse.persistence.internal.queries.StatementQueryMechanism.insertObject(StatementQueryMechanism.java:162)
+	at org.eclipse.persistence.internal.queries.StatementQueryMechanism.insertObject(StatementQueryMechanism.java:177)
+	at org.eclipse.persistence.internal.queries.DatabaseQueryMechanism.insertObjectForWrite(DatabaseQueryMechanism.java:472)
+	at org.eclipse.persistence.queries.InsertObjectQuery.executeCommit(InsertObjectQuery.java:80)
+	at org.eclipse.persistence.queries.InsertObjectQuery.executeCommitWithChangeSet(InsertObjectQuery.java:90)
+	at org.eclipse.persistence.internal.queries.DatabaseQueryMechanism.executeWriteWithChangeSet(DatabaseQueryMechanism.java:287)
+	at org.eclipse.persistence.queries.WriteObjectQuery.executeDatabaseQuery(WriteObjectQuery.java:58)
+	at org.eclipse.persistence.queries.DatabaseQuery.execute(DatabaseQuery.java:829)
+	at org.eclipse.persistence.queries.DatabaseQuery.executeInUnitOfWork(DatabaseQuery.java:728)
+	at org.eclipse.persistence.queries.ObjectLevelModifyQuery.executeInUnitOfWorkObjectLevelModifyQuery(ObjectLevelModifyQuery.java:108)
+	at org.eclipse.persistence.queries.ObjectLevelModifyQuery.executeInUnitOfWork(ObjectLevelModifyQuery.java:85)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.internalExecuteQuery(UnitOfWorkImpl.java:2863)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1501)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1483)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1443)
+	at org.eclipse.persistence.internal.sessions.CommitManager.commitNewObjectsForClassWithChangeSet(CommitManager.java:224)
+	at org.eclipse.persistence.internal.sessions.CommitManager.commitAllObjectsWithChangeSet(CommitManager.java:123)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.writeAllObjectsWithChangeSet(AbstractSession.java:3784)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitToDatabase(UnitOfWorkImpl.java:1407)
+	at org.eclipse.persistence.internal.sessions.RepeatableWriteUnitOfWork.commitToDatabase(RepeatableWriteUnitOfWork.java:634)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitToDatabaseWithChangeSet(UnitOfWorkImpl.java:1497)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.issueSQLbeforeCompletion(UnitOfWorkImpl.java:3135)
+	at org.eclipse.persistence.internal.sessions.RepeatableWriteUnitOfWork.issueSQLbeforeCompletion(RepeatableWriteUnitOfWork.java:344)
+	at org.eclipse.persistence.transaction.AbstractSynchronizationListener.beforeCompletion(AbstractSynchronizationListener.java:157)
+	at org.eclipse.persistence.transaction.JTASynchronizationListener.beforeCompletion(JTASynchronizationListener.java:68)
+	at com.sun.enterprise.transaction.JavaEETransactionImpl.commit(JavaEETransactionImpl.java:435)
+	at com.sun.enterprise.transaction.JavaEETransactionManagerSimplified.commit(JavaEETransactionManagerSimplified.java:852)
+	at com.sun.ejb.containers.BaseContainer.completeNewTx(BaseContainer.java:5114)
+	at com.sun.ejb.containers.BaseContainer.postInvokeTx(BaseContainer.java:4879)
+	at com.sun.ejb.containers.BaseContainer.postInvoke(BaseContainer.java:2039)
+	at com.sun.ejb.containers.BaseContainer.postInvoke(BaseContainer.java:1990)
+	at com.sun.ejb.containers.EJBLocalObjectInvocationHandler.invoke(EJBLocalObjectInvocationHandler.java:222)
+	at com.sun.ejb.containers.EJBLocalObjectInvocationHandlerDelegate.invoke(EJBLocalObjectInvocationHandlerDelegate.java:88)
+	at $Proxy319.create(Unknown Source)
+	at fr.cinematheque.dao.__EJB31_Generated__MovieEJB__Intf____Bean__.create(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at flex.messaging.services.remoting.adapters.JavaAdapter.invoke(JavaAdapter.java:418)
+	at flex.messaging.services.RemotingService.serviceMessage(RemotingService.java:183)
+	at flex.messaging.MessageBroker.routeMessageToService(MessageBroker.java:1400)
+	at flex.messaging.endpoints.AbstractEndpoint.serviceMessage(AbstractEndpoint.java:1005)
+	at flex.messaging.endpoints.amf.MessageBrokerFilter.invoke(MessageBrokerFilter.java:103)
+	at flex.messaging.endpoints.amf.LegacyFilter.invoke(LegacyFilter.java:158)
+	at flex.messaging.endpoints.amf.SessionFilter.invoke(SessionFilter.java:44)
+	at flex.messaging.endpoints.amf.BatchProcessFilter.invoke(BatchProcessFilter.java:67)
+	at flex.messaging.endpoints.amf.SerializationFilter.invoke(SerializationFilter.java:166)
+	at flex.messaging.endpoints.BaseHTTPEndpoint.service(BaseHTTPEndpoint.java:291)
+	at flex.messaging.MessageBrokerServlet.service(MessageBrokerServlet.java:353)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:847)
+	at org.apache.catalina.core.StandardWrapper.service(StandardWrapper.java:1539)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:281)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:175)
+	at org.apache.catalina.core.StandardPipeline.doInvoke(StandardPipeline.java:655)
+	at org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:595)
+	at com.sun.enterprise.web.WebPipeline.invoke(WebPipeline.java:98)
+	at com.sun.enterprise.web.PESessionLockingStandardPipeline.invoke(PESessionLockingStandardPipeline.java:91)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:162)
+	at org.apache.catalina.connector.CoyoteAdapter.doService(CoyoteAdapter.java:330)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:231)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:174)
+	at com.sun.grizzly.http.ProcessorTask.invokeAdapter(ProcessorTask.java:828)
+	at com.sun.grizzly.http.ProcessorTask.doProcess(ProcessorTask.java:725)
+	at com.sun.grizzly.http.ProcessorTask.process(ProcessorTask.java:1019)
+	at com.sun.grizzly.http.DefaultProtocolFilter.execute(DefaultProtocolFilter.java:225)
+	at com.sun.grizzly.DefaultProtocolChain.executeProtocolFilter(DefaultProtocolChain.java:137)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:104)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:90)
+	at com.sun.grizzly.http.HttpProtocolChain.execute(HttpProtocolChain.java:79)
+	at com.sun.grizzly.ProtocolChainContextTask.doCall(ProtocolChainContextTask.java:54)
+	at com.sun.grizzly.SelectionKeyContextTask.call(SelectionKeyContextTask.java:59)
+	at com.sun.grizzly.ContextTask.run(ContextTask.java:71)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:532)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.run(AbstractThreadPool.java:513)
+	at java.lang.Thread.run(Thread.java:662)
+Caused by: org.firebirdsql.jdbc.FBSQLException: GDS Exception. 335544665. violation of PRIMARY or UNIQUE KEY constraint "UNQ_MOVIE_TITLE" on table "MOVIE"
+	at org.firebirdsql.jdbc.AbstractPreparedStatement.internalExecute(AbstractPreparedStatement.java:730)
+	at org.firebirdsql.jdbc.AbstractPreparedStatement.executeUpdate(AbstractPreparedStatement.java:190)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeDirectNoSelect(DatabaseAccessor.java:831)
+	... 84 more
+
+PLUS FIN: TX afterCompletion callback, status=ROLLEDBACK
+PLUS FIN: release unit of work
+PLUS FIN: client released
+ATTENTION: A system exception occurred during an invocation on EJB MovieEJB method public void fr.cinematheque.dao.AbstractFacade.create(java.lang.Object)
+javax.ejb.EJBException: Transaction aborted
+	at com.sun.ejb.containers.BaseContainer.completeNewTx(BaseContainer.java:5120)
+	at com.sun.ejb.containers.BaseContainer.postInvokeTx(BaseContainer.java:4879)
+	at com.sun.ejb.containers.BaseContainer.postInvoke(BaseContainer.java:2039)
+	at com.sun.ejb.containers.BaseContainer.postInvoke(BaseContainer.java:1990)
+	at com.sun.ejb.containers.EJBLocalObjectInvocationHandler.invoke(EJBLocalObjectInvocationHandler.java:222)
+	at com.sun.ejb.containers.EJBLocalObjectInvocationHandlerDelegate.invoke(EJBLocalObjectInvocationHandlerDelegate.java:88)
+	at $Proxy319.create(Unknown Source)
+	at fr.cinematheque.dao.__EJB31_Generated__MovieEJB__Intf____Bean__.create(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at flex.messaging.services.remoting.adapters.JavaAdapter.invoke(JavaAdapter.java:418)
+	at flex.messaging.services.RemotingService.serviceMessage(RemotingService.java:183)
+	at flex.messaging.MessageBroker.routeMessageToService(MessageBroker.java:1400)
+	at flex.messaging.endpoints.AbstractEndpoint.serviceMessage(AbstractEndpoint.java:1005)
+	at flex.messaging.endpoints.amf.MessageBrokerFilter.invoke(MessageBrokerFilter.java:103)
+	at flex.messaging.endpoints.amf.LegacyFilter.invoke(LegacyFilter.java:158)
+	at flex.messaging.endpoints.amf.SessionFilter.invoke(SessionFilter.java:44)
+	at flex.messaging.endpoints.amf.BatchProcessFilter.invoke(BatchProcessFilter.java:67)
+	at flex.messaging.endpoints.amf.SerializationFilter.invoke(SerializationFilter.java:166)
+	at flex.messaging.endpoints.BaseHTTPEndpoint.service(BaseHTTPEndpoint.java:291)
+	at flex.messaging.MessageBrokerServlet.service(MessageBrokerServlet.java:353)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:847)
+	at org.apache.catalina.core.StandardWrapper.service(StandardWrapper.java:1539)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:281)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:175)
+	at org.apache.catalina.core.StandardPipeline.doInvoke(StandardPipeline.java:655)
+	at org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:595)
+	at com.sun.enterprise.web.WebPipeline.invoke(WebPipeline.java:98)
+	at com.sun.enterprise.web.PESessionLockingStandardPipeline.invoke(PESessionLockingStandardPipeline.java:91)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:162)
+	at org.apache.catalina.connector.CoyoteAdapter.doService(CoyoteAdapter.java:330)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:231)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:174)
+	at com.sun.grizzly.http.ProcessorTask.invokeAdapter(ProcessorTask.java:828)
+	at com.sun.grizzly.http.ProcessorTask.doProcess(ProcessorTask.java:725)
+	at com.sun.grizzly.http.ProcessorTask.process(ProcessorTask.java:1019)
+	at com.sun.grizzly.http.DefaultProtocolFilter.execute(DefaultProtocolFilter.java:225)
+	at com.sun.grizzly.DefaultProtocolChain.executeProtocolFilter(DefaultProtocolChain.java:137)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:104)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:90)
+	at com.sun.grizzly.http.HttpProtocolChain.execute(HttpProtocolChain.java:79)
+	at com.sun.grizzly.ProtocolChainContextTask.doCall(ProtocolChainContextTask.java:54)
+	at com.sun.grizzly.SelectionKeyContextTask.call(SelectionKeyContextTask.java:59)
+	at com.sun.grizzly.ContextTask.run(ContextTask.java:71)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:532)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.run(AbstractThreadPool.java:513)
+	at java.lang.Thread.run(Thread.java:662)
+Caused by: javax.transaction.RollbackException: Transaction marked for rollback.
+	at com.sun.enterprise.transaction.JavaEETransactionImpl.commit(JavaEETransactionImpl.java:473)
+	at com.sun.enterprise.transaction.JavaEETransactionManagerSimplified.commit(JavaEETransactionManagerSimplified.java:852)
+	at com.sun.ejb.containers.BaseContainer.completeNewTx(BaseContainer.java:5114)
+	... 48 more
+Caused by: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.3.0.v20110604-r9504): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.firebirdsql.jdbc.FBSQLException: GDS Exception. 335544665. violation of PRIMARY or UNIQUE KEY constraint "UNQ_MOVIE_TITLE" on table "MOVIE"
+Error Code: 335544665
+Call: INSERT INTO MOVIE (ID, DATE_RELEASE, STATUS, TITLE) VALUES (?, ?, ?, ?)
+	bind => [4 parameters bound]
+Query: InsertObjectQuery(fr.cinematheque.model.Movie[ id=29 ])
+	at org.eclipse.persistence.exceptions.DatabaseException.sqlException(DatabaseException.java:324)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeDirectNoSelect(DatabaseAccessor.java:840)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeNoSelect(DatabaseAccessor.java:906)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.basicExecuteCall(DatabaseAccessor.java:592)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeCall(DatabaseAccessor.java:535)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.basicExecuteCall(AbstractSession.java:1702)
+	at org.eclipse.persistence.sessions.server.ClientSession.executeCall(ClientSession.java:253)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:207)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:193)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.insertObject(DatasourceCallQueryMechanism.java:342)
+	at org.eclipse.persistence.internal.queries.StatementQueryMechanism.insertObject(StatementQueryMechanism.java:162)
+	at org.eclipse.persistence.internal.queries.StatementQueryMechanism.insertObject(StatementQueryMechanism.java:177)
+	at org.eclipse.persistence.internal.queries.DatabaseQueryMechanism.insertObjectForWrite(DatabaseQueryMechanism.java:472)
+	at org.eclipse.persistence.queries.InsertObjectQuery.executeCommit(InsertObjectQuery.java:80)
+	at org.eclipse.persistence.queries.InsertObjectQuery.executeCommitWithChangeSet(InsertObjectQuery.java:90)
+	at org.eclipse.persistence.internal.queries.DatabaseQueryMechanism.executeWriteWithChangeSet(DatabaseQueryMechanism.java:287)
+	at org.eclipse.persistence.queries.WriteObjectQuery.executeDatabaseQuery(WriteObjectQuery.java:58)
+	at org.eclipse.persistence.queries.DatabaseQuery.execute(DatabaseQuery.java:829)
+	at org.eclipse.persistence.queries.DatabaseQuery.executeInUnitOfWork(DatabaseQuery.java:728)
+	at org.eclipse.persistence.queries.ObjectLevelModifyQuery.executeInUnitOfWorkObjectLevelModifyQuery(ObjectLevelModifyQuery.java:108)
+	at org.eclipse.persistence.queries.ObjectLevelModifyQuery.executeInUnitOfWork(ObjectLevelModifyQuery.java:85)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.internalExecuteQuery(UnitOfWorkImpl.java:2863)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1501)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1483)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1443)
+	at org.eclipse.persistence.internal.sessions.CommitManager.commitNewObjectsForClassWithChangeSet(CommitManager.java:224)
+	at org.eclipse.persistence.internal.sessions.CommitManager.commitAllObjectsWithChangeSet(CommitManager.java:123)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.writeAllObjectsWithChangeSet(AbstractSession.java:3784)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitToDatabase(UnitOfWorkImpl.java:1407)
+	at org.eclipse.persistence.internal.sessions.RepeatableWriteUnitOfWork.commitToDatabase(RepeatableWriteUnitOfWork.java:634)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitToDatabaseWithChangeSet(UnitOfWorkImpl.java:1497)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.issueSQLbeforeCompletion(UnitOfWorkImpl.java:3135)
+	at org.eclipse.persistence.internal.sessions.RepeatableWriteUnitOfWork.issueSQLbeforeCompletion(RepeatableWriteUnitOfWork.java:344)
+	at org.eclipse.persistence.transaction.AbstractSynchronizationListener.beforeCompletion(AbstractSynchronizationListener.java:157)
+	at org.eclipse.persistence.transaction.JTASynchronizationListener.beforeCompletion(JTASynchronizationListener.java:68)
+	at com.sun.enterprise.transaction.JavaEETransactionImpl.commit(JavaEETransactionImpl.java:435)
+	... 50 more
+Caused by: org.firebirdsql.jdbc.FBSQLException: GDS Exception. 335544665. violation of PRIMARY or UNIQUE KEY constraint "UNQ_MOVIE_TITLE" on table "MOVIE"
+	at org.firebirdsql.jdbc.AbstractPreparedStatement.internalExecute(AbstractPreparedStatement.java:730)
+	at org.firebirdsql.jdbc.AbstractPreparedStatement.executeUpdate(AbstractPreparedStatement.java:190)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeDirectNoSelect(DatabaseAccessor.java:831)
+	... 84 more
+
+INFO: [BlazeDS]Serializing AMF/HTTP response
+Version: 3
+  (Message #0 targetURI=/12/onStatus, responseURI=)
+    (Typed Object #0 'flex.messaging.messages.ErrorMessage')
+      headers = (Object #1)
+      rootCause = (Typed Object #2 'javax.ejb.EJBException')
+        message = "Transaction aborted"
+        localizedMessage = "Transaction aborted"
+        cause = (Typed Object #3 'javax.transaction.RollbackException')
+          message = "Transaction marked for rollback."
+          localizedMessage = "Transaction marked for rollback."
+          cause = (Typed Object #4 'org.eclipse.persistence.exceptions.DatabaseException')
+            call = (Typed Object #5 'org.eclipse.persistence.queries.SQLCall')
+              result = null
+              firstResult = 0
+              query = (Typed Object #6 'org.eclipse.persistence.queries.InsertObjectQuery')
+                shouldBindAllParameters = null
+                descriptor = (Typed Object #7 'org.eclipse.persistence.descriptors.RelationalDescriptor')
+                  copyPolicyClassName = null
+                  defaultReadObjectQueryRedirector = null
+                  additionalTablePrimaryKeyFields = (Object #8)
+                  primaryKeyFieldNames = (Externalizable Object #9 'flex.messaging.io.ArrayCollection')
+                    (Array #10)
+                      [0] = "MOVIE.ID"
+                  primaryKeyFields = (Externalizable Object #11 'flex.messaging.io.ArrayCollection')
+                    (Array #12)
+                      [0] = (Typed Object #13 'org.eclipse.persistence.internal.helper.DatabaseField')
+                        insertable = true
+                        scale = 0
+                        index = 0
+                        unique = false
+                        precision = 0
+                        nullable = true
+                        nameForComparisons = "ID"
+                        table = (Typed Object #14 'org.eclipse.persistence.internal.helper.DatabaseTable')
+                          name = "MOVIE"
+                          creationSuffix = null
+                          tableQualifier = ""
+                        type = (Typed Object #15 'java.lang.Class')
+                        typeName = "java.lang.Integer"
+                        sqlType = 4
+                        columnDefinition = ""
+                        tableName = "MOVIE"
+                        name = "ID"
+                        primaryKey = false
+                        updatable = true
+                        length = 0
+                  defaultReadAllQueryRedirector = null
+                  defaultReportQueryRedirector = null
+                  queryKeys = (Object #16)
+                  multipleTableInsertOrder = (Externalizable Object #17 'flex.messaging.io.ArrayCollection')
+                    (Array #18)
+                      [0] = (Ref #14)
+                  remoteIdentityMapClass = (Typed Object #19 'java.lang.Class')
+                  identityMapClass = (Ref #19)
+                  fetchGroupManager = (Typed Object #20 'org.eclipse.persistence.descriptors.FetchGroupManager')
+                    descriptor = (Ref #7)
+                    defaultFetchGroup = null
+                  descriptorType = 0
+                  fields = (Externalizable Object #21 'flex.messaging.io.ArrayCollection')
+                    (Array #22)
+                      [0] = (Ref #13)
+                      [1] = (Typed Object #23 'org.eclipse.persistence.internal.helper.DatabaseField')
+                        insertable = true
+                        scale = 0
+                        index = 1
+                        unique = false
+                        precision = 0
+                        nullable = true
+                        nameForComparisons = "DATE_RELEASE"
+                        table = (Ref #14)
+                        type = (Ref #15)
+                        typeName = "java.lang.Integer"
+                        sqlType = 4
+                        columnDefinition = ""
+                        tableName = "MOVIE"
+                        name = "DATE_RELEASE"
+                        primaryKey = false
+                        updatable = true
+                        length = 0
+                      [2] = (Typed Object #24 'org.eclipse.persistence.internal.helper.DatabaseField')
+                        insertable = true
+                        scale = 0
+                        index = 2
+                        unique = false
+                        precision = 0
+                        nullable = true
+                        nameForComparisons = "STATUS"
+                        table = (Ref #14)
+                        type = (Ref #15)
+                        typeName = "java.lang.Integer"
+                        sqlType = 4
+                        columnDefinition = ""
+                        tableName = "MOVIE"
+                        name = "STATUS"
+                        primaryKey = false
+                        updatable = true
+                        length = 0
+                      [3] = (Typed Object #25 'org.eclipse.persistence.internal.helper.DatabaseField')
+                        insertable = true
+                        scale = 0
+                        index = 3
+                        unique = false
+                        precision = 0
+                        nullable = true
+                        nameForComparisons = "TITLE"
+                        table = (Ref #14)
+                        type = (Typed Object #26 'java.lang.Class')
+                        typeName = "java.lang.String"
+                        sqlType = 12
+                        columnDefinition = ""
+                        tableName = "MOVIE"
+                        name = "TITLE"
+                        primaryKey = false
+                        updatable = true
+                        length = 0
+                  returningPolicy = null
+                  cacheKeyType = "ID_VALUE"
+                  javaClassName = "fr.cinematheque.model.Movie"
+                  properties = (Object #27)
+                    org.eclipse.persistence.internal.jpa.metamodel.EntityTypeImpl = (Typed Object #28 'org.eclipse.persistence.internal.jpa.metamodel.EntityTypeImpl')
+                  idValidation = "ZERO"
+                  sequenceNumberName = "GEN_MOVIE_ID"
+                  identityMapSize = 100
+                  partitioningPolicyName = null
+                  defaultInsertObjectQueryRedirector = null
+                  instantiationPolicy = (Typed Object #29 'org.eclipse.persistence.internal.descriptors.PersistenceObjectInstantiationPolicy')
+                    methodName = null
+                  amendmentMethodName = null
+                  javaClass = (Typed Object #30 'java.lang.Class')
+                  amendmentClass = null
+                  primaryKeyIdValidations = (Externalizable Object #31 'flex.messaging.io.ArrayCollection')
+                    (Array #32)
+                      [0] = "ZERO"
+                  historyPolicy = null
+                  CMPPolicy = (Typed Object #33 'org.eclipse.persistence.internal.jpa.CMP3Policy')
+                    mappedClass = null
+                    PKClass = (Ref #15)
+                    updateAllFields = false
+                    descriptor = (Ref #7)
+                    pessimisticLockingPolicy = null
+                    forceUpdate = false
+                    deferModificationsUntilCommit = 2
+                    nonDeferredCreateTime = 0
+                  partitioningPolicy = null
+                  cacheInterceptorClass = null
+                  sequenceNumberField = (Ref #13)
+                  fullyMergeEntity = false
+                  queryManager = (Typed Object #34 'org.eclipse.persistence.descriptors.DescriptorQueryManager')
+                    doesExistCall = null
+                    deleteQuery = (Typed Object #35 'org.eclipse.persistence.queries.DeleteObjectQuery')
+                      shouldBindAllParameters = null
+                      descriptor = (Ref #7)
+                      queryTimeout = 0
+                      argumentType
+INFO: s = (Externalizable Object #36 'flex.messaging.io.ArrayCollection')
+                        (Array #37)
+                      nullableArguments = (Externalizable Object #38 'flex.messaging.io.ArrayCollection')
+                        (Array #39)
+                      parameterDelimiter = "#"
+                      object = null
+                      accessors = null
+                      EJBQLString = null
+                      sessionName = null
+                      argumentValues = (Externalizable Object #40 'flex.messaging.io.ArrayCollection')
+                        (Array #41)
+                      name = null
+                      hintString = null
+                      backupClone = null
+                      datasourceCall = (Typed Object #42 'org.eclipse.persistence.queries.SQLCall')
+                        result = null
+                        firstResult = 0
+                        query = (Ref #35)
+                        queryTimeout = 0
+                        resultSetType = 0
+                        contexts = null
+                        parameters = (Externalizable Object #43 'flex.messaging.io.ArrayCollection')
+                          (Array #44)
+                            [0] = (Typed Object #45 'org.eclipse.persistence.internal.expressions.ParameterExpression')
+                              baseExpression = null
+                              localBase = (Typed Object #46 'org.eclipse.persistence.internal.expressions.FieldExpression')
+                                field = (Ref #13)
+                                baseExpression = (Typed Object #47 'org.eclipse.persistence.expressions.ExpressionBuilder')
+                                  queryClass = null
+                                  tableAliases = null
+                                  operator = null
+                                  function = null
+                                  statement = null
+                                  castClass = null
+                                  viewTable = null
+                                  derivedExpressions = null
+                                  session = null
+                                  baseExpression = null
+                                tableAliases = null
+                                operator = null
+                                function = null
+                              type = null
+                              operator = null
+                              function = null
+                        fields = null
+                        parameterTypes = (Externalizable Object #48 'flex.messaging.io.ArrayCollection')
+                          (Array #49)
+                            [0] = 3
+                        resultSetFetchSize = 0
+                        returnsResultSet = true
+                        returnType = 1
+                        statement = null
+                        SQLString = "DELETE FROM MOVIE WHERE (ID = ?)"
+                        queryString = "DELETE FROM MOVIE WHERE (ID = ?)"
+                        resultSetConcurrency = 0
+                        maxRows = 0
+                      batchObjects = null
+                      JPQLString = null
+                      modifyRow = (Typed Object #50 'org.eclipse.persistence.sessions.DatabaseRecord')
+                      redirector = null
+                      cascadePolicy = 2
+                      properties = (Object #51)
+                      argumentTypeNames = (Externalizable Object #52 'flex.messaging.io.ArrayCollection')
+                        (Array #53)
+                      objectChangeSet = null
+                      SQLString = "DELETE FROM MOVIE WHERE (ID = ?)"
+                      arguments = (Externalizable Object #54 'flex.messaging.io.ArrayCollection')
+                        (Array #55)
+                      session = null
+                      accessor = null
+                      SQLStatement = null
+                      primaryKey = null
+                      selectionCriteria = null
+                      flushOnExecute = null
+                      translationRow = null
+                      partitioningPolicy = null
+                      doNotRedirect = true
+                      sourceMapping = null
+                    multipleTableJoinExpression = null
+                    expressionQueryCacheMaxSize = 20
+                    updateSQLString = null
+                    queryTimeout = 0
+                    updateQuery = null
+                    readAllQuery = null
+                    readObjectCall = (Typed Object #56 'org.eclipse.persistence.queries.SQLCall')
+                      result = null
+                      firstResult = 0
+                      query = (Typed Object #57 'org.eclipse.persistence.queries.ReadObjectQuery')
+                        shouldBindAllParameters = null
+                        fetchSize = 0
+                        selectionId = null
+                        referenceClassName = "fr.cinematheque.model.Movie"
+                        orderByExpressions = (Externalizable Object #58 'flex.messaging.io.ArrayCollection')
+                          (Array #59)
+                        parameterDelimiter = "#"
+                        EJBQLString = null
+                        waitTimeout = null
+                        hintString = null
+                        additionalFields = (Externalizable Object #60 'flex.messaging.io.ArrayCollection')
+                          (Array #61)
+                        queryResultsCachePolicy = null
+                        datasourceCall = (Ref #56)
+                        loadGroup = null
+                        batchReadAttributeExpressions = (Externalizable Object #62 'flex.messaging.io.ArrayCollection')
+                          (Array #63)
+                        batchObjects = null
+                        cascadePolicy = 1
+                        properties = (Object #64)
+                        session = null
+                        SQLStatement = null
+                        maxRows = 0
+                        expressionBuilder = (Ref #47)
+                        referenceClass = (Ref #30)
+                        partialAttributeExpressions = (Externalizable Object #65 'flex.messaging.io.ArrayCollection')
+                          (Array #66)
+                        temporaryCachedQueryResults = null
+                        partitioningPolicy = null
+                        sourceMapping = null
+                        fetchGroupName = null
+                        joinedAttributeExpressions = (Externalizable Object #67 'flex.messaging.io.ArrayCollection')
+                          (Array #68)
+                        firstResult = 0
+                        executionTime = 0.0
+                        descriptor = (Ref #7)
+                        batchFetchPolicy = (Typed Object #69 'org.eclipse.persistence.queries.BatchFetchPolicy')
+                          batchObjects = null
+                          attributeExpressions = (Ref #62)
+                          mappingQueries = null
+                          attributes = null
+                          type = "JOIN"
+                          batchedMappings = null
+                          dataResults = null
+                          size = 500
+                        queryTimeout = 0
+                        argumentTypes = (Externalizable Object #70 'flex.messaging.io.ArrayCollection')
+                          (Array #71)
+                        queryByExamplePolicy = null
+                        nullableArguments = (Externalizable Object #72 'flex.messaging.io.ArrayCollection')
+                          (Array #73)
+                        cacheUsage = -1
+                        accessors = null
+                        lockMode = -1
+                        exampleObject = null
+                        selectionObject = null
+                        asOfClause = null
+                        sessionName = null
+                        distinctState = 0
+                        argumentValues = (Externalizable Object #74 'flex.messaging.io.ArrayCollection')
+   
+INFO:                        (Array #75)
+                        fetchGroup = null
+                        name = "readObject"
+                        queryId = 0.0
+                        JPQLString = null
+                        redirector = null
+                        inMemoryQueryIndirectionPolicy = (Typed Object #76 'org.eclipse.persistence.queries.InMemoryQueryIndirectionPolicy')
+                          query = (Ref #57)
+                          policy = 0
+                        lockingClause = null
+                        argumentTypeNames = (Externalizable Object #77 'flex.messaging.io.ArrayCollection')
+                          (Array #78)
+                        SQLString = "SELECT ID, DATE_RELEASE, STATUS, TITLE FROM MOVIE WHERE (ID = ?)"
+                        arguments = (Externalizable Object #79 'flex.messaging.io.ArrayCollection')
+                          (Array #80)
+                        accessor = null
+                        selectionCriteria = (Typed Object #81 'org.eclipse.persistence.internal.expressions.RelationExpression')
+                          operator = (Typed Object #82 'org.eclipse.persistence.expressions.ExpressionOperator')
+                            selector = 4
+                            nodeClass = (Typed Object #83 'java.lang.Class')
+                            type = 2
+                          function = null
+                        flushOnExecute = null
+                        inMemoryQueryIndirectionPolicyState = 0
+                        joinedAttributeManager = (Typed Object #84 'org.eclipse.persistence.internal.queries.JoinedAttributeManager')
+                          joinedMappingQueries_ = null
+                          joinedMappingIndexes_ = null
+                          orderByExpressions_ = null
+                          descriptor = (Ref #7)
+                          additionalFieldExpressions_ = null
+                          joinedMappingQueryClones = null
+                          parentResultIndex = 0
+                        translationRow = null
+                        doNotRedirect = true
+                      queryTimeout = 0
+                      resultSetType = 0
+                      contexts = null
+                      parameters = (Externalizable Object #85 'flex.messaging.io.ArrayCollection')
+                        (Array #86)
+                          [0] = (Typed Object #87 'org.eclipse.persistence.internal.expressions.ParameterExpression')
+                            baseExpression = null
+                            localBase = (Typed Object #88 'org.eclipse.persistence.internal.expressions.FieldExpression')
+                              field = (Ref #13)
+                              baseExpression = (Typed Object #89 'org.eclipse.persistence.expressions.ExpressionBuilder')
+                                queryClass = (Ref #30)
+                                tableAliases = (Typed Object #90 'org.eclipse.persistence.internal.expressions.TableAliasLookup')
+                                operator = null
+                                function = null
+                                statement = (Typed Object #91 'org.eclipse.persistence.internal.expressions.SQLSelectStatement')
+                                  whereClause = (Typed Object #92 'org.eclipse.persistence.internal.expressions.RelationExpression')
+                                    operator = (Ref #82)
+                                    function = null
+                                  query = (Ref #57)
+                                  orderByExpressions = (Externalizable Object #93 'flex.messaging.io.ArrayCollection')
+                                    (Array #94)
+                                  parentStatement = null
+                                  builder = (Ref #89)
+                                  tables = (Externalizable Object #95 'flex.messaging.io.ArrayCollection')
+                                    (Array #96)
+                                      [0] = (Ref #14)
+                                  groupByExpressions = (Externalizable Object #97 'flex.messaging.io.ArrayCollection')
+                                    (Array #98)
+                                  havingExpression = null
+                                  nonSelectFields = null
+                                  outerJoinedMappingCriteria = (Externalizable Object #99 'flex.messaging.io.ArrayCollection')
+                                    (Array #100)
+                                  outerJoinExpressions = (Externalizable Object #101 'flex.messaging.io.ArrayCollection')
+                                    (Array #102)
+                                  hintString = null
+                                  useUniqueFieldAliases = false
+                                  outerJoinedAdditionalJoinCriteria = (Externalizable Object #103 'flex.messaging.io.ArrayCollection')
+                                    (Array #104)
+                                  currentAliasNumber = 1
+                                  translationRow = null
+                                  fields = (Externalizable Object #105 'flex.messaging.io.ArrayCollection')
+                                    (Array #106)
+                                      [0] = (Ref #13)
+                                      [1] = (Ref #23)
+                                      [2] = (Ref #24)
+                                      [3] = (Ref #25)
+                                castClass = null
+                                viewTable = null
+                                derivedExpressions = null
+                                session = (Typed Object #107 'org.eclipse.persistence.sessions.server.ServerSession')
+                                  commitManager = (Typed Object #108 'org.eclipse.persistence.internal.sessions.CommitManager')
+                                    commitOrder = (Externalizable Object #109 'flex.messaging.io.ArrayCollection')
+                                      (Array #110)
+                                        [0] = (Ref #30)
+                                  connectionPools = (Object #111)
+                                    default = (Typed Object #112 'org.eclipse.persistence.sessions.server.ExternalConnectionPool')
+                                      waitTimeout = 0
+                                      minNumberOfConnections = 0
+                                      failoverConnectionPools = (Externalizable Object #113 'flex.messaging.io.ArrayCollection')
+                                        (Array #114)
+                                      initialNumberOfConnections = 0
+                                      name = "default"
+                                      maxNumberOfConnections = 0
+                                      login = (Typed Object #115 'org.eclipse.persistence.sessions.DatabaseLogin')
+                                        shouldBindAllParameters = true
+                                        databaseURL = ""
+                                        usesNativeSQL = false
+                                        usesStringBinding = false
+                                        tableQualifier = ""
+                                        driverURLHeader = ""
+                                        password = null
+                                        platformClassName = "org.eclipse.persistence.platform.database.FirebirdPlatform"
+                                        shouldCacheAllStatements = false
+                                        userName = ""
+                                        partitioningCallback = null
+                                        connectionString = null
+                                        connectionHealthValidatedOnError = false
+                                        URL = null
+                                        stringBindingSize = 255
+                                        cacheTransactionIsolation = 5
+                                        usesStreamsForBinding = false
+                                        shouldTrimStrings = true
+                             
+INFO:            defaultSequence = (Typed Object #116 'org.eclipse.persistence.sequencing.TableSequence')
+                                          preallocationSize = 50
+                                          nameFieldName = "SEQ_NAME"
+                                          updateQuery = null
+                                          qualifier = ""
+                                          selectQuery = null
+                                          counterFieldName = "SEQ_COUNT"
+                                          tableName = ""
+                                          initialValue = 1
+                                          name = "SEQUENCE"
+                                        delayBetweenConnectionAttempts = 5000
+                                        sequences = (Object #117)
+                                          GEN_MOVIE_ID = (Typed Object #118 'org.eclipse.persistence.sequencing.NativeSequence')
+                                            preallocationSize = 1
+                                            name = "GEN_MOVIE_ID"
+                                            initialValue = 1
+                                            updateQuery = null
+                                            qualifier = ""
+                                            selectQuery = null
+                                        driverClassName = ""
+                                        queryRetryAttemptCount = 3
+                                        statementCacheSize = 50
+                                        shouldOptimizeDataConversion = true
+                                        properties = (Typed Object #119 'org.eclipse.persistence.internal.helper.NonSynchronizedProperties')
+                                          user = ""
+                                        transactionIsolation = -1
+                                        serverName = null
+                                        maxBatchWritingSize = 0
+                                        databaseName = null
+                                        tableCreationSuffix = null
+                                        cursorCode = -10
+                                        datasourcePlatform = (Typed Object #120 'org.eclipse.persistence.platform.database.FirebirdPlatform')
+                                          tableQualifier = ""
+                                          conversionManager = (Typed Object #121 'org.eclipse.persistence.internal.helper.JPAConversionManager')
+                                            defaultNullValues = null
+                                          partitioningCallback = null
+                                          sequenceTableName = "SEQUENCE"
+                                          stringBindingSize = 255
+                                          castSizeForVarcharParameter = 32672
+                                          defaultSequence = (Ref #116)
+                                          endDelimiter = """
+                                          sequenceCounterFieldName = "SEQ_COUNT"
+                                          sequences = (Ref #117)
+                                          statementCacheSize = 50
+                                          transactionIsolation = -1
+                                          maxBatchWritingSize = 0
+                                          operator = null
+                                          sequencePreallocationSize = 50
+                                          tableCreationSuffix = null
+                                          updateSequenceQuery = null
+                                          jdbcTypeName = null
+                                          cursorCode = -10
+                                          sequenceNameFieldName = "SEQ_NAME"
+                                          startDelimiter = """
+                                          timestampQuery = (Typed Object #122 'org.eclipse.persistence.queries.ValueReadQuery')
+                                            shouldBindAllParameters = null
+                                            fetchSize = 0
+                                            parameterDelimiter = "#"
+                                            EJBQLString = null
+                                            hintString = null
+                                            datasourceCall = (Typed Object #123 'org.eclipse.persistence.queries.SQLCall')
+                                              result = null
+                                              firstResult = 0
+                                              query = (Ref #122)
+                                              queryTimeout = 0
+                                              resultSetType = 0
+                                              contexts = null
+                                              parameters = (Externalizable Object #124 'flex.messaging.io.ArrayCollection')
+                                                (Array #125)
+                                              fields = null
+                                              parameterTypes = (Externalizable Object #126 'flex.messaging.io.ArrayCollection')
+                                                (Array #127)
+                                              resultSetFetchSize = 0
+                                              returnsResultSet = true
+                                              returnType = 0
+                                              statement = null
+                                              SQLString = "SELECT CURRENT_TIMESTAMP FROM RDB$DATABASE"
+                                              queryString = "SELECT CURRENT_TIMESTAMP FROM RDB$DATABASE"
+                                              resultSetConcurrency = 0
+                                              maxRows = 0
+                                            queryResultsCachePolicy = null
+                                            batchObjects = null
+                                            valueConverter = null
+                                            cascadePolicy = 1
+                                            properties = (Object #128)
+                                            session = null
+                                            SQLStatement = null
+                                            maxRows = 0
+                                            resultType = 2
+                                            partitioningPolicy = null
+                                            temporaryCachedQueryResults = null
+                                            sourceMapping = null
+                                            firstResult = 0
+                                            descriptor = null
+                                            argumentTypes = (Externalizable Object #129 'flex.messaging.io.ArrayCollection')
+                                              (Array #130)
+                                            queryTimeout = -1
+                                            nullableArguments = (Externalizable Object #131 'flex.messaging.io.ArrayCollection')
+                                              (Array #132)
+                                            accessors = null
+                                            sessionName = null
+                                            argumentValues = (Externalizable Object #133 'flex.messaging.io.ArrayCollection')
+                                              (Array #134)
+                                            name = null
+                                            queryId = 0.0
+                                            JPQLString = null
+                                            redirector = null
+                                            argumentTypeNames = (Externalizable Object #135 'flex.messaging.io.ArrayCollection')
+                                              (Array #136)
+                                            SQLString = "SELECT CURRENT_TIMESTAMP FROM RDB$DATABASE"
+                                            arguments
+INFO:  = (Externalizable Object #137 'flex.messaging.io.ArrayCollection')
+                                              (Array #138)
+                                            containerPolicy = (Typed Object #139 'org.eclipse.persistence.internal.queries.VectorContainerPolicy')
+                                              containerClassName = "java.util.Vector"
+                                              cloneMethod = (Typed Object #140 'java.lang.reflect.Method')
+                                                accessible = false
+                                              containerClass = (Typed Object #141 'java.lang.Class')
+                                              elementDescriptor = null
+                                            accessor = null
+                                            selectionCriteria = null
+                                            flushOnExecute = null
+                                            doNotRedirect = false
+                                            translationRow = null
+                                          pingSQL = "SELECT 1 FROM RDB$DATABASE"
+                                        connector = (Typed Object #142 'org.eclipse.persistence.sessions.JNDIConnector')
+                                          lookupType = 2
+                                          dataSource = (Typed Object #143 'com.sun.gjc.spi.jdbc40.DataSource40')
+                                            description = null
+                                            logWriter = null
+                                            loginTimeout = 0
+                                            reference = null
+                                          name = null
+                                          context = (Typed Object #144 'javax.naming.InitialContext')
+                                        pingSQL = "SELECT 1 FROM RDB$DATABASE"
+                                  eventManager = (Typed Object #145 'org.eclipse.persistence.sessions.SessionEventManager')
+                                    session = (Ref #107)
+                                  defaultConnectionPolicy = (Typed Object #146 'org.eclipse.persistence.sessions.server.ConnectionPolicy')
+                                    poolName = "default"
+                                    login = (Ref #115)
+                                    exclusiveMode = "Transactional"
+                                  datasourceLogin = (Ref #115)
+                                  logLevel = 0
+                                  name = "file:/D:/programmation/poc/CineProg/target/CineProg/WEB-INF/classes/_CineProgPU"
+                                  sessionLog = (Typed Object #147 'org.eclipse.persistence.logging.JavaLog')
+                                    level = 0
+                                    session = (Ref #107)
+                                    dateFormat = null
+                                    writer = (Typed Object #148 'java.io.PrintWriter')
+                                  login = (Ref #115)
+                                  exceptionHandler = null
+                                  numberOfNonPooledConnectionsUsed = 0
+                                  maxNumberOfNonPooledConnections = 50
+                                  externalTransactionController = (Typed Object #149 'org.eclipse.persistence.transaction.sunas.SunAS9TransactionController')
+                                    session = (Ref #107)
+                                    listenerFactory = (Typed Object #150 'org.eclipse.persistence.transaction.JTASynchronizationListener')
+                                    transactionManager = (Typed Object #151 'com.sun.enterprise.transaction.TransactionManagerHelper')
+                                  synchronized = false
+                                  defaultReferenceMode = null
+                                  integrityChecker = (Typed Object #152 'org.eclipse.persistence.exceptions.IntegrityChecker')
+                                    caughtExceptions = (Externalizable Object #153 'flex.messaging.io.ArrayCollection')
+                                      (Array #154)
+                                  properties = (Object #155)
+                                    eclipselink.orm.throw.exceptions = "true"
+                                    toplink.ddl-generation.output-mode = "none"
+                                    toplink.target-server = "SunAS9"
+                                    eclipselink.ddl-generation.output-mode = "none"
+                                    eclipselink.logging.level = "ALL"
+                                    eclipselink.target-server = "SunAS9"
+                                    hibernate.transaction.manager_lookup_class = "org.hibernate.transaction.SunONETransactionManagerLookup"
+                                  log = (Ref #148)
+                                  pessimisticLockTimeoutDefault = null
+                                  queryTimeoutDefault = 0
+                                  project = (Typed Object #156 'org.eclipse.persistence.sessions.Project')
+                                    partitioningPolicies = (Object #157)
+                                    defaultCacheIsolation = null
+                                    defaultIdValidation = null
+                                    JPQLParseCacheMaxSize = 200
+                                    aliasDescriptors = (Object #158)
+                                       = (Ref #7)
+                                      Movie = (Ref #7)
+                                    descriptors = (Object #159)
+                                      class fr.cinematheque.model.Movie = (Ref #7)
+                                    orderedDescriptors = (Externalizable Object #160 'flex.messaging.io.ArrayCollection')
+                                      (Array #161)
+                                        [0] = (Ref #7)
+                                    datasourceLogin = (Ref #115)
+                                    defaultIdentityMapSize = 100
+                                    defaultIsIsolated = null
+                                    name = ""
+                                    queries = (Externalizable Object #162 'flex.messaging.io.ArrayCollection')
+                                      (Array #163)
+                                    login = (Ref #115)
+                                    defaultTemporalMutable = false
+                                    defaultIdentityMapClass = (Ref #19)
+                                  accessor = (Typed Object #164 'org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor')
+                                    writeStatementsCount = 0
+                                    pool = (Typed Object #165 'org.eclipse.persistence.sessions.server.ExternalConnectionPool')
+                                      waitTimeout = 0
+                                      minNumberOfConnections = 0
+                                      failoverConnectionPools = (Externalizable Object #166 'flex.messaging.io.ArrayCollection')
+                                        (Array #167)
+                                      initialNumberOfConnections = 0
+                                      name = "read"
+                                      maxNumberOfConnections = 0
+                                      login = (Typed Object #168 'org.eclipse.persistence.sessions.DatabaseLogin')
+                                        shouldBindAllParameters = true
+                                        databaseURL = ""
+                                        usesNativeSQL = false
+                                        usesStringBinding = false
+                                        tableQualifier = ""
+                                        driverURLHeader = ""
+                                        password = null
+                                        platformClassName = "org.eclipse.persistence.platform.database.DatabasePlatform"
+                                        shouldCacheAllStatements = false
+                                        userName = ""
+     
+INFO:                                    partitioningCallback = null
+                                        connectionString = null
+                                        connectionHealthValidatedOnError = true
+                                        URL = null
+                                        stringBindingSize = 255
+                                        cacheTransactionIsolation = 5
+                                        usesStreamsForBinding = false
+                                        shouldTrimStrings = true
+                                        defaultSequence = (Typed Object #169 'org.eclipse.persistence.sequencing.TableSequence')
+                                          preallocationSize = 50
+                                          nameFieldName = "SEQ_NAME"
+                                          updateQuery = null
+                                          qualifier = ""
+                                          selectQuery = null
+                                          counterFieldName = "SEQ_COUNT"
+                                          tableName = ""
+                                          initialValue = 1
+                                          name = "SEQUENCE"
+                                        delayBetweenConnectionAttempts = 5000
+                                        sequences = (Object #170)
+                                          GEN_MOVIE_ID = (Typed Object #171 'org.eclipse.persistence.sequencing.NativeSequence')
+                                            preallocationSize = 1
+                                            name = "GEN_MOVIE_ID"
+                                            initialValue = 1
+                                            updateQuery = null
+                                            qualifier = ""
+                                            selectQuery = null
+                                        driverClassName = ""
+                                        queryRetryAttemptCount = 3
+                                        statementCacheSize = 50
+                                        shouldOptimizeDataConversion = true
+                                        properties = (Typed Object #172 'org.eclipse.persistence.internal.helper.NonSynchronizedProperties')
+                                          user = ""
+                                        transactionIsolation = -1
+                                        serverName = null
+                                        maxBatchWritingSize = 0
+                                        databaseName = null
+                                        tableCreationSuffix = null
+                                        cursorCode = -10
+                                        datasourcePlatform = (Typed Object #173 'org.eclipse.persistence.platform.database.DatabasePlatform')
+                                          tableQualifier = ""
+                                          conversionManager = (Ref #121)
+                                          partitioningCallback = null
+                                          sequenceTableName = "SEQUENCE"
+                                          stringBindingSize = 255
+                                          castSizeForVarcharParameter = 32672
+                                          defaultSequence = (Ref #169)
+                                          endDelimiter = """
+                                          sequenceCounterFieldName = "SEQ_COUNT"
+                                          sequences = (Ref #170)
+                                          statementCacheSize = 50
+                                          transactionIsolation = -1
+                                          maxBatchWritingSize = 0
+                                          operator = null
+                                          sequencePreallocationSize = 50
+                                          tableCreationSuffix = null
+                                          updateSequenceQuery = null
+                                          jdbcTypeName = null
+                                          cursorCode = -10
+                                          sequenceNameFieldName = "SEQ_NAME"
+                                          startDelimiter = """
+                                          timestampQuery = null
+                                          pingSQL = null
+                                        connector = (Typed Object #174 'org.eclipse.persistence.sessions.JNDIConnector')
+                                          lookupType = 2
+                                          dataSource = (Typed Object #175 'com.sun.gjc.spi.jdbc40.DataSource40')
+                                            description = null
+                                            logWriter = null
+                                            loginTimeout = 0
+                                            reference = null
+                                          name = null
+                                          context = (Typed Object #176 'javax.naming.InitialContext')
+                                        pingSQL = null
+                                    storedProcedureStatementsCount = 0
+                                    datasourcePlatform = (Ref #120)
+                                    readStatementsCount = 0
+                                  profiler = null
+                                  readConnectionPool = (Ref #165)
+                                  serverPlatform = (Typed Object #177 'org.eclipse.persistence.platform.server.sunas.SunAS9ServerPlatform')
+                                    applicationName = "unknown"
+                                    externalTransactionControllerClass = (Typed Object #178 'java.lang.Class')
+                                  partitioningPolicy = null
+                                  commandManager = null
+                                baseExpression = null
+                              tableAliases = null
+                              operator = null
+                              function = null
+                            type = null
+                            operator = null
+                            function = null
+                      fields = (Externalizable Object #179 'flex.messaging.io.ArrayCollection')
+                        (Array #180)
+                          [0] = (Ref #13)
+                          [1] = (Ref #23)
+                          [2] = (Ref #24)
+                          [3] = (Ref #25)
+                      parameterTypes = (Externalizable Object #181 'flex.messaging.io.ArrayCollection')
+                        (Array #182)
+                          [0] = 3
+                      resultSetFetchSize = 0
+                      returnsResultSet = true
+                      returnType = 2
+                      statement = null
+                      SQLString = "SELECT ID, DATE_RELEASE, STATUS, TITLE FROM MOVIE WHERE (ID = ?)"
+                      queryString = "SELECT ID, DATE_RELEASE, STATUS, TITLE FROM MOVIE WHERE (ID = ?)"
+                      resultSetConcurrency = 0
+                      maxRows = 0
+                    readObjectQuery = (Ref #57)
+                    insertCall = (Typed Object #183 'org.eclipse.persistence.queries.SQLCall')
+                      result = null
+                      firstResult = 0
+                      query = (Typed Object #184 'org.eclipse.persistence.queries.InsertObjectQuery')
+                        shouldBindAllParameters = null
+                        descriptor = (Ref #7)
+                        queryTimeout = 0
+                        argumentTypes = (Externalizable Object #185 'flex.messaging.io.ArrayCollection')
+                          (Array #186)
+                        nullableArguments = (Externalizable Object #187 'flex.messaging.io.ArrayCollection')
+                          (Array #188)
+                        parameterDelimiter = "#"
+                        object = null
+                        accessors = null
+                        EJBQLString = null
+    
+INFO:                     sessionName = null
+                        argumentValues = (Externalizable Object #189 'flex.messaging.io.ArrayCollection')
+                          (Array #190)
+                        name = null
+                        hintString = null
+                        backupClone = null
+                        datasourceCall = (Ref #183)
+                        batchObjects = null
+                        JPQLString = null
+                        modifyRow = (Typed Object #191 'org.eclipse.persistence.sessions.DatabaseRecord')
+                          MOVIE.ID = null
+                          MOVIE.DATE_RELEASE = null
+                          MOVIE.STATUS = null
+                          MOVIE.TITLE = null
+                        redirector = null
+                        cascadePolicy = 2
+                        properties = (Object #192)
+                        argumentTypeNames = (Externalizable Object #193 'flex.messaging.io.ArrayCollection')
+                          (Array #194)
+                        objectChangeSet = null
+                        SQLString = "INSERT INTO MOVIE (ID, DATE_RELEASE, STATUS, TITLE) VALUES (?, ?, ?, ?)"
+                        arguments = (Externalizable Object #195 'flex.messaging.io.ArrayCollection')
+                          (Array #196)
+                        session = null
+                        accessor = null
+                        SQLStatement = null
+                        primaryKey = null
+                        selectionCriteria = null
+                        flushOnExecute = null
+                        translationRow = null
+                        partitioningPolicy = null
+                        doNotRedirect = true
+                        sourceMapping = null
+                      queryTimeout = 0
+                      resultSetType = 0
+                      contexts = null
+                      parameters = (Externalizable Object #197 'flex.messaging.io.ArrayCollection')
+                        (Array #198)
+                          [0] = (Ref #13)
+                          [1] = (Ref #23)
+                          [2] = (Ref #24)
+                          [3] = (Ref #25)
+                      fields = null
+                      parameterTypes = (Externalizable Object #199 'flex.messaging.io.ArrayCollection')
+                        (Array #200)
+                          [0] = 2
+                          [1] = 2
+                          [2] = 2
+                          [3] = 2
+                      resultSetFetchSize = 0
+                      returnsResultSet = true
+                      returnType = 1
+                      statement = null
+                      SQLString = "INSERT INTO MOVIE (ID, DATE_RELEASE, STATUS, TITLE) VALUES (?, ?, ?, ?)"
+                      queryString = "INSERT INTO MOVIE (ID, DATE_RELEASE, STATUS, TITLE) VALUES (?, ?, ?, ?)"
+                      resultSetConcurrency = 0
+                      maxRows = 0
+                    deleteSQLString = "DELETE FROM MOVIE WHERE (ID = ?)"
+                    readAllCall = null
+                    readObjectSQLString = "SELECT ID, DATE_RELEASE, STATUS, TITLE FROM MOVIE WHERE (ID = ?)"
+                    doesExistSQLString = null
+                    updateCall = null
+                    readAllSQLString = null
+                    deleteCall = (Ref #42)
+                    doesExistQuery = (Typed Object #201 'org.eclipse.persistence.queries.DoesExistQuery')
+                      shouldBindAllParameters = null
+                      descriptor = null
+                      queryTimeout = -1
+                      argumentTypes = (Externalizable Object #202 'flex.messaging.io.ArrayCollection')
+                        (Array #203)
+                      nullableArguments = (Externalizable Object #204 'flex.messaging.io.ArrayCollection')
+                        (Array #205)
+                      parameterDelimiter = "#"
+                      object = null
+                      accessors = null
+                      EJBQLString = null
+                      sessionName = null
+                      argumentValues = (Externalizable Object #206 'flex.messaging.io.ArrayCollection')
+                        (Array #207)
+                      checkDatabaseIfInvalid = true
+                      name = null
+                      hintString = null
+                      datasourceCall = null
+                      batchObjects = null
+                      JPQLString = null
+                      redirector = null
+                      cascadePolicy = 1
+                      properties = (Object #208)
+                      existencePolicy = 4
+                      argumentTypeNames = (Externalizable Object #209 'flex.messaging.io.ArrayCollection')
+                        (Array #210)
+                      SQLString = null
+                      arguments = (Externalizable Object #211 'flex.messaging.io.ArrayCollection')
+                        (Array #212)
+                      session = null
+                      accessor = null
+                      SQLStatement = null
+                      primaryKey = null
+                      checkCacheFirst = true
+                      selectionCriteria = null
+                      flushOnExecute = null
+                      translationRow = null
+                      partitioningPolicy = null
+                      doNotRedirect = false
+                      sourceMapping = null
+                    insertQuery = (Ref #184)
+                    insertSQLString = "INSERT INTO MOVIE (ID, DATE_RELEASE, STATUS, TITLE) VALUES (?, ?, ?, ?)"
+                    existenceCheck = "Check database"
+                    allQueries = (Externalizable Object #213 'flex.messaging.io.ArrayCollection')
+                      (Array #214)
+                    queries = (Object #215)
+                    additionalJoinExpression = null
+                    updateCallCacheSize = 10
+                  tableNames = (Externalizable Object #216 'flex.messaging.io.ArrayCollection')
+                    (Array #217)
+                      [0] = "MOVIE"
+                  sequenceNumberFieldName = "MOVIE.ID"
+                  interfacePolicy = (Typed Object #218 'org.eclipse.persistence.descriptors.InterfacePolicy')
+                    parentInterfaces = (Externalizable Object #219 'flex.messaging.io.ArrayCollection')
+                      (Array #220)
+                    parentInterfaceNames = (Externalizable Object #221 'flex.messaging.io.ArrayCollection')
+                      (Array #222)
+                    implementorDescriptorClassName = null
+                    implementorDescriptor = null
+                  cacheInvalidationPolicy = (Typed Object #223 'org.eclipse.persistence.descriptors.invalidation.NoExpiryCacheInvalidationPolicy')
+                  inheritancePolicy = (Typed Object #224 'org.eclipse.persistence.descriptors.InheritancePolicy')
+                    describesNonPersistentSubclasses = false
+                    parentClass = null
+                    descriptor = (Ref #7)
+                    onlyInstancesExpression = null
+                    parentDescriptor = null
+                    classIndicatorField = null
+                    useDescriptorsToValidateInheritedObjects = false
+                    childDescriptors = (Externalizable Object #225 'flex.messaging.io.ArrayCollection')
+                      (Array #226)
+                    classExtractionMethodName = null
+                    classNameIndicatorMapping = (Object #227)
+                    classIndicatorAssociations = (Externalizable Object #228 'flex.messaging.io.ArrayCollection')
+                      (Array #229)
+                    classIndicatorFieldName = null
+                    parentClassName = null
+                    readAllSubclassesViewName = null
+                    withAllSubclassesExpression = null
+                    classExtractor = null
+                    classIndicatorMapping = (Object #230)
+                  remoteIdentityMapSize = 100
+                  eventManager = (Typed Ob
+INFO: ject #231 'org.eclipse.persistence.descriptors.DescriptorEventManager')
+                    postMergeSelector = null
+                    preInsertSelector = null
+                    aboutToUpdateSelector = null
+                    aboutToDeleteSelector = null
+                    preWriteSelector = null
+                    preUpdateSelector = null
+                    preRemoveSelector = null
+                    postDeleteSelector = null
+                    postUpdateSelector = null
+                    postWriteSelector = null
+                    postRefreshSelector = null
+                    aboutToInsertSelector = null
+                    postBuildSelector = null
+                    postInsertSelector = null
+                    prePersistSelector = null
+                    preDeleteSelector = null
+                    entityEventListener = null
+                    postCloneSelector = null
+                  cacheSynchronizationType = 1
+                  tableName = "MOVIE"
+                  defaultDeleteObjectQueryRedirector = null
+                  mappings = (Externalizable Object #232 'flex.messaging.io.ArrayCollection')
+                    (Array #233)
+                      [0] = (Typed Object #234 'org.eclipse.persistence.mappings.DirectToFieldMapping')
+                        weight = 1
+                        descriptor = (Ref #7)
+                        getMethodName = null
+                        mapsIdValue = null
+                        attributeAccessor = (Typed Object #235 'org.eclipse.persistence.internal.descriptors.PersistenceObjectAttributeAccessor')
+                          attributeName = "id"
+                        attributeClassificationName = "java.lang.Integer"
+                        converter = null
+                        nullValue = null
+                        derivedIdMapping = null
+                        fieldName = "MOVIE.ID"
+                        attributeClassification = (Ref #15)
+                        fieldClassification = (Ref #15)
+                        properties = (Object #236)
+                          org.eclipse.persistence.internal.jpa.metamodel.SingularAttributeImpl = (Typed Object #237 'org.eclipse.persistence.internal.jpa.metamodel.SingularAttributeImpl')
+                        field = (Ref #13)
+                        attributeName = "id"
+                        setMethodName = null
+                      [1] = (Typed Object #238 'org.eclipse.persistence.mappings.DirectToFieldMapping')
+                        weight = 1
+                        descriptor = (Ref #7)
+                        getMethodName = null
+                        mapsIdValue = null
+                        attributeAccessor = (Typed Object #239 'org.eclipse.persistence.internal.descriptors.PersistenceObjectAttributeAccessor')
+                          attributeName = "dateRelease"
+                        attributeClassificationName = "java.lang.Integer"
+                        converter = null
+                        nullValue = null
+                        derivedIdMapping = null
+                        fieldName = "MOVIE.DATE_RELEASE"
+                        attributeClassification = (Ref #15)
+                        fieldClassification = (Ref #15)
+                        properties = (Object #240)
+                          org.eclipse.persistence.internal.jpa.metamodel.SingularAttributeImpl = (Typed Object #241 'org.eclipse.persistence.internal.jpa.metamodel.SingularAttributeImpl')
+                        field = (Ref #23)
+                        attributeName = "dateRelease"
+                        setMethodName = null
+                      [2] = (Typed Object #242 'org.eclipse.persistence.mappings.DirectToFieldMapping')
+                        weight = 1
+                        descriptor = (Ref #7)
+                        getMethodName = null
+                        mapsIdValue = null
+                        attributeAccessor = (Typed Object #243 'org.eclipse.persistence.internal.descriptors.PersistenceObjectAttributeAccessor')
+                          attributeName = "status"
+                        attributeClassificationName = "java.lang.Integer"
+                        converter = null
+                        nullValue = null
+                        derivedIdMapping = null
+                        fieldName = "MOVIE.STATUS"
+                        attributeClassification = (Ref #15)
+                        fieldClassification = (Ref #15)
+                        properties = (Object #244)
+                          org.eclipse.persistence.internal.jpa.metamodel.SingularAttributeImpl = (Typed Object #245 'org.eclipse.persistence.internal.jpa.metamodel.SingularAttributeImpl')
+                        field = (Ref #24)
+                        attributeName = "status"
+                        setMethodName = null
+                      [3] = (Typed Object #246 'org.eclipse.persistence.mappings.DirectToFieldMapping')
+                        weight = 1
+                        descriptor = (Ref #7)
+                        getMethodName = null
+                        mapsIdValue = null
+                        attributeAccessor = (Typed Object #247 'org.eclipse.persistence.internal.descriptors.PersistenceObjectAttributeAccessor')
+                          attributeName = "title"
+                        attributeClassificationName = "java.lang.String"
+                        converter = null
+                        nullValue = null
+                        derivedIdMapping = null
+                        fieldName = "MOVIE.TITLE"
+                        attributeClassification = (Ref #26)
+                        fieldClassification = (Ref #26)
+                        properties = (Object #248)
+                          org.eclipse.persistence.internal.jpa.metamodel.SingularAttributeImpl = (Typed Object #249 'org.eclipse.persistence.internal.jpa.metamodel.SingularAttributeImpl')
+                        field = (Ref #25)
+                        attributeName = "title"
+                        setMethodName = null
+                  defaultQueryRedirector = null
+                  lockableMappings = (Externalizable Object #250 'flex.messaging.io.ArrayCollection')
+                    (Array #251)
+                  amendmentClassName = null
+                  cacheInterceptorClassName = null
+                  defaultTable = (Ref #14)
+                  defaultUpdateObjectQueryRedirector = null
+                  tablePerClassPolicy = null
+                  optimisticLockingPolicy = null
+                  alias = "Movie"
+                  objectChangePolicy = (Typed Object #252 'org.eclipse.persistence.descriptors.changetracking.AttributeChangeTrackingPolicy')
+                  wrapperPolicy = null
+                  copyPolicy = (Typed Object #253 'org.eclipse.persistence.descriptors.copying.PersistenceEntityCopyPolicy')
+                  tables = (Externalizable Object #254 'flex.messaging.io.ArrayCollection')
+                    (Array #255)
+                      [0] = (Ref #14)
+                  unitOfWorkCacheIsolationLevel = 1
+                  descriptorTypeValue = "Normal"
+                  sequence = (Ref #118)
+                  cacheIsolation = null
+                  constraintDependencies = (Externalizable Object #256 'flex.messaging.io.ArrayCollection')
+                    (Array #257)
+                  virtualAttributeMethods = (Externalizable Object #258 'flex.messaging.io.ArrayCollection')
+                    (Array #259)
+                queryTimeout = 0
+                argumentTypes = (Ref #185)
+                nullableArguments = (Externalizable Object #260 'flex.messaging.io.ArrayCollection')
+                  (Array #261)
+                parameterDelimiter = "#"
+                object = (Typed Object #262 'fr.cinematheque.model.Movie')
+                  id = 29
+                  title = "Test 2"
+                  status = 0
+                  dateRelease = 2155
+                accessors = null
+                EJBQLString = null
+                sessionName = null
+                argume
+INFO: ntValues = (Externalizable Object #263 'flex.messaging.io.ArrayCollection')
+                  (Array #264)
+                name = null
+                hintString = null
+                backupClone = (Typed Object #265 'fr.cinematheque.model.Movie')
+                  id = null
+                  title = null
+                  status = null
+                  dateRelease = null
+                datasourceCall = (Ref #183)
+                batchObjects = null
+                JPQLString = null
+                modifyRow = (Typed Object #266 'org.eclipse.persistence.sessions.DatabaseRecord')
+                  MOVIE.ID = 29
+                  MOVIE.DATE_RELEASE = 2155
+                  MOVIE.STATUS = 0
+                  MOVIE.TITLE = "Test 2"
+                redirector = null
+                cascadePolicy = 4
+                properties = (Object #267)
+                argumentTypeNames = (Externalizable Object #268 'flex.messaging.io.ArrayCollection')
+                  (Array #269)
+                objectChangeSet = (Typed Object #270 'org.eclipse.persistence.internal.sessions.ObjectChangeSet')
+                  newKey = null
+                  descriptor = (Ref #7)
+                  initialWriteLockValue = null
+                  oldKey = null
+                  classType = (Ref #30)
+                  id = 29
+                  writeLockValue = null
+                  synchronizationType = 1
+                  className = "fr.cinematheque.model.Movie"
+                  activeCacheKey = null
+                  changes = (Externalizable Object #271 'flex.messaging.io.ArrayCollection')
+                    (Array #272)
+                SQLString = "INSERT INTO MOVIE (ID, DATE_RELEASE, STATUS, TITLE) VALUES (?, ?, ?, ?)"
+                arguments = (Ref #195)
+                session = (Typed Object #273 'org.eclipse.persistence.internal.sessions.RepeatableWriteUnitOfWork')
+                  commitManager = (Typed Object #274 'org.eclipse.persistence.internal.sessions.CommitManager')
+                    commitOrder = (Ref #109)
+                  transaction = null
+                  shouldThrowConformExceptions = 0
+                  eventManager = (Typed Object #275 'org.eclipse.persistence.sessions.SessionEventManager')
+                    session = (Ref #273)
+                  datasourceLogin = (Ref #115)
+                  preDeleteComplete = false
+                  flushClearCache = "DropInvalidate"
+                  logLevel = 0
+                  name = "file:/D:/programmation/poc/CineProg/target/CineProg/WEB-INF/classes/_CineProgPU"
+                  sessionLog = (Ref #147)
+                  login = (Ref #115)
+                  mergeManager = null
+                  exceptionHandler = null
+                  batchQueries = (Object #276)
+                  externalTransactionController = null
+                  synchronized = true
+                  defaultReferenceMode = null
+                  validationLevel = 1
+                  integrityChecker = (Typed Object #277 'org.eclipse.persistence.exceptions.IntegrityChecker')
+                    caughtExceptions = (Externalizable Object #278 'flex.messaging.io.ArrayCollection')
+                      (Array #279)
+                  objectsDeletedDuringCommit = (Object #280)
+                  parent = (Typed Object #281 'org.eclipse.persistence.sessions.server.ClientSession')
+                    commitManager = (Ref #108)
+                    writeConnection = null
+                    connectionPolicy = (Ref #146)
+                    eventManager = (Typed Object #282 'org.eclipse.persistence.sessions.SessionEventManager')
+                      session = (Ref #281)
+                    datasourceLogin = (Ref #115)
+                    logLevel = 0
+                    name = "file:/D:/programmation/poc/CineProg/target/CineProg/WEB-INF/classes/_CineProgPU"
+                    sessionLog = (Ref #147)
+                    login = (Ref #115)
+                    writeConnections = (Object #283)
+                    exceptionHandler = null
+                    externalTransactionController = (Ref #149)
+                    synchronized = true
+                    defaultReferenceMode = null
+                    integrityChecker = (Typed Object #284 'org.eclipse.persistence.exceptions.IntegrityChecker')
+                      caughtExceptions = (Externalizable Object #285 'flex.messaging.io.ArrayCollection')
+                        (Array #286)
+                    properties = (Object #287)
+                    log = (Ref #148)
+                    pessimisticLockTimeoutDefault = null
+                    project = (Ref #156)
+                    queryTimeoutDefault = 0
+                    accessor = (Ref #164)
+                    profiler = null
+                    partitioningPolicy = null
+                    commandManager = null
+                  properties = (Object #288)
+                    StoredProcedure_Statements_Count_Property = 0
+                    Read_Statements_Count_Property = 0
+                    Write_Statements_Count_Property = 0
+                  log = (Ref #148)
+                  pessimisticLockTimeoutDefault = null
+                  queryTimeoutDefault = 0
+                  project = (Ref #156)
+                  accessor = (Ref #164)
+                  profiler = null
+                  partitioningPolicy = null
+                  commandManager = null
+                accessor = null
+                SQLStatement = null
+                primaryKey = 29
+                selectionCriteria = null
+                flushOnExecute = null
+                translationRow = (Ref #266)
+                partitioningPolicy = null
+                doNotRedirect = true
+                sourceMapping = null
+              queryTimeout = 0
+              resultSetType = 0
+              contexts = null
+              parameters = (Externalizable Object #289 'flex.messaging.io.ArrayCollection')
+                (Array #290)
+                  [0] = 29
+                  [1] = 2155
+                  [2] = 0
+                  [3] = "Test 2"
+              fields = null
+              parameterTypes = (Ref #199)
+              resultSetFetchSize = 0
+              returnsResultSet = true
+              returnType = 1
+              statement = null
+              SQLString = "INSERT INTO MOVIE (ID, DATE_RELEASE, STATUS, TITLE) VALUES (?, ?, ?, ?)"
+              queryString = "INSERT INTO MOVIE (ID, DATE_RELEASE, STATUS, TITLE) VALUES (?, ?, ?, ?)"
+              resultSetConcurrency = 0
+              maxRows = 0
+            localizedMessage = "
+Internal Exception: org.firebirdsql.jdbc.FBSQLException: GDS Exception. 335544665. violation of PRIMARY or UNIQUE KEY constraint "UNQ_MOVIE_TITLE" on table "MOVIE"
+Error Code: 335544665
+Call: INSERT INTO MOVIE (ID, DATE_RELEASE, STATUS, TITLE) VALUES (?, ?, ?, ?)
+	bind => [4 parameters bound]
+Query: InsertObjectQuery(fr.cinematheque.model.Movie[ id=29 ])"
+            cause = (Typed Object #291 'org.firebirdsql.jdbc.FBSQLException')
+              message = "GDS Exception. 335544665. violation of PRIMARY or UNIQUE KEY constraint "UNQ_MOVIE_TITLE" on table "MOVIE""
+              SQLState = "HY000"
+              localizedMessage = "GDS Exception. 335544665. violation of PRIMARY or UNIQUE KEY constraint "UNQ_MOVIE_TITLE" on table "MOVIE""
+              cause = null
+              errorCode = 3.35544665E8
+              nextException = null
+              internalException = (Typed Object #292 'org.firebirdsql.gds.GDSException')
+                message = "violation of PRIMARY or UNIQUE KEY constraint "UNQ_MOVIE_TITLE" on table "MOVIE""
+                XAErrorCode = 0
+                localizedMessage = "violation of PRIMARY or UNIQUE KEY constraint "UNQ_MOVIE_TITLE" on table "MOVIE""
+                fbErrorCode = -1
+                cause = null
+                param = ""
+                next = (Typed Object #293 'org.firebirdsql.gds.GDSException')
+                  message = "null
+null"
+                  XAErrorCode = 0
+                  localizedMessage = "null
+null"
+               
+INFO:    fbErrorCode = -1
+                  cause = null
+                  param = "UNQ_MOVIE_TITLE"
+                  next = (Typed Object #294 'org.firebirdsql.gds.GDSException')
+                    message = null
+                    XAErrorCode = 0
+                    localizedMessage = null
+                    fbErrorCode = -1
+                    cause = null
+                    param = "MOVIE"
+                    next = null
+                    intParam = 0
+                    warning = false
+                  intParam = 0
+                  warning = false
+                intParam = 3.35544665E8
+                warning = false
+            query = (Ref #6)
+            communicationFailure = false
+            message = "
+Internal Exception: org.firebirdsql.jdbc.FBSQLException: GDS Exception. 335544665. violation of PRIMARY or UNIQUE KEY constraint "UNQ_MOVIE_TITLE" on table "MOVIE"
+Error Code: 335544665
+Call: INSERT INTO MOVIE (ID, DATE_RELEASE, STATUS, TITLE) VALUES (?, ?, ?, ?)
+	bind => [4 parameters bound]
+Query: InsertObjectQuery(fr.cinematheque.model.Movie[ id=29 ])"
+            indentationString = ""
+            queryArgumentsRecord = (Typed Object #295 'org.eclipse.persistence.internal.sessions.EmptyRecord')
+            session = (Ref #281)
+            accessor = (Typed Object #296 'org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor')
+              writeStatementsCount = 0
+              pool = (Ref #112)
+              storedProcedureStatementsCount = 0
+              datasourcePlatform = (Ref #120)
+              readStatementsCount = 0
+            errorCode = 4002
+            internalException = (Ref #291)
+            databaseErrorCode = 3.35544665E8
+        causedByException = (Ref #3)
+      body = null
+      correlationId = "91784445-690C-EBAF-C550-A2D4BC0440FA"
+      faultDetail = null
+      faultString = "javax.ejb.EJBException : Transaction aborted"
+      clientId = "10882936-3E09-3C4E-4DEE-3645F970728C"
+      timeToLive = 0.0
+      destination = "movieEJBDestination"
+      timestamp = 1.321286811056E12
+      extendedData = null
+      faultCode = "Server.Processing"
+      messageId = "1089631A-B00D-B3E9-5B87-B72D02AE4356"
+

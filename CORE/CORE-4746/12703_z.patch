@@ -1,0 +1,56 @@
+diff --git a/Firebird-2.5.3.26778-0/builds/install/arch-specific/linux/misc/makeInstallImage.sh.in b/Firebird-2.5.3.26778-0/builds/install/arch-specific/linux/misc/makeInstallImage.sh.in
+--- a/Firebird-2.5.3.26778-0/builds/install/arch-specific/linux/misc/makeInstallImage.sh.in
++++ b/Firebird-2.5.3.26778-0/builds/install/arch-specific/linux/misc/makeInstallImage.sh.in
+@@ -247,7 +247,7 @@ copyFiles() {
+ 	#lib
+     copyIfExists $BuiltFBDir/lib/libfbembed.so* ${TargetDir}@FB_LIBDIR@
+     cp -df $BuiltFBDir/lib/libfbclient.so* ${TargetDir}@FB_LIBDIR@
+-    cp -f $BuiltFBDir/lib/libib_util.so ${TargetDir}@FB_LIBDIR@/libib_util.so
++    cp -df $BuiltFBDir/lib/libib_util.so* ${TargetDir}@FB_LIBDIR@
+     copyIfExists $BuiltFBDir/lib/libicu*.so* ${TargetDir}@FB_LIBDIR@
+ 
+ 	chown root:root ${TargetDir}@FB_LIBDIR@/*.so*
+@@ -326,7 +326,7 @@ copyFiles() {
+ # Create links from @libdir@ to install area.
+     origDir=`pwd`
+     cd $BuiltFBDir/lib
+-	Libraries=`echo libfb*.so* libib_util.so`
++	Libraries=`echo libfb*.so* libib_util.so*`
+     cd $origDir
+     linkFiles "@FB_LIBDIR@" "$Libraries" "${TargetDir}@libdir@" "${TargetDir}@FB_LIBDIR@"
+ 
+diff --git a/Firebird-2.5.3.26778-0/builds/posix/Makefile.in.extlib b/Firebird-2.5.3.26778-0/builds/posix/Makefile.in.extlib
+--- a/Firebird-2.5.3.26778-0/builds/posix/Makefile.in.extlib
++++ b/Firebird-2.5.3.26778-0/builds/posix/Makefile.in.extlib
+@@ -84,6 +84,9 @@ lib_ib_util: $(LIBIBUTIL_SO)
+ 
+ $(LIBIBUTIL_SO): $(UTIL_Objects)
+ 	$(LINK_IB_UTIL) -o $@ $^ $(LINK_IB_UTIL_LIBS)
++	# quick and dirty hack.
++	# ln -s $(LIBIBUTIL_SO) $(LIB)/$(IbUtilLibraryName)
++	ln -s $(IbUtilLibraryName).0 $(LIB)/$(IbUtilLibraryName)
+ 
+ include $(ROOT)/gen/make.shared.targets
+ 
+diff --git a/Firebird-2.5.3.26778-0/builds/posix/make.defaults b/Firebird-2.5.3.26778-0/builds/posix/make.defaults
+--- a/Firebird-2.5.3.26778-0/builds/posix/make.defaults
++++ b/Firebird-2.5.3.26778-0/builds/posix/make.defaults
+@@ -235,7 +235,8 @@ LIBICU_SO = $(LIB)/$(LIB_PREFIX)icuuc*.$(SHRLIB_FOREIGN_EXT) \
+ 
+ # Shared library name for usage inside of the UDF
+ IbUtilLibraryName = $(LIB_PREFIX)ib_util.$(SHRLIB_EXT)
+-LIBIBUTIL_SO = $(LIB)/$(IbUtilLibraryName)
++# LIBIBUTIL_SO = $(LIB)/$(IbUtilLibraryName).0.0.0 ?!
++LIBIBUTIL_SO = $(LIB)/$(IbUtilLibraryName).0
+ 
+ # LINKER OPTIONS
+ #
+@@ -281,7 +282,7 @@ LINK_UDF = $(LIB_LINK) $(LIB_LINK_OPTIONS) $(call LIB_LINK_SONAME,$(1).$(SHRLIB_
+ LINK_UDF_LIBS = $(THR_LIBS) -L$(LIB) -lib_util
+ 
+ LINK_IB_UTIL = $(LIB_LINK) $(LINK_IBUTIL_SYMBOLS) $(LIB_LINK_OPTIONS)\
+- $(call LIB_LINK_SONAME,$(IbUtilLibraryName)) $(call LIB_LINK_RPATH,lib)
++ $(call LIB_LINK_SONAME,$(IbUtilLibraryName).0) $(call LIB_LINK_RPATH,lib)
+ LINK_IB_UTIL_LIBS = $(THR_LIBS)
+ 
+ LINK_INTL = $(LIB_LINK) $(LINK_FBINTL_SYMBOLS) $(LIB_LINK_OPTIONS)\

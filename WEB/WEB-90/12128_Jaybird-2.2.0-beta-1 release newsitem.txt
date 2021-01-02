@@ -1,0 +1,22 @@
+News item
+
+Beta version of Jaybird 2.2 released
+
+The Firebird JDBC team is happy to announce the release of Jaybird 2.2.0 beta-1.
+
+This release contains the following changes:
+* Enhanced support for JDBC 4.0 (Java 6)
+* Support for JDBC 4.1 (Java 7) - including try-with-resources support,
+* Implementation of getGeneratedKeys(),
+* Enhanced support for the services API,
+* Support for 64 bit native libraries for Type 2 / Embedded,
+* A number of bug fixes
+
+The beta release is also available on maven(*):
+<groupId>org.firebirdsql.jdbc</groupId>
+<artifactId>jaybird-jdkXX</artifactId>
+<version>2.2.0-beta-1</version>
+
+The artifactId depends on your target Java version: jaybird-jdk15, jaybird-jdk16 or jaybird-jdk17
+
+*) As this is the first release to Maven and we need manual authorization from Sonatype, it can take several days before the artifacts are really available on Maven

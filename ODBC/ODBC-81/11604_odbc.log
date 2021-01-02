@@ -1,0 +1,480 @@
+** iODBC Trace file
+** Trace started on Fri Mar 26 13:53:38 2010
+** Driver Manager: 03.52.0607.1008
+
+
+[000000.000129]
+dg4odbcpr       7F410A1D76F0 ENTER SQLAllocHandle
+		SQLSMALLINT       1 (SQL_HANDLE_ENV)
+		SQLHANDLE         0x0 (SQL_NULL_HANDLE)
+		SQLHANDLE       * 0x21d3038
+
+[000000.000187]
+dg4odbcpr       7F410A1D76F0 EXIT  SQLAllocHandle with return code 0 (SQL_SUCCESS)
+		SQLSMALLINT       1 (SQL_HANDLE_ENV)
+		SQLHANDLE         0x0 (SQL_NULL_HANDLE)
+		SQLHANDLE       * 0x21d3038 (0x21d0a50)
+
+[000000.000251]
+dg4odbcpr       7F410A1D76F0 ENTER SQLSetEnvAttr
+		SQLHENV           0x21d0a50
+		SQLINTEGER        200 (SQL_ATTR_ODBC_VERSION)
+		SQLPOINTER        0x3
+		SQLINTEGER      * 4294967290 (SQL_IS_INTEGER)
+
+[000000.000320]
+dg4odbcpr       7F410A1D76F0 EXIT  SQLSetEnvAttr with return code 0 (SQL_SUCCESS)
+		SQLHENV           0x21d0a50
+		SQLINTEGER        200 (SQL_ATTR_ODBC_VERSION)
+		SQLPOINTER        0x3
+		SQLINTEGER      * 4294967290 (SQL_IS_INTEGER)
+
+[000000.000808]
+dg4odbcpr       7F410A1D76F0 ENTER SQLAllocHandle
+		SQLSMALLINT       2 (SQL_HANDLE_DBC)
+		SQLHANDLE         0x21d0a50
+		SQLHANDLE       * 0x21d3040
+
+[000000.000862]
+dg4odbcpr       7F410A1D76F0 EXIT  SQLAllocHandle with return code 0 (SQL_SUCCESS)
+		SQLSMALLINT       2 (SQL_HANDLE_DBC)
+		SQLHANDLE         0x21d0a50
+		SQLHANDLE       * 0x21d3040 (0x21ced40)
+
+[000000.000919]
+dg4odbcpr       7F410A1D76F0 ENTER SQLSetConnectAttr
+		SQLHDBC           0x21ced40
+		SQLINTEGER        102 (SQL_ATTR_AUTOCOMMIT)
+		SQLPOINTER        0x0
+		SQLINTEGER      * 4294967291 (SQL_IS_UINTEGER)
+
+[000000.001002]
+dg4odbcpr       7F410A1D76F0 EXIT  SQLSetConnectAttr with return code 0 (SQL_SUCCESS)
+		SQLHDBC           0x21ced40
+		SQLINTEGER        102 (SQL_ATTR_AUTOCOMMIT)
+		SQLPOINTER        0x0
+		SQLINTEGER      * 4294967291 (SQL_IS_UINTEGER)
+
+[000000.001527]
+dg4odbcpr       7F410A1D76F0 ENTER SQLDriverConnect
+		SQLHDBC           0x21ced40
+		SQLPOINTER        0x0
+		SQLCHAR         * 0x21e6aa0
+				  | DSN=clientPR;UID=SYSDBA;PWD=*********    |
+		SQLSMALLINT       37
+		SQLCHAR         * 0x21e75d8
+		SQLSMALLINT       1024
+		SQLSMALLINT     * 0x7fff6f2f2c50
+		SQLUSMALLINT      0 (SQL_DRIVER_NOPROMPT)
+
+[000000.283588]
+dg4odbcpr       7F410A1D76F0 EXIT  SQLDriverConnect with return code 0 (SQL_SUCCESS)
+		SQLHDBC           0x21ced40
+		SQLPOINTER        0x0
+		SQLCHAR         * 0x21e6aa0
+		SQLSMALLINT       37
+		SQLCHAR         * 0x21e75d8
+				  | DSN=clientPR;Driver=Firebird/InterBase(r |
+				  | ) driver;Dbname=10.1.216.3:clientPR;PWD= |
+				  | ***************                          |
+		SQLSMALLINT       1024
+		SQLSMALLINT     * 0x7fff6f2f2c50 (95)
+		SQLUSMALLINT      0 (SQL_DRIVER_NOPROMPT)
+
+[000000.283840]
+dg4odbcpr       7F410A1D76F0 ENTER SQLGetFunctions
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      999 (SQL_API_ODBC3_ALL_FUNCTIONS)
+
+[000000.283908]
+dg4odbcpr       7F410A1D76F0 EXIT  SQLGetFunctions with return code 0 (SQL_SUCCESS)
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      999 (SQL_API_ODBC3_ALL_FUNCTIONS)
+		SQLUSMALLINT    * 0x21d2db8
+				  | SQL_API_SQLALLOCCONNECT                  |
+				  | SQL_API_SQLALLOCENV                      |
+				  | SQL_API_SQLALLOCSTMT                     |
+				  | SQL_API_SQLBINDCOL                       |
+				  | SQL_API_SQLCANCEL                        |
+				  | SQL_API_SQLCOLATTRIBUTE                  |
+				  | SQL_API_SQLCONNECT                       |
+				  | SQL_API_SQLDESCRIBECOL                   |
+				  | SQL_API_SQLDISCONNECT                    |
+				  | SQL_API_SQLERROR                         |
+				  | SQL_API_SQLEXECDIRECT                    |
+				  | SQL_API_SQLEXECUTE                       |
+				  | SQL_API_SQLFETCH                         |
+				  | SQL_API_SQLFREECONNECT                   |
+				  | SQL_API_SQLFREEENV                       |
+				  | SQL_API_SQLFREESTMT                      |
+				  | SQL_API_SQLGETCURSORNAME                 |
+				  | SQL_API_SQLNUMRESULTCOLS                 |
+				  | SQL_API_SQLPREPARE                       |
+				  | SQL_API_SQLROWCOUNT                      |
+				  | SQL_API_SQLSETCURSORNAME                 |
+				  | SQL_API_SQLSETPARAM                      |
+				  | SQL_API_SQLTRANSACT                      |
+				  | SQL_API_SQLBULKOPERATIONS                |
+				  | SQL_API_SQLCOLUMNS                       |
+				  | SQL_API_SQLDRIVERCONNECT                 |
+				  | SQL_API_SQLGETCONNECTOPTION              |
+				  | SQL_API_SQLGETDATA                       |
+				  | SQL_API_SQLGETFUNCTIONS                  |
+				  | SQL_API_SQLGETINFO                       |
+				  | SQL_API_SQLGETTYPEINFO                   |
+				  | SQL_API_SQLPARAMDATA                     |
+				  | SQL_API_SQLPUTDATA                       |
+				  | SQL_API_SQLSETCONNECTOPTION              |
+				  | SQL_API_SQLSPECIALCOLUMNS                |
+				  | SQL_API_SQLSTATISTICS                    |
+				  | SQL_API_SQLTABLES                        |
+				  | SQL_API_SQLBROWSECONNECT                 |
+				  | SQL_API_SQLCOLUMNPRIVILEGES              |
+				  | SQL_API_SQLDATASOURCES                   |
+				  | SQL_API_SQLDESCRIBEPARAM                 |
+				  | SQL_API_SQLEXTENDEDFETCH                 |
+				  | SQL_API_SQLFOREIGNKEYS                   |
+				  | SQL_API_SQLMORERESULTS                   |
+				  | SQL_API_SQLNATIVESQL                     |
+				  | SQL_API_SQLNUMPARAMS                     |
+				  | SQL_API_SQLPRIMARYKEYS                   |
+				  | SQL_API_SQLPROCEDURECOLUMNS              |
+				  | SQL_API_SQLPROCEDURES                    |
+				  | SQL_API_SQLSETPOS                        |
+				  | SQL_API_SQLSETSCROLLOPTIONS              |
+				  | SQL_API_SQLTABLEPRIVILEGES               |
+				  | SQL_API_SQLDRIVERS                       |
+				  | SQL_API_SQLBINDPARAMETER                 |
+
+[000000.284594]
+dg4odbcpr       7F410A1D76F0 ENTER SQLGetInfo
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      6 (SQL_DRIVER_NAME)
+		SQLPOINTER        0x7fff6f2f2950
+		SQLSMALLINT       512
+		SQLSMALLINT     * 0x7fff6f2f2c54
+
+[000000.284676]
+dg4odbcpr       7F410A1D76F0 EXIT  SQLGetInfo with return code 0 (SQL_SUCCESS)
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      6 (SQL_DRIVER_NAME)
+		SQLPOINTER        0x7fff6f2f2950
+				  | Odb                                      |
+		SQLSMALLINT       512
+		SQLSMALLINT     * 0x7fff6f2f2c54 (3)
+
+[000000.284759]
+dg4odbcpr       7F410A1D76F0 ENTER SQLGetInfo
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      7 (SQL_DRIVER_VER)
+		SQLPOINTER        0x7fff6f2f2950
+		SQLSMALLINT       512
+		SQLSMALLINT     * 0x7fff6f2f2c54
+
+[000000.284827]
+dg4odbcpr       7F410A1D76F0 EXIT  SQLGetInfo with return code 0 (SQL_SUCCESS)
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      7 (SQL_DRIVER_VER)
+		SQLPOINTER        0x7fff6f2f2950
+				  | 02.00                                    |
+		SQLSMALLINT       512
+		SQLSMALLINT     * 0x7fff6f2f2c54 (5)
+
+[000000.284916]
+dg4odbcpr       7F410A1D76F0 ENTER SQLGetInfo
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      17 (SQL_DBMS_NAME)
+		SQLPOINTER        0x7fff6f2f2950
+		SQLSMALLINT       512
+		SQLSMALLINT     * 0x7fff6f2f2c54
+
+[000000.284985]
+dg4odbcpr       7F410A1D76F0 EXIT  SQLGetInfo with return code 0 (SQL_SUCCESS)
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      17 (SQL_DBMS_NAME)
+		SQLPOINTER        0x7fff6f2f2950
+				  | Fire                                     |
+		SQLSMALLINT       512
+		SQLSMALLINT     * 0x7fff6f2f2c54 (4)
+
+[000000.285063]
+dg4odbcpr       7F410A1D76F0 ENTER SQLGetInfo
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      18 (SQL_DBMS_VER)
+		SQLPOINTER        0x7fff6f2f2950
+		SQLSMALLINT       512
+		SQLSMALLINT     * 0x7fff6f2f2c54
+
+[000000.285131]
+dg4odbcpr       7F410A1D76F0 EXIT  SQLGetInfo with return code 0 (SQL_SUCCESS)
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      18 (SQL_DBMS_VER)
+		SQLPOINTER        0x7fff6f2f2950
+				  | 06.03.17910 WI-V Firebird 2.1            |
+		SQLSMALLINT       512
+		SQLSMALLINT     * 0x7fff6f2f2c54 (29)
+
+[000000.285264]
+dg4odbcpr       7F410A1D76F0 ENTER SQLGetInfo
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      10003 (SQL_CATALOG_NAME)
+		SQLPOINTER        0x7fff6f2f2cb0
+		SQLSMALLINT       512
+		SQLSMALLINT     * 0x7fff6f2f2f40
+
+[000000.285338]
+dg4odbcpr       7F410A1D76F0 EXIT  SQLGetInfo with return code 0 (SQL_SUCCESS)
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      10003 (SQL_CATALOG_NAME)
+		SQLPOINTER        0x7fff6f2f2cb0
+				  | Y                                        |
+		SQLSMALLINT       512
+		SQLSMALLINT     * 0x7fff6f2f2f40 (1)
+
+[000000.285455]
+dg4odbcpr       7F410A1D76F0 ENTER SQLGetInfo
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      34 (SQL_MAX_CATALOG_NAME_LEN)
+		SQLPOINTER        0x7fff6f2f2f3c
+		SQLSMALLINT       2
+		SQLSMALLINT     * 0x0
+
+[000000.285521]
+dg4odbcpr       7F410A1D76F0 EXIT  SQLGetInfo with return code 0 (SQL_SUCCESS)
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      34 (SQL_MAX_CATALOG_NAME_LEN)
+		SQLPOINTER        0x7fff6f2f2f3c (0)
+		SQLSMALLINT       2
+		SQLSMALLINT     * 0x0
+
+[000000.285609]
+dg4odbcpr       7F410A1D76F0 ENTER SQLGetConnectAttr
+		SQLHDBC           0x21ced40
+		SQLINTEGER        109 (SQL_ATTR_CURRENT_CATALOG)
+		SQLPOINTER        0x21ed0b0
+		SQLINTEGER      * 4096
+		SQLINTEGER      * 0x21d3128
+
+[000000.285688]
+dg4odbcpr       7F410A1D76F0 EXIT  SQLGetConnectAttr with return code 0 (SQL_SUCCESS)
+		SQLHDBC           0x21ced40
+		SQLINTEGER        109 (SQL_ATTR_CURRENT_CATALOG)
+		SQLPOINTER        0x21ed0b0
+		SQLINTEGER      * 4096
+		SQLINTEGER      * 0x21d3128 (19)
+
+[000000.287915]
+dg4odbcpr       7F410A1D76F0 ENTER SQLGetInfo
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      91 (SQL_SCHEMA_USAGE)
+		SQLPOINTER        0x7fff6f2f3024
+		SQLSMALLINT       4
+		SQLSMALLINT     * 0x7fff6f2f3038
+
+[000000.288012]
+dg4odbcpr       7F410A1D76F0 EXIT  SQLGetInfo with return code 0 (SQL_SUCCESS)
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      91 (SQL_SCHEMA_USAGE)
+		SQLPOINTER        0x7fff6f2f3024 (0x0)
+				  | SQL_SU_UNKNOWN                           |
+		SQLSMALLINT       4
+		SQLSMALLINT     * 0x7fff6f2f3038 (4)
+
+[000000.288118]
+dg4odbcpr       7F410A1D76F0 ENTER SQLGetInfo
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      46 (SQL_TXN_CAPABLE)
+		SQLPOINTER        0x21d369c
+		SQLSMALLINT       2
+		SQLSMALLINT     * 0x7fff6f2f3040
+
+[000000.288196]
+dg4odbcpr       7F410A1D76F0 EXIT  SQLGetInfo with return code 0 (SQL_SUCCESS)
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      46 (SQL_TXN_CAPABLE)
+		SQLPOINTER        0x21d369c (2)
+				  | SQL_TC_ALL                               |
+		SQLSMALLINT       2
+		SQLSMALLINT     * 0x7fff6f2f3040 (2)
+
+[000000.288285]
+dg4odbcpr       7F410A1D76F0 ENTER SQLGetInfo
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      72 (SQL_TXN_ISOLATION_OPTION)
+		SQLPOINTER        0x21d36a0
+		SQLSMALLINT       4
+		SQLSMALLINT     * 0x7fff6f2f3040
+
+[000000.288362]
+dg4odbcpr       7F410A1D76F0 EXIT  SQLGetInfo with return code 0 (SQL_SUCCESS)
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      72 (SQL_TXN_ISOLATION_OPTION)
+		SQLPOINTER        0x21d36a0 (0xF)
+				  | SQL_TXN_READ_UNCOMMITTED                 |
+				  | SQL_TXN_READ_COMMITTED                   |
+				  | SQL_TXN_REPEATABLE_READ                  |
+				  | SQL_TXN_SERIALIZABLE                     |
+		SQLSMALLINT       4
+		SQLSMALLINT     * 0x7fff6f2f3040 (4)
+
+[000000.288487]
+dg4odbcpr       7F410A1D76F0 ENTER SQLGetInfo
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      32 (SQL_MAX_SCHEMA_NAME_LEN)
+		SQLPOINTER        0x7fff6f2f303c
+		SQLSMALLINT       2
+		SQLSMALLINT     * 0x7fff6f2f3038
+
+[000000.288564]
+dg4odbcpr       7F410A1D76F0 EXIT  SQLGetInfo with return code 0 (SQL_SUCCESS)
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      32 (SQL_MAX_SCHEMA_NAME_LEN)
+		SQLPOINTER        0x7fff6f2f303c (0)
+		SQLSMALLINT       2
+		SQLSMALLINT     * 0x7fff6f2f3038 (2)
+
+[000000.288654]
+dg4odbcpr       7F410A1D76F0 ENTER SQLGetInfo
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      35 (SQL_MAX_TABLE_NAME_LEN)
+		SQLPOINTER        0x7fff6f2f303c
+		SQLSMALLINT       2
+		SQLSMALLINT     * 0x7fff6f2f3038
+
+[000000.288729]
+dg4odbcpr       7F410A1D76F0 EXIT  SQLGetInfo with return code 0 (SQL_SUCCESS)
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      35 (SQL_MAX_TABLE_NAME_LEN)
+		SQLPOINTER        0x7fff6f2f303c (31)
+		SQLSMALLINT       2
+		SQLSMALLINT     * 0x7fff6f2f3038 (2)
+
+[000000.288846]
+dg4odbcpr       7F410A1D76F0 ENTER SQLGetInfo
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      33 (SQL_MAX_PROCEDURE_NAME_LEN)
+		SQLPOINTER        0x7fff6f2f303c
+		SQLSMALLINT       2
+		SQLSMALLINT     * 0x7fff6f2f3038
+
+[000000.288924]
+dg4odbcpr       7F410A1D76F0 EXIT  SQLGetInfo with return code 0 (SQL_SUCCESS)
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      33 (SQL_MAX_PROCEDURE_NAME_LEN)
+		SQLPOINTER        0x7fff6f2f303c (31)
+		SQLSMALLINT       2
+		SQLSMALLINT     * 0x7fff6f2f3038 (2)
+
+[000000.289031]
+dg4odbcpr       7F410A1D76F0 ENTER SQLGetInfo
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      29 (SQL_IDENTIFIER_QUOTE_CHAR)
+		SQLPOINTER        0x7fff6f2f2d70
+		SQLSMALLINT       512
+		SQLSMALLINT     * 0x7fff6f2f3038
+
+[000000.289133]
+dg4odbcpr       7F410A1D76F0 EXIT  SQLGetInfo with return code 0 (SQL_SUCCESS)
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      29 (SQL_IDENTIFIER_QUOTE_CHAR)
+		SQLPOINTER        0x7fff6f2f2d70
+				  | "                                        |
+		SQLSMALLINT       512
+		SQLSMALLINT     * 0x7fff6f2f3038 (1)
+
+[000000.289243]
+dg4odbcpr       7F410A1D76F0 ENTER SQLGetInfo
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      87 (SQL_COLUMN_ALIAS)
+		SQLPOINTER        0x7fff6f2f2d70
+		SQLSMALLINT       512
+		SQLSMALLINT     * 0x7fff6f2f3038
+
+[000000.289326]
+dg4odbcpr       7F410A1D76F0 EXIT  SQLGetInfo with return code 0 (SQL_SUCCESS)
+		SQLHDBC           0x21ced40
+		SQLUSMALLINT      87 (SQL_COLUMN_ALIAS)
+		SQLPOINTER        0x7fff6f2f2d70
+				  | Y                                        |
+		SQLSMALLINT       512
+		SQLSMALLINT     * 0x7fff6f2f3038 (1)
+
+[000000.289439]
+dg4odbcpr       7F410A1D76F0 ENTER SQLAllocHandle
+		SQLSMALLINT       3 (SQL_HANDLE_STMT)
+		SQLHANDLE         0x21ced40
+		SQLHANDLE       * 0x21d3050
+
+[000000.289564]
+dg4odbcpr       7F410A1D76F0 EXIT  SQLAllocHandle with return code 0 (SQL_SUCCESS)
+		SQLSMALLINT       3 (SQL_HANDLE_STMT)
+		SQLHANDLE         0x21ced40
+		SQLHANDLE       * 0x21d3050 (0x21ee140)
+
+[000000.289624]
+dg4odbcpr       7F410A1D76F0 ENTER SQLBindCol
+		SQLHSTMT          0x21ee140
+		SQLUSMALLINT      1
+		SQLSMALLINT       1 (SQL_C_CHAR)
+		SQLPOINTER        0x7fff6f2f2ce0
+		SQLLEN            120
+		SQLLEN          * 0x7fff6f2f2fc8
+
+[000000.289725]
+dg4odbcpr       7F410A1D76F0 EXIT  SQLBindCol with return code 0 (SQL_SUCCESS)
+		SQLHSTMT          0x21ee140
+		SQLUSMALLINT      1
+		SQLSMALLINT       1 (SQL_C_CHAR)
+		SQLPOINTER        0x7fff6f2f2ce0
+		SQLLEN            120
+		SQLLEN          * 0x7fff6f2f2fc8 (0)
+
+[000000.289812]
+dg4odbcpr       7F410A1D76F0 ENTER SQLBindCol
+		SQLHSTMT          0x21ee140
+		SQLUSMALLINT      3
+		SQLSMALLINT       -16 (SQL_C_SLONG)
+		SQLPOINTER        0x7fff6f2f3020
+		SQLLEN            0
+		SQLLEN          * 0x7fff6f2f2fb8
+
+[000000.289897]
+dg4odbcpr       7F410A1D76F0 EXIT  SQLBindCol with return code 0 (SQL_SUCCESS)
+		SQLHSTMT          0x21ee140
+		SQLUSMALLINT      3
+		SQLSMALLINT       -16 (SQL_C_SLONG)
+		SQLPOINTER        0x7fff6f2f3020
+		SQLLEN            0
+		SQLLEN          * 0x7fff6f2f2fb8 (0)
+
+[000000.289982]
+dg4odbcpr       7F410A1D76F0 ENTER SQLBindCol
+		SQLHSTMT          0x21ee140
+		SQLUSMALLINT      10
+		SQLSMALLINT       -15 (SQL_C_SSHORT)
+		SQLPOINTER        0x7fff6f2f3034
+		SQLLEN            0
+		SQLLEN          * 0x7fff6f2f2fc0
+
+[000000.290067]
+dg4odbcpr       7F410A1D76F0 EXIT  SQLBindCol with return code 0 (SQL_SUCCESS)
+		SQLHSTMT          0x21ee140
+		SQLUSMALLINT      10
+		SQLSMALLINT       -15 (SQL_C_SSHORT)
+		SQLPOINTER        0x7fff6f2f3034
+		SQLLEN            0
+		SQLLEN          * 0x7fff6f2f2fc0 (0)
+
+[000000.290179]
+dg4odbcpr       7F410A1D76F0 ENTER SQLGetTypeInfo
+		SQLHSTMT          0x21ee140
+		SQLSMALLINT       12 (SQL_VARCHAR)
+
+[000000.290353]
+dg4odbcpr       7F410A1D76F0 EXIT  SQLGetTypeInfo with return code 0 (SQL_SUCCESS)
+		SQLHSTMT          0x21ee140
+		SQLSMALLINT       12 (SQL_VARCHAR)
+
+[000000.290406]
+dg4odbcpr       7F410A1D76F0 ENTER SQLFetch
+		SQLHSTMT          0x21ee140

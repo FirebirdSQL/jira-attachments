@@ -1,0 +1,308 @@
+From 7501263a8192f3d4c2d80ddef6809e92839450ad Mon Sep 17 00:00:00 2001
+From: Mark Junker <mark.junker@dataline.de>
+Date: Fri, 11 Oct 2013 15:31:04 +0200
+Subject: [PATCH] An outer transaction is not required even if Enlist is
+ specified. The inner connection is not released when the connection is closed
+ and the inner connection was enlisted previously. This allows a reuse of the
+ connections to eliminate unintended dead locks on the database.
+
+---
+ .../Data/FirebirdClient/FbConnection.cs            | 136 +++++++++++++--------
+ .../Data/FirebirdClient/FbConnectionInternal.cs    |   4 +
+ .../FirebirdClient/FbEnlistmentNotification.cs     |  54 ++++----
+ 3 files changed, 121 insertions(+), 73 deletions(-)
+
+diff --git a/source/FirebirdSql/Data/FirebirdClient/FbConnection.cs b/source/FirebirdSql/Data/FirebirdClient/FbConnection.cs
+index 3de8489..c592172 100644
+--- a/source/FirebirdSql/Data/FirebirdClient/FbConnection.cs
++++ b/source/FirebirdSql/Data/FirebirdClient/FbConnection.cs
+@@ -169,7 +169,11 @@ namespace FirebirdSql.Data.FirebirdClient
+ 
+ 		#region · Fields ·
+ 
+-		private FbConnectionInternal innerConnection;
++#if (!NET_CF)
++        private System.Transactions.Transaction innerConnectionTransaction;
++        private FbConnectionInternal innerConnectionForTransaction;
++#endif
++        private FbConnectionInternal innerConnection;
+ 		private ConnectionState state;
+ 		private FbConnectionString options;
+ 		private bool disposed;
+@@ -526,58 +530,77 @@ namespace FirebirdSql.Data.FirebirdClient
+ 				{
+ 					throw new InvalidOperationException("Connection already Open.");
+ 				}
++                FbConnectionInternal newConnection;
+ #if (!NET_CF)
+-				if (this.options.Enlist && System.Transactions.Transaction.Current == null)
+-				{
+-					throw new InvalidOperationException("There is no active TransactionScope to enlist transactions.");
+-				}
++                var currentTransaction = System.Transactions.Transaction.Current;
++                if (this.options.Enlist && currentTransaction != null && this.innerConnectionForTransaction != null && this.innerConnectionTransaction == currentTransaction)
++                {
++                    newConnection = innerConnectionForTransaction;
++                    innerConnectionForTransaction = null;
++                }
++                else
++                {
++                    newConnection = null;
++                }
++                this.innerConnectionTransaction = currentTransaction;
++#else
++                newConnection = null;
+ #endif
+ 
+-				this.DemandPermission();
++                this.DemandPermission();
+ 
+ 				try
+ 				{
+ 					this.OnStateChange(this.state, ConnectionState.Connecting);
+ 
+-					if (this.options.Pooling)
+-					{
+-						this.innerConnection = FbPoolManager.Instance.GetPool(this.connectionString).CheckOut();
+-						this.innerConnection.OwningConnection = this;
+-					}
+-					else
+-					{
+-						// Do not use Connection Pooling
+-						this.innerConnection = new FbConnectionInternal(this.options, this);
+-						this.innerConnection.Connect();
+-					}
++                    if (newConnection != null)
++                    {
++                        this.innerConnection = newConnection;
++                    }
++                    else
++                    {
++                        if (this.options.Pooling)
++                        {
++                            this.innerConnection = FbPoolManager.Instance.GetPool(this.connectionString).CheckOut();
++                            this.innerConnection.OwningConnection = this;
++                            this.innerConnection.ConnectionString = ConnectionString;
++                        }
++                        else
++                        {
++                            // Do not use Connection Pooling
++                            this.innerConnection = new FbConnectionInternal(this.options, this);
++                            this.innerConnection.Connect();
++                        }
+ 
+ #if (!NET_CF)
+-					try
+-					{
+-						this.innerConnection.EnlistTransaction(System.Transactions.Transaction.Current);
+-					}
+-					catch
+-					{
+-						// if enlistment fails clean up innerConnection
+-						this.innerConnection.DisposeTransaction();
+-
+-						if (this.innerConnection.Pooled)
+-						{
+-							// Send connection return back to the Pool
+-							FbPoolManager.Instance.GetPool(this.connectionString).CheckIn(this.innerConnection);
+-						}
+-						else
+-						{
+-							this.innerConnection.Dispose();
+-							this.innerConnection = null;
+-						}
+-
+-						throw;
+-					}
++                        try
++                        {
++                            if (currentTransaction != null)
++                                this.innerConnection.EnlistTransaction(currentTransaction);
++                        }
++                        catch
++                        {
++                            // if enlistment fails clean up innerConnection
++                            this.innerConnection.DisposeTransaction();
++
++                            if (this.innerConnection.Pooled)
++                            {
++                                // Send connection return back to the Pool
++                                FbPoolManager.Instance.GetPool(this.connectionString).CheckIn(this.innerConnection);
++                            }
++                            else
++                            {
++                                this.innerConnection.Dispose();
++                                this.innerConnection = null;
++                            }
++
++                            throw;
++                        }
+ #endif
++                    }
+ 
+-					// Bind	Warning	messages event
+-					this.innerConnection.Database.WarningMessage = new WarningMessageCallback(this.OnWarningMessage);
++                    // Bind	Warning	messages event
++                    this.innerConnection.Database.WarningMessage = new WarningMessageCallback(this.OnWarningMessage);
+ 
+ 					// Update the connection state
+ 					this.OnStateChange(this.state, ConnectionState.Open);
+@@ -605,8 +628,11 @@ namespace FirebirdSql.Data.FirebirdClient
+ 					{
+ 						lock (this.innerConnection)
+ 						{
+-							// Close the Remote	Event Manager
+-							this.innerConnection.CloseEventManager();
++                            if (!this.innerConnection.IsEnlisted)
++                            {
++                                // Close the Remote	Event Manager
++                                this.innerConnection.CloseEventManager();
++                            }
+ 
+ 							// Unbind Warning messages event
+ 							if (this.innerConnection.Database != null)
+@@ -617,11 +643,20 @@ namespace FirebirdSql.Data.FirebirdClient
+ 							// Dispose Transaction
+ 							this.innerConnection.DisposeTransaction();
+ 
+-							// Dispose all active statemenets
+-							this.innerConnection.ReleasePreparedCommands();
++                            if (!this.innerConnection.IsEnlisted)
++                            {
++                                // Dispose all active statemenets
++                                this.innerConnection.ReleasePreparedCommands();
++                            }
+ 
+ 							// Close connection	or send	it back	to the pool
+-							if (this.innerConnection.Pooled)
++                            if (this.innerConnection.IsEnlisted)
++                            {
++#if (!NET_CF)
++                                this.innerConnectionForTransaction = this.innerConnection;
++#endif
++                            } 
++                            else if (this.innerConnection.Pooled)
+ 							{
+ 								if (this.innerConnection.CancelDisabled)
+ 								{
+@@ -634,13 +669,10 @@ namespace FirebirdSql.Data.FirebirdClient
+ 							}
+ 							else
+ 							{
+-								if (!this.innerConnection.IsEnlisted)
+-								{
+-									this.innerConnection.Dispose();
+-								}
+-								this.innerConnection = null;
++                                this.innerConnection.Dispose();
+ 							}
+-						}
++                            this.innerConnection = null;
++                        }
+ 					}
+ 					catch
+ 					{
+diff --git a/source/FirebirdSql/Data/FirebirdClient/FbConnectionInternal.cs b/source/FirebirdSql/Data/FirebirdClient/FbConnectionInternal.cs
+index 51c72b6..cd94866 100644
+--- a/source/FirebirdSql/Data/FirebirdClient/FbConnectionInternal.cs
++++ b/source/FirebirdSql/Data/FirebirdClient/FbConnectionInternal.cs
+@@ -108,6 +108,8 @@ namespace FirebirdSql.Data.FirebirdClient
+ 
+ 		public bool CancelDisabled { get; set; }
+ 
++        public string ConnectionString { get; set; }
++
+ 		#endregion
+ 
+ 		#region · Constructors ·
+@@ -124,6 +126,8 @@ namespace FirebirdSql.Data.FirebirdClient
+ 
+ 			this.options = options;
+ 			this.owningConnection = owningConnection;
++            if (owningConnection != null)
++                ConnectionString = owningConnection.ConnectionString;
+ 
+ 			GC.SuppressFinalize(this);
+ 		}
+diff --git a/source/FirebirdSql/Data/FirebirdClient/FbEnlistmentNotification.cs b/source/FirebirdSql/Data/FirebirdClient/FbEnlistmentNotification.cs
+index 47c9303..e345530 100644
+--- a/source/FirebirdSql/Data/FirebirdClient/FbEnlistmentNotification.cs
++++ b/source/FirebirdSql/Data/FirebirdClient/FbEnlistmentNotification.cs
+@@ -72,9 +72,37 @@ namespace FirebirdSql.Data.FirebirdClient
+ 
+ 		#endregion
+ 
+-		#region · IEnlistmentNotification Members ·
+-
+-		public void Commit(Enlistment enlistment)
++        #region · Members ·
++
++        private void CloseConnection()
++        {
++            if (this.connection != null)
++            {
++                if (!this.connection.Pooled && (this.connection.OwningConnection == null || this.connection.OwningConnection.IsClosed))
++                {
++                    this.connection.Disconnect();
++                }
++                else if (this.connection.Pooled)
++                {
++                    if (this.connection.CancelDisabled)
++                    {
++                        // Enable fb_cancel_operation if going into pool
++                        this.connection.EnableCancel();
++                    }
++
++                    // Send	connection to the Pool
++                    FbPoolManager.Instance.GetPool(this.connection.ConnectionString).CheckIn(this.connection);
++                }
++            }
++            this.connection = null;
++            this.systemTransaction = null;
++        }
++
++        #endregion
++
++        #region · IEnlistmentNotification Members ·
++
++        public void Commit(Enlistment enlistment)
+ 		{
+ 			if (this.transaction != null && !this.transaction.IsUpdated)
+ 			{
+@@ -86,15 +114,7 @@ namespace FirebirdSql.Data.FirebirdClient
+ 					this.Completed(this, new EventArgs());
+ 				}
+ 
+-				if (this.connection != null)
+-				{
+-					if (!this.connection.Pooled && (this.connection.OwningConnection == null || this.connection.OwningConnection.IsClosed))
+-					{
+-						this.connection.Disconnect();
+-					}
+-				}
+-				this.connection         = null;
+-				this.systemTransaction  = null;
++                CloseConnection();
+ 
+ 				// Declare done on the enlistment
+ 				enlistment.Done();
+@@ -123,15 +143,7 @@ namespace FirebirdSql.Data.FirebirdClient
+ 					this.Completed(this, new EventArgs());
+ 				}
+ 
+-				if (this.connection != null)
+-				{
+-					if (!this.connection.Pooled && (this.connection.OwningConnection == null || this.connection.OwningConnection.IsClosed))
+-					{
+-						this.connection.Disconnect();
+-					}
+-				}
+-				this.connection = null;
+-				this.systemTransaction  = null;
++                CloseConnection();
+ 
+ 				// Declare done on the enlistment
+ 				enlistment.Done();
+-- 
+1.8.4.msysgit.0
+

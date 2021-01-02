@@ -1,0 +1,11 @@
+-- Tables
+RECREATE TABLE "ACCOUNTs" (
+	"ID" VARCHAR(128) NOT NULL,
+	"NAME" BLOB SUB_TYPE TEXT,
+CONSTRAINT "PK_ACCOUNTs" PRIMARY KEY ("ID")
+);
+
+-- Foreign Key Constraints
+
+
+-- EOF

@@ -1,0 +1,266 @@
+Index: OdbcConvert.cpp
+===================================================================
+--- OdbcConvert.cpp	(revision 52)
++++ OdbcConvert.cpp	(revision 53)
+@@ -3188,6 +3188,7 @@
+ int OdbcConvert::convStringToStringW(DescRecord * from, DescRecord * to)
+ {
+ 	char * pointerFrom = (char*)getAdressBindDataFrom((char*)from->dataPtr);
++	wchar_t * pointerFromWcs;
+ 	wchar_t * pointerTo = (wchar_t*)getAdressBindDataTo((char*)to->dataPtr);
+ 	SQLLEN * indicatorTo = getAdressBindIndTo((char*)to->indicatorPtr);
+ 	SQLLEN * indicatorFrom = getAdressBindIndFrom((char*)from->indicatorPtr);
+@@ -3194,6 +3195,8 @@
+ 
+ 	ODBCCONVERT_CHECKNULL( pointerTo );
+ 
++	SQLRETURN ret = SQL_SUCCESS;
++	int length;
+ 	bool fetched = from->currentFetched == parentStmt->getCurrentFetched();
+ 
+ 	if ( !fetched )
+@@ -3201,14 +3204,32 @@
+ 		from->dataOffset = 0;
+ 		from->startedReturnSQLData = false;
+ 		from->currentFetched = parentStmt->getCurrentFetched();
++
++		if (!to->isLocalDataPtr)
++			to->allocateLocalDataPtr((from->getBufferLength() + 1) * sizeof(wchar_t));
++
++		pointerFromWcs = (wchar_t*) to->localDataPtr;
++
++		length = (int)from->MbsToWcs( pointerFromWcs, pointerFrom, from->length * from->headSqlVarPtr->getSqlMultiple() );
++		if ( length < 0 )
++			length = 0;
++
++		while (length < from->length)       // safety-code - should not happen
++			pointerFromWcs[length++] = L' ';
++
++		length = from->length;
++		pointerFromWcs[length] = L'\0';
+ 	}
++	else
++	{
++		pointerFromWcs = (wchar_t*) to->localDataPtr;
++		length = wcslen(pointerFromWcs + from->dataOffset) + from->dataOffset;
++	}
+ 
+-	SQLRETURN ret = SQL_SUCCESS;
+-	int length = from->length;
+ 	int dataRemaining = length - from->dataOffset;
+ 
+ 	if ( !to->length )
+-		length = dataRemaining;
++		;
+ 	else if (!dataRemaining && ( from->dataOffset || fetched ) && from->startedReturnSQLData)
+ 	{
+ 		from->dataOffset = 0;
+@@ -3217,70 +3238,28 @@
+ 	else
+ 	{
+ 		from->startedReturnSQLData = true;
+-		int len = MAX(0, (int)(to->length / sizeof( wchar_t )) - 1 );
++		int len = MIN(dataRemaining, MAX(0, (int)(to->length / sizeof( wchar_t )) - 1 ));
+ 		 
+-		if ( !pointerTo )
+-			length = dataRemaining;
+-		else
++		if ( pointerTo )
+ 		{
+-			wchar_t *pointerTemp = pointerTo;
++			wcsncpy(pointerTo, pointerFromWcs + from->dataOffset, len);
++			pointerTo[len] = L'\0';
+ 
+-			if ( len < dataRemaining )
+-			{
+-				if ( !to->isLocalDataPtr )
+-					to->allocateLocalDataPtr( from->getBufferLength() * sizeof( wchar_t ) );
++			from->dataOffset += len;
+ 
+-				pointerTemp = (wchar_t *)to->localDataPtr;
+-			}
+-
+-			if( (len > 0) && (dataRemaining > 0) )
+-			{
+-				int lenWC = (int)from->MbsToWcs( pointerTemp,
+-												 pointerFrom + from->dataOffset,
+-												 dataRemaining );
+-				if ( lenWC < 0 )
+-					lenWC = 0;
+-
+-				dataRemaining = lenWC;
+-
+-				lenWC = MIN( dataRemaining, len );
+-
+-				if ( lenWC && pointerTemp != pointerTo )
+-					memcpy( pointerTo, to->localDataPtr, lenWC * sizeof( wchar_t ) );
+-
+-				pointerTo[ lenWC ] = (wchar_t)'\0';
+-			}
+-			else
+-				*pointerTo = (wchar_t)'\0';
+-
+ 			if ( len && len < dataRemaining )
+ 			{
+ 				OdbcError *error = parentStmt->postError (new OdbcError (0, "01004", "Data truncated"));
+ 				ret = SQL_SUCCESS_WITH_INFO;
+-
+-				if ( !statusReturnData )
+-				{
+-					int lenTemp = (int)from->WcsToMbs( to->localDataPtr,
+-													   pointerTo,
+-													   length - from->dataOffset );
+-					from->dataOffset += lenTemp;
+-				}
+ 			}
+-			else
+-			{
+-				if ( !statusReturnData )
+-					from->dataOffset += length - from->dataOffset;
+-			}
+-				
+-			length = dataRemaining;
+ 		}
+ 	}
+ 
+ 	if ( to->isIndicatorSqlDa ) {
+-		to->headSqlVarPtr->setSqlLen(length * sizeof( wchar_t ));
++		to->headSqlVarPtr->setSqlLen(dataRemaining * sizeof( wchar_t ));
+ 	} else
+ 	if ( indicatorTo )
+-		*indicatorTo = length * sizeof( wchar_t );
++		*indicatorTo = dataRemaining * sizeof( wchar_t );
+ 
+ 	return ret;
+ }
+@@ -3945,13 +3924,17 @@
+ 
+ int OdbcConvert::convVarStringToStringW(DescRecord * from, DescRecord * to)
+ {
+-	char *pointerFrom = (char*)getAdressBindDataFrom((char*)from->dataPtr);
+-	wchar_t *pointerTo = (wchar_t*)getAdressBindDataTo((char*)to->dataPtr);
++	short * pointerFromLen = (short*)getAdressBindDataFrom((char*)from->dataPtr);
++	char * pointerFrom = (char*)(pointerFromLen + 1);
++	wchar_t * pointerFromWcs;
++	wchar_t * pointerTo = (wchar_t*)getAdressBindDataTo((char*)to->dataPtr);
+ 	SQLLEN * indicatorTo = getAdressBindIndTo((char*)to->indicatorPtr);
+ 	SQLLEN * indicatorFrom = getAdressBindIndFrom((char*)from->indicatorPtr);
+ 
+ 	ODBCCONVERT_CHECKNULL( pointerTo );
+ 
++	SQLRETURN ret = SQL_SUCCESS;
++	int length;
+ 	bool fetched = from->currentFetched == parentStmt->getCurrentFetched();
+ 
+ 	if ( !fetched )
+@@ -3959,14 +3942,27 @@
+ 		from->dataOffset = 0;
+ 		from->startedReturnSQLData = false;
+ 		from->currentFetched = parentStmt->getCurrentFetched();
++
++		if (!to->isLocalDataPtr)
++			to->allocateLocalDataPtr((from->getBufferLength() + 1) * sizeof(wchar_t));
++
++		pointerFromWcs = (wchar_t*) to->localDataPtr;
++
++		length = (int)from->MbsToWcs( pointerFromWcs, pointerFrom, *pointerFromLen );
++		if ( length < 0 )
++			length = 0;
++		pointerFromWcs[length] = L'\0';
+ 	}
++	else
++	{
++		pointerFromWcs = (wchar_t*) to->localDataPtr;
++		length = wcslen(pointerFromWcs + from->dataOffset) + from->dataOffset;
++	}
+ 
+-	SQLRETURN ret = SQL_SUCCESS;
+-	int length = *(unsigned short*)pointerFrom;
+ 	int dataRemaining = length - from->dataOffset;
+ 
+ 	if ( !to->length )
+-		length = dataRemaining;
++		;
+ 	else if (!dataRemaining && ( from->dataOffset || fetched ) && from->startedReturnSQLData)
+ 	{
+ 		from->dataOffset = 0;
+@@ -3975,71 +3971,28 @@
+ 	else
+ 	{
+ 		from->startedReturnSQLData = true;
+-		int len = MAX(0, (int)(to->length / sizeof( wchar_t )) - 1 );
++		int len = MIN(dataRemaining, MAX(0, (int)(to->length / sizeof( wchar_t )) - 1 ));
+ 		 
+-		if ( !pointerTo )
+-			length = dataRemaining;
+-		else
++		if ( pointerTo )
+ 		{
+-			wchar_t *pointerTemp = pointerTo;
++			wcsncpy(pointerTo, pointerFromWcs + from->dataOffset, len);
++			pointerTo[len] = L'\0';
+ 
+-			if ( len < dataRemaining )
+-			{
+-				if ( !to->isLocalDataPtr )
+-					to->allocateLocalDataPtr( from->getBufferLength() * sizeof( wchar_t ) );
++			from->dataOffset += len;
+ 
+-				pointerTemp = (wchar_t *)to->localDataPtr;
+-			}
+-
+-			pointerFrom += sizeof( short );
+-			if( (len > 0) && (dataRemaining > 0) )
+-			{
+-				int lenWC = (int)from->MbsToWcs( pointerTemp,
+-												 pointerFrom + from->dataOffset,
+-												 dataRemaining );
+-				if ( lenWC < 0 )
+-					lenWC = 0;
+-
+-				dataRemaining = lenWC;
+-
+-				lenWC = MIN( dataRemaining, len );
+-
+-				if ( lenWC && pointerTemp != pointerTo )
+-					memcpy( pointerTo, (char*)to->localDataPtr, lenWC * sizeof( wchar_t ) );
+-
+-				pointerTo[ lenWC ] = (wchar_t)'\0';
+-			}
+-			else
+-				*pointerTo = (wchar_t)'\0';
+-
+ 			if ( len && len < dataRemaining )
+ 			{
+ 				OdbcError *error = parentStmt->postError (new OdbcError (0, "01004", "Data truncated"));
+ 				ret = SQL_SUCCESS_WITH_INFO;
+-
+-				if ( !statusReturnData )
+-				{
+-					int lenTemp = (int)from->WcsToMbs( to->localDataPtr,
+-													   pointerTo,
+-													   length - from->dataOffset );
+-					from->dataOffset += lenTemp;
+-				}
+ 			}
+-			else
+-			{
+-				if ( !statusReturnData )
+-					from->dataOffset += length - from->dataOffset;
+-			}
+-				
+-			length = dataRemaining;
+ 		}
+ 	}
+ 
+ 	if ( to->isIndicatorSqlDa ) {
+-		to->headSqlVarPtr->setSqlLen(length * sizeof( wchar_t ));
++		to->headSqlVarPtr->setSqlLen(dataRemaining * sizeof( wchar_t ));
+ 	} else
+-	if ( indicatorTo )
+-		*indicatorTo = length * sizeof( wchar_t );
++		if ( indicatorTo )
++			*indicatorTo = dataRemaining * sizeof( wchar_t );
+ 
+ 	return ret;
+ }

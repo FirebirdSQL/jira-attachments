@@ -1,0 +1,149 @@
+C:\Users\rahul.k\workspace\HelloJaybird\target>java -Djava.security.debug=jca -jar mobileclient.jar
+0 [MLog-Init-Reporter] INFO com.mchange.v2.log.MLog - MLog clients using slf4j logging.
+ProviderList: provider configuration: [sun.security.provider.Sun, sun.security.rsa.SunRsaSign, sun.security.ec.SunEC, com.sun.net.ssl.internal.ssl.Provider, com.sun.crypto.provider.SunJCE, sun.security.jgss.SunProvider, com.sun.security.sasl.Provider, org.jcp.xml.dsig.internal.dom.XMLDSigRI, sun.security.smartcardio.SunPCSC, sun.security.mscapi.SunMSCAPI]
+ProviderConfig: Loading provider: sun.security.provider.Sun
+ProviderConfig: Loaded provider SUN version 1.8
+202 [main] INFO com.mchange.v2.c3p0.C3P0Registry - Initializing c3p0-0.9.5.1 [built 16-June-2015 00:06:36 -0700; debug? true; trace: 10]
+ProviderConfig: Loading provider: sun.security.rsa.SunRsaSign
+ProviderConfig: Loaded provider SunRsaSign version 1.8
+ProviderConfig: Loading provider: sun.security.ec.SunEC
+ProviderList: ThreadLocal providers: [sun.security.provider.Sun, sun.security.rsa.SunRsaSign, sun.security.ec.SunEC, sun.security.provider.VerificationProvider]
+ProviderList: Disabling ThreadLocal providers
+ProviderList: ThreadLocal providers: [sun.security.provider.Sun, sun.security.rsa.SunRsaSign, sun.security.ec.SunEC, sun.security.provider.VerificationProvider]
+ProviderList: Disabling ThreadLocal providers
+ProviderConfig: Loaded provider SunEC version 1.8
+ProviderConfig: Loading provider: com.sun.net.ssl.internal.ssl.Provider
+ProviderConfig: Loaded provider SunJSSE version 1.8
+ProviderConfig: Loading provider: com.sun.crypto.provider.SunJCE
+ProviderList: ThreadLocal providers: [sun.security.provider.Sun, sun.security.rsa.SunRsaSign, sun.security.ec.SunEC, sun.security.provider.VerificationProvider]
+ProviderList: Disabling ThreadLocal providers
+ProviderList: ThreadLocal providers: [sun.security.provider.Sun, sun.security.rsa.SunRsaSign, sun.security.ec.SunEC, sun.security.provider.VerificationProvider]
+ProviderList: Disabling ThreadLocal providers
+ProviderConfig: Loaded provider SunJCE version 1.8
+ProviderList: ThreadLocal providers: [sun.security.provider.Sun, sun.security.rsa.SunRsaSign, sun.security.ec.SunEC, sun.security.provider.VerificationProvider]
+ProviderList: Disabling ThreadLocal providers
+ProviderList: ThreadLocal providers: [sun.security.provider.Sun, sun.security.rsa.SunRsaSign, sun.security.ec.SunEC, sun.security.provider.VerificationProvider]
+ProviderList: Disabling ThreadLocal providers
+ProviderList: ThreadLocal providers: [sun.security.provider.Sun, sun.security.rsa.SunRsaSign, sun.security.ec.SunEC, sun.security.provider.VerificationProvider]
+ProviderList: Disabling ThreadLocal providers
+ProviderList: ThreadLocal providers: [sun.security.provider.Sun, sun.security.rsa.SunRsaSign, sun.security.ec.SunEC, sun.security.provider.VerificationProvider]
+ProviderList: Disabling ThreadLocal providers
+ProviderList: ThreadLocal providers: [sun.security.provider.Sun, sun.security.rsa.SunRsaSign, sun.security.ec.SunEC, sun.security.provider.VerificationProvider]
+ProviderList: Disabling ThreadLocal providers
+ProviderList: ThreadLocal providers: [sun.security.provider.Sun, sun.security.rsa.SunRsaSign, sun.security.ec.SunEC, sun.security.provider.VerificationProvider]
+ProviderList: Disabling ThreadLocal providers
+Cipher: Crypto Permission check failed
+Cipher: granted: (CryptoPermission * 128)
+Cipher: requesting: (CryptoPermission ARCFOUR 160)
+ProviderConfig: Loading provider: sun.security.jgss.SunProvider
+ProviderConfig: Loaded provider SunJGSS version 1.8
+ProviderConfig: Loading provider: com.sun.security.sasl.Provider
+ProviderConfig: Loaded provider SunSASL version 1.8
+ProviderConfig: Loading provider: org.jcp.xml.dsig.internal.dom.XMLDSigRI
+ProviderConfig: Loaded provider XMLDSig version 1.8
+ProviderConfig: Loading provider: sun.security.smartcardio.SunPCSC
+ProviderConfig: Loaded provider SunPCSC version 1.8
+ProviderConfig: Loading provider: sun.security.mscapi.SunMSCAPI
+ProviderList: ThreadLocal providers: [sun.security.provider.Sun, sun.security.rsa.SunRsaSign, sun.security.ec.SunEC, sun.security.provider.VerificationProvider]
+ProviderList: Disabling ThreadLocal providers
+ProviderList: ThreadLocal providers: [sun.security.provider.Sun, sun.security.rsa.SunRsaSign, sun.security.ec.SunEC, sun.security.provider.VerificationProvider]
+ProviderList: Disabling ThreadLocal providers
+ProviderConfig: Loaded provider SunMSCAPI version 1.8
+Cipher: Crypto Permission check failed
+Cipher: granted: (CryptoPermission * 128)
+Cipher: requesting: (CryptoPermission ARCFOUR 160)
+Aug 22, 2018 9:39:53 PM org.firebirdsql.logging.JulLogger warn
+WARNING: Wire encryption established, but some plugins failed; see other loglines for details
+Aug 22, 2018 9:39:53 PM org.firebirdsql.logging.JulLogger warn
+WARNING: Encryption plugin failed
+org.firebirdsql.gds.ng.wire.crypt.FBSQLEncryptException: Encryption key did not meet algorithm requirements of Symmetric/Arc4 [SQLState:28000, ISC error code:337248282]
+        at org.firebirdsql.gds.ng.FbExceptionBuilder$Type$4.createSQLException(FbExceptionBuilder.java:570)
+        at org.firebirdsql.gds.ng.FbExceptionBuilder.toFlatSQLException(FbExceptionBuilder.java:302)
+        at org.firebirdsql.gds.ng.wire.crypt.arc4.Arc4EncryptionPlugin.createCipher(Arc4EncryptionPlugin.java:120)
+        at org.firebirdsql.gds.ng.wire.crypt.arc4.Arc4EncryptionPlugin.createCipher(Arc4EncryptionPlugin.java:100)
+        at org.firebirdsql.gds.ng.wire.crypt.arc4.Arc4EncryptionPlugin.createEncryptionCipher(Arc4EncryptionPlugin.java:82)
+        at org.firebirdsql.gds.ng.wire.crypt.arc4.Arc4EncryptionPlugin.initializeEncryption(Arc4EncryptionPlugin.java:62)
+        at org.firebirdsql.gds.ng.wire.version13.V13WireOperations.tryKnownServerKeys(V13WireOperations.java:194)
+        at org.firebirdsql.gds.ng.wire.version13.V13WireOperations.authReceiveResponse(V13WireOperations.java:131)
+        at org.firebirdsql.gds.ng.wire.version10.V10Database.authReceiveResponse(V10Database.java:569)
+        at org.firebirdsql.gds.ng.wire.WireConnection.identify(WireConnection.java:309)
+        at org.firebirdsql.gds.ng.wire.FbWireDatabaseFactory.performConnect(FbWireDatabaseFactory.java:51)
+        at org.firebirdsql.gds.ng.wire.FbWireDatabaseFactory.connect(FbWireDatabaseFactory.java:39)
+        at org.firebirdsql.gds.ng.wire.FbWireDatabaseFactory.connect(FbWireDatabaseFactory.java:32)
+        at org.firebirdsql.event.FBEventManager.connect(FBEventManager.java:94)
+        at app.core.AppDb.eventManagerConnect(AppDb.java:78)
+        at app.core.AppDb.<init>(AppDb.java:61)
+        at app.core.AppDb.getAppDb(AppDb.java:27)
+        at app.core.HelloJaybird.<clinit>(HelloJaybird.java:8)
+Caused by: org.firebirdsql.jdbc.FBSQLExceptionInfo: Encryption key did not meet algorithm requirements of Symmetric/Arc4
+Caused by: java.security.InvalidKeyException: Illegal key size or default parameters
+        at javax.crypto.Cipher.checkCryptoPerm(Cipher.java:1026)
+        at javax.crypto.Cipher.implInit(Cipher.java:801)
+        at javax.crypto.Cipher.chooseProvider(Cipher.java:864)
+        at javax.crypto.Cipher.init(Cipher.java:1249)
+        at javax.crypto.Cipher.init(Cipher.java:1186)
+        at org.firebirdsql.gds.ng.wire.crypt.arc4.Arc4EncryptionPlugin.createCipher(Arc4EncryptionPlugin.java:111)
+        at org.firebirdsql.gds.ng.wire.crypt.arc4.Arc4EncryptionPlugin.createCipher(Arc4EncryptionPlugin.java:100)
+        at org.firebirdsql.gds.ng.wire.crypt.arc4.Arc4EncryptionPlugin.createEncryptionCipher(Arc4EncryptionPlugin.java:82)
+        at org.firebirdsql.gds.ng.wire.crypt.arc4.Arc4EncryptionPlugin.initializeEncryption(Arc4EncryptionPlugin.java:62)
+        at org.firebirdsql.gds.ng.wire.version13.V13WireOperations.tryKnownServerKeys(V13WireOperations.java:194)
+        at org.firebirdsql.gds.ng.wire.version13.V13WireOperations.authReceiveResponse(V13WireOperations.java:131)
+        at org.firebirdsql.gds.ng.wire.version10.V10Database.authReceiveResponse(V10Database.java:569)
+        at org.firebirdsql.gds.ng.wire.WireConnection.identify(WireConnection.java:309)
+        at org.firebirdsql.gds.ng.wire.FbWireDatabaseFactory.performConnect(FbWireDatabaseFactory.java:51)
+        at org.firebirdsql.gds.ng.wire.FbWireDatabaseFactory.connect(FbWireDatabaseFactory.java:39)
+        at org.firebirdsql.gds.ng.wire.FbWireDatabaseFactory.connect(FbWireDatabaseFactory.java:32)
+        at org.firebirdsql.event.FBEventManager.connect(FBEventManager.java:94)
+        at app.core.AppDb.eventManagerConnect(AppDb.java:78)
+        at app.core.AppDb.<init>(AppDb.java:61)
+        at app.core.AppDb.getAppDb(AppDb.java:27)
+        at app.core.HelloJaybird.<clinit>(HelloJaybird.java:8)
+
+Aug 22, 2018 9:39:53 PM org.firebirdsql.logging.JulLogger warn
+WARNING: Encryption plugin failed
+org.firebirdsql.gds.ng.wire.crypt.FBSQLEncryptException: Encryption key did not meet algorithm requirements of Symmetric/Arc4 [SQLState:28000, ISC error code:337248282]
+        at org.firebirdsql.gds.ng.FbExceptionBuilder$Type$4.createSQLException(FbExceptionBuilder.java:570)
+        at org.firebirdsql.gds.ng.FbExceptionBuilder.toFlatSQLException(FbExceptionBuilder.java:302)
+        at org.firebirdsql.gds.ng.wire.crypt.arc4.Arc4EncryptionPlugin.createCipher(Arc4EncryptionPlugin.java:120)
+        at org.firebirdsql.gds.ng.wire.crypt.arc4.Arc4EncryptionPlugin.createCipher(Arc4EncryptionPlugin.java:100)
+        at org.firebirdsql.gds.ng.wire.crypt.arc4.Arc4EncryptionPlugin.createDecryptionCipher(Arc4EncryptionPlugin.java:86)
+        at org.firebirdsql.gds.ng.wire.crypt.arc4.Arc4EncryptionPlugin.initializeEncryption(Arc4EncryptionPlugin.java:63)
+        at org.firebirdsql.gds.ng.wire.version13.V13WireOperations.tryKnownServerKeys(V13WireOperations.java:194)
+        at org.firebirdsql.gds.ng.wire.version13.V13WireOperations.authReceiveResponse(V13WireOperations.java:131)
+        at org.firebirdsql.gds.ng.wire.version10.V10Database.authReceiveResponse(V10Database.java:569)
+        at org.firebirdsql.gds.ng.wire.WireConnection.identify(WireConnection.java:309)
+        at org.firebirdsql.gds.ng.wire.FbWireDatabaseFactory.performConnect(FbWireDatabaseFactory.java:51)
+        at org.firebirdsql.gds.ng.wire.FbWireDatabaseFactory.connect(FbWireDatabaseFactory.java:39)
+        at org.firebirdsql.gds.ng.wire.FbWireDatabaseFactory.connect(FbWireDatabaseFactory.java:32)
+        at org.firebirdsql.event.FBEventManager.connect(FBEventManager.java:94)
+        at app.core.AppDb.eventManagerConnect(AppDb.java:78)
+        at app.core.AppDb.<init>(AppDb.java:61)
+        at app.core.AppDb.getAppDb(AppDb.java:27)
+        at app.core.HelloJaybird.<clinit>(HelloJaybird.java:8)
+Caused by: org.firebirdsql.jdbc.FBSQLExceptionInfo: Encryption key did not meet algorithm requirements of Symmetric/Arc4
+Caused by: java.security.InvalidKeyException: Illegal key size or default parameters
+        at javax.crypto.Cipher.checkCryptoPerm(Cipher.java:1026)
+        at javax.crypto.Cipher.implInit(Cipher.java:801)
+        at javax.crypto.Cipher.chooseProvider(Cipher.java:864)
+        at javax.crypto.Cipher.init(Cipher.java:1249)
+        at javax.crypto.Cipher.init(Cipher.java:1186)
+        at org.firebirdsql.gds.ng.wire.crypt.arc4.Arc4EncryptionPlugin.createCipher(Arc4EncryptionPlugin.java:111)
+        at org.firebirdsql.gds.ng.wire.crypt.arc4.Arc4EncryptionPlugin.createCipher(Arc4EncryptionPlugin.java:100)
+        at org.firebirdsql.gds.ng.wire.crypt.arc4.Arc4EncryptionPlugin.createDecryptionCipher(Arc4EncryptionPlugin.java:86)
+        at org.firebirdsql.gds.ng.wire.crypt.arc4.Arc4EncryptionPlugin.initializeEncryption(Arc4EncryptionPlugin.java:63)
+        at org.firebirdsql.gds.ng.wire.version13.V13WireOperations.tryKnownServerKeys(V13WireOperations.java:194)
+        at org.firebirdsql.gds.ng.wire.version13.V13WireOperations.authReceiveResponse(V13WireOperations.java:131)
+        at org.firebirdsql.gds.ng.wire.version10.V10Database.authReceiveResponse(V10Database.java:569)
+        at org.firebirdsql.gds.ng.wire.WireConnection.identify(WireConnection.java:309)
+        at org.firebirdsql.gds.ng.wire.FbWireDatabaseFactory.performConnect(FbWireDatabaseFactory.java:51)
+        at org.firebirdsql.gds.ng.wire.FbWireDatabaseFactory.connect(FbWireDatabaseFactory.java:39)
+        at org.firebirdsql.gds.ng.wire.FbWireDatabaseFactory.connect(FbWireDatabaseFactory.java:32)
+        at org.firebirdsql.event.FBEventManager.connect(FBEventManager.java:94)
+        at app.core.AppDb.eventManagerConnect(AppDb.java:78)
+        at app.core.AppDb.<init>(AppDb.java:61)
+        at app.core.AppDb.getAppDb(AppDb.java:27)
+        at app.core.HelloJaybird.<clinit>(HelloJaybird.java:8)
+
+Stop the Firebird server to see CPU spike
+Press enter to terminate event manager
+Database event manager active

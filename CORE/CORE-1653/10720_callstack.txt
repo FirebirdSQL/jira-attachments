@@ -1,0 +1,48 @@
+>	gds32.dll!invoke(Jrd::UserFunction * function=0x13410604, Jrd::fun_repeat * return_ptr=0x13410648, Jrd::impure_value * value=0x4904a0b4, void * * args=0x00000000, const udf_blob * const return_blob_struct=0x00000000, bool & unsup_datatype=false, bool & result_is_null=false)  Line 1111 + 0x2c bytes	C++
+ 	gds32.dll!FUN_evaluate(Jrd::UserFunction * function=0x13410604, Jrd::jrd_nod * node=0x134119f0, Jrd::impure_value * value=0x133d5f7c)  Line 571 + 0x26 bytes	C++
+ 	gds32.dll!EVL_expr(Jrd::thread_db * tdbb=0x13c8e3fc, Jrd::jrd_nod * const node=0x13410514)  Line 920 + 0xe bytes	C++
+ 	gds32.dll!EVL_boolean(Jrd::thread_db * tdbb=0x13c8e3fc, Jrd::jrd_nod * node=0x13410694)  Line 681	C++
+ 	gds32.dll!EVL_boolean(Jrd::thread_db * tdbb=0x13c8e3fc, Jrd::jrd_nod * node=0x134106c4)  Line 538 + 0x9 bytes	C++
+ 	gds32.dll!EVL_boolean(Jrd::thread_db * tdbb=0x13c8e301, Jrd::jrd_nod * node=0x133d96d0)  Line 589	C++
+ 	gds32.dll!get_record(Jrd::thread_db * tdbb=0x13c8e300, Jrd::RecordSource * rsb=0x133d72b0, Jrd::RecordSource * parent_rsb=0x133d75d8, Jrd::rse_get_mode mode=RSE_get_forward)  Line 2181 + 0xa bytes	C++
+ 	gds32.dll!get_record(Jrd::thread_db * tdbb=0x13c8e300, Jrd::RecordSource * rsb=0x133d75d8, Jrd::RecordSource * parent_rsb=0x00000000, Jrd::rse_get_mode mode=RSE_get_forward)  Line 2179 + 0x1a bytes	C++
+ 	gds32.dll!get_record(Jrd::thread_db * tdbb=0x13c8e3fc, Jrd::RecordSource * rsb=0x133d7254, Jrd::RecordSource * parent_rsb=0x00000000, Jrd::rse_get_mode mode=RSE_get_forward)  Line 2223 + 0x14 bytes	C++
+ 	gds32.dll!RSE_get_record(Jrd::thread_db * tdbb=0x13c8e3fc, Jrd::RecordSource * rsb=0x133d7254, Jrd::rse_get_mode mode=RSE_get_forward)  Line 276 + 0x29 bytes	C++
+ 	gds32.dll!looper(Jrd::thread_db * tdbb=0x13c8e3fc, Jrd::jrd_req * request=0x133d5810, Jrd::jrd_nod * in_node=0x134128a8)  Line 1955 + 0xf bytes	C++
+ 	gds32.dll!execute_looper(Jrd::thread_db * tdbb=0x00000000, Jrd::jrd_req * request=0x00000000, Jrd::jrd_tra * transaction=0x0de84de4, Jrd::jrd_req::req_s next_state=req_sync)  Line 1450 + 0x1f bytes	C++
+ 	gds32.dll!EXE_receive(Jrd::thread_db * tdbb=0x13c8e3fc, Jrd::jrd_req * request=0x133d5810, unsigned short msg=1, unsigned short length=312, unsigned char * buffer=0x133c6248, bool top_level=true)  Line 740 + 0xc bytes	C++
+ 	gds32.dll!jrd8_receive(int * user_status=0x13c8e738, Jrd::jrd_req * * req_handle=0x133d5810, unsigned short msg_type=1, unsigned short msg_length=312, char * msg=0x133c6248, short level=0)  Line 3190 + 0x1b bytes	C++
+ 	gds32.dll!isc_receive(int * user_status=0x13c8e738, void * * req_handle=0x133cdf7c, unsigned short msg_type=1, unsigned short msg_length=312, char * msg=0x133c6248, short level=0)  Line 4229 + 0x30 bytes	C++
+ 	gds32.dll!GDS_DSQL_FETCH_CPP(int * user_status=0x13c8e738, dsql_req * * req_handle=0x02d12190, unsigned short blr_length=17, const unsigned char * blr=0x02d13314, unsigned short msg_type=58920, unsigned short msg_length=310, unsigned char * dsql_msg_buf=0x02d104f8)  Line 1122 + 0x1d bytes	C++
+ 	gds32.dll!dsql8_fetch(int * user_status=0x13c8e738, dsql_req * * req_handle=0x02d12190, unsigned short blr_length=17, const char * blr=0x02d13314, unsigned short msg_type=0, unsigned short msg_length=310, char * dsql_msg_buf=0x02d104f8)  Line 324 + 0x23 bytes	C++
+ 	gds32.dll!isc_dsql_fetch_m(int * user_status=0x13c8e738, void * * stmt_handle=0x044d3864, unsigned short blr_length=17, const char * blr=0x02d13314, unsigned short msg_type=0, unsigned short msg_length=310, char * msg=0x02d104f8)  Line 3123 + 0x27 bytes	C++
+ 	gds32.dll!isc_dsql_fetch(int * user_status=0x13c80000, void * * stmt_handle=0x044d3864, unsigned short dialect=1, XSQLDA * sqlda=0x044d0136)  Line 2990	C++
+ 	IBProv.dll!ib_v5::t_ib_statement_v5::fetch(db_obj::t_db_row * const row=0x0445fe48)  Line 429 + 0x49 bytes	C++
+ 	IBProv.dll!ibp::t_ibp_command::fetch(db_obj::t_db_row * const row=0x0445fe48)  Line 246 + 0xf bytes	C++
+ 	IBProv.dll!ibp::ro_rowset::TIBP_ROTableStorage::GetBookmarks(oledb_lib::TBaseRowsetStorage::tag_row_cursor & __formal={...}, long lRowsOffset=0, long cRows=1, structure::t_vector<unsigned long,oledb_lib::TOLEDBMemoryAllocator> & Bmks={...})  Line 198 + 0x1b bytes	C++
+ 	IBProv.dll!oledb_lib::TBaseRowsetImpl<ibp::ro_rowset::TIBP_BaseRORowsetStorage>::InternalGetRows(oledb_lib::TBaseRowsetStorage::tag_row_cursor & StartBmk={...}, long lRowsOffset=0, long cRows=1, unsigned long * pcRowsObtained=0x13c8e98c, unsigned long * * prghRows=0x13c8e980)  Line 945 + 0x17 bytes	C++
+ 	IBProv.dll!oledb_lib::TBaseRowsetImpl<ibp::ro_rowset::TIBP_BaseRORowsetStorage>::GetNextRows(unsigned long __formal=0, long lRowsOffset=0, long cRows=1, unsigned long * pcRowsObtained=0x13c8e98c, unsigned long * * prghRows=0x13c8e980)  Line 251	C++
+ 	MFServer.exe!ATL::CRowset<CMDynamicAccessorWithParams>::MoveNext(long lSkip=0, bool bForward=true)  Line 1437 + 0x41 bytes	C++
+ 	MFServer.exe!ATL::CRowset<CMDynamicAccessorWithParams>::MoveNext()  Line 1418	C++
+ 	MFServer.exe!ATL::CRowset<CMDynamicAccessorWithParams>::MoveFirst()  Line 1473	C++
+ 	MFServer.exe!RPCSearchHelper::GetDistinctPropertyValues(CDBSession & dbsess={...}, const CMFSession * pmfsess=0x048f1720, const std::vector<long,std::allocator<long> > & vecPropertyDefs=[1](1027), _MF_Datatype eDatatypeOfPropertyDefs=eDatatypeText, const CMF_DataFunctionCall & dfcall={...}, const CMF_ExpressionEx & exprex={...}, unsigned long ulConditions=1, const CMF_SearchCondition * pconds=0x048f0520, unsigned char searchflags=0, unsigned long ulMaxResultsToReturn=500, bool & bResultsLimited=false, RPCServerArray<CMF_TypedValue> & arr={...})  Line 3123 + 0xb bytes	C++
+ 	MFServer.exe!RPCSearchHelper::GetPropertyBasedFolders(CDBSession & dbsess={...}, const CMFSession * pmfsess=0x048f1720, const std::vector<long,std::allocator<long> > & vecPropertyDefs=[1](1027), _MF_Datatype eDatatypeOfPropertyDefs=eDatatypeText, long lValueList=0, _MF_ParentChildBehavior epcbType=epcbNone, const CMF_DataFunctionCall & dfcall={...}, const CMF_ExpressionEx & exprex={...}, unsigned long ulConditions=1, const CMF_SearchCondition * pconds=0x048f0520, unsigned char searchflags=0, unsigned long ulMaxResultsToReturn=500, bool & bResultsLimited=false, RPCServerArray<CMF_TypedValue> & arrFolders={...})  Line 3657 + 0x4e bytes	C++
+ 	MFServer.exe!RPCSearchHelper::GetPropertyValueFolders(CDBSession & dbsess={...}, const CMFSession * pmfsess=0x048f1720, const CMF_ExpressionEx & exprex={...}, unsigned long ulConditions=1, const CMF_SearchCondition * pconds=0x048f0520, unsigned char searchflags=0, unsigned long ulMaxResultsToReturn=500, bool & bResultsLimited=false, RPCServerArray<CMF_TypedValue> & arrFolders={...})  Line 3708 + 0x7a bytes	C++
+ 	MFServer.exe!MF_GetFolderNames(void * IDL_handle=0x002aed28, _SESSIONID sessID={...}, _MF_CallImportance callimp=eciNormal, const _MF_ExpressionEx * pexprex_=0x048f0488, unsigned long ulConditions=1, const _MF_SearchCondition * pconds_=0x048f0520, unsigned char searchflags=0, unsigned long * pulCount=0x13c8fcb0, _MF_TypedValue * * pptvFolders=0x13c8fcc0, unsigned char * pbMore=0x13c8fcd0, _MF_MetaDataVersion * pmdver=0x13c8fce0, unsigned long * pulErrorCount=0x13c8fcf0, _RPCErrorInfo * * ppErrorValues=0x13c8fd00)  Line 297 + 0x66 bytes	C++
+ 	rpcrt4.dll!_Invoke@12()  + 0x30 bytes	
+ 	rpcrt4.dll!_NdrStubCall2@16()  + 0x215 bytes	
+ 	rpcrt4.dll!_NdrServerCall2@4()  + 0x19 bytes	
+ 	rpcrt4.dll!_DispatchToStubInC@12()  + 0x17 bytes	
+ 	rpcrt4.dll!RPC_INTERFACE::DispatchToStubWorker()  + 0xa1 bytes	
+ 	rpcrt4.dll!RPC_INTERFACE::DispatchToStub()  + 0x41 bytes	
+ 	rpcrt4.dll!OSF_SCALL::DispatchHelper()  + 0xb4 bytes	
+ 	rpcrt4.dll!OSF_SCALL::DispatchRPCCall()  + 0x70 bytes	
+ 	rpcrt4.dll!OSF_SCALL::ProcessReceivedPDU()  + 0xe9 bytes	
+ 	rpcrt4.dll!OSF_SCALL::BeginRpcCall()  + 0xd3 bytes	
+ 	rpcrt4.dll!OSF_SCONNECTION::ProcessReceiveComplete()  + 0xbc bytes	
+ 	rpcrt4.dll!ProcessConnectionServerReceivedEvent()  + 0x21 bytes	
+ 	rpcrt4.dll!LOADABLE_TRANSPORT::ProcessIOEvents()  + 0x101 bytes	
+ 	rpcrt4.dll!ProcessIOEventsWrapper()  + 0xd bytes	
+ 	rpcrt4.dll!BaseCachedThreadRoutine()  + 0x53 bytes	
+ 	rpcrt4.dll!ThreadStartRoutine()  + 0x1a bytes	
+ 	kernel32.dll!_BaseThreadStart@8()  + 0x37 bytes	

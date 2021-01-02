@@ -1,0 +1,3428 @@
+WIN-BDQRQF29RA4	Sun Jan 30 12:32:26 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 8617381 level 0. File: ..\..\..\src\jrd\validation.cpp, line: 1542
+	 in table GEO_PLACE (128)
+
+
+WIN-BDQRQF29RA4	Sun Jan 30 12:32:26 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 8617381 level 0. File: ..\..\..\src\jrd\validation.cpp, line: 1568
+	 in table GEO_PLACE (128)
+
+
+WIN-BDQRQF29RA4	Sun Jan 30 12:32:26 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 8617381 level 0. File: ..\..\..\src\jrd\validation.cpp, line: 1542
+	 in table GEO_PLACE (128)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 12:41:22 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 8617381 level 0. File: ..\..\..\src\jrd\validation.cpp, line: 1542
+	 in table GEO_PLACE (128)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 12:41:23 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 8617381 level 0. File: ..\..\..\src\jrd\validation.cpp, line: 1568
+	 in table GEO_PLACE (128)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 12:41:23 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 8617381 level 0. File: ..\..\..\src\jrd\validation.cpp, line: 1542
+	 in table GEO_PLACE (128)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 13:37:56 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 2 is corrupt on page 6128945 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table PROPERTY (165)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 13:42:45 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 12 is corrupt on page 1319772 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table PROPERTY (165)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 13:42:45 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 12 is corrupt on page 1319772 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table PROPERTY (165)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 15:26:03 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 2 is corrupt on page 6160618 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table PROPERTY_PICTURE (167)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 15:26:41 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 2 is corrupt on page 6244862 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table PROPERTY_PICTURE (167)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 16:42:07 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Relation has 1 orphan backversions (16921 in use) in table TRANSAC_COMMENT (194)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 18:27:54 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 1 is corrupt on page 7771971 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_1 (278)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 18:34:08 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 6 is corrupt on page 5610778 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_1 (278)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 18:34:08 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 6 is corrupt on page 5610778 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_1 (278)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 18:34:31 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 7 is corrupt on page 5612240 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_1 (278)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 18:34:31 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 7 is corrupt on page 5612240 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_1 (278)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 18:38:06 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 6754039 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_1 (278)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 18:38:06 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 6754039 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_1 (278)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 18:38:06 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 6754039 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_1 (278)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 18:39:22 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 5634047 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_1 (278)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 18:39:22 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 5634047 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_1 (278)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 18:40:50 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 6454568 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_1 (278)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 18:41:00 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 12 is corrupt on page 6112639 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_1 (278)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 18:41:00 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 12 is corrupt on page 6112639 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_1 (278)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 18:43:16 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 5653982 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_1 (278)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 18:43:16 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 5653982 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_1 (278)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 18:43:39 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7879084 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_1 (278)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 18:43:40 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7879084 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_1 (278)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 19:01:10 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 4 is corrupt on page 7250696 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_COM_FS_I_2 (294)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 19:45:02 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 1 is corrupt on page 4787908 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 19:45:03 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 1 is corrupt on page 4787908 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 19:52:23 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 2 is corrupt on page 7245010 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 19:52:23 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 2 is corrupt on page 7245010 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 19:53:26 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 2 is corrupt on page 7897470 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 19:53:27 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 2 is corrupt on page 7897470 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:10:31 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 4 is corrupt on page 6129526 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:10:31 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 4 is corrupt on page 6129526 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:13:18 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 5 is corrupt on page 8186368 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:13:18 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 5 is corrupt on page 8186368 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:13:48 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 5 is corrupt on page 6141764 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:13:48 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 5 is corrupt on page 6141764 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:17:17 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 6 is corrupt on page 6139099 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:17:18 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 6 is corrupt on page 6139099 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:18:53 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 6 is corrupt on page 6190811 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:18:53 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 6 is corrupt on page 6190811 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:20:16 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 6 is corrupt on page 8085736 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:20:16 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 6 is corrupt on page 8085736 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:33:10 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 7 is corrupt on page 7184846 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:33:10 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 7 is corrupt on page 7184846 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:34:00 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 7 is corrupt on page 6547093 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:34:00 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 7 is corrupt on page 6547093 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:40:26 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 8 is corrupt on page 5207872 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:41:41 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 8 is corrupt on page 6237999 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:41:41 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 8 is corrupt on page 6237999 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:42:11 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 8 is corrupt on page 7630012 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:42:11 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 8 is corrupt on page 7630012 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:45:15 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 8 is corrupt on page 5226712 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:47:50 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 8 is corrupt on page 5237624 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:47:50 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 8 is corrupt on page 5237624 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:52:00 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 6225439 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:52:00 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 6225439 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:52:29 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 6128080 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:52:29 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 6128080 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:52:34 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 6114176 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:52:34 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 6114176 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:56:36 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 6190919 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:56:36 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 6190919 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:56:36 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 6190919 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:56:36 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 6190919 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:56:38 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 7619510 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:56:39 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 7619510 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:59:00 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 8471971 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 20:59:00 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 8471971 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:02:51 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 6121338 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:02:51 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 6121338 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:05:26 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 7612373 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:05:26 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 7612373 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:05:35 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 6190922 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:05:35 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 6190922 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:05:36 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 6190922 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:05:36 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 6190922 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:09:42 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 6121298 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:09:42 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 6121298 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:09:42 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 6121298 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:09:42 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 6121298 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:09:42 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 6121298 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:09:42 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 6121298 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:09:42 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 6121298 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:09:42 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 6121298 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:10:04 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 6237059 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:10:04 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 6237059 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:10:36 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 5299698 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:11:32 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 6240015 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:11:32 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 6240015 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:15:28 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 6238842 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:15:29 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 6238842 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:15:59 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 6237278 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:15:59 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 6237278 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:16:21 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 6114058 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:16:21 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 6114058 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:16:21 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 6114058 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:16:21 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 6114058 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:16:26 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 6115991 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:16:26 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 6115991 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:16:44 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 7254924 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:16:44 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 7254924 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:18:28 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 7236263 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:18:28 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 7236263 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:19:41 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 5517712 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:19:41 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 5517712 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:23:18 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 12 is corrupt on page 6191370 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:23:18 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 12 is corrupt on page 6191370 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:24:27 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 12 is corrupt on page 4692771 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:24:27 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 12 is corrupt on page 4692771 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:27:37 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 12 is corrupt on page 5354066 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:27:37 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 12 is corrupt on page 5354066 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:27:44 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 12 is corrupt on page 5640714 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:27:44 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 12 is corrupt on page 5640714 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:30:10 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 12 is corrupt on page 7202230 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:30:10 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 12 is corrupt on page 7202230 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:33:02 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 12 is corrupt on page 5369799 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:33:02 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 12 is corrupt on page 5369799 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:33:11 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 12 is corrupt on page 5370371 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:33:11 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 12 is corrupt on page 5370371 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:47:12 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 5376048 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:47:31 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 7093070 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:48:21 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 5380885 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:48:21 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 5380885 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:48:22 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 5380885 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:48:22 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 5380885 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:48:26 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 6116012 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:48:26 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 6116012 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:48:48 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 5382645 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:48:48 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 5382645 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:48:56 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 5383012 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:49:07 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 5383697 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:49:38 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 5385323 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:50:05 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 6224996 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:50:05 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 6224996 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:50:06 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 6224996 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:50:06 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 6224996 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:50:08 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 7932749 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:52:34 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 5398648 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:52:50 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 7185259 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:52:50 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 7185259 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:52:54 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 5399728 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:54:44 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 7458605 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:54:48 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 5409319 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:54:48 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 5409319 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:54:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 7184602 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:55:22 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 7184456 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:55:26 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 7354991 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:55:28 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 7187734 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:55:28 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 7187734 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:58:09 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7295848 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:58:34 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 5417355 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:58:50 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7100151 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:59:25 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7306911 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:59:25 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7306911 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:59:26 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6191352 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:59:26 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6191352 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:59:37 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7273611 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:59:38 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7273611 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:59:38 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7273611 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:59:38 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7273611 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:59:38 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7273611 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:59:38 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7273611 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:59:58 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6237878 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:59:58 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6237878 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 21:59:58 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6237878 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:00:03 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6237410 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:00:03 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6237410 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:00:03 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6237410 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:00:20 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7264136 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:00:20 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7264136 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:00:20 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6237668 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:00:20 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6237668 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:00:39 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6237258 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:00:39 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6237258 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:00:43 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6237104 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:04:13 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7257725 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:04:13 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7257725 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:04:13 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7257725 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:04:13 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7257725 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:04:14 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6115964 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:04:14 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6115964 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:04:14 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6115964 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:04:14 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6115964 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:04:19 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 5437964 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:04:19 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 5437964 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:04:20 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 5437964 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:04:20 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 5437964 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:04:21 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7298524 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:04:21 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7298524 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:04:22 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7221737 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:04:22 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7221737 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:04:24 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7221737 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:04:24 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7221737 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:04:25 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7796308 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:04:25 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7796308 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:04:30 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7388473 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:04:30 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7388473 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:04:30 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7388473 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:04:36 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 5438781 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:04:36 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 5438781 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:07:17 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7270711 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:07:17 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7270711 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:07:18 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7270711 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:07:23 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6116044 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:07:24 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6116044 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:07:29 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 8555647 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:07:29 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 8555647 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:07:33 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 5445684 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:07:33 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 5445684 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:07:40 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 5445684 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:07:40 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 5445684 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:07:53 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6576332 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:07:53 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6576332 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:07:56 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6576332 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:07:56 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6576332 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:07:56 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 5446586 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:07:56 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 5446586 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:08:03 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6441309 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:08:03 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6441309 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:08:04 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6441309 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:08:04 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6441309 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:08:07 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 5447035 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:08:07 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 5447035 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:08:13 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6112518 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:08:13 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 6112518 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:09:49 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6112508 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:09:49 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6112508 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:09:50 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6112508 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:09:50 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6112508 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:10:01 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6454207 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:10:01 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6454207 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:10:04 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 5448403 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:10:04 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 5448403 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:10:08 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6441275 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:10:09 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6441275 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:10:09 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6441275 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:10:17 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7510239 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:10:17 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7510239 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:10:18 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6441316 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:10:25 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7546514 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:10:26 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7546514 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:10:26 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7546514 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:10:29 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6136519 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:10:29 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6136519 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:10:31 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6136519 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:13:07 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 8369177 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:13:07 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 8369177 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:13:08 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 8369177 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:13:11 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7332849 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:13:11 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7332849 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:13:11 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7332849 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:13:12 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7332849 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:13:12 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7332849 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:13:12 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7332849 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:13:18 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 5456626 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:13:18 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 5456626 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:13:19 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 5456626 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:13:19 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 5456626 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:13:19 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 5456626 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:13:19 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 5456626 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:13:28 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 5457035 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:13:28 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 5457035 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:13:29 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 5457035 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:13:29 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 5457035 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:13:30 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 5457035 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:13:30 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 5457035 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:13:32 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7319986 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:13:33 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6190819 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:13:33 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6190819 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:13:34 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6190819 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:13:34 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6190819 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:17:00 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 5467964 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:17:06 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7281947 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:17:06 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7281947 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:17:06 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7281947 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:17:12 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 5468926 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:17:26 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6238799 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:17:26 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6238799 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:17:26 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6238799 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:17:27 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6238799 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:17:27 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6238799 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:17:27 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6238799 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:17:29 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 5470272 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:17:29 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 5470272 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:17:34 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7290270 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:17:34 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7290270 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:17:39 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7319442 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:17:39 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7319442 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:17:43 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7320495 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:17:43 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7320495 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:18:07 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6129492 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:18:07 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6129492 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:18:07 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6129492 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:18:07 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6129492 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:18:14 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7282632 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:18:14 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7282632 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:18:14 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7282632 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:18:14 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7282632 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:18:14 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7282632 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:18:14 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6238316 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:18:14 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6238316 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:18:50 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6237963 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:18:51 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 6237963 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:23:16 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 6240019 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:23:17 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 6240019 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:19 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 5490794 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:19 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 5490794 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:25 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 6116003 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:25 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 6116003 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:26 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 6116003 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:26 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 6116003 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:26 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 6116003 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:26 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 6116003 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:40 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 7280419 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:40 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 7280419 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:40 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 7280419 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:40 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 7280419 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:40 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 7280419 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:40 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 7280419 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:40 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 7280419 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:40 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 7280419 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:41 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 7280419 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:41 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 7280419 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:41 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 6237053 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:41 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 6237053 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:41 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 6237053 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:41 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 6237053 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:42 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 6237053 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:42 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 6237053 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:42 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 6237053 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:42 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 6237053 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:50 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 7890256 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:53 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 5493177 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:53 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 5493177 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:55 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 6114079 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:24:55 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 6114079 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:25:03 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 6114054 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:25:03 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 6114054 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:25:04 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 5493838 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:25:04 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 5493838 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:25:05 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 8570550 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:25:05 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 8570550 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:25:05 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 8570550 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:25:05 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 8570550 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:25:05 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 8570550 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:25:05 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 8570550 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:25:06 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 8570550 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:25:06 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 8570550 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:25:08 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 7553339 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:25:08 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 7553339 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:25:09 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 7553339 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:25:09 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 7553339 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:25:16 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 5494514 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:25:16 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 5494514 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:25:25 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 7265585 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:25:25 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 7265585 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:26:47 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 6193837 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:26:47 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 6193837 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:27:10 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 6881820 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:27:10 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 6881820 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:27:15 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 5503365 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:27:15 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 5503365 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:27:16 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 5503365 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:27:16 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 5503365 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:27:21 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 7221674 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:27:21 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 7221674 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:28:18 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 5509738 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:28:18 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 5509738 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:28:28 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 8567143 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:28:28 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 8567143 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:28:28 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 8567143 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:28:28 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 8567143 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:28:38 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 7196028 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:28:38 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 7196028 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:28:51 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 7199951 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:28:51 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 7199951 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_2 (300)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 22:42:02 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 5009120 level 0. File: ..\..\..\src\jrd\validation.cpp, line: 1568
+	 in table TRANSAC_SEARCH_VAC_I_4 (305)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:07:47 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 1 is corrupt on page 4664543 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:07:48 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 1 is corrupt on page 4664543 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:08:05 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 1 is corrupt on page 7749247 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:14:42 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 2 is corrupt on page 4686607 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:14:43 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 2 is corrupt on page 4686607 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:15:08 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 2 is corrupt on page 4688235 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:15:08 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 2 is corrupt on page 4688235 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:16:40 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 3 is corrupt on page 6113849 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:16:40 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 3 is corrupt on page 6113849 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:18:31 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 4 is corrupt on page 7771839 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:18:32 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 4 is corrupt on page 7770027 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:25:20 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 4 is corrupt on page 4728225 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:25:21 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 4 is corrupt on page 4728225 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:25:23 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 4 is corrupt on page 4728225 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:26:23 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 4 is corrupt on page 6939388 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:27:00 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 4 is corrupt on page 7163228 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:28:05 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 5 is corrupt on page 7758910 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:28:05 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 5 is corrupt on page 7758910 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:32:36 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 5 is corrupt on page 8584082 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:32:37 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 5 is corrupt on page 8584082 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:40:37 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 7 is corrupt on page 7771258 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:40:37 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 7 is corrupt on page 7771258 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:42:38 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 7 is corrupt on page 4797412 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:42:38 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 7 is corrupt on page 4797412 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:43:18 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 7 is corrupt on page 7743776 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:43:18 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 7 is corrupt on page 7743776 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:51:06 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 8 is corrupt on page 7731905 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:58:02 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 7734327 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:58:03 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 7734327 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:58:04 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 7734327 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Thu Jan 20 23:58:04 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 7734327 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:02:51 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 7755632 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:02:51 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 7755632 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:02:53 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 8197647 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:02:54 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 8197647 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:08:23 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 6115784 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:08:23 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 6115784 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:14:42 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 7739498 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:14:42 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 7739498 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:14:42 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 7739498 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:14:42 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 7739498 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:14:43 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 8393498 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:14:43 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 8393498 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:17:12 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 12 is corrupt on page 7760622 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:17:12 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 12 is corrupt on page 7760622 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:21:55 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 721715 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:21:55 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 721715 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:22:15 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 6245060 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:22:17 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 6261082 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:22:17 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 13 is corrupt on page 6261082 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:24:18 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7704359 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:24:18 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 14 is corrupt on page 7704359 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:26:06 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7638006 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:26:06 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7638006 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:26:07 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7638006 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:26:17 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7751092 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:26:17 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7751092 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:26:47 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7742991 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:26:47 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 15 is corrupt on page 7742991 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:27:42 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 7755626 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:29:04 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 4978266 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:31:30 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 7779136 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:31:30 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 7779136 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:31:49 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 6115664 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:31:49 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 16 is corrupt on page 6115664 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_2 (314)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:42:41 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 4641898 level 0. File: ..\..\..\src\jrd\validation.cpp, line: 1542
+	 in table TRANSAC_SEARCH_VAC_A_2 (315)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:42:42 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 4642914 level 0. File: ..\..\..\src\jrd\validation.cpp, line: 1542
+	 in table TRANSAC_SEARCH_VAC_A_2 (315)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 00:58:23 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 4600339 level 0. File: ..\..\..\src\jrd\validation.cpp, line: 1568
+	 in table TRANSAC_SEARCH_VAC_I_2 (316)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:18:45 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 1 is corrupt on page 6112676 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:18:46 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 1 is corrupt on page 6112676 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:19:31 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 1 is corrupt on page 7907745 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:19:31 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 1 is corrupt on page 7907745 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:24:08 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 4 is corrupt on page 6744555 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:24:08 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 4 is corrupt on page 6744555 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:25:51 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 5 is corrupt on page 6191066 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:25:51 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 5 is corrupt on page 6191066 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:29:54 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 7 is corrupt on page 6225034 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:29:54 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 7 is corrupt on page 6225034 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:30:07 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 7 is corrupt on page 6189950 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:30:07 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 7 is corrupt on page 6189950 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:30:33 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 7 is corrupt on page 6225301 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:30:33 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 7 is corrupt on page 6225301 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:32:00 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 8 is corrupt on page 4548079 level 2. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:33:45 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 8 is corrupt on page 6114004 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:33:45 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 8 is corrupt on page 6114004 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:33:47 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 8 is corrupt on page 8361020 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:33:47 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 8 is corrupt on page 8361020 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:33:47 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 8 is corrupt on page 8361020 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:33:47 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 8 is corrupt on page 8361020 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:34:26 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 8 is corrupt on page 8547134 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:34:26 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 8 is corrupt on page 8547134 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:34:45 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 8454424 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:34:45 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 8454424 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:34:47 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 4555929 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:35:21 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 6114138 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:35:21 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 6114138 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:35:21 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 6114138 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:35:21 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 6114138 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:35:23 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 7680648 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:35:23 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 7680648 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:36:32 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 6114148 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:36:32 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 6114148 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:36:42 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 6129534 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:36:42 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 6129534 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:37:56 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 6114033 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:37:56 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 6114033 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:37:56 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 6114033 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:37:56 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 10 is corrupt on page 6114033 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:38:58 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 6114007 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:38:58 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 11 is corrupt on page 6114007 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_I_4 (319)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:46:46 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 1 is corrupt on page 7133734 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_4 (321)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:46:46 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 1 is corrupt on page 7133734 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_4 (321)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:48:17 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 2 is corrupt on page 6115519 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_4 (321)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:50:37 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 5 is corrupt on page 2124536 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_4 (321)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:50:37 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 5 is corrupt on page 2124536 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_4 (321)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:52:09 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 6 is corrupt on page 8606210 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_4 (321)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:52:09 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 6 is corrupt on page 8606210 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_4 (321)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:54:04 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 8 is corrupt on page 6115008 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_4 (321)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:54:04 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 8 is corrupt on page 6115008 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_4 (321)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:55:14 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 8 is corrupt on page 8193653 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_4 (321)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:55:14 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 8 is corrupt on page 8193653 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1657
+	 in table TRANSAC_SEARCH_RES_FS_A_4 (321)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 01:55:50 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Index 9 is corrupt on page 6112541 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1667
+	 in table TRANSAC_SEARCH_RES_FS_A_4 (321)
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:56 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258458 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258480 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258487 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258489 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258501 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258511 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258518 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258520 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258521 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258525 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258529 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258532 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258543 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258544 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258550 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258597 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258610 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258627 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258667 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258672 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258697 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258704 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258728 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258745 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258747 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258749 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258750 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258751 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258762 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258777 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258788 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258789 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258794 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258805 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258828 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258837 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258841 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258865 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7258885 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7775740 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7775745 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7775746 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779511 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779515 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779517 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779519 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779521 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779523 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779526 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779529 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779531 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779534 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779539 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779542 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779544 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779546 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779548 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779550 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779554 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779557 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779559 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779563 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779566 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779573 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779576 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779579 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779584 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779585 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779587 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779589 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779591 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7779595 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 7791507 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 8098296 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 8098299 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 8098300 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 8098303 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 8098304 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 8098309 is an orphan
+
+
+WIN-BDQRQF29RA4	Fri Jan 21 02:11:57 2011
+	Database: C:\FBDATA\WINREDATA.FDB
+	Page 8098311 is an orphan
+

@@ -1,0 +1,65 @@
+SET SQL DIALECT 3;
+
+SET NAMES NONE;
+
+CREATE DATABASE 'localhost:D:\BT\BT1.FDB'
+USER 'SYSDBA' PASSWORD 'masterkey'
+PAGE_SIZE 1024
+DEFAULT CHARACTER SET NONE;
+
+
+
+/******************************************************************************/
+/***                                 Tables                                 ***/
+/******************************************************************************/
+
+
+
+CREATE TABLE CHILD (
+    ID    INTEGER NOT NULL,
+    NAME  VARCHAR(12)
+);
+
+
+CREATE TABLE PARENT (
+    ID   INTEGER NOT NULL,
+    AGE  INTEGER
+);
+
+
+CREATE TABLE PARENT_COL (
+    ID_OWN     INTEGER NOT NULL,
+    ID_ELEMNT  INTEGER NOT NULL
+);
+
+
+INSERT INTO PARENT (ID, AGE) VALUES (1, 12);
+
+COMMIT WORK;
+
+INSERT INTO CHILD (ID, NAME) VALUES (1, '222');
+
+COMMIT WORK;
+
+INSERT INTO PARENT_COL (ID_OWN, ID_ELEMNT) VALUES (1, 1);
+
+COMMIT WORK;
+
+
+
+/******************************************************************************/
+/***                              Primary Keys                              ***/
+/******************************************************************************/
+
+ALTER TABLE CHILD ADD PRIMARY KEY (ID);
+ALTER TABLE PARENT ADD PRIMARY KEY (ID);
+ALTER TABLE PARENT_COL ADD PRIMARY KEY (ID_OWN, ID_ELEMNT);
+
+
+/******************************************************************************/
+/***                              Foreign Keys                              ***/
+/******************************************************************************/
+
+ALTER TABLE CHILD ADD FOREIGN KEY (ID) REFERENCES PARENT (ID) ON DELETE CASCADE;
+ALTER TABLE PARENT_COL ADD FOREIGN KEY (ID_OWN) REFERENCES PARENT (ID) ON DELETE CASCADE;
+ALTER TABLE PARENT_COL ADD FOREIGN KEY (ID_ELEMNT) REFERENCES CHILD (ID);

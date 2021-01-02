@@ -1,0 +1,301 @@
+
+
+Oracle Corporation --- WEDNESDAY DEC 18 2013 09:23:25.489
+
+
+Heterogeneous Agent Release 
+11.2.0.4.0 
+
+
+
+
+Oracle Corporation --- WEDNESDAY DEC 18 2013 09:23:25.489
+
+    Version 11.2.0.4.0
+
+Entered hgogprd
+HOSGIP for "HS_FDS_TRACE_LEVEL" returned "debug"
+Entered hgosdip
+ setting HS_OPEN_CURSORS to default of 50
+ setting HS_FDS_RECOVERY_ACCOUNT to default of "RECOVER"
+ setting HS_FDS_RECOVERY_PWD to default value
+ setting HS_FDS_TRANSACTION_LOG to default of HS_TRANSACTION_LOG
+ setting HS_IDLE_TIMEOUT to default of 0
+ setting HS_FDS_TRANSACTION_ISOLATION to default of "READ_COMMITTED"
+ HOSGIP returned value of "UCS2" for HS_NLS_NCHAR
+ setting HS_FDS_TIMESTAMP_MAPPING to default of "DATE"
+ setting HS_FDS_DATE_MAPPING to default of "DATE"
+ setting HS_RPC_FETCH_REBLOCKING to default of "ON"
+ HOSGIP returned value of "1" for HS_FDS_FETCH_ROWS
+ setting HS_FDS_RESULTSET_SUPPORT to default of "FALSE"
+ setting HS_FDS_RSET_RETURN_ROWCOUNT to default of "FALSE"
+ setting HS_FDS_PROC_IS_FUNC to default of "FALSE"
+ setting HS_FDS_MAP_NCHAR to default of "TRUE"
+ setting HS_NLS_DATE_FORMAT to default of "YYYY-MM-DD HH24:MI:SS"
+ setting HS_FDS_REPORT_REAL_AS_DOUBLE to default of "FALSE"
+ setting HS_LONG_PIECE_TRANSFER_SIZE to default of "65536"
+ setting HS_SQL_HANDLE_STMT_REUSE to default of "FALSE"
+ setting HS_FDS_QUERY_DRIVER to default of "TRUE"
+ setting HS_FDS_SUPPORT_STATISTICS to default of "FALSE"
+ setting HS_FDS_QUOTE_IDENTIFIER to default of "TRUE"
+ setting HS_KEEP_REMOTE_COLUMN_SIZE to default of "OFF"
+ setting HS_FDS_GRAPHIC_TO_MBCS to default of "FALSE"
+ setting HS_FDS_MBCS_TO_GRAPHIC to default of "FALSE"
+Default value of 64 assumed for HS_FDS_SQLLEN_INTERPRETATION
+ setting HS_CALL_NAME_ISP to "gtw$:SQLTables;gtw$:SQLColumns;gtw$:SQLPrimaryKeys;gtw$:SQLForeignKeys;gtw$:SQLProcedures;gtw$:SQLStatistics;gtw$:SQLGetInfo"
+ setting HS_FDS_DELAYED_OPEN to default of "TRUE"
+ setting HS_FDS_WORKAROUNDS to default of "0"
+Exiting hgosdip, rc=0
+ ORACLE_SID is "U53Fb4ODBC"
+ Product-Info:
+  Port Rls/Upd:4/0 PrdStat:0
+  Agent:Oracle Database Gateway for ODBC
+  Facility:hsa
+  Class:ODBC, ClassVsn:11.2.0.4.0_0019, Instance:U53Fb4ODBC
+Exiting hgogprd, rc=0
+Entered hgoinit
+HOCXU_COMP_CSET=1
+HOCXU_DRV_CSET=170
+HOCXU_DRV_NCHAR=1000
+HOCXU_DB_CSET=873
+HS_LANGUAGE is CZECH_CZECH REPUBLIC.EE8MSWIN1250
+LANG=en_US.UTF-8
+HOCXU_SEM_VER=112000
+Entered hgolofn at 2013/12/18-09:23:25
+HOSGIP for "HS_FDS_SHAREABLE_NAME" returned "/usr/local/unixODBC/lib/libodbc.so"
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc47070
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc471b0
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc479f0
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc48cf0
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc50c40
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc510b0
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc53c60
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc55250
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc55a20
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc57400
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc57410
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc58ab0
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc5bd90
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc5c120
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc5db30
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc5e710
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc5ea20
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc60870
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc60cb0
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc62c00
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc629c0
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc49610
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc4ace0
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc4e7b0
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc50560
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc51c10
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc54ce0
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc56320
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc57760
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc59170
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc59680
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc5a910
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc5b5b0
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc5ca60
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc5cd20
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc5d790
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc5f190
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc5f6a0
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc5fc80
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc602d0
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc60f70
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc64040
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc62640
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc65980
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Entered hgolofns at 2013/12/18-09:23:25
+ symbol_peflctx=0x8bc66640
+ hoaerr:0
+Exiting hgolofns at 2013/12/18-09:23:25
+Exiting hgolofn, rc=0 at 2013/12/18-09:23:25
+HOSGIP for "HS_OPEN_CURSORS" returned "50"
+HOSGIP for "HS_FDS_FETCH_ROWS" returned "1"
+HOSGIP for "HS_LONG_PIECE_TRANSFER_SIZE" returned "65536"
+HOSGIP for "HS_NLS_NUMERIC_CHARACTER" returned ".,"
+HOSGIP for "HS_KEEP_REMOTE_COLUMN_SIZE" returned "OFF"
+HOSGIP for "HS_FDS_DELAYED_OPEN" returned "TRUE"
+HOSGIP for "HS_FDS_WORKAROUNDS" returned "0"
+HOSGIP for "HS_FDS_MBCS_TO_GRAPHIC" returned "FALSE"
+HOSGIP for "HS_FDS_GRAPHIC_TO_MBCS" returned "FALSE"
+Invalid value of 64 given for HS_FDS_SQLLEN_INTERPRETATION
+treat_SQLLEN_as_compiled = 1
+Exiting hgoinit, rc=0 at 2013/12/18-09:23:25
+Entered hgolgon at 2013/12/18-09:23:25
+ reco:0, name:SYSDBA, tflag:0
+Entered hgosuec at 2013/12/18-09:23:25
+Exiting hgosuec, rc=0 at 2013/12/18-09:23:25
+HOSGIP for "HS_FDS_RECOVERY_ACCOUNT" returned "RECOVER"
+HOSGIP for "HS_FDS_TRANSACTION_LOG" returned "HS_TRANSACTION_LOG"
+HOSGIP for "HS_FDS_TIMESTAMP_MAPPING" returned "DATE"
+HOSGIP for "HS_FDS_DATE_MAPPING" returned "DATE"
+HOSGIP for "HS_FDS_MAP_NCHAR" returned "TRUE"
+HOSGIP for "HS_FDS_RESULTSET_SUPPORT" returned "FALSE"
+HOSGIP for "HS_FDS_RSET_RETURN_ROWCOUNT" returned "FALSE"
+HOSGIP for "HS_FDS_PROC_IS_FUNC" returned "FALSE"
+HOSGIP for "HS_FDS_REPORT_REAL_AS_DOUBLE" returned "FALSE"
+ using SYSDBA as default value for "HS_FDS_DEFAULT_OWNER"
+HOSGIP for "HS_SQL_HANDLE_STMT_REUSE" returned "FALSE"
+Entered hgocont at 2013/12/18-09:23:25
+ HS_FDS_CONNECT_INFO = "U53"
+ RC=-1 from HOSGIP for "HS_FDS_CONNECT_STRING"
+Entered hgogenconstr at 2013/12/18-09:23:25
+ dsn:U53, name:SYSDBA
+ optn:
+Entered hgocip at 2013/12/18-09:23:25
+ dsn:U53
+Exiting hgocip, rc=0 at 2013/12/18-09:23:25
+Exiting hgogenconstr, rc=0 at 2013/12/18-09:23:25
+Entered hgolosf at 2013/12/18-09:23:25
+Exiting hgolosf, rc=0 at 2013/12/18-09:23:25
+DriverName:OdbcFb, DriverVer:02.00.0153
+DBMS Name:Firebird, DBMS Version:06.03.5026 WI-V Firebird 1.5
+Exiting hgocont, rc=0 at 2013/12/18-09:23:25
+SQLGetInfo returns Y for SQL_CATALOG_NAME
+SQLGetInfo returns 0 for SQL_MAX_CATALOG_NAME_LEN
+Exiting hgolgon, rc=0 at 2013/12/18-09:23:25
+Entered hgoulcp at 2013/12/18-09:23:25
+Entered hgowlst at 2013/12/18-09:23:25
+Exiting hgowlst, rc=0 at 2013/12/18-09:23:25
+SQLGetInfo returns 0x0 for SQL_OWNER_USAGE
+TXN Capable:2, Isolation Option:0xf
+SQLGetInfo returns 0 for SQL_MAX_SCHEMA_NAME_LEN
+SQLGetInfo returns 31 for SQL_MAX_TABLE_NAME_LEN
+SQLGetInfo returns 31 for SQL_MAX_PROCEDURE_NAME_LEN
+ HOSGIP returned value of "TRUE" for HS_FDS_QUOTE_IDENTIFIER
+SQLGetInfo returns " (0x22) for SQL_IDENTIFIER_QUOTE_CHAR

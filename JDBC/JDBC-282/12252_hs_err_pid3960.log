@@ -1,0 +1,321 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x10003d5a, pid=3960, tid=5612
+#
+# JRE version: 7.0_09-b05
+# Java VM: Java HotSpot(TM) Client VM (23.5-b02 mixed mode, sharing windows-x86 )
+# Problematic frame:
+# C  [fbclient.dll+0x3d5a]  Ordinal254+0x3d5a
+#
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0063c400):  JavaThread "main" [_thread_in_native, id=5612, stack(0x007b0000,0x00800000)]
+
+siginfo: ExceptionCode=0xc0000005, writing address 0x0000003f
+
+Registers:
+EAX=0x0494fcd8, EBX=0x04940014, ECX=0x00000000, EDX=0x00000004
+ESP=0x007ff590, EBP=0x04940014, ESI=0x04978e60, EDI=0x00000043
+EIP=0x10003d5a, EFLAGS=0x00010202
+
+Top of Stack: (sp=0x007ff590)
+0x007ff590:   04978e54 04977928 04940068 10003f1f
+0x007ff5a0:   000016e4 04978c5c 04940014 04978c68
+0x007ff5b0:   100046ce 04978c68 00000000 007ff67c
+0x007ff5c0:   04945470 00000000 10009720 04978c68
+0x007ff5d0:   10015431 04978c68 00000000 04945454
+0x007ff5e0:   1001f458 2881b5ba 04945454 04945454
+0x007ff5f0:   007ff628 10055a28 00000000 1001f488
+0x007ff600:   04945454 10015503 00000001 04945454 
+
+Instructions: (pc=0x10003d5a)
+0x10003d3a:   44 24 1c e8 2e f0 ff ff 84 c0 74 32 8b 53 04 8b
+0x10003d4a:   03 39 74 d0 08 8d 44 d0 04 75 23 85 ff 74 11 5b
+0x10003d5a:   c7 47 fc 00 00 00 00 89 78 04 5f 5e 5d c2 04 00
+0x10003d6a:   8b cb e8 1f ee ff ff 5b 5f 5e 5d c2 04 00 8b 45 
+
+
+Register to memory mapping:
+
+EAX=0x0494fcd8 is an unknown value
+EBX=0x04940014 is an unknown value
+ECX=0x00000000 is an unknown value
+EDX=0x00000004 is an unknown value
+ESP=0x007ff590 is pointing into the stack for thread: 0x0063c400
+EBP=0x04940014 is an unknown value
+ESI=0x04978e60 is an unknown value
+EDI=0x00000043 is an unknown value
+
+
+Stack: [0x007b0000,0x00800000],  sp=0x007ff590,  free space=317k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [fbclient.dll+0x3d5a]  Ordinal254+0x3d5a
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  org.firebirdsql.gds.impl.jni.JniGDSImpl.native_isc_detach_database(Lorg/firebirdsql/gds/IscDbHandle;)V+0
+j  org.firebirdsql.gds.impl.jni.BaseGDSImpl.iscDetachDatabase(Lorg/firebirdsql/gds/IscDbHandle;)V+20
+j  org.firebirdsql.gds.impl.GDSHelper.detachDatabase()V+8
+j  org.firebirdsql.jca.FBManagedConnection.destroy()V+32
+j  org.firebirdsql.jca.FBStandAloneConnectionManager.connectionClosed(Ljavax/resource/spi/ConnectionEvent;)V+7
+j  org.firebirdsql.jca.FBManagedConnection$1.notify(Ljavax/resource/spi/ConnectionEventListener;Ljavax/resource/spi/ConnectionEvent;)V+2
+j  org.firebirdsql.jca.FBManagedConnection.notify(Lorg/firebirdsql/jca/FBManagedConnection$CELNotifier;Ljavax/resource/spi/ConnectionEvent;)V+34
+j  org.firebirdsql.jca.FBManagedConnection.close(Lorg/firebirdsql/jdbc/FBConnection;)V+37
+j  org.firebirdsql.jdbc.FBConnection.close()V+58
+j  org.firebirdsql.jdbc.TestFBResultSet.tearDown()V+4
+j  junit.framework.TestCase.runBare()V+11
+j  junit.framework.TestResult$1.protect()V+4
+j  junit.framework.TestResult.runProtected(Ljunit/framework/Test;Ljunit/framework/Protectable;)V+1
+j  junit.framework.TestResult.run(Ljunit/framework/TestCase;)V+18
+j  junit.framework.TestCase.run(Ljunit/framework/TestResult;)V+2
+j  junit.framework.TestSuite.runTest(Ljunit/framework/Test;Ljunit/framework/TestResult;)V+2
+j  junit.framework.TestSuite.run(Ljunit/framework/TestResult;)V+40
+j  org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run()V+693
+j  org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(Lorg/apache/tools/ant/taskdefs/optional/junit/JUnitTest;[Ljava/lang/String;ZZZZZZ)I+41
+j  org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main([Ljava/lang/String;)V+918
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00a43000 JavaThread "Service Thread" daemon [_thread_blocked, id=3508, stack(0x042d0000,0x04320000)]
+  0x00a41800 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=5872, stack(0x00e10000,0x00e60000)]
+  0x00a41000 JavaThread "Attach Listener" daemon [_thread_blocked, id=5228, stack(0x00d80000,0x00dd0000)]
+  0x00a3b400 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=4528, stack(0x00cf0000,0x00d40000)]
+  0x00a26800 JavaThread "Finalizer" daemon [_thread_in_native, id=5344, stack(0x00c60000,0x00cb0000)]
+  0x00a25000 JavaThread "Reference Handler" daemon [_thread_blocked, id=5488, stack(0x00bd0000,0x00c20000)]
+=>0x0063c400 JavaThread "main" [_thread_in_native, id=5612, stack(0x007b0000,0x00800000)]
+
+Other Threads:
+  0x00a23800 VMThread [stack: 0x00b40000,0x00b90000] [id=5816]
+  0x00a5fc00 WatcherThread [stack: 0x04360000,0x043b0000] [id=5564]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 4928K, used 754K [0x24850000, 0x24da0000, 0x29da0000)
+  eden space 4416K,   5% used [0x24850000, 0x2488f6e0, 0x24ca0000)
+  from space 512K,  97% used [0x24d20000, 0x24d9d438, 0x24da0000)
+  to   space 512K,   0% used [0x24ca0000, 0x24ca0000, 0x24d20000)
+ tenured generation   total 10944K, used 3821K [0x29da0000, 0x2a850000, 0x34850000)
+   the space 10944K,  34% used [0x29da0000, 0x2a15b640, 0x2a15b800, 0x2a850000)
+ compacting perm gen  total 12288K, used 2645K [0x34850000, 0x35450000, 0x38850000)
+   the space 12288K,  21% used [0x34850000, 0x34ae5458, 0x34ae5600, 0x35450000)
+    ro space 10240K,  45% used [0x38850000, 0x38cd5880, 0x38cd5a00, 0x39250000)
+    rw space 12288K,  54% used [0x39250000, 0x398d8a58, 0x398d8c00, 0x39e50000)
+
+Card table byte_map: [0x00a90000,0x00b40000] byte_map_base: 0x0096bd80
+
+Polling page: 0x00570000
+
+Code Cache  [0x02290000, 0x02370000, 0x04290000)
+ total_blobs=341 nmethods=181 adapters=95 free_code_cache=31889Kb largest_free_block=32655296
+
+Compilation events (10 events):
+Event: 9.923 Thread 0x00a41800  176             org.firebirdsql.gds.impl.jni.ParameterBufferBase::hasArgument (52 bytes)
+Event: 9.923 Thread 0x00a41800 nmethod 176 0x0236aa08 code [0x0236ab30, 0x0236ac84]
+Event: 9.971 Thread 0x00a41800  177             org.firebirdsql.jdbc.field.FBField::close (1 bytes)
+Event: 9.971 Thread 0x00a41800 nmethod 177 0x0236ad88 code [0x0236ae80, 0x0236af00]
+Event: 9.979 Thread 0x00a41800  178             org.firebirdsql.jdbc.FBResultSet::closeFields (32 bytes)
+Event: 9.979 Thread 0x00a41800 nmethod 178 0x0236af48 code [0x0236b050, 0x0236b13c]
+Event: 9.980 Thread 0x00a41800  179             org.apache.log4j.Category::isEnabledFor (21 bytes)
+Event: 9.980 Thread 0x00a41800 nmethod 179 0x0236b248 code [0x0236b350, 0x0236b43c]
+Event: 9.988 Thread 0x00a41800  180             org.firebirdsql.logging.Log4jLogger::isDebugEnabled (25 bytes)
+Event: 9.988 Thread 0x00a41800 nmethod 180 0x0236b508 code [0x0236b620, 0x0236b73c]
+
+GC Heap History (6 events):
+Event: 0.307 GC heap before
+{Heap before GC invocations=0 (full 0):
+ def new generation   total 4928K, used 4379K [0x24850000, 0x24da0000, 0x29da0000)
+  eden space 4416K,  99% used [0x24850000, 0x24c96cc0, 0x24ca0000)
+  from space 512K,   0% used [0x24ca0000, 0x24ca0000, 0x24d20000)
+  to   space 512K,   0% used [0x24d20000, 0x24d20000, 0x24da0000)
+ tenured generation   total 10944K, used 0K [0x29da0000, 0x2a850000, 0x34850000)
+   the space 10944K,   0% used [0x29da0000, 0x29da0000, 0x29da0200, 0x2a850000)
+ compacting perm gen  total 12288K, used 1637K [0x34850000, 0x35450000, 0x38850000)
+   the space 12288K,  13% used [0x34850000, 0x349e9418, 0x349e9600, 0x35450000)
+    ro space 10240K,  45% used [0x38850000, 0x38cd5880, 0x38cd5a00, 0x39250000)
+    rw space 12288K,  54% used [0x39250000, 0x398d8a58, 0x398d8c00, 0x39e50000)
+Event: 0.313 GC heap after
+Heap after GC invocations=1 (full 0):
+ def new generation   total 4928K, used 512K [0x24850000, 0x24da0000, 0x29da0000)
+  eden space 4416K,   0% used [0x24850000, 0x24850000, 0x24ca0000)
+  from space 512K, 100% used [0x24d20000, 0x24da0000, 0x24da0000)
+  to   space 512K,   0% used [0x24ca0000, 0x24ca0000, 0x24d20000)
+ tenured generation   total 10944K, used 881K [0x29da0000, 0x2a850000, 0x34850000)
+   the space 10944K,   8% used [0x29da0000, 0x29e7c400, 0x29e7c400, 0x2a850000)
+ compacting perm gen  total 12288K, used 1637K [0x34850000, 0x35450000, 0x38850000)
+   the space 12288K,  13% used [0x34850000, 0x349e9418, 0x349e9600, 0x35450000)
+    ro space 10240K,  45% used [0x38850000, 0x38cd5880, 0x38cd5a00, 0x39250000)
+    rw space 12288K,  54% used [0x39250000, 0x398d8a58, 0x398d8c00, 0x39e50000)
+}
+Event: 0.935 GC heap before
+{Heap before GC invocations=1 (full 0):
+ def new generation   total 4928K, used 4928K [0x24850000, 0x24da0000, 0x29da0000)
+  eden space 4416K, 100% used [0x24850000, 0x24ca0000, 0x24ca0000)
+  from space 512K, 100% used [0x24d20000, 0x24da0000, 0x24da0000)
+  to   space 512K,   0% used [0x24ca0000, 0x24ca0000, 0x24d20000)
+ tenured generation   total 10944K, used 881K [0x29da0000, 0x2a850000, 0x34850000)
+   the space 10944K,   8% used [0x29da0000, 0x29e7c400, 0x29e7c400, 0x2a850000)
+ compacting perm gen  total 12288K, used 2475K [0x34850000, 0x35450000, 0x38850000)
+   the space 12288K,  20% used [0x34850000, 0x34abafa0, 0x34abb000, 0x35450000)
+    ro space 10240K,  45% used [0x38850000, 0x38cd5880, 0x38cd5a00, 0x39250000)
+    rw space 12288K,  54% used [0x39250000, 0x398d8a58, 0x398d8c00, 0x39e50000)
+Event: 0.942 GC heap after
+Heap after GC invocations=2 (full 0):
+ def new generation   total 4928K, used 512K [0x24850000, 0x24da0000, 0x29da0000)
+  eden space 4416K,   0% used [0x24850000, 0x24850000, 0x24ca0000)
+  from space 512K, 100% used [0x24ca0000, 0x24d20000, 0x24d20000)
+  to   space 512K,   0% used [0x24d20000, 0x24d20000, 0x24da0000)
+ tenured generation   total 10944K, used 3311K [0x29da0000, 0x2a850000, 0x34850000)
+   the space 10944K,  30% used [0x29da0000, 0x2a0dbf80, 0x2a0dc000, 0x2a850000)
+ compacting perm gen  total 12288K, used 2475K [0x34850000, 0x35450000, 0x38850000)
+   the space 12288K,  20% used [0x34850000, 0x34abafa0, 0x34abb000, 0x35450000)
+    ro space 10240K,  45% used [0x38850000, 0x38cd5880, 0x38cd5a00, 0x39250000)
+    rw space 12288K,  54% used [0x39250000, 0x398d8a58, 0x398d8c00, 0x39e50000)
+}
+Event: 10.013 GC heap before
+{Heap before GC invocations=2 (full 0):
+ def new generation   total 4928K, used 4928K [0x24850000, 0x24da0000, 0x29da0000)
+  eden space 4416K, 100% used [0x24850000, 0x24ca0000, 0x24ca0000)
+  from space 512K, 100% used [0x24ca0000, 0x24d20000, 0x24d20000)
+  to   space 512K,   0% used [0x24d20000, 0x24d20000, 0x24da0000)
+ tenured generation   total 10944K, used 3311K [0x29da0000, 0x2a850000, 0x34850000)
+   the space 10944K,  30% used [0x29da0000, 0x2a0dbf80, 0x2a0dc000, 0x2a850000)
+ compacting perm gen  total 12288K, used 2645K [0x34850000, 0x35450000, 0x38850000)
+   the space 12288K,  21% used [0x34850000, 0x34ae5458, 0x34ae5600, 0x35450000)
+    ro space 10240K,  45% used [0x38850000, 0x38cd5880, 0x38cd5a00, 0x39250000)
+    rw space 12288K,  54% used [0x39250000, 0x398d8a58, 0x398d8c00, 0x39e50000)
+Event: 10.018 GC heap after
+Heap after GC invocations=3 (full 0):
+ def new generation   total 4928K, used 501K [0x24850000, 0x24da0000, 0x29da0000)
+  eden space 4416K,   0% used [0x24850000, 0x24850000, 0x24ca0000)
+  from space 512K,  97% used [0x24d20000, 0x24d9d438, 0x24da0000)
+  to   space 512K,   0% used [0x24ca0000, 0x24ca0000, 0x24d20000)
+ tenured generation   total 10944K, used 3821K [0x29da0000, 0x2a850000, 0x34850000)
+   the space 10944K,  34% used [0x29da0000, 0x2a15b640, 0x2a15b800, 0x2a850000)
+ compacting perm gen  total 12288K, used 2645K [0x34850000, 0x35450000, 0x38850000)
+   the space 12288K,  21% used [0x34850000, 0x34ae5458, 0x34ae5600, 0x35450000)
+    ro space 10240K,  45% used [0x38850000, 0x38cd5880, 0x38cd5a00, 0x39250000)
+    rw space 12288K,  54% used [0x39250000, 0x398d8a58, 0x398d8c00, 0x39e50000)
+}
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 8.466 Thread 0x0063c400 Threw 0x24a17018 at C:\jdk7u1_32P\jdk7u9_3984_new\hotspot\src\share\vm\prims\jni.cpp:716
+Event: 8.609 Thread 0x0063c400 Threw 0x24a1cca0 at C:\jdk7u1_32P\jdk7u9_3984_new\hotspot\src\share\vm\prims\jni.cpp:716
+Event: 8.610 Thread 0x0063c400 Threw 0x24a20b70 at C:\jdk7u1_32P\jdk7u9_3984_new\hotspot\src\share\vm\prims\jni.cpp:716
+Event: 8.611 Thread 0x0063c400 Threw 0x24a24720 at C:\jdk7u1_32P\jdk7u9_3984_new\hotspot\src\share\vm\prims\jni.cpp:716
+Event: 8.613 Thread 0x0063c400 Threw 0x24a287f0 at C:\jdk7u1_32P\jdk7u9_3984_new\hotspot\src\share\vm\prims\jni.cpp:716
+Event: 9.187 Thread 0x0063c400 Threw 0x24af0d48 at C:\jdk7u1_32P\jdk7u9_3984_new\hotspot\src\share\vm\prims\jni.cpp:716
+Event: 9.602 Thread 0x0063c400 Threw 0x24af89f0 at C:\jdk7u1_32P\jdk7u9_3984_new\hotspot\src\share\vm\prims\jni.cpp:716
+Event: 9.603 Thread 0x0063c400 Threw 0x24afc8c0 at C:\jdk7u1_32P\jdk7u9_3984_new\hotspot\src\share\vm\prims\jni.cpp:716
+Event: 9.604 Thread 0x0063c400 Threw 0x24b00440 at C:\jdk7u1_32P\jdk7u9_3984_new\hotspot\src\share\vm\prims\jni.cpp:716
+Event: 9.605 Thread 0x0063c400 Threw 0x24b04510 at C:\jdk7u1_32P\jdk7u9_3984_new\hotspot\src\share\vm\prims\jni.cpp:716
+
+Events (10 events):
+Event: 10.026 Executing VM operation: RevokeBias
+Event: 10.026 Executing VM operation: RevokeBias done
+Event: 10.026 Executing VM operation: BulkRevokeBias
+Event: 10.026 Executing VM operation: BulkRevokeBias done
+Event: 10.026 Executing VM operation: RevokeBias
+Event: 10.026 Executing VM operation: RevokeBias done
+Event: 10.026 Executing VM operation: RevokeBias
+Event: 10.026 Executing VM operation: RevokeBias done
+Event: 10.026 Executing VM operation: BulkRevokeBias
+Event: 10.026 Executing VM operation: BulkRevokeBias done
+
+
+Dynamic libraries:
+0x00e60000 - 0x00e8f000 	C:\Program Files (x86)\Java\jdk1.7.0\bin\java.exe
+0x77a90000 - 0x77be7000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x77690000 - 0x777c0000 	C:\WINDOWS\SYSTEM32\KERNEL32.DLL
+0x76ee0000 - 0x76f86000 	C:\WINDOWS\SYSTEM32\KERNELBASE.dll
+0x6e5f0000 - 0x6e697000 	C:\WINDOWS\system32\apphelp.dll
+0x75580000 - 0x7562e000 	C:\WINDOWS\SYSTEM32\ADVAPI32.dll
+0x77540000 - 0x77656000 	C:\WINDOWS\SYSTEM32\USER32.dll
+0x6ff20000 - 0x70117000 	C:\WINDOWS\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.9200.16384_none_893961408605e985\COMCTL32.dll
+0x76fe0000 - 0x77091000 	C:\WINDOWS\SYSTEM32\msvcrt.dll
+0x77220000 - 0x77254000 	C:\WINDOWS\SYSTEM32\sechost.dll
+0x75630000 - 0x756dc000 	C:\WINDOWS\SYSTEM32\RPCRT4.dll
+0x756e0000 - 0x757dd000 	C:\WINDOWS\SYSTEM32\GDI32.dll
+0x75120000 - 0x7513c000 	C:\WINDOWS\SYSTEM32\SspiCli.dll
+0x75110000 - 0x75119000 	C:\WINDOWS\SYSTEM32\CRYPTBASE.dll
+0x750b0000 - 0x75101000 	C:\WINDOWS\SYSTEM32\bcryptPrimitives.dll
+0x75560000 - 0x75580000 	C:\WINDOWS\system32\IMM32.DLL
+0x77440000 - 0x7751c000 	C:\WINDOWS\SYSTEM32\MSCTF.dll
+0x64520000 - 0x645de000 	C:\Program Files (x86)\Java\jdk1.7.0\jre\bin\msvcr100.dll
+0x63fb0000 - 0x642fd000 	C:\Program Files (x86)\Java\jdk1.7.0\jre\bin\client\jvm.dll
+0x74f40000 - 0x74f48000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x74f10000 - 0x74f31000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x77530000 - 0x77536000 	C:\WINDOWS\SYSTEM32\PSAPI.DLL
+0x75150000 - 0x751a0000 	C:\WINDOWS\SYSTEM32\WS2_32.dll
+0x74ee0000 - 0x74f0a000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x77680000 - 0x77688000 	C:\WINDOWS\SYSTEM32\NSI.dll
+0x6e0d0000 - 0x6e0dc000 	C:\Program Files (x86)\Java\jdk1.7.0\jre\bin\verify.dll
+0x6dec0000 - 0x6dee0000 	C:\Program Files (x86)\Java\jdk1.7.0\jre\bin\java.dll
+0x6dea0000 - 0x6deb3000 	C:\Program Files (x86)\Java\jdk1.7.0\jre\bin\zip.dll
+0x64500000 - 0x64514000 	C:\Program Files (x86)\Java\jdk1.7.0\jre\bin\net.dll
+0x73270000 - 0x732ba000 	C:\WINDOWS\system32\mswsock.dll
+0x6de90000 - 0x6de9f000 	C:\Program Files (x86)\Java\jdk1.7.0\jre\bin\nio.dll
+0x730c0000 - 0x730d0000 	C:\WINDOWS\system32\napinsp.dll
+0x730a0000 - 0x730b4000 	C:\WINDOWS\system32\pnrpnsp.dll
+0x73090000 - 0x730a0000 	C:\WINDOWS\system32\NLAapi.dll
+0x73010000 - 0x73085000 	C:\WINDOWS\SYSTEM32\DNSAPI.dll
+0x73000000 - 0x73009000 	C:\WINDOWS\System32\winrnr.dll
+0x72d40000 - 0x72d47000 	C:\Windows\System32\rasadhlp.dll
+0x73800000 - 0x73820000 	C:\WINDOWS\SYSTEM32\IPHLPAPI.DLL
+0x73740000 - 0x73748000 	C:\WINDOWS\SYSTEM32\WINNSI.DLL
+0x72d00000 - 0x72d3f000 	C:\WINDOWS\System32\fwpuclnt.dll
+0x644d0000 - 0x644f5000 	D:\Development\project\JaybirdEclipse\client-java\output\native\jaybird23.dll
+0x10000000 - 0x1008c000 	D:\Development\project\JaybirdEclipse\client-java\output\native\fbclient.dll
+0x6ef10000 - 0x6ef23000 	C:\WINDOWS\SYSTEM32\MPR.dll
+0x75a70000 - 0x76b36000 	C:\WINDOWS\SYSTEM32\SHELL32.dll
+0x64be0000 - 0x64c7b000 	C:\WINDOWS\WinSxS\x86_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50727.6910_none_d089c358442de345\MSVCR80.dll
+0x76b40000 - 0x76c76000 	C:\WINDOWS\SYSTEM32\combase.dll
+0x771c0000 - 0x77200000 	C:\WINDOWS\SYSTEM32\SHLWAPI.dll
+0x6ef30000 - 0x6ef39000 	C:\WINDOWS\SYSTEM32\secur32.dll
+0x60df0000 - 0x60e37000 	C:\WINDOWS\SYSTEM32\msv1_0.DLL
+0x644b0000 - 0x644c2000 	C:\WINDOWS\SYSTEM32\cryptdll.dll
+0x73460000 - 0x73589000 	C:\WINDOWS\SYSTEM32\dbghelp.dll
+
+VM Arguments:
+jvm_args: -Ddummy -Djava.library.path=D:\Development\project\JaybirdEclipse\client-java/output/native -Djbosstest.deploy.dir=D:\Development\project\JaybirdEclipse\client-java\output\lib -Dlog4j.properties=D:\Development\project\JaybirdEclipse\client-java\output\resources\log4j.properties -Dtest.db.dir=D:\Development\project\JaybirdEclipse\client-java/output/db -Dtest.db.host=localhost -Dtest.db.port=3050 -Dtest.db.lc_ctype=NONE -Dtest.gds_type=NATIVE 
+java_command: org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner org.firebirdsql.jdbc.TestFBResultSet filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,D:\Development\project\JaybirdEclipse\client-java\output\reports\native\TEST-org.firebirdsql.jdbc.TestFBResultSet.xml crashfile=D:\Development\project\JaybirdEclipse\client-java\junitvmwatcher5770714114209220711.properties propsfile=D:\Development\project\JaybirdEclipse\client-java\junit8873264205590619985.properties
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files (x86)\Java\jdk1.7.0
+CLASSPATH=D:\Development\project\JaybirdEclipse\client-java\lib\cpptasks.jar
+PATH=C:\Program Files (x86)\AMD APP\bin\x86_64;C:\Program Files (x86)\AMD APP\bin\x86;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\
+USERNAME=Mark
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 21 Model 1 Stepping 2, AuthenticAMD
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 8 , 64 bit Build 9200 
+
+CPU:total 8 (8 cores per cpu, 1 threads per core) family 21 model 1 stepping 2, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, mmxext, 3dnowpref, lzcnt, sse4a, tsc, tscinvbit, tscinv
+
+Memory: 4k page, physical 8332624k(5475648k free), swap 13051216k(9830032k free)
+
+vm_info: Java HotSpot(TM) Client VM (23.5-b02) for windows-x86 JRE (1.7.0_09-b05), built on Sep 24 2012 22:01:33 by "java_re" with unknown MS VC++:1600
+
+time: Sun Nov 11 11:29:12 2012
+elapsed time: 10 seconds
+

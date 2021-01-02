@@ -1,0 +1,69 @@
+diff --git a/src/dsql/DsqlCompilerScratch.h b/src/dsql/DsqlCompilerScratch.h
+index 5c33ad9660..ea97ea46d3 100644
+--- a/src/dsql/DsqlCompilerScratch.h
++++ b/src/dsql/DsqlCompilerScratch.h
+@@ -110,6 +110,7 @@ public:
+ 		  hiddenVariables(p),
+ 		  variables(p),
+ 		  outputVariables(p),
++		  paramTypeNodes(p),
+ 		  currCteAlias(NULL),
+ 		  ctes(p),
+ 		  cteAliases(p),
+@@ -301,6 +302,7 @@ public:
+ 	Firebird::Array<dsql_var*> hiddenVariables;	// hidden variables
+ 	Firebird::Array<dsql_var*> variables;
+ 	Firebird::Array<dsql_var*> outputVariables;
++	Firebird::Array<ValueExprNode*> paramTypeNodes;
+ 	const Firebird::string* const* currCteAlias;
+ 
+ private:
+diff --git a/src/dsql/ExprNodes.cpp b/src/dsql/ExprNodes.cpp
+index 588fb8acea..76013fb375 100644
+--- a/src/dsql/ExprNodes.cpp
++++ b/src/dsql/ExprNodes.cpp
+@@ -8674,6 +8674,13 @@ bool ParameterNode::setParameterType(DsqlCompilerScratch* dsqlScratch,
+ 		dsqlParameter->par_desc.makeNullString();
+ 	else
+ 	{
++		if (dsqlScratch->paramTypeNodes.hasData())
++		{
++			const auto node = dsqlScratch->paramTypeNodes.back();
++			MAKE_desc(dsqlScratch, &node->nodDesc, node);
++			desc = &node->nodDesc;
++		}
++
+ 		dsqlParameter->par_desc = *desc;
+ 
+ 		if (tdbb->getCharSet() != CS_NONE && tdbb->getCharSet() != CS_BINARY)
+diff --git a/src/dsql/pass1.cpp b/src/dsql/pass1.cpp
+index e32dd7a41b..cb38a2c73e 100644
+--- a/src/dsql/pass1.cpp
++++ b/src/dsql/pass1.cpp
+@@ -2943,7 +2943,25 @@ bool PASS1_set_parameter_type(DsqlCompilerScratch* dsqlScratch, ValueExprNode* i
+ 	if (!inNode)
+ 		return false;
+ 
+-	MAKE_desc(dsqlScratch, &node->nodDesc, node);
++	class SetParamTypeGuard
++	{
++	public:
++		SetParamTypeGuard(DsqlCompilerScratch* dsqlScratch, ValueExprNode* node)
++			: m_scratch(dsqlScratch)
++		{
++			dsqlScratch->paramTypeNodes.push(node);
++		}
++
++		~SetParamTypeGuard()
++		{
++			m_scratch->paramTypeNodes.pop();
++		}
++
++	private:
++		DsqlCompilerScratch* const m_scratch;
++	};
++
++	SetParamTypeGuard guard(dsqlScratch, node);
+ 	return inNode->setParameterType(dsqlScratch, &node->nodDesc, force_varchar);
+ }
+ 

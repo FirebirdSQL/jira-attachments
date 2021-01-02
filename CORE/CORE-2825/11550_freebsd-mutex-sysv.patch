@@ -1,0 +1,20 @@
+# Description: define USE_SYS5SEMAPHORE on FreeBSD
+#  Without this, the mutex code tries to use some pthread functions which
+#  aren't implemented on FreeBSD
+#  I am not sure SYSV semaphores will work either, but since upstream uses them
+#  on DARWIN, and DARWIN is based on FreeBSD, I think this is worth a try
+#  If this makes things better, it should be forwarded upstream
+# Forwarded: no
+# Author: Damyan Ivanov <dmn@debian.org>
+# Debian-Bug: 565801
+--- a/src/jrd/isc.h
++++ b/src/jrd/isc.h
+@@ -33,7 +33,7 @@
+ 
+ // Firebird platform-specific synchronization data structures
+ 
+-#if defined(DARWIN)
++#if defined(DARWIN) || defined(FREEBSD)
+ #define USE_SYS5SEMAPHORE
+ #endif
+ 

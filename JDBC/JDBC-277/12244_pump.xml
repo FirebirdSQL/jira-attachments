@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<project name="pump">
+<!--
+   You can use all properties which is reachable from BoServer module "boserver".
+   Property "boserver.storeDir" refers to directory of store (absolute path)
+
+   !! stupid gfix does not return error value in case of error,
+   we have to work it around using stderr
+-->
+  <property environment="env"/>
+  <dirname property = "ant.dir" file = "${ant.file}" />
+
+  <property name="gfix.executable" value="C:/Program Files (x86)/Firebird/Firebird_2_1/bin/gfix"/>
+  <property name="stamm_db.filepath" value="${boserver.storeDir}/data/standard_stamm.gdb"/>
+
+  <target name="prezip" depends="stamm_db_sweep">
+  </target>
+
+  <target name="postzip" depends="">
+  </target>
+
+  <target name="prepump" depends="stamm_db_set_async_mode">
+  </target>
+
+  <target name="postpump" depends="stamm_db_set_sync_mode, stamm_db_validation">
+    <sql
+      driver = "${boserver.replication.stamm.driver}"
+      url = "${boserver.replication.stamm.url}"
+      userid = "${boserver.replication.stamm.user}"
+      password = "${boserver.replication.stamm.password}"
+      delimiter = ";"
+      print = "true"
+      caching = "false">
+
+      <transaction>
+
+<!--*************************************************************************-->
+
+        SET STATISTICS INDEX ARTIKEL_MAIN_ARTNR_I1;
+        SET STATISTICS INDEX ARTIKEL_EAN_I;
+
+        SET STATISTICS INDEX CREDIT_CARD_BLACKLIST_IDX_1;
+        SET STATISTICS INDEX CREDIT_CARD_BLACKLIST_IDX_2;
+
+        SET STATISTICS INDEX EC_CARD_BLACK_LIST_IDX_1;
+        SET STATISTICS INDEX EC_CARD_BLACK_LIST_IDX_2;
+
+        SET STATISTICS INDEX COMBINATION_PRDV_RULE_EL_I;
+        SET STATISTICS INDEX COUPON_PRDV_RULE_EL_INDEX;
+        SET STATISTICS INDEX CUSTOMER_GR_PRDV_RU_EL_INDEX;
+        SET STATISTICS INDEX EMPL_DSC_GR_PRDV_RU_EL_INDEX;
+        SET STATISTICS INDEX ITEM_PRDV_RULE_EL_INDEX;
+        SET STATISTICS INDEX MRCH_STR_PRDV_RU_EL_INDEX;
+        SET STATISTICS INDEX PRICE_DERIV_RULE_EL_ROOT_I;
+
+<!--*************************************************************************-->
+
+      </transaction>
+
+    </sql>
+ 	</target>
+	<!--
+		Execute firebird's gfix to check consistency of stamm database
+	-->
+	<target name="stamm_db_validation" unless="disable.stamm.validation">
+		<exec executable="${gfix.executable}" failonerror="true" errorproperty="gfix.v.f.fail">
+			<arg value="-user"/>
+			<arg value="${boserver.replication.stamm.user}"/>
+			<arg value="-password"/>
+			<arg value="${boserver.replication.stamm.password}"/>
+			<arg value="-v"/>
+			<arg value="-f"/>
+			<arg value="${stamm_db.filepath}"/>
+    </exec>
+    <fail message="${gfix.v.f.fail}">
+      <condition>
+        <not><equals arg1="" arg2="${gfix.v.f.fail}"/></not>
+      </condition>
+    </fail>
+		<echo>&quot;Stamm database consistency check passed.&quot;</echo>
+	</target>
+	<!--
+		Excecure firebird's gfix to sweep stamm database
+	-->
+	<target name="stamm_db_sweep" unless="disable.stamm.sweep">
+		<exec executable="${gfix.executable}" failonerror="true" errorproperty="gfix.sweep.fail">
+			<arg value="-user"/>
+			<arg value="${boserver.replication.stamm.user}"/>
+			<arg value="-password"/>
+			<arg value="${boserver.replication.stamm.password}"/>
+			<arg value="-sweep"/>
+			<arg value="${stamm_db.filepath}"/>
+		</exec>
+    <fail message="${gfix.sweep.fail}">
+      <condition>
+        <not><equals arg1="" arg2="${gfix.sweep.fail}"/></not>
+      </condition>
+    </fail>
+		<echo>&quot;Stamm database has been swept.&quot;</echo>
+	</target>
+	
+	<target name="stamm_db_set_sync_mode">
+		<exec executable="${gfix.executable}" failonerror="true" errorproperty="gfix.write.sync.fail">
+	  	<arg value="${stamm_db.filepath}"/>
+			<arg value="-user"/>
+			<arg value="${boserver.replication.stamm.user}"/>
+			<arg value="-password"/>
+			<arg value="${boserver.replication.stamm.password}"/>
+      <arg value="-write"/>
+      <arg value="sync"/>
+		</exec>
+    <fail message="${gfix.write.sync.fail}">
+      <condition>
+        <not><equals arg1="" arg2="${gfix.write.sync.fail}"/></not>
+      </condition>
+    </fail>
+		<echo>Database write mode setted to sync.</echo>
+	</target>
+
+  <target name="stamm_db_set_async_mode">
+    <exec executable="${gfix.executable}" failonerror="true" errorproperty="gfix.write.async.fail" >
+	  	<arg value="${stamm_db.filepath}"/>
+			<arg value="-user"/>
+			<arg value="${boserver.replication.stamm.user}"/>
+			<arg value="-password"/>
+			<arg value="${boserver.replication.stamm.password}"/>
+      <arg value="-write"/>
+      <arg value="async"/>
+		</exec>
+    <fail message="${gfix.write.async.fail}">
+      <condition>
+        <not><equals arg1="" arg2="${gfix.write.async.fail}"/></not>
+      </condition>
+    </fail>
+    <echo>Database write mode setted to async.</echo>
+		<exec executable="${gfix.executable}" failonerror="true" errorproperty="gfix.housekeeping.fail">
+	  	<arg value="${stamm_db.filepath}"/>
+			<arg value="-user"/>
+			<arg value="${boserver.replication.stamm.user}"/>
+			<arg value="-password"/>
+			<arg value="${boserver.replication.stamm.password}"/>
+      <arg value="-housekeeping"/>
+      <arg value="0"/>
+		</exec>
+    <fail message="${gfix.housekeeping.fail}">
+      <condition>
+        <not><equals arg1="" arg2="${gfix.housekeeping.fail}"/></not>
+      </condition>
+    </fail>
+		<echo>Database automatic sweep disabled.</echo>
+  </target>
+  
+</project>

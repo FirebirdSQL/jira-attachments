@@ -1,0 +1,253 @@
+(gdb) bt full
+#0  __cxxabiv1::__cxa_throw (obj=0x6b6b70, tinfo=0x7ffff5234e60 <typeinfo for Firebird::status_exception>, dest=0x7ffff4e685e0 <Firebird::status_exception::~status_exception()>)
+    at ../../../../libstdc++-v3/libsupc++/eh_throw.cc:70
+No locals.
+#1  0x00007ffff4e68c01 in Firebird::status_exception::raise (status_vector=0x7fffffff6240) at /usr/src/debug/Firebird-3.0.0.30084-Unstable/src/common/fb_exception.cpp:129
+No locals.
+#2  0x00007ffff4b79fc3 in CharSetContainer::lookupCollation (this=0x7ffff1f28560, tdbb=0x7fffffff62e0, tt_id=516) at /usr/src/debug/Firebird-3.0.0.30084-Unstable/src/jrd/intl.cpp:398
+        charset = 0x7ffff1f28790
+        tt = 0x7ffff1f52878
+        att = <optimized out>
+        guard = {m_mutex = @0x7ffff7f3c218}
+        to_delete = 0x0
+        info = {charsetName = {data = "UTF8", '\000' <repeats 27 times>, count = 4}, collationName = {data = "UNICODE", '\000' <repeats 24 times>, count = 7}, baseCollationName = {
+            data = "UNICODE", '\000' <repeats 24 times>, count = 7}, attributes = 1, ignoreAttributes = false, 
+          specificAttributes = {<Firebird::Array<unsigned char, Firebird::InlineStorage<unsigned char, 128ul> >> = {<Firebird::InlineStorage<unsigned char, 128ul>> = {<Firebird::AutoStorage> = {<Firebird::PermanentStorage> = {pool = @0x7ffff1f288f8}, <No data fields>}, 
+                buffer = "\000\000\000\000\000\000\000\000\320V\377\377\377\177\000\000\221v\302\364\377\177\000\000\000\000\000\000\001\000\000\000\300\323\353\367\377\177", '\000' <repeats 18 times>, "@\023\344\361\377\177\000\000\260\021\344\361\377\177\000\000\060\000\344\361\377\177\000\000\340b\377\377\377\177\000\000\340V\377\377\377\177\000\000\301\364\377\177\000\000\240W\377\377\377\177\000\000x\022\344\361\377\177\000\000\000W\377\377\377\177\000"}, count = 0, capacity = 128, data = 0x7fffffff5668 ""}, <No data fields>}}
+        id = 2
+#3  0x00007ffff4d320e2 in Jrd::CastNode::pass1 (this=0x7ffff1e411b0, tdbb=0x7fffffff62e0, csb=0x7ffff1e40030) at /usr/src/debug/Firebird-3.0.0.30084-Unstable/src/dsql/ExprNodes.cpp:2761
+No locals.
+#4  0x00007ffff4d01f06 in doPass1<Jrd::ValueExprNode> (node=0x7ffff1e40f00, csb=0x7ffff1e40030, tdbb=0x7fffffff62e0) at /usr/src/debug/Firebird-3.0.0.30084-Unstable/src/dsql/Nodes.h:317
+No locals.
+#5  Jrd::ComparativeBoolNode::pass1 (this=0x7ffff1e40e78, tdbb=0x7fffffff62e0, csb=0x7ffff1e40030) at /usr/src/debug/Firebird-3.0.0.30084-Unstable/src/dsql/BoolNodes.cpp:619
+        invariantCheck = false
+#6  0x00007ffff4bed4da in doPass1<Jrd::BoolExprNode> (node=0x7ffff1e40b00, csb=0x7ffff1e40030, tdbb=0x7fffffff62e0) at /usr/src/debug/Firebird-3.0.0.30084-Unstable/src/dsql/Nodes.h:317
+No locals.
+#7  Jrd::RseNode::pass1 (this=0x7ffff1e40a08, tdbb=0x7fffffff62e0, csb=0x7ffff1e40030) at /usr/src/debug/Firebird-3.0.0.30084-Unstable/src/jrd/RecordSourceNodes.cpp:2612
+        first = <optimized out>
+        plan = 0x0
+        arg = <optimized out>
+        autoValidateExpr = {value = 0x7ffff1e40270, oldValue = <optimized out>}
+        boolean = 0x0
+        sort = 0x0
+        project = 0x0
+        topLevelRse = true
+        stack = {<Firebird::AutoStorage> = {<Firebird::PermanentStorage> = {pool = @0x7ffff1f288f8}, <No data fields>}, stk = 0x0, stk_cache = 0x7ffff1e41ee8}
+        skip = <optimized out>
+#8  0x00007ffff4cc9585 in doPass1<Jrd::RseNode> (node=0x7ffff1e40988, csb=0x7ffff1e40030, tdbb=0x7fffffff62e0) at /usr/src/debug/Firebird-3.0.0.30084-Unstable/src/dsql/Nodes.h:317
+No locals.
+#9  Jrd::ForNode::pass1 (this=0x7ffff1e40928, tdbb=0x7fffffff62e0, csb=0x7ffff1e40030) at /usr/src/debug/Firebird-3.0.0.30084-Unstable/src/dsql/StmtNodes.cpp:4362
+No locals.
+#10 0x00007ffff4cc8e24 in doPass1<Jrd::StmtNode> (node=0x7ffff1e41180, csb=<optimized out>, tdbb=<optimized out>) at /usr/src/debug/Firebird-3.0.0.30084-Unstable/src/dsql/Nodes.h:317
+No locals.
+#11 Jrd::CompoundStmtNode::pass1 (this=0x7ffff1e40700, tdbb=0x7fffffff62e0, csb=0x7ffff1e40030) at /usr/src/debug/Firebird-3.0.0.30084-Unstable/src/dsql/StmtNodes.cpp:770
+        i = 0x7ffff1e41180
+#12 0x00007ffff4bff3b3 in doPass1<Jrd::DmlNode> (node=0x7ffff1e40050, csb=0x7ffff1e40030, tdbb=0x7fffffff62e0) at /usr/src/debug/Firebird-3.0.0.30084-Unstable/src/dsql/Nodes.h:317
+No locals.
+#13 Jrd::JrdStatement::makeStatement (tdbb=tdbb@entry=0x7fffffff62e0, csb=0x7ffff1e40030, internalFlag=false) at /usr/src/debug/Firebird-3.0.0.30084-Unstable/src/jrd/JrdStatement.cpp:207
+        localMap = <optimized out>
+        accessor = <optimized out>
+        pool = <optimized out>
+        dbb = <optimized out>
+        old_request = 0x0
+        statement = 0x0
+#14 0x00007ffff4bff954 in Jrd::JrdStatement::makeRequest (tdbb=0x7fffffff62e0, csb=<optimized out>, internalFlag=<optimized out>)
+    at /usr/src/debug/Firebird-3.0.0.30084-Unstable/src/jrd/JrdStatement.cpp:295
+        statement = <optimized out>
+#15 0x00007ffff4c27b6b in CMP_compile2 (tdbb=0x7fffffff62e0, blr=0x7ffff1e820c0 "\005\002\004\001\003", blr_length=85, internal_flag=false, dbginfo_length=<optimized out>, 
+    dbginfo=0x7ffff1e824e0 "") at /usr/src/debug/Firebird-3.0.0.30084-Unstable/src/jrd/cmp.cpp:176
+        csb = 0x7ffff1e40030
+        request = 0x0
+        att = 0x7ffff7ecc030
+        new_pool = 0x7ffff1f288f8
+#16 0x00007ffff4ba8917 in JRD_compile (tdbb=0x7fffffff62e0, attachment=0x7ffff7ecc030, req_handle=0x7ffff1e83b88, blr_length=85, blr=0x7ffff1e820c0 "\005\002\004\001\003", ref_str=..., 
+    dbginfo_length=0, dbginfo=0x7ffff1e824e0 "", isInternalRequest=false) at /usr/src/debug/Firebird-3.0.0.30084-Unstable/src/jrd/jrd.cpp:7205
+        request = <optimized out>
+        statement = <optimized out>
+#17 0x00007ffff4d06767 in Jrd::DsqlDmlRequest::dsqlPass (this=0x7ffff1e83b38, tdbb=0x7fffffff62e0, scratch=0x7ffff1e820a8, traceResult=0x7fffffff5c30)
+    at /usr/src/debug/Firebird-3.0.0.30084-Unstable/src/dsql/dsql.cpp:766
+        localStatus = {0 <repeats 20 times>}
+        status = 0
+#18 0x00007ffff4d09e84 in prepareStatement (tdbb=tdbb@entry=0x7fffffff62e0, database=0x3a, database@entry=0x7ffff367c030, transaction=transaction@entry=0x7ffff7e393f8, textLength=<optimized out>, 
+    textLength@entry=0, text=text@entry=0x7ffff7f4d030 "select 1 from rdb$database where 'a' = 'a' collate unicode", clientDialect=58, clientDialect@entry=3, parserVersion=2, 
+    isInternalRequest=isInternalRequest@entry=false) at /usr/src/debug/Firebird-3.0.0.30084-Unstable/src/dsql/dsql.cpp:1656
+        charSetId = <optimized out>
+        message = 0x7ffff4e688d8 <Firebird::makePermanentVector(long*, long const*, unsigned long)+296>
+        parser = {<Firebird::PermanentStorage> = {pool = @0x7ffff382d140}, compilingText = {<Firebird::AbstractString> = {<Firebird::AutoStorage> = {<Firebird::PermanentStorage> = {
+                  pool = @0x7ffff382d140}, <No data fields>}, static npos = 18446744073709551615, max_length = 4294967294, 
+              inlineBuffer = "\000\000\000\000\340\311\336\367\377\177\000\000\340_\377\377\377\177\000\000A\223\346\364\377\177\000\000\340_\377\377", 
+              stringBuffer = 0x7ffff1e82888 "select 1 from rdb$database where 'a' = 'a' collate unicode", stringLength = 58, bufferSize = 75}, <No data fields>}, client_dialect = 3, 
+          db_dialect = 3, parser_version = 2, transformedString = {<Firebird::AbstractString> = {<Firebird::AutoStorage> = {<Firebird::PermanentStorage> = {
+                  pool = @0x7ffff382d140}, <No data fields>}, static npos = 18446744073709551615, max_length = 4294967294, 
+              inlineBuffer = "\000\177\000\000\000\000\000\000\000\000\000\000\265#\351\364\377\177\000\000H\356\356\367\377\177\000\000H\356\356", <incomplete sequence \367>, 
+              stringBuffer = 0x7ffff1e83c88 "select 1 from rdb$database where 'a' = 'a' collate unicode", stringLength = 58, bufferSize = 64}, <No data fields>}, 
+          strMarks = {<Firebird::AutoStorage> = {<Firebird::PermanentStorage> = {pool = @0x7ffff382d140}, <No data fields>}, tree = {static LeafCount = <optimized out>, 
+              static NodeCount = <optimized out>, pool = 0x7ffff382d140, level = 0, root = 0x7ffff1e82e00, 
+              defaultAccessor = {<Firebird::BePlusTree<Firebird::NonPooled<Jrd::dsql_str*, Jrd::Parser::StrMark>*, Jrd::dsql_str*, Firebird::MemoryPool, Firebird::FirstObjectKey<Firebird::NonPooled<Jrd::dsql_str*, Jrd::Parser::StrMark> >, Firebird::DefaultComparator<Jrd::dsql_str*> >::ConstAccessor> = {curr = 0x0, curPos = 0, tree = 0x7fffffff5f48}, tree = 0x7fffffff5f48}}, mCount = 2}, 
+          stmt_ambiguous = false, DSQL_parse = 0x7ffff1e83b38, yylval = {nullableIntVal = {value = -236441168, specified = 255}, nullableBoolVal = {value = 176, specified = 49}, boolVal = 176, 
+            intVal = -236441168, uintVal = 4058526128, int32Val = -236441168, uint64Val = 140737251914160, nullableUint64Val = {value = 140737251914160, specified = false}, blrOp = 176 '\260', 
+            nullsPlacement = (unknown: 4058526128), cmpBoolFlag = (unknown: 4058526128), legacyStr = 0x7ffff1e831b0, legacyField = 0x7ffff1e831b0, returningClause = 0x7ffff1e831b0, 
+            metaNamePtr = 0x7ffff1e831b0, metaNameArray = 0x7ffff1e831b0, pathNamePtr = 0x7ffff1e831b0, stringPtr = 0x7ffff1e831b0, intlStringPtr = 0x7ffff1e831b0, textPtr = 0x7ffff1e831b0 "8", 
+            dbFileClause = 0x7ffff1e831b0, dbFilesClause = 0x7ffff1e831b0, externalClause = 0x7ffff1e831b0, parametersClause = 0x7ffff1e831b0, node = 0x7ffff1e831b0, exprNode = 0x7ffff1e831b0, 
+            valueExprNode = 0x7ffff1e831b0, boolExprNode = 0x7ffff1e831b0, recSourceNode = 0x7ffff1e831b0, relSourceNode = 0x7ffff1e831b0, valueListNode = 0x7ffff1e831b0, 
+            recSourceListNode = 0x7ffff1e831b0, rseNode = 0x7ffff1e831b0, planNode = 0x7ffff1e831b0, accessType = 0x7ffff1e831b0, stmtNode = 0x7ffff1e831b0, ddlNode = 0x7ffff1e831b0, 
+            selectExprNode = 0x7ffff1e831b0, withClause = 0x7ffff1e831b0, rowsClause = 0x7ffff1e831b0, fieldNode = 0x7ffff1e831b0, decodeNode = 0x7ffff1e831b0, fieldArray = 0x7ffff1e831b0, 
+            nestFieldArray = 0x7ffff1e831b0, traNode = 0x7ffff1e831b0, privilegeArray = 0x7ffff1e831b0, granteeClause = 0x7ffff1e831b0, granteeArray = 0x7ffff1e831b0, 
+            grantRevokeNode = 0x7ffff1e831b0, createCollationNode = 0x7ffff1e831b0, createDomainNode = 0x7ffff1e831b0, alterDomainNode = 0x7ffff1e831b0, createAlterFunctionNode = 0x7ffff1e831b0, 
+            createAlterProcedureNode = 0x7ffff1e831b0, createAlterTriggerNode = 0x7ffff1e831b0, createAlterPackageNode = 0x7ffff1e831b0, filterNameNumber = 0x7ffff1e831b0, 
+            createSequenceNode = 0x7ffff1e831b0, createShadowNode = 0x7ffff1e831b0, packageItems = 0x7ffff1e831b0, exceptionArray = 0x7ffff1e831b0, packageItem = {type = (unknown: 4058526128), {
+                function = 0x0, procedure = 0x0}, dsqlScratch = 0x0}, createPackageBodyNode = 0x7ffff1e831b0, boolSourceClause = 0x7ffff1e831b0, valueSourceClause = 0x7ffff1e831b0, 
+            relationNode = 0x7ffff1e831b0, addColumnClause = 0x7ffff1e831b0, refActionClause = 0x7ffff1e831b0, indexConstraintClause = 0x7ffff1e831b0, createRelationNode = 0x7ffff1e831b0, 
+            createAlterViewNode = 0x7ffff1e831b0, createIndexNode = 0x7ffff1e831b0, alterDatabaseNode = 0x7ffff1e831b0, execBlockNode = 0x7ffff1e831b0, storeNode = 0x7ffff1e831b0, 
+            updInsNode = 0x7ffff1e831b0, aggNode = 0x7ffff1e831b0, sysFuncCallNode = 0x7ffff1e831b0, valueIfNode = 0x7ffff1e831b0, compoundStmtNode = 0x7ffff1e831b0, 
+            cursorStmtNode = 0x7ffff1e831b0, declCursorNode = 0x7ffff1e831b0, errorHandlerNode = 0x7ffff1e831b0, execStatementNode = 0x7ffff1e831b0, mergeNode = 0x7ffff1e831b0, 
+            mergeNotMatchedClause = 0x7ffff1e831b0, mergeMatchedClause = 0x7ffff1e831b0, selectNode = 0x7ffff1e831b0, setTransactionNode = 0x7ffff1e831b0, 
+            setTransactionRestrictionClause = 0x7ffff1e831b0, declareSubProcNode = 0x7ffff1e831b0, declareSubFuncNode = 0x7ffff1e831b0, dsqlReq = 0x7ffff1e831b0}, yyposn = {firstLine = 1, 
+            firstColumn = 52, lastLine = 1, lastColumn = 58, firstPos = 0x7ffff7f4d063 "unicode", lastPos = 0x7ffff7f4d06a ""}, yyretlval = {nullableIntVal = {value = -236438728, 
+              specified = 255}, nullableBoolVal = {value = 56, specified = 59}, boolVal = 56, intVal = -236438728, uintVal = 4058528568, int32Val = -236438728, uint64Val = 140737251916600, 
+            nullableUint64Val = {value = 140737251916600, specified = false}, blrOp = 56 '8', nullsPlacement = (unknown: 4058528568), cmpBoolFlag = (unknown: 4058528568), 
+            legacyStr = 0x7ffff1e83b38, legacyField = 0x7ffff1e83b38, returningClause = 0x7ffff1e83b38, metaNamePtr = 0x7ffff1e83b38, metaNameArray = 0x7ffff1e83b38, pathNamePtr = 0x7ffff1e83b38, 
+            stringPtr = 0x7ffff1e83b38, intlStringPtr = 0x7ffff1e83b38, textPtr = 0x7ffff1e83b38 "\220\333#\365\377\177", dbFileClause = 0x7ffff1e83b38, dbFilesClause = 0x7ffff1e83b38, 
+            externalClause = 0x7ffff1e83b38, parametersClause = 0x7ffff1e83b38, node = 0x7ffff1e83b38, exprNode = 0x7ffff1e83b38, valueExprNode = 0x7ffff1e83b38, boolExprNode = 0x7ffff1e83b38, 
+            recSourceNode = 0x7ffff1e83b38, relSourceNode = 0x7ffff1e83b38, valueListNode = 0x7ffff1e83b38, recSourceListNode = 0x7ffff1e83b38, rseNode = 0x7ffff1e83b38, 
+            planNode = 0x7ffff1e83b38, accessType = 0x7ffff1e83b38, stmtNode = 0x7ffff1e83b38, ddlNode = 0x7ffff1e83b38, selectExprNode = 0x7ffff1e83b38, withClause = 0x7ffff1e83b38, 
+            rowsClause = 0x7ffff1e83b38, fieldNode = 0x7ffff1e83b38, decodeNode = 0x7ffff1e83b38, fieldArray = 0x7ffff1e83b38, nestFieldArray = 0x7ffff1e83b38, traNode = 0x7ffff1e83b38, 
+            privilegeArray = 0x7ffff1e83b38, granteeClause = 0x7ffff1e83b38, granteeArray = 0x7ffff1e83b38, grantRevokeNode = 0x7ffff1e83b38, createCollationNode = 0x7ffff1e83b38, 
+            createDomainNode = 0x7ffff1e83b38, alterDomainNode = 0x7ffff1e83b38, createAlterFunctionNode = 0x7ffff1e83b38, createAlterProcedureNode = 0x7ffff1e83b38, 
+            createAlterTriggerNode = 0x7ffff1e83b38, createAlterPackageNode = 0x7ffff1e83b38, filterNameNumber = 0x7ffff1e83b38, createSequenceNode = 0x7ffff1e83b38, 
+            createShadowNode = 0x7ffff1e83b38, packageItems = 0x7ffff1e83b38, exceptionArray = 0x7ffff1e83b38, packageItem = {type = (unknown: 4058528568), {function = 0x0, procedure = 0x0}, 
+              dsqlScratch = 0x0}, createPackageBodyNode = 0x7ffff1e83b38, boolSourceClause = 0x7ffff1e83b38, valueSourceClause = 0x7ffff1e83b38, relationNode = 0x7ffff1e83b38, 
+            addColumnClause = 0x7ffff1e83b38, refActionClause = 0x7ffff1e83b38, indexConstraintClause = 0x7ffff1e83b38, createRelationNode = 0x7ffff1e83b38, createAlterViewNode = 0x7ffff1e83b38, 
+            createIndexNode = 0x7ffff1e83b38, alterDatabaseNode = 0x7ffff1e83b38, execBlockNode = 0x7ffff1e83b38, storeNode = 0x7ffff1e83b38, updInsNode = 0x7ffff1e83b38, 
+            aggNode = 0x7ffff1e83b38, sysFuncCallNode = 0x7ffff1e83b38, valueIfNode = 0x7ffff1e83b38, compoundStmtNode = 0x7ffff1e83b38, cursorStmtNode = 0x7ffff1e83b38, 
+            declCursorNode = 0x7ffff1e83b38, errorHandlerNode = 0x7ffff1e83b38, execStatementNode = 0x7ffff1e83b38, mergeNode = 0x7ffff1e83b38, mergeNotMatchedClause = 0x7ffff1e83b38, 
+            mergeMatchedClause = 0x7ffff1e83b38, selectNode = 0x7ffff1e83b38, setTransactionNode = 0x7ffff1e83b38, setTransactionRestrictionClause = 0x7ffff1e83b38, 
+            declareSubProcNode = 0x7ffff1e83b38, declareSubFuncNode = 0x7ffff1e83b38, dsqlReq = 0x7ffff1e83b38}, yyretposn = {firstLine = 0, firstColumn = 0, lastLine = 1, lastColumn = 58, 
+            firstPos = 0x0, lastPos = 0x7ffff7f4d06a ""}, yynerrs = 0, yyps = 0x0, yypath = 0x0, yylvals = 0x0, yylvp = 0x0, yylve = 0x0, yylvlim = 0x0, yylpsns = 0x0, yylpp = 0x0, yylpe = 0x0, 
+          yylplim = 0x0, yylexp = 0x0, yylexemes = 0x0, lex = {g_field = 0x0, g_field_name = 0x0, dsql_debug = 0, ptr = 0x7ffff7f4d06a "", end = 0x7ffff7f4d06a "", 
+            last_token = 0x7ffff7f4d063 "unicode", start = 0x7ffff7f4d030 "select 1 from rdb$database where 'a' = 'a' collate unicode", 
+            line_start = 0x7ffff7f4d030 "select 1 from rdb$database where 'a' = 'a' collate unicode", last_token_bk = 0x7ffff7f4d063 "unicode", 
+            line_start_bk = 0x7ffff7f4d030 "select 1 from rdb$database where 'a' = 'a' collate unicode", lines = 1, att_charset = 4, lines_bk = 1, prev_keyword = 448, param_number = 1}}
+        transformedText = {<Firebird::AbstractString> = {<Firebird::AutoStorage> = {<Firebird::PermanentStorage> = {pool = @0x7ffff382d140}, <No data fields>}, static npos = 18446744073709551615, 
+            max_length = 4294967294, inlineBuffer = "\000\000\000\000\220\311\334\367\377\177\000\000\001\000\000\000\000\000\000\000\260\233\375\367\377\177\000\000\001\000\000", 
+            stringBuffer = 0x7ffff1e83ce0 "select 1 from rdb$database where 'a' = 'a' collate unicode", stringLength = 58, bufferSize = 75}, <No data fields>}
+        traceResult = res_successful
+        trace = {m_need_trace = false, m_attachment = 0x7ffff7ecc030, m_transaction = 0x7ffff7e393f8, m_request = 0x7ffff1e83b38, m_start_clock = 140737348683312, m_string_len = 58, 
+          m_string = 0x7ffff7f4d030 "select 1 from rdb$database where 'a' = 'a' collate unicode"}
+        context = {<Firebird::ContextPoolHolder> = {savedPool = 0x7ffff7eedd20}, savedThreadData = 0x7fffffff62e0, savedPool = 0x7ffff7eedd20}
+        pool = @0x7ffff382d140: {_vptr.MemoryPool = 0x7ffff5247690 <vtable for Firebird::MemoryPool+16>, static defaultMemoryManager = 0x65e060 <Firebird::MemoryPool::init()::mpBuffer>, 
+          roundingSize = 8, threshold = 4096, minAllocation = 65536, freeObjects = 0x7ffff1f7e270, bigHunks = 0x0, smallHunks = 0x7ffff1e82000, 
+          freeBlocks = {<Firebird::MemBigObject> = {<Firebird::MemBigHeader> = {next = 0x0, prior = 0x0}, memHeader = {{pool = 0x0, next = 0x0}, length = 0}}, nextLarger = 0x7ffff382d178, 
+            priorSmaller = 0x7ffff382d178, nextTwin = 0x0, priorTwin = 0x0}, junk = {<Firebird::MemBigObject> = {<Firebird::MemBigHeader> = {next = 0x0, prior = 0x0}, memHeader = {{pool = 0x0, 
+                  next = 0x0}, length = 0}}, nextLarger = 0x7ffff382d1b8, priorSmaller = 0x7ffff382d1b8, nextTwin = 0x0, priorTwin = 0x0}, mutex = {mlock = {__data = {__lock = 0, __count = 0, 
+                __owner = 0, __nusers = 0, __kind = 1, __spins = 0, __list = {__prev = 0x0, __next = 0x0}}, __size = '\000' <repeats 16 times>, "\001", '\000' <repeats 22 times>, __align = 0}, 
+            static attr = {__size = "\001\000\000", __align = 1}}, blocksAllocated = 130, blocksActive = 112, threadShared = true, pool_destroying = false, 
+          static default_stats_group = 0x65e020 <Firebird::MemoryPool::init()::msBuffer>, stats = 0x7ffff7ecc040, parent = 0x7ffff7edc940, used_memory = {<Firebird::PlatformAtomicCounter> = {
+              counter = 13048}, <No data fields>}, mapped_memory = {<Firebird::PlatformAtomicCounter> = {counter = 0}, <No data fields>}}
+        statement = 0x7ffff1e82030
+        request = 0x7ffff1e83b38
+        scratch = 0x7ffff1e820a8
+#19 0x00007ffff4d0ae85 in prepareRequest (isInternalRequest=false, parserVersion=<optimized out>, clientDialect=3, 
+    text=0x7ffff7f4d030 "select 1 from rdb$database where 'a' = 'a' collate unicode", textLength=0, transaction=0x7ffff7e393f8, database=0x7ffff367c030, tdbb=0x7fffffff62e0)
+    at /usr/src/debug/Firebird-3.0.0.30084-Unstable/src/dsql/dsql.cpp:1526
+No locals.
+#20 DSQL_prepare (tdbb=0x7fffffff62e0, transaction=0x7ffff7e393f8, req_handle=0x7ffff7eeee90, length=0, string=0x7ffff7f4d030 "select 1 from rdb$database where 'a' = 'a' collate unicode", 
+    dialect=3, item_length=25, items=0x7ffff7ee11f8 "\025\005\a\t\v\f\r\016\020\021\022\023\b\004\a\t\v\f\r\016\020\021\022\023\b", buffer_length=65535, buffer=0x7ffff1e50030 "", 
+    isInternalRequest=false) at /usr/src/debug/Firebird-3.0.0.30084-Unstable/src/dsql/dsql.cpp:435
+        parser_version = <optimized out>
+        statement = <optimized out>
+        context = {<Firebird::ContextPoolHolder> = {savedPool = 0x7fffffff6180}, savedThreadData = 0x7ffff4e873e4 <Firebird::MemoryPool::allocate(unsigned long)+36>, savedPool = 0x7fffffff6200}
+        old_request = 0x7ffff364c888
+        database = 0x7ffff367c030
+        request = 0x0
+#21 0x00007ffff4ba6b3a in Jrd::JStatement::prepare (this=0x7ffff7eeee80, user_status=0x7fffffff6570, apiTra=<optimized out>, stmtLength=0, 
+    sqlStmt=0x7ffff7f4d030 "select 1 from rdb$database where 'a' = 'a' collate unicode", dialect=3, flags=7) at /usr/src/debug/Firebird-3.0.0.30084-Unstable/src/jrd/jrd.cpp:4525
+        items = {<Firebird::EmptyStorage<unsigned char>> = {<Firebird::AutoStorage> = {<Firebird::PermanentStorage> = {pool = @0x7ffff7eedd20}, <No data fields>}, <No data fields>}, count = 25, 
+          capacity = 26, data = 0x7ffff7ee11f8 "\025\005\a\t\v\f\r\016\020\021\022\023\b\004\a\t\v\f\r\016\020\021\022\023\b"}
+        buffer = {<Firebird::EmptyStorage<unsigned char>> = {<Firebird::AutoStorage> = {<Firebird::PermanentStorage> = {pool = @0x7ffff7eedd20}, <No data fields>}, <No data fields>}, 
+          count = 65535, capacity = 65535, data = 0x7ffff1e50030 ""}
+        tdbb = {<Jrd::ThreadContextHolder> = {local_status = {1, 335544855, 2, 140737353479796, 2, 140737353479804, 0, 140737306198288, 140737488315072, 0, 5, 140737488315720, 140737353014560, 0, 
+              5, 0, 5, 140737306197288, 140737488315152, 140737306197288}, context = {<ThreadData> = {threadDataPriorContext = 0x0, threadDataType = ThreadData::tddDBB}, 
+              defaultPool = 0x7ffff1f288f8, database = 0x7ffff7edc030, attachment = 0x7ffff7ecc030, transaction = 0x7ffff7e393f8, request = 0x0, reqStat = 0x7ffff7f3c030, 
+              traStat = 0x7ffff7e39578, attStat = 0x7ffff7ecc130, dbbStat = 0x7ffff7edc740, priorThread = 0x0, nextThread = 0x0, tdbb_status_vector = 0x7fffffff6240, tdbb_quantum = 82, 
+              tdbb_flags = 0, tdbb_temp_traid = 0, 
+              tdbb_bdbs = {<Firebird::Array<Jrd::BufferDesc*, Firebird::InlineStorage<Jrd::BufferDesc*, 16ul> >> = {<Firebird::InlineStorage<Jrd::BufferDesc*, 16ul>> = {<Firebird::AutoStorage> = {<Firebird::PermanentStorage> = {pool = @0x7ffff5267300}, <No data fields>}, buffer = {0x0, 0x0, 0x7fffffff65a0, 0x7ffff7fdb3a8, 0x7fffffff6570, 0x7ffff7fdb3a8, 0x7fffffff6570, 0x7ffff7fdd218, 
+                      0x7fffffff6400, 0x7ffff7b05a3b <Why::YTransaction::validate(Firebird::IStatus*, Firebird::IAttachment*)+75>, 0xffff0000ffff037f, 0xffffffff, 0x0, 0x1f80ffff0000, 
+                      0x7ffff7fdd218, 0x0}}, count = 0, capacity = 16, data = 0x7fffffff6360}, <No data fields>}, tdbb_thread = 0x7ffff7f30248}, 
+            externStatus = 0x7fffffff6570}, <(anonymous namespace)::AttachmentHolder> = {mutex = 0x7ffff7eee1c0, attachment = 0x7ffff7ecc030, 
+            async = false}, <Jrd::DatabaseContextHolder> = {<Firebird::SubsystemContextPoolHolder<Jrd::thread_db, Firebird::MemoryPool>> = {<Firebird::ContextPoolHolder> = {savedPool = 0x0}, 
+              savedThreadData = 0x7fffffff62e0, savedPool = 0x0}, savedTdbb = 0x7fffffff62e0}, <No data fields>}
+        tra = <optimized out>
+#22 0x00007ffff7b04bbc in Why::YStatement::prepare (this=0x7ffff7fd7988, status=0x7fffffff6570, transaction=0x7ffff7fdb3a8, stmtLength=0, 
+    sqlStmt=0x7ffff7f4d030 "select 1 from rdb$database where 'a' = 'a' collate unicode", dialect=3, flags=7) at /usr/src/debug/Firebird-3.0.0.30084-Unstable/src/yvalve/why.cpp:3691
+        entry = {<Firebird::FpeControl> = {savedMask = {__control_word = 895, __unused1 = 65535, __status_word = 0, __unused2 = 65535, __tags = 65535, __unused3 = 65535, __eip = 2164266690, 
+              __cs_selector = 16, __opcode = 899, __unused4 = 0, __data_offset = 920643164, __data_selector = 0, __unused5 = 65535, __mxcsr = 8064}}, ref = {ptr = 0x7ffff7fdd218}, nextRef = {
+            ptr = 0x7ffff7eeee80}}
+        trans = {ptr = 0x7ffff7eeee48}
+#23 0x00007ffff7b04000 in isc_dsql_prepare (userStatus=<optimized out>, traHandle=0x7fffffff67ac, stmtHandle=<optimized out>, stmtLength=0, 
+    sqlStmt=0x7ffff7f4d030 "select 1 from rdb$database where 'a' = 'a' collate unicode", dialect=3, sqlda=0x7ffff7fd8d90) at /usr/src/debug/Firebird-3.0.0.30084-Unstable/src/yvalve/why.cpp:2300
+        statement = {ptr = 0x7ffff7fd7988}
+        transaction = {ptr = 0x7ffff7fdb3a8}
+        status = {<Firebird::AutoIface<Firebird::IStatus, 8>> = {<Firebird::VersionedIface<Firebird::IStatus, 8>> = {<Firebird::IStatus> = {<Firebird::IDisposable> = {<Firebird::IVersioned> = {
+                    _vptr.IVersioned = 0x7ffff7dcc990 <vtable for Why::StatusVector+16>}, <No data fields>}, <No data fields>}, <No data fields>}, <No data fields>}, localStatus = {
+            140737488315424, 140737488315968, 140737353994776, 0, 140737354130656, 3605017829, 140737348908238, 140737353994824, 4200651, 4294967295, 0, 140737348681152, 140737354114792, 
+            3954132280724881424, 34638911176704, 140737353994776, 0, 262774688, 2, 6660304}, localVector = 0x65c360 <isc_status>}
+#24 0x0000000000419675 in process_statement (string=string@entry=0x7ffff7f4d030 "select 1 from rdb$database where 'a' = 'a' collate unicode", sqldap=0x65a0d0 <global_sqlda>)
+    at /usr/src/debug/Firebird-3.0.0.30084-Unstable/temp/Release/isql/isql.cpp:9997
+        ret = CONT
+        perf_before = {perf_fetches = 2431605411, perf_marks = 140737351928481, perf_reads = 0, perf_writes = 140737344130851, perf_current_memory = 37993834, perf_max_memory = 140737344130816, 
+          perf_buffers = 140737344130248, perf_page_size = 0, perf_elapsed = 1187307, perf_times = {tms_utime = 140737344130816, tms_stime = 140737354056904, tms_cutime = 140737344135280, 
+            tms_cstime = 140737344138688}}
+        n_cols = <optimized out>
+        buffer = 0x268
+        line = <optimized out>
+        header2 = <optimized out>
+        header = <optimized out>
+        sqlda = 0x7ffff7fd8d90
+        statement_type = <optimized out>
+        is_selectable = <optimized out>
+        pad = <optimized out>
+        linelength = <optimized out>
+        prepare_trans = 3
+        nullind = <optimized out>
+#25 0x000000000041c504 in do_isql () at /usr/src/debug/Firebird-3.0.0.30084-Unstable/temp/Release/isql/isql.cpp:5744
+        errbuf = '\000' <repeats 1023 times>
+        stmt = {<Firebird::EmptyStorage<char>> = {<Firebird::AutoStorage> = {<Firebird::PermanentStorage> = {pool = <optimized out>}, <No data fields>}, <No data fields>}, 
+          count = <optimized out>, capacity = <optimized out>, data = 0x0}
+        stmtLength = 65535
+        ret = <optimized out>
+        Ofp = <optimized out>
+#26 0x000000000041f22a in ISQL_main (argc=3, argv=0x7fffffffe548) at /usr/src/debug/Firebird-3.0.0.30084-Unstable/temp/Release/isql/isql.cpp:1609
+        tabname = '\000' <repeats 31 times>
+#27 0x00007ffff68d3455 in __libc_start_main (main=0x405110 <main(int, char**)>, argc=3, ubp_av=0x7fffffffe548, init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7fffffffe538) at libc-start.c:226
+        result = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {0, -4461410204739591368, 4215524, 140737488348480, 0, 0, 4461410205058573112, 4461393860012778296}, mask_was_saved = 0}}, priv = {pad = {0x0, 
+              0x0, 0x43c5d0 <__libc_csu_init>, 0x7fffffffe548}, data = {prev = 0x0, cleanup = 0x0, canceltype = 4441552}}}
+        not_first_call = <optimized out>
+#28 0x000000000040530d in _start () at ../sysdeps/x86_64/elf/start.S:113
+No locals.
+
+(gdb) frame 2
+#2  0x00007ffff4b79fc3 in CharSetContainer::lookupCollation (this=0x7ffff1f28560, tdbb=0x7fffffff62e0, tt_id=516) at /usr/src/debug/Firebird-3.0.0.30084-Unstable/src/jrd/intl.cpp:398
+398																  Arg::Str(info.charsetName));
+
+(gdb) print *charset
+$1 = {_vptr.CharSet = 0x7ffff52336d0 <vtable for (anonymous namespace)::MultiByteCharSet+16>, id = 4, cs = 0x7ffff1f285a0, sqlMatchAny = "%\000\000", sqlMatchOne = "_\000\000", 
+  sqlMatchAnyLength = 1 '\001', sqlMatchOneLength = 1 '\001'}
+
+(gdb) print *(charset->cs)
+$2 = {_vptr.CharSet = 0x7ffff52336d0 <vtable for (anonymous namespace)::MultiByteCharSet+16>, id = 4, cs = 0x7ffff1f285a0, sqlMatchAny = "%\000\000", sqlMatchOne = "_\000\000", 
+  sqlMatchAnyLength = 1 '\001', sqlMatchOneLength = 1 '\001'}
+
+(gdb) print *tt
+$3 = {charset_version = 1, charset_impl = 0x0, charset_name = 0x7ffff4e9d4d1 "UTF8", charset_min_bytes_per_char = 1 '\001', charset_max_bytes_per_char = 4 '\004', charset_space_length = 1 '\001', 
+  charset_space_character = 0x7ffff4eab8b7 " ", charset_flags = 2, charset_to_unicode = {csconvert_version = 1, csconvert_impl = 0x0, csconvert_name = 0x7ffff4eaa935 "DIRECT", 
+    csconvert_fn_convert = 0x7ffff4e54910 <Firebird::IntlUtil::cvtUtf8ToUtf16(csconvert*, unsigned int, unsigned char const*, unsigned int, unsigned char*, unsigned short*, unsigned int*)>, 
+    csconvert_fn_destroy = 0x0, reserved_for_interface = {0x0, 0x0}, reserved_for_driver = {0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}, charset_from_unicode = {csconvert_version = 1, 
+    csconvert_impl = 0x0, csconvert_name = 0x7ffff4eaa935 "DIRECT", 
+    csconvert_fn_convert = 0x7ffff4e548f0 <Firebird::IntlUtil::cvtUtf16ToUtf8(csconvert*, unsigned int, unsigned char const*, unsigned int, unsigned char*, unsigned short*, unsigned int*)>, 
+    csconvert_fn_destroy = 0x0, reserved_for_interface = {0x0, 0x0}, reserved_for_driver = {0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}, 
+  charset_fn_well_formed = 0x7ffff4e548d0 <Firebird::IntlUtil::utf8WellFormed(charset*, unsigned int, unsigned char const*, unsigned int*)>, charset_fn_length = 0x0, charset_fn_substring = 0x0, 
+  charset_fn_destroy = 0x0, reserved_for_interface = {0x0, 0x0, 0x0, 0x0, 0x0}, reserved_for_driver = {0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+

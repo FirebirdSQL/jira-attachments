@@ -1,0 +1,14 @@
+#!/bin/sh -
+
+OUT=/tmp/out.txt
+
+rm -f $OUT
+time isql /local/db/vetAdmin.db -o $OUT <<EOF
+set plan;
+select p.first_name, p.last_name, pt.patient_id, pt.billto_id, pt.species_id, pt.color, pt.owner_label, pt.deact_code
+  from patients pt, people p
+  where pt.office_id = 1 and pt.deact_code is null and pt.soundex_name like 'M24%'
+   and (pt.billto_id = p.person_id or pt.billto_id in
+       (select po.person_id from patient_owners po where po.patient_id = pt.patient_id and po.person_id = p.person_id));
+exit;
+EOF

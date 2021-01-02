@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+  <!-- ==================================================================== -->
+  <!-- New ConnectionManager setup for firebird dbs using jca-jdbc xa driver-->
+  <!-- Build jmx-api (build/build.sh all) and view for config documentation -->
+  <!-- ==================================================================== -->
+
+<service>
+
+  <!--FBManager can be used to create and drop databases.  
+    Drop is especially useful during testing, since it 
+    assures a clean start next time. 
+  <mbean code="org.firebirdsql.management.FBManager" name="jboss.jca:service=FirebirdManager">
+    <attribute name="FileName">c:/temp/testhills.gdb</attribute>
+    <attribute name="UserName">sysdba</attribute>
+    <attribute name="Password">masterkey</attribute>
+    <attribute name="CreateOnStart">true</attribute>
+    <attribute name="DropOnStop">false</attribute>
+  </mbean> -->
+
+  <mbean code="org.jboss.resource.connectionmanager.XATxConnectionManager" name="jboss.jca:service=XaTxCM,name=FirebirdDS">
+    <!--make the rar deploy - A BIG HACK till xslt based deployment is written-->
+    <depends>jboss.jca:service=RARDeployer</depends>
+
+    <depends optional-attribute-name="ManagedConnectionFactoryName">
+      <mbean code="org.jboss.resource.connectionmanager.RARDeployment" name="jboss.jca:service=XaTxDS,name=FirebirdDS">
+        <!--more hack-->
+        <depends optional-attribute-name="OldRarDeployment">jboss.jca:service=RARDeployment,name=Firebird Database Connector</depends>
+        <attribute name="ManagedConnectionFactoryProperties">
+          <properties>
+            <config-property>
+              <config-property-name>Database</config-property-name>
+              <config-property-type>java.lang.String</config-property-type>
+              <config-property-value>bambalam/3050:c:\temp\hills\database\hillsstaging.gdb</config-property-value>
+            </config-property>
+            <config-property>
+              <config-property-name>UserName</config-property-name>
+              <config-property-type>java.lang.String</config-property-type>
+              <config-property-value>SYSDBA</config-property-value>
+            </config-property>
+            <config-property>
+              <config-property-name>Password</config-property-name>
+              <config-property-type>java.lang.String</config-property-type>
+              <config-property-value>masterkey</config-property-value>
+            </config-property>
+          </properties>
+        </attribute>
+        <attribute name="JndiName">HillsStagingDS</attribute>
+      </mbean>
+
+    </depends>
+    <depends optional-attribute-name="ManagedConnectionPool">
+      <mbean code="org.jboss.resource.connectionmanager.JBossManagedConnectionPool" name="jboss.jca:service=XaTxPool,name=FirebirdDS">
+
+        <attribute name="MinSize">0</attribute>
+        <attribute name="MaxSize">50</attribute>
+        <attribute name="BlockingTimeoutMillis">5000</attribute>
+        <attribute name="IdleTimeoutMinutes">1</attribute>
+        <!--criteria indicates if Subject (from security domain) or app supplied
+            parameters (such as from getConnection(user, pw)) are used to distinguish
+            connections in the pool. Choices are 
+            ByContainerAndApplication (use both), 
+            ByContainer (use Subject),
+            ByApplication (use app supplied params only),
+            ByNothing (all connections are equivalent, usually if adapter supports
+              reauthentication)-->
+        <attribute name="Criteria">ByContainer</attribute>
+      </mbean>
+    </depends>
+    <depends optional-attribute-name="CachedConnectionManager">jboss.jca:service=CachedConnectionManager</depends>
+    <!-- Include a login module configuration named FirebirdDBRealm.
+         Update your login-conf.xml, here is an example for a 
+         ConfiguredIdentityLoginModule:
+
+    <application-policy name = "FirebirdDBRealm">
+       <authentication>
+          <login-module code = "org.jboss.resource.security.ConfiguredIdentityLoginModule" flag = "required">
+             <module-option name = "principal">sysdba</module-option>
+             <module-option name = "userName">sysdba</module-option>
+             <module-option name = "password">masterkey</module-option>
+             <module-option name = "managedConnectionFactoryName">jboss.jca:service=XaTxCM,name=FirebirdDS</module-option>
+          </login-module>
+       </authentication>
+    </application-policy>
+
+    NOTE: the application-policy name attribute must match SecurityDomainJndiName, and the 
+      module-option name = "managedConnectionFactoryName"
+    must match the object name of the ConnectionManager you are configuring here.
+    -->
+    <!--comment out this line if you want component managed security or want
+        to use the default values in the ManagedConnectionFactoryProperties -->
+    <attribute name="SecurityDomainJndiName">FirebirdDBRealm</attribute>
+
+    <depends optional-attribute-name="JaasSecurityManagerService">jboss.security:name=JaasSecurityManager</depends>
+
+    <attribute name="TransactionManager">java:/TransactionManager</attribute>
+  </mbean>
+
+  <mbean code="org.jboss.resource.connectionmanager.XATxConnectionManager" name="jboss.jca:service=XaTxCM,name=FirebirdDS1">
+    <!--make the rar deploy - A BIG HACK till xslt based deployment is written-->
+    <depends>jboss.jca:service=RARDeployer</depends>
+
+    <depends optional-attribute-name="ManagedConnectionFactoryName">
+      <mbean code="org.jboss.resource.connectionmanager.RARDeployment" name="jboss.jca:service=XaTxDS,name=FirebirdDS1">
+        <!--more hack-->
+        <depends optional-attribute-name="OldRarDeployment">jboss.jca:service=RARDeployment,name=Firebird Database Connector</depends>
+        <attribute name="ManagedConnectionFactoryProperties">
+          <properties>
+            <config-property>
+              <config-property-name>Database</config-property-name>
+              <config-property-type>java.lang.String</config-property-type>
+              <config-property-value>bambalam/3050:c:\temp\hills\database\hillslive.gdb</config-property-value>
+            </config-property>
+            <config-property>
+              <config-property-name>UserName</config-property-name>
+              <config-property-type>java.lang.String</config-property-type>
+              <config-property-value>SYSDBA</config-property-value>
+            </config-property>
+            <config-property>
+              <config-property-name>Password</config-property-name>
+              <config-property-type>java.lang.String</config-property-type>
+              <config-property-value>masterkey</config-property-value>
+            </config-property>
+          </properties>
+        </attribute>
+        <attribute name="JndiName">HillsLiveDS</attribute>
+      </mbean>
+
+    </depends>
+    <depends optional-attribute-name="ManagedConnectionPool">
+      <mbean code="org.jboss.resource.connectionmanager.JBossManagedConnectionPool" name="jboss.jca:service=XaTxPool,name=FirebirdDS1">
+
+        <attribute name="MinSize">0</attribute>
+        <attribute name="MaxSize">50</attribute>
+        <attribute name="BlockingTimeoutMillis">5000</attribute>
+        <attribute name="IdleTimeoutMinutes">15</attribute>
+        <!--criteria indicates if Subject (from security domain) or app supplied
+            parameters (such as from getConnection(user, pw)) are used to distinguish
+            connections in the pool. Choices are 
+            ByContainerAndApplication (use both), 
+            ByContainer (use Subject),
+            ByApplication (use app supplied params only),
+            ByNothing (all connections are equivalent, usually if adapter supports
+              reauthentication)-->
+        <attribute name="Criteria">ByContainer</attribute>
+      </mbean>
+    </depends>
+    <depends optional-attribute-name="CachedConnectionManager">jboss.jca:service=CachedConnectionManager</depends>
+    <attribute name="TransactionManager">java:/TransactionManager</attribute>
+  </mbean>
+
+
+</service>

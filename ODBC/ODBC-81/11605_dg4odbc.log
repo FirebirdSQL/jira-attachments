@@ -1,0 +1,295 @@
+Oracle Corporation --- FRIDAY MAR 26 2010 12:18:47.971
+
+Heterogeneous Agent Release
+11.2.0.1.0
+
+Oracle Corporation --- FRIDAY MAR 26 2010 12:18:47.971
+
+Version 11.2.0.1.0
+
+Entered hgogprd
+HOSGIP for "HS_FDS_TRACE_LEVEL" returned "DEBUG"
+Entered hgosdip
+setting HS_OPEN_CURSORS to default of 50
+setting HS_FDS_RECOVERY_ACCOUNT to default of "RECOVER"
+setting HS_FDS_RECOVERY_PWD to default value
+setting HS_FDS_TRANSACTION_LOG to default of HS_TRANSACTION_LOG
+setting HS_IDLE_TIMEOUT to default of 0
+setting HS_FDS_TRANSACTION_ISOLATION to default of "READ_COMMITTED"
+setting HS_NLS_NCHAR to default of "AL32UTF8"
+setting HS_FDS_TIMESTAMP_MAPPING to default of "DATE"
+setting HS_FDS_DATE_MAPPING to default of "DATE"
+setting HS_RPC_FETCH_REBLOCKING to default of "ON"
+setting HS_FDS_FETCH_ROWS to default of "100"
+setting HS_FDS_RESULTSET_SUPPORT to default of "FALSE"
+setting HS_FDS_RSET_RETURN_ROWCOUNT to default of "FALSE"
+setting HS_FDS_PROC_IS_FUNC to default of "FALSE"
+setting HS_FDS_CHARACTER_SEMANTICS to default of "FALSE"
+setting HS_FDS_MAP_NCHAR to default of "TRUE"
+setting HS_NLS_DATE_FORMAT to default of "YYYY-MM-DD HH24:MI:SS"
+setting HS_FDS_REPORT_REAL_AS_DOUBLE to default of "FALSE"
+setting HS_LONG_PIECE_TRANSFER_SIZE to default of "65536"
+setting HS_SQL_HANDLE_STMT_REUSE to default of "FALSE"
+setting HS_FDS_QUERY_DRIVER to default of "TRUE"
+setting HS_FDS_SUPPORT_STATISTICS to default of "FALSE"
+Parameter HS_FDS_QUOTE_IDENTIFIER is not set
+setting HS_KEEP_REMOTE_COLUMN_SIZE to default of "OFF"
+setting HS_FDS_GRAPHIC_TO_MBCS to default of "FALSE"
+setting HS_FDS_MBCS_TO_GRAPHIC to default of "FALSE"
+Default value of 64 assumed for HS_FDS_SQLLEN_INTERPRETATION
+setting HS_CALL_NAME_ISP to "gtw$:SQLTables;gtw$:SQLColumns;gtw$:SQLPrimaryKeys;gtw$:SQLForeignKeys;gtw$:SQLProcedures;gtw$:SQLStatistics;gtw$:SQLGetInfo"
+setting HS_FDS_DELAYED_OPEN to default of "TRUE"
+setting HS_FDS_WORKAROUNDS to default of "0"
+Exiting hgosdip, rc=0
+ORACLE_SID is "pr"
+Product-Info:
+Port Rls/Upd:1/0 PrdStat:0
+Agent:Oracle Database Gateway for ODBC
+Facility:hsa
+Class:ODBC, ClassVsn:11.2.0.1.0_0008, Instance:pr
+Exiting hgogprd, rc=0
+Entered hgoinit
+HOCXU_COMP_CSET=1
+HOCXU_DRV_CSET=171
+HOCXU_DRV_NCHAR=873
+HOCXU_DB_CSET=171
+HOCXU_SEM_VER=112000
+Entered hgolofn at 2010/03/26-12:18:47
+HOSGIP for "HS_FDS_SHAREABLE_NAME" returned "/usr/lib/libiodbc.so.2"
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x2142e980
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x214261e0
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x214227b0
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x2141d2f0
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x214144b0
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x2140f220
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x21427de0
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x21415920
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x21416ed0
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x2142de90
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x2141e400
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x21416830
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x2142db00
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x21421870
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x214162b0
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x21425660
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x21414e40
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x21414a90
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x214257b0
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x2142dce0
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x214298e0
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x21429520
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x2140ba80
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x214123c0
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x21425400
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x214140b0
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x214157b0
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x2140b240
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x2142b820
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x2142aec0
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x2142a140
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x2141ad50
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x2141bb70
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x2141fda0
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x2142d930
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x2140ddf0
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x21423a90
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x2140a9a0
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x2140a2e0
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x21409bc0
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x2142bfa0
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x2142d410
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x2142a9a0
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x2140d0f0
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Entered hgolofns at 2010/03/26-12:18:47
+symbol_peflctx=0x2140c980
+hoaerr:0
+Exiting hgolofns at 2010/03/26-12:18:47
+Exiting hgolofn, rc=0 at 2010/03/26-12:18:47
+HOSGIP for "HS_OPEN_CURSORS" returned "50"
+HOSGIP for "HS_FDS_FETCH_ROWS" returned "100"
+HOSGIP for "HS_LONG_PIECE_TRANSFER_SIZE" returned "65536"
+HOSGIP for "HS_NLS_NUMERIC_CHARACTER" returned ".,"
+HOSGIP for "HS_KEEP_REMOTE_COLUMN_SIZE" returned "OFF"
+HOSGIP for "HS_FDS_DELAYED_OPEN" returned "TRUE"
+HOSGIP for "HS_FDS_WORKAROUNDS" returned "0"
+HOSGIP for "HS_FDS_MBCS_TO_GRAPHIC" returned "FALSE"
+HOSGIP for "HS_FDS_GRAPHIC_TO_MBCS" returned "FALSE"
+Invalid value of 64 given for HS_FDS_SQLLEN_INTERPRETATION
+treat_SQLLEN_as_compiled = 1
+Exiting hgoinit, rc=0 at 2010/03/26-12:18:47
+Entered hgolgon at 2010/03/26-12:18:47
+reco:0, name:SYSDBA, tflag:0
+Entered hgosuec at 2010/03/26-12:18:47
+Exiting hgosuec, rc=0 at 2010/03/26-12:18:47
+HOSGIP for "HS_FDS_RECOVERY_ACCOUNT" returned "RECOVER"
+HOSGIP for "HS_FDS_TRANSACTION_LOG" returned "HS_TRANSACTION_LOG"
+HOSGIP for "HS_FDS_TIMESTAMP_MAPPING" returned "DATE"
+HOSGIP for "HS_FDS_DATE_MAPPING" returned "DATE"
+HOSGIP for "HS_FDS_CHARACTER_SEMANTICS" returned "FALSE"
+HOSGIP for "HS_FDS_MAP_NCHAR" returned "TRUE"
+HOSGIP for "HS_FDS_RESULTSET_SUPPORT" returned "FALSE"
+HOSGIP for "HS_FDS_RSET_RETURN_ROWCOUNT" returned "FALSE"
+HOSGIP for "HS_FDS_PROC_IS_FUNC" returned "FALSE"
+HOSGIP for "HS_FDS_REPORT_REAL_AS_DOUBLE" returned "FALSE"
+using SYSDBA as default value for "HS_FDS_DEFAULT_OWNER"
+HOSGIP for "HS_SQL_HANDLE_STMT_REUSE" returned "FALSE"
+Entered hgocont at 2010/03/26-12:18:47
+HS_FDS_CONNECT_INFO = "clientPR"
+RC=-1 from HOSGIP for "HS_FDS_CONNECT_STRING"
+Entered hgogenconstr at 2010/03/26-12:18:47
+dsn:clientPR, name:SYSDBA
+optn:
+Entered hgocip at 2010/03/26-12:18:47
+dsn:clientPR
+Exiting hgocip, rc=0 at 2010/03/26-12:18:47
+Exiting hgogenconstr, rc=0 at 2010/03/26-12:18:47
+Entered hgolosf at 2010/03/26-12:18:48
+Exiting hgolosf, rc=0 at 2010/03/26-12:18:48
+DriverName:Odb, DriverVer:02.00
+DBMS Name:Fire, DBMS Version:06.03.17910 WI-V Firebird 2.1
+Exiting hgocont, rc=0 at 2010/03/26-12:18:48
+SQLGetInfo returns Y for SQL_CATALOG_NAME
+SQLGetInfo returns 0 for SQL_MAX_CATALOG_NAME_LEN
+Exiting hgolgon, rc=0 at 2010/03/26-12:18:48
+Entered hgoulcp at 2010/03/26-12:18:48
+Entered hgowlst at 2010/03/26-12:18:48
+Exiting hgowlst, rc=0 at 2010/03/26-12:18:48
+SQLGetInfo returns 0x0 for SQL_OWNER_USAGE
+TXN Capable:2, Isolation Option:0xf
+SQLGetInfo returns 0 for SQL_MAX_SCHEMA_NAME_LEN
+SQLGetInfo returns 31 for SQL_MAX_TABLE_NAME_LEN
+SQLGetInfo returns 31 for SQL_MAX_PROCEDURE_NAME_LEN
+SQLGetInfo returns " (0x22) for SQL_IDENTIFIER_QUOTE_CHAR
+SQLGetInfo returns Y for SQL_COLUMN_ALIAS

@@ -1,0 +1,198 @@
+$ ps -ef | grep -i fir
+  502   212     1   0 10:05PM ??         0:00.00 /usr/libexec/launchproxy /Library/Frameworks/Firebird.framework/Resources/bin/fb_inet_server
+  502   213   212   0 10:05PM ??         0:00.04 /Library/Frameworks/Firebird.framework/Resources/bin/fb_inet_server
+  502   216   212   0 10:05PM ??         0:00.12 /Library/Frameworks/Firebird.framework/Resources/bin/fb_inet_server
+1886238965   209   206   0 10:05PM ttys000    0:00.04 /Library/Frameworks/Firebird.framework/Versions/A/Resources/bin/isql -q
+
+
+
+
+mela:~ root# gdb /Library/Frameworks/Firebird.framework/Resources/bin/fb_inet_server
+GNU gdb 6.3.50-20050815 (Apple version gdb-1708) (Thu Nov  3 21:59:02 UTC 2011)
+Copyright 2004 Free Software Foundation, Inc.
+GDB is free software, covered by the GNU General Public License, and you are
+welcome to change it and/or distribute copies of it under certain conditions.
+Type "show copying" to see the conditions.
+There is absolutely no warranty for GDB.  Type "show warranty" for details.
+This GDB was configured as "x86_64-apple-darwin"...Reading symbols for shared libraries ......... done
+
+(gdb) attach 216
+Attaching to program: `/Library/Frameworks/Firebird.framework/Versions/A/Resources/bin/fb_inet_server', process 216.
+Reading symbols for shared libraries + done
+Reading symbols for shared libraries +++++++.................................. done
+0x96270bb2 in __semwait_signal ()
+(gdb) threads
+Undefined command: "threads".  Try "help".
+(gdb) info threads
+  7                                 0x96271f2a in semop ()
+  6                                 0x96271f2a in semop ()
+  5                                 0x9627083e in __psynch_cvwait ()
+  4                                 0x9626ec5e in semaphore_wait_trap ()
+  3                                 0x96271f2a in semop ()
+  2 "com.apple.libdispatch-manager" 0x9627190a in kevent ()
+* 1 "com.apple.main-thread"         0x96270bb2 in __semwait_signal ()
+(gdb) thread 1
+[Switching to thread 1 (process 216), "com.apple.main-thread"]
+0x96270bb2 in __semwait_signal ()
+(gdb) bt
+#0  0x96270bb2 in __semwait_signal ()
+#1  0x990dc7b9 in nanosleep$UNIX2003 ()
+#2  0x302ad094 in THD_sleep ()
+#3  0x3029a4ee in THREAD_SLEEP ()
+#4  0x3029c12b in Worker::shutdown ()
+#5  0x302a240e in SRVR_multi_thread ()
+#6  0x30298fab in server_main ()
+#7  0x00001f55 in start ()
+(gdb) thread 2
+[Switching to thread 2 (process 216), "com.apple.libdispatch-manager"]
+0x9627190a in kevent ()
+(gdb) bt
+#0  0x9627190a in kevent ()
+#1  0x94646c58 in _dispatch_mgr_invoke ()
+#2  0x946456a7 in _dispatch_mgr_thread ()
+(gdb) thread 3
+[Switching to thread 3 (process 216)]
+0x96271f2a in semop ()
+(gdb) bt
+#0  0x96271f2a in semop ()
+#1  0x301237ec in ISC_mutex_lock ()
+#2  0x3023f961 in Jrd::LockManager::acquire_shmem ()
+#3  0x30241630 in Jrd::LockManager::dequeue ()
+#4  0x3013e256 in DEQUEUE ()
+#5  0x3013e298 in LCK_release ()
+#6  0x300c92ac in CMP_release ()
+#7  0x30131f8d in jrd8_release_request ()
+#8  0x3001d194 in isc_release_request ()
+#9  0x3016b326 in Jrd::SecurityDatabase::closeDatabase ()
+#10 0x3016b4c4 in Jrd::SecurityDatabase::fini ()
+#11 0x3016b4fd in Jrd::SecurityDatabase::shutdown ()
+#12 0x3012ec9d in Jrd::Attachment::~Attachment ()
+#13 0x301329fc in Jrd::Attachment::destroy ()
+#14 0x30132c62 in release_attachment ()
+#15 0x3013320d in purge_attachment ()
+#16 0x301334b1 in jrd8_detach_database ()
+#17 0x3001e11a in detach_or_drop_database ()
+#18 0x3001e290 in isc_detach_database ()
+#19 0x302a10de in rem_port::end_database ()
+#20 0x302a1b0a in process_packet ()
+#21 0x3029c4fd in loopThread ()
+#22 0x3000fb04 in (anonymous namespace)::ThreadArgs::run ()
+#23 0x3000fcb4 in (anonymous namespace)::threadStart ()
+#24 0x99127ed9 in _pthread_start ()
+#25 0x9912b6de in thread_start ()
+(gdb) thread 4
+[Switching to thread 4 (process 216)]
+0x9626ec5e in semaphore_wait_trap ()
+(gdb) bt
+#0  0x9626ec5e in semaphore_wait_trap ()
+#1  0x94648800 in _dispatch_semaphore_wait_slow ()
+#2  0x946488fc in dispatch_semaphore_wait ()
+#3  0x30015360 in Firebird::SignalSafeSemaphore::enter ()
+#4  0x30015206 in (anonymous namespace)::shutdownThread ()
+#5  0x3000fb04 in (anonymous namespace)::ThreadArgs::run ()
+#6  0x3000fcb4 in (anonymous namespace)::threadStart ()
+#7  0x99127ed9 in _pthread_start ()
+#8  0x9912b6de in thread_start ()
+(gdb) thread 5
+[Switching to thread 5 (process 216)]
+0x9627083e in __psynch_cvwait ()
+(gdb) bt
+#0  0x9627083e in __psynch_cvwait ()
+#1  0x9912be21 in _pthread_cond_wait ()
+#2  0x990dc3e0 in pthread_cond_timedwait$UNIX2003 ()
+#3  0x302a6ea1 in Firebird::Semaphore::tryEnter ()
+#4  0x301d2475 in Jrd::ConfigStorage::touchThreadFunc ()
+#5  0x301d24d0 in Jrd::ConfigStorage::touchThread ()
+#6  0x3000fb04 in (anonymous namespace)::ThreadArgs::run ()
+#7  0x3000fcb4 in (anonymous namespace)::threadStart ()
+#8  0x99127ed9 in _pthread_start ()
+#9  0x9912b6de in thread_start ()
+(gdb) thread 6
+[Switching to thread 6 (process 216)]
+0x96271f2a in semop ()
+(gdb) bt
+#0  0x96271f2a in semop ()
+#1  0x30123b45 in ISC_event_wait ()
+#2  0x30240e16 in Jrd::LockManager::blocking_action_thread ()
+#3  0x3023f691 in Jrd::LockManager::blocking_action_thread ()
+#4  0x3000fb04 in (anonymous namespace)::ThreadArgs::run ()
+#5  0x3000fcb4 in (anonymous namespace)::threadStart ()
+#6  0x99127ed9 in _pthread_start ()
+#7  0x9912b6de in thread_start ()
+(gdb) thread 7
+[Switching to thread 7 (process 216)]
+0x96271f2a in semop ()
+(gdb) bt
+#0  0x96271f2a in semop ()
+#1  0x30123b45 in ISC_event_wait ()
+#2  0x30240e16 in Jrd::LockManager::blocking_action_thread ()
+#3  0x3023f691 in Jrd::LockManager::blocking_action_thread ()
+#4  0x3000fb04 in (anonymous namespace)::ThreadArgs::run ()
+#5  0x3000fcb4 in (anonymous namespace)::threadStart ()
+#6  0x99127ed9 in _pthread_start ()
+#7  0x9912b6de in thread_start ()
+(gdb) thread 8
+Thread ID 8 not known.
+
+
+
+
+
+mela:~ root# gdb /Library/Frameworks/Firebird.framework/Resources/bin/fb_inet_server
+GNU gdb 6.3.50-20050815 (Apple version gdb-1708) (Thu Nov  3 21:59:02 UTC 2011)
+Copyright 2004 Free Software Foundation, Inc.
+GDB is free software, covered by the GNU General Public License, and you are
+welcome to change it and/or distribute copies of it under certain conditions.
+Type "show copying" to see the conditions.
+There is absolutely no warranty for GDB.  Type "show warranty" for details.
+This GDB was configured as "x86_64-apple-darwin"...Reading symbols for shared libraries ......... done
+
+(gdb) attach 213
+Attaching to program: `/Library/Frameworks/Firebird.framework/Versions/A/Resources/bin/fb_inet_server', process 213.
+Reading symbols for shared libraries + done
+Reading symbols for shared libraries +++++++.................................. done
+0x96271f2a in semop ()
+(gdb) info threads
+  3                                 0x9626ec5e in semaphore_wait_trap ()
+  2 "com.apple.libdispatch-manager" 0x9627190a in kevent ()
+* 1 "com.apple.main-thread"         0x96271f2a in semop ()
+(gdb) thread 1
+[Switching to thread 1 (process 213), "com.apple.main-thread"]
+0x96271f2a in semop ()
+(gdb) bt
+#0  0x96271f2a in semop ()
+#1  0x301237ec in ISC_mutex_lock ()
+#2  0x301d233b in Jrd::ConfigStorage::acquire ()
+#3  0x301d2364 in Jrd::StorageGuard::StorageGuard ()
+#4  0x301d2618 in Jrd::ConfigStorage::~ConfigStorage ()
+#5  0x301d43d5 in Jrd::StorageInstance::dtor ()
+#6  0x301d3d7e in Firebird::InstanceControl::InstanceLink<Jrd::StorageInstance, (Firebird::InstanceControl::DtorPriority)0>::dtor ()
+#7  0x302ad6bf in Firebird::InstanceControl::InstanceList::destructors ()
+#8  0x302ad80b in (anonymous namespace)::allClean ()
+#9  0x9911a944 in __cxa_finalize ()
+#10 0x9911a7f2 in exit ()
+#11 0x00001f5d in start ()
+(gdb) thread 2
+[Switching to thread 2 (process 213), "com.apple.libdispatch-manager"]
+0x9627190a in kevent ()
+(gdb) bt
+#0  0x9627190a in kevent ()
+#1  0x94646c58 in _dispatch_mgr_invoke ()
+#2  0x946456a7 in _dispatch_mgr_thread ()
+(gdb) thread 3
+[Switching to thread 3 (process 213)]
+0x9626ec5e in semaphore_wait_trap ()
+(gdb) bt
+#0  0x9626ec5e in semaphore_wait_trap ()
+#1  0x94648800 in _dispatch_semaphore_wait_slow ()
+#2  0x946488fc in dispatch_semaphore_wait ()
+#3  0x30015360 in Firebird::SignalSafeSemaphore::enter ()
+#4  0x30015206 in (anonymous namespace)::shutdownThread ()
+#5  0x3000fb04 in (anonymous namespace)::ThreadArgs::run ()
+#6  0x3000fcb4 in (anonymous namespace)::threadStart ()
+#7  0x99127ed9 in _pthread_start ()
+#8  0x9912b6de in thread_start ()
+(gdb) thread 4
+Thread ID 4 not known.
+(gdb)
+

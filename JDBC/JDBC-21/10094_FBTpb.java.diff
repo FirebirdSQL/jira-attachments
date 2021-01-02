@@ -1,0 +1,47 @@
+Index: FBTpb.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/org/firebirdsql/jca/FBTpb.java,v
+retrieving revision 1.1
+diff -u -r1.1 FBTpb.java
+--- FBTpb.java	20 Jun 2002 19:20:30 -0000	1.1
++++ FBTpb.java	25 Jul 2002 15:02:02 -0000
+@@ -104,7 +104,7 @@
+     {
+         if (TRANSACTION_SERIALIZABLE.equals(tin)) 
+         {
+-            setIscTransactionIsolation(GDS.isc_tpb_consistency);
++            setIscTransactionIsolation(GDS.isc_tpb_concurrency);
+         } // end of if ()
+         else if (TRANSACTION_REPEATABLE_READ.equals(tin)) 
+         {
+@@ -123,8 +123,8 @@
+     public String getTransactionIsolationName() throws ResourceException
+     {
+         switch (getIscTransactionIsolation()) {
+-            case GDS.isc_tpb_consistency : return TRANSACTION_SERIALIZABLE;
+-            case GDS.isc_tpb_concurrency : return TRANSACTION_REPEATABLE_READ;
++            case GDS.isc_tpb_consistency :
++            case GDS.isc_tpb_concurrency : return TRANSACTION_SERIALIZABLE;
+             case GDS.isc_tpb_read_committed : return TRANSACTION_READ_COMMITTED;
+             default: throw new ResourceException("Unknown transaction isolation level");
+         }
+@@ -193,7 +193,7 @@
+         switch (level) 
+         {
+         case Connection.TRANSACTION_SERIALIZABLE :
+-            setIscTransactionIsolation(GDS.isc_tpb_consistency);
++            setIscTransactionIsolation(GDS.isc_tpb_concurrency);
+             break;
+         case Connection.TRANSACTION_REPEATABLE_READ :
+             setIscTransactionIsolation(GDS.isc_tpb_concurrency);
+@@ -217,8 +217,8 @@
+      */
+     public int getTransactionIsolation() throws ResourceException {
+         switch (getIscTransactionIsolation()) {
+-            case GDS.isc_tpb_consistency : return Connection.TRANSACTION_SERIALIZABLE;
+-            case GDS.isc_tpb_concurrency : return Connection.TRANSACTION_REPEATABLE_READ;
++            case GDS.isc_tpb_consistency :
++            case GDS.isc_tpb_concurrency : return Connection.TRANSACTION_SERIALIZABLE;
+             case GDS.isc_tpb_read_committed : return Connection.TRANSACTION_READ_COMMITTED;
+             default: throw new ResourceException("Unknown transaction isolation level");
+         }

@@ -1,0 +1,64 @@
+--- XSQLVAR.java-orig	Sun Dec 05 11:50:30 2004
++++ XSQLVAR.java	Wed Mar 09 16:58:53 2005
+@@ -75,6 +75,7 @@
+ import java.sql.Timestamp;
+ import java.util.Calendar;
+ import java.util.GregorianCalendar;
++import java.util.TimeZone;
+ 
+ import org.firebirdsql.encodings.Encoding;
+ import org.firebirdsql.encodings.EncodingFactory;
+@@ -415,7 +416,7 @@
+         int millisecond;
+ 
+         datetime(Timestamp value){
+-            Calendar c = new GregorianCalendar();
++            Calendar c = new GregorianCalendar( TimeZone.getTimeZone( "UTC" ));
+             c.setTime(value);
+             year = c.get(Calendar.YEAR);
+             month = c.get(Calendar.MONTH)+1;
+@@ -427,7 +428,7 @@
+         }
+ 
+         datetime(Date value){
+-            Calendar c = new GregorianCalendar();
++            Calendar c = new GregorianCalendar( TimeZone.getTimeZone( "UTC" ));
+             c.setTime(value);
+             year = c.get(Calendar.YEAR);
+             month = c.get(Calendar.MONTH)+1;
+@@ -439,7 +440,7 @@
+         }
+ 
+         datetime(Time value){
+-            Calendar c = new GregorianCalendar();
++            Calendar c = new GregorianCalendar( TimeZone.getTimeZone( "UTC" ));
+             c.setTime(value);
+             year = 0;
+             month = 0;
+@@ -514,7 +515,7 @@
+         }
+ 
+         Time toTime(){
+-            Calendar c = new GregorianCalendar();
++            Calendar c = new GregorianCalendar( TimeZone.getTimeZone( "UTC" ));
+             c.set(Calendar.YEAR, 1970);
+             c.set(Calendar.MONTH, Calendar.JANUARY);
+             c.set(Calendar.DAY_OF_MONTH, 1);
+@@ -526,7 +527,7 @@
+         }
+ 
+         Timestamp toTimestamp(){
+-            Calendar c = new GregorianCalendar();
++            Calendar c = new GregorianCalendar( TimeZone.getTimeZone( "UTC" ));
+             c.set(Calendar.YEAR,year);
+             c.set(Calendar.MONTH,month-1);
+             c.set(Calendar.DAY_OF_MONTH,day);
+@@ -538,7 +539,7 @@
+         }
+ 
+         Date toDate(){
+-            Calendar c = new GregorianCalendar();
++            Calendar c = new GregorianCalendar( TimeZone.getTimeZone( "UTC" ));
+             c.set(Calendar.YEAR,year);
+             c.set(Calendar.MONTH,month-1);
+             c.set(Calendar.DAY_OF_MONTH,day);

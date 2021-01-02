@@ -1,0 +1,668 @@
+
+vfp8            174c-1750	ENTER SQLGetStmtOption 
+		HSTMT               02C42020
+		UWORD                        6 
+		PTR                0x0012F854
+
+vfp8            174c-1750	EXIT  SQLGetStmtOption  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        6 
+		PTR                0x0012F854
+
+vfp8            174c-1750	ENTER SQLGetStmtOption 
+		HSTMT               02C42020
+		UWORD                        7 
+		PTR                0x0012F854
+
+vfp8            174c-1750	EXIT  SQLGetStmtOption  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        7 
+		PTR                0x0012F854
+
+vfp8            174c-1750	ENTER SQLSetStmtOption 
+		HSTMT               02C42020
+		UWORD                        9 <SQL_ROWSET_SIZE>
+		SQLPOINTER          0x00000001
+
+vfp8            174c-1750	EXIT  SQLSetStmtOption  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        9 <SQL_ROWSET_SIZE>
+		SQLPOINTER          0x00000001 (BADMEM)
+
+vfp8            174c-1750	ENTER SQLExecDirect 
+		HSTMT               02C42020
+		UCHAR *             0x010EC8A0 [      -3] "SELECT SUM(QUANTITY1) AS Q1,SUM(QUANTITY2) AS Q2,SUM(QUANTITY3) AS Q3,SUM(QUANTITY4) AS Q4   FROM TEST\ 0"
+		SDWORD                    -3
+
+vfp8            174c-1750	EXIT  SQLExecDirect  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UCHAR *             0x010EC8A0 [      -3] "SELECT SUM(QUANTITY1) AS Q1,SUM(QUANTITY2) AS Q2,SUM(QUANTITY3) AS Q3,SUM(QUANTITY4) AS Q4   FROM TEST\ 0"
+		SDWORD                    -3
+
+vfp8            174c-1750	ENTER SQLNumResultCols 
+		HSTMT               02C42020
+		SWORD *             0x0012F9B4
+
+vfp8            174c-1750	EXIT  SQLNumResultCols  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		SWORD *             0x0012F9B4 (4)
+
+vfp8            174c-1750	ENTER SQLNumResultCols 
+		HSTMT               02C42020
+		SWORD *             0x0012F748
+
+vfp8            174c-1750	EXIT  SQLNumResultCols  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		SWORD *             0x0012F748 (4)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        1 
+		UWORD                        2 <SQL_COLUMN_TYPE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        1 
+		UWORD                        2 <SQL_COLUMN_TYPE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (-5)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        1 
+		UWORD                        6 <SQL_COLUMN_DISPLAY_SIZE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        1 
+		UWORD                        6 <SQL_COLUMN_DISPLAY_SIZE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (19)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        1 
+		UWORD                        4 <SQL_COLUMN_PRECISION>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        1 
+		UWORD                        4 <SQL_COLUMN_PRECISION>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (18)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        1 
+		UWORD                        5 <SQL_COLUMN_SCALE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        1 
+		UWORD                        5 <SQL_COLUMN_SCALE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (0)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        1 
+		UWORD                        7 <SQL_COLUMN_NULLABLE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        1 
+		UWORD                        7 <SQL_COLUMN_NULLABLE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (1)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        1 
+		UWORD                        9 <SQL_COLUMN_MONEY>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        1 
+		UWORD                        9 <SQL_COLUMN_MONEY>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (0)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        1 
+		UWORD                        1 <SQL_COLUMN_NAME>
+		PTR                0x0012F4D4
+		SWORD                      255 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        1 
+		UWORD                        1 <SQL_COLUMN_NAME>
+		PTR                0x0012F4D4
+		SWORD                      255 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (0)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        2 
+		UWORD                        2 <SQL_COLUMN_TYPE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        2 
+		UWORD                        2 <SQL_COLUMN_TYPE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (-5)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        2 
+		UWORD                        6 <SQL_COLUMN_DISPLAY_SIZE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        2 
+		UWORD                        6 <SQL_COLUMN_DISPLAY_SIZE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (19)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        2 
+		UWORD                        4 <SQL_COLUMN_PRECISION>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        2 
+		UWORD                        4 <SQL_COLUMN_PRECISION>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (18)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        2 
+		UWORD                        5 <SQL_COLUMN_SCALE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        2 
+		UWORD                        5 <SQL_COLUMN_SCALE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (0)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        2 
+		UWORD                        7 <SQL_COLUMN_NULLABLE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        2 
+		UWORD                        7 <SQL_COLUMN_NULLABLE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (1)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        2 
+		UWORD                        9 <SQL_COLUMN_MONEY>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        2 
+		UWORD                        9 <SQL_COLUMN_MONEY>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (0)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        2 
+		UWORD                        1 <SQL_COLUMN_NAME>
+		PTR                0x0012F4D4
+		SWORD                      255 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        2 
+		UWORD                        1 <SQL_COLUMN_NAME>
+		PTR                0x0012F4D4
+		SWORD                      255 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (0)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        3 
+		UWORD                        2 <SQL_COLUMN_TYPE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        3 
+		UWORD                        2 <SQL_COLUMN_TYPE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (2)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        3 
+		UWORD                        6 <SQL_COLUMN_DISPLAY_SIZE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        3 
+		UWORD                        6 <SQL_COLUMN_DISPLAY_SIZE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (20)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        3 
+		UWORD                        4 <SQL_COLUMN_PRECISION>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        3 
+		UWORD                        4 <SQL_COLUMN_PRECISION>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (18)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        3 
+		UWORD                        5 <SQL_COLUMN_SCALE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        3 
+		UWORD                        5 <SQL_COLUMN_SCALE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (2)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        3 
+		UWORD                        7 <SQL_COLUMN_NULLABLE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        3 
+		UWORD                        7 <SQL_COLUMN_NULLABLE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (1)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        3 
+		UWORD                        9 <SQL_COLUMN_MONEY>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        3 
+		UWORD                        9 <SQL_COLUMN_MONEY>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (0)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        3 
+		UWORD                        1 <SQL_COLUMN_NAME>
+		PTR                0x0012F4D4
+		SWORD                      255 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        3 
+		UWORD                        1 <SQL_COLUMN_NAME>
+		PTR                0x0012F4D4
+		SWORD                      255 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (0)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        4 
+		UWORD                        2 <SQL_COLUMN_TYPE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        4 
+		UWORD                        2 <SQL_COLUMN_TYPE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (8)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        4 
+		UWORD                        6 <SQL_COLUMN_DISPLAY_SIZE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        4 
+		UWORD                        6 <SQL_COLUMN_DISPLAY_SIZE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (57)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        4 
+		UWORD                        4 <SQL_COLUMN_PRECISION>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        4 
+		UWORD                        4 <SQL_COLUMN_PRECISION>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (53)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        4 
+		UWORD                        5 <SQL_COLUMN_SCALE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        4 
+		UWORD                        5 <SQL_COLUMN_SCALE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (0)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        4 
+		UWORD                        7 <SQL_COLUMN_NULLABLE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        4 
+		UWORD                        7 <SQL_COLUMN_NULLABLE>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (1)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        4 
+		UWORD                        9 <SQL_COLUMN_MONEY>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        4 
+		UWORD                        9 <SQL_COLUMN_MONEY>
+		PTR                0x00000000
+		SWORD                        0 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (0)
+
+vfp8            174c-1750	ENTER SQLColAttributes 
+		HSTMT               02C42020
+		UWORD                        4 
+		UWORD                        1 <SQL_COLUMN_NAME>
+		PTR                0x0012F4D4
+		SWORD                      255 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C
+
+vfp8            174c-1750	EXIT  SQLColAttributes  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        4 
+		UWORD                        1 <SQL_COLUMN_NAME>
+		PTR                0x0012F4D4
+		SWORD                      255 
+		SWORD *             0x00000000
+		SQLLEN *            0x0012F74C (0)
+
+vfp8            174c-1750	ENTER SQLGetStmtOption 
+		HSTMT               02C42020
+		UWORD                        6 
+		PTR                0x0012F6F4
+
+vfp8            174c-1750	EXIT  SQLGetStmtOption  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        6 
+		PTR                0x0012F6F4
+
+vfp8            174c-1750	ENTER SQLFetch 
+		HSTMT               02C42020
+
+vfp8            174c-1750	EXIT  SQLFetch  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+
+vfp8            174c-1750	ENTER SQLGetData 
+		HSTMT               02C42020
+		UWORD                        1 
+		SWORD                        1 <SQL_C_CHAR>
+		PTR                 0x010DB4C1 
+		SQLLEN                    20
+		SQLLEN *            0x0012F5CC
+
+vfp8            174c-1750	EXIT  SQLGetData  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        1 
+		SWORD                        1 <SQL_C_CHAR>
+		PTR                 0x010DB4C1 [       2] "23"
+		SQLLEN                    20
+		SQLLEN *            0x0012F5CC (2)
+
+vfp8            174c-1750	ENTER SQLGetData 
+		HSTMT               02C42020
+		UWORD                        2 
+		SWORD                        1 <SQL_C_CHAR>
+		PTR                 0x010DB4D4 
+		SQLLEN                    20
+		SQLLEN *            0x0012F5CC
+
+vfp8            174c-1750	EXIT  SQLGetData  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        2 
+		SWORD                        1 <SQL_C_CHAR>
+		PTR                 0x010DB4D4 [       2] "36"
+		SQLLEN                    20
+		SQLLEN *            0x0012F5CC (2)
+
+vfp8            174c-1750	ENTER SQLGetData 
+		HSTMT               02C42020
+		UWORD                        3 
+		SWORD                        1 <SQL_C_CHAR>
+		PTR                 0x010DB4E7 
+		SQLLEN                    21
+		SQLLEN *            0x0012F5CC
+
+vfp8            174c-1750	EXIT  SQLGetData  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        3 
+		SWORD                        1 <SQL_C_CHAR>
+		PTR                 0x010DB4E7 [       5] "26.00"
+		SQLLEN                    21
+		SQLLEN *            0x0012F5CC (5)
+
+vfp8            174c-1750	ENTER SQLGetData 
+		HSTMT               02C42020
+		UWORD                        4 
+		SWORD                        8 <SQL_C_DOUBLE>
+		PTR                 <unknown type>
+		SQLLEN                     9
+		SQLLEN *            0x0012F5CC
+
+vfp8            174c-1750	EXIT  SQLGetData  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        4 
+		SWORD                        8 <SQL_C_DOUBLE>
+		PTR                 <unknown type>
+		SQLLEN                     9
+		SQLLEN *            0x0012F5CC (8)
+
+vfp8            174c-1750	ENTER SQLFetch 
+		HSTMT               02C42020
+
+vfp8            174c-1750	EXIT  SQLFetch  with return code 100 (SQL_NO_DATA_FOUND)
+		HSTMT               02C42020
+
+vfp8            174c-1750	ENTER SQLMoreResults 
+		HSTMT               02C42020
+
+vfp8            174c-1750	EXIT  SQLMoreResults  with return code 100 (SQL_NO_DATA_FOUND)
+		HSTMT               02C42020
+
+vfp8            174c-1750	ENTER SQLFreeStmt 
+		HSTMT               02C42020
+		UWORD                        0 <SQL_CLOSE>
+
+vfp8            174c-1750	EXIT  SQLFreeStmt  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        0 <SQL_CLOSE>
+
+vfp8            174c-1750	ENTER SQLFreeStmt 
+		HSTMT               02C42020
+		UWORD                        3 <SQL_RESET_PARAMS>
+
+vfp8            174c-1750	EXIT  SQLFreeStmt  with return code 0 (SQL_SUCCESS)
+		HSTMT               02C42020
+		UWORD                        3 <SQL_RESET_PARAMS>

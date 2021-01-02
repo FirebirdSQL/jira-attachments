@@ -1,0 +1,57 @@
+### Eclipse Workspace Patch 1.0
+#P client-java
+Index: src/main/org/firebirdsql/gds/impl/wire/isc_db_handle_impl.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/main/org/firebirdsql/gds/impl/wire/isc_db_handle_impl.java,v
+retrieving revision 1.9
+diff -u -r1.9 isc_db_handle_impl.java
+--- src/main/org/firebirdsql/gds/impl/wire/isc_db_handle_impl.java	27 Nov 2005 12:15:45 -0000	1.9
++++ src/main/org/firebirdsql/gds/impl/wire/isc_db_handle_impl.java	21 Feb 2010 14:19:50 -0000
+@@ -197,7 +197,7 @@
+     }
+ 
+     public String getDatabaseProductVersion(){
+-        return version;
++        return version.substring(0, version.indexOf(' '));
+     }
+ 
+     public int getDatabaseProductMajorVersion(){
+Index: src/main/org/firebirdsql/gds/impl/GDSServerVersion.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/main/org/firebirdsql/gds/impl/GDSServerVersion.java,v
+retrieving revision 1.1
+diff -u -r1.1 GDSServerVersion.java
+--- src/main/org/firebirdsql/gds/impl/GDSServerVersion.java	11 Jul 2005 08:12:55 -0000	1.1
++++ src/main/org/firebirdsql/gds/impl/GDSServerVersion.java	21 Feb 2010 14:19:50 -0000
+@@ -137,11 +137,11 @@
+             throw new GDSServerVersionException("No server name is available.");
+ 
+         this.serverName = str.substring(firstSpacePosition + 1);
+-        int commaPosition = serverName.indexOf(',');
+-        if (commaPosition != -1) {
++        int separatorPosition = serverName.indexOf('-');
++        if (separatorPosition != -1) {
+             this.extendedServerName = this.serverName
+-                    .substring(commaPosition + 1);
+-            this.serverName = this.serverName.substring(0, commaPosition);
++                    .substring(separatorPosition + 1);
++            this.serverName = this.serverName.substring(0, separatorPosition);
+         }
+ 
+         String platformVersionStr = str.substring(0, firstSpacePosition);
+Index: src/main/org/firebirdsql/gds/impl/jni/isc_db_handle_impl.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/main/org/firebirdsql/gds/impl/jni/isc_db_handle_impl.java,v
+retrieving revision 1.6
+diff -u -r1.6 isc_db_handle_impl.java
+--- src/main/org/firebirdsql/gds/impl/jni/isc_db_handle_impl.java	4 Nov 2005 14:47:23 -0000	1.6
++++ src/main/org/firebirdsql/gds/impl/jni/isc_db_handle_impl.java	21 Feb 2010 14:19:50 -0000
+@@ -170,7 +170,7 @@
+     }
+ 
+     public String getDatabaseProductVersion() {
+-        return version;
++        return version.substring(0, version.indexOf(' '));
+     }
+ 
+     public int getDatabaseProductMajorVersion() {

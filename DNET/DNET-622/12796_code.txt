@@ -1,0 +1,50 @@
+        static class TraceHelper 
+        { 
+                public const string Name = "FirebirdSql.Data.FirebirdClient"; 
+                public const string ConditionalSymbol = "TRACE"; 
+
+                static TraceSource _instance; 
+
+                static TraceHelper() 
+                { 
+                        _instance = new TraceSource(Name, SourceLevels.All); 
+                } 
+
+                public static void Trace(TraceEventType eventType, string message) 
+                { 
+                        _instance.TraceEvent(eventType, default(int), message); 
+                        _instance.Flush(); 
+                } 
+
+        public static bool HasListeners 
+        { 
+            get 
+            { 
+                return _instance.Listeners.Count > 0; 
+            } 
+        } 
+        } 
+
+        [Conditional(TraceHelper.ConditionalSymbol)] 
+        private void LogCommand() 
+        { 
+            if (TraceHelper.HasListeners) 
+            { 
+                StringBuilder message = new StringBuilder(); 
+                message.AppendLine("Command:"); 
+                message.AppendLine(commandText); 
+                message.AppendLine("Parameters:"); 
+                if (this.parameters != null) 
+                { 
+                    foreach (FbParameter item in this.parameters) 
+                    { 
+                        message.AppendLine(string.Format("Name:{0}\tType:{1}\tUsed Value:{2}", item.ParameterName, item.FbDbType, (!IsNullParameterValue(item.InternalValue) ? item.InternalValue : "<null>"))); 
+                    } 
+                } 
+                else 
+                { 
+                    message.AppendLine("<no parameters>"); 
+                } 
+                TraceHelper.Trace(TraceEventType.Information, message.ToString()); 
+            } 
+        } 

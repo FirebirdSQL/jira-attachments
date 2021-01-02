@@ -1,0 +1,18 @@
+Index: src/install/arch-specific/linux/Makefile.in
+===================================================================
+RCS file: /cvsroot/firebird/firebird2/src/install/arch-specific/linux/Makefile.in,v
+retrieving revision 1.8
+diff -u -r1.8 Makefile.in
+--- src/install/arch-specific/linux/Makefile.in	20 Mar 2003 11:11:50 -0000	1.8
++++ src/install/arch-specific/linux/Makefile.in	28 May 2003 23:20:15 -0000
+@@ -134,8 +134,8 @@
+ rpmfile: $(RPMFile)
+ 
+ $(RPMFile) : $(GEN_ROOT)/install/rpmscript buildImageDir
+-	rpm --define='_topdir @BUILD_ROOT_DIR@/gen/RPM' -bb $(GEN_ROOT)/install/rpmscript
+-#	rpm -bb --buildroot `pwd`/buildroot $(GEN_ROOT)/rpmscript
++	rpmbuild --define='_topdir @BUILD_ROOT_DIR@/gen/RPM' -bb $(GEN_ROOT)/install/rpmscript
++#	rpmbuild -bb --buildroot `pwd`/buildroot $(GEN_ROOT)/rpmscript
+ 	cp @BUILD_ROOT_DIR@/gen/RPM/RPMS/i686/$(RPMFile) $(GEN_ROOT)
+ 
+ 

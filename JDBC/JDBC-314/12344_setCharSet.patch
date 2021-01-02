@@ -1,0 +1,19 @@
+Index: src/org/firebirdsql/jdbc/FBConnectionProperties.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/org/firebirdsql/jdbc/FBConnectionProperties.java	(revision )
++++ src/org/firebirdsql/jdbc/FBConnectionProperties.java	(revision )
+@@ -198,7 +198,10 @@
+         if (charSet == null)
+             return;
+ 
+-        setStringProperty(LOCAL_ENCODING_PROPERTY, EncodingFactory.getJavaEncodingForAlias(charSet));
++        charSet = EncodingFactory.getJavaEncodingForAlias(charSet);
++
++        if (charSet != null)
++            setStringProperty(LOCAL_ENCODING_PROPERTY, );
+ 
+         String encoding = getStringProperty(LOCAL_ENCODING_PROPERTY);
+         if (encoding != null)

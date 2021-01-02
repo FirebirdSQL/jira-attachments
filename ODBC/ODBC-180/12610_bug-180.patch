@@ -1,0 +1,216 @@
+Index: OdbcConvert.cpp
+===================================================================
+--- OdbcConvert.cpp	(revision 49)
++++ OdbcConvert.cpp	(revision 50)
+@@ -631,7 +631,7 @@
+ 		break;
+ 
+ 	case SQL_C_CHAR:
+-		if ( from->type == JDBC_VARCHAR )
++		if ( from->type == JDBC_VARCHAR || from->type == JDBC_LONGVARCHAR )
+ 		{
+ 			switch(to->conciseType) // Varying
+ 			{
+@@ -655,7 +655,7 @@
+ 			case SQL_C_UBIGINT:
+ 				return &OdbcConvert::convVarStringToBigint;
+ 			case SQL_C_CHAR:
+-				if ( from->isIndicatorSqlDa && from->dataBlobPtr && from->dataBlobPtr->isArray() )
++				if ( from->isIndicatorSqlDa && from->dataBlobPtr )
+ 					return &OdbcConvert::convBlobToString;
+ 				bIdentity = true;
+ 				if ( parentStmt->isResultSetFromSystemCatalog )
+@@ -663,7 +663,7 @@
+ 				else
+ 					return &OdbcConvert::convVarStringToString;
+ 			case SQL_C_WCHAR:
+-				if ( from->isIndicatorSqlDa && from->dataBlobPtr && from->dataBlobPtr->isArray() )
++				if ( from->isIndicatorSqlDa && from->dataBlobPtr )
+ 					return &OdbcConvert::convBlobToStringW;
+ 				if ( parentStmt->isResultSetFromSystemCatalog )
+ 					return &OdbcConvert::convVarStringSystemToStringW;
+@@ -670,7 +670,7 @@
+ 				else
+ 					return &OdbcConvert::convVarStringToStringW;
+ 			case SQL_C_BINARY:
+-				if ( from->isIndicatorSqlDa && from->dataBlobPtr && from->dataBlobPtr->isArray() )
++				if ( from->isIndicatorSqlDa && from->dataBlobPtr )
+ 					return &OdbcConvert::convBlobToBlob;
+ 				return &OdbcConvert::convVarStringToBinary;
+ 			default:
+@@ -795,7 +795,7 @@
+ 		break;
+ 
+ 	case SQL_C_WCHAR:
+-		if ( from->type == JDBC_VARCHAR || from->type == JDBC_WVARCHAR )
++		if ( from->type == JDBC_VARCHAR || from->type == JDBC_WVARCHAR || from->type == JDBC_LONGVARCHAR || from->type == JDBC_WLONGVARCHAR )
+ 		{
+ 			switch(to->conciseType) // Varying
+ 			{
+@@ -819,7 +819,7 @@
+ 			case SQL_C_UBIGINT:
+ 				return &OdbcConvert::convVarStringWToBigint;
+ 			case SQL_C_CHAR:
+-				if ( from->isIndicatorSqlDa && from->dataBlobPtr && from->dataBlobPtr->isArray() )
++				if ( from->isIndicatorSqlDa && from->dataBlobPtr )
+ 					return &OdbcConvert::convBlobToString;
+ 				if ( parentStmt->isResultSetFromSystemCatalog )
+ 					return &OdbcConvert::convVarStringSystemToString;
+@@ -826,7 +826,7 @@
+ 				else
+ 					return &OdbcConvert::convVarStringToString;
+ 			case SQL_C_WCHAR:
+-				if ( from->isIndicatorSqlDa && from->dataBlobPtr && from->dataBlobPtr->isArray() )
++				if ( from->isIndicatorSqlDa && from->dataBlobPtr )
+ 					return &OdbcConvert::convBlobToStringW;
+ 				bIdentity = true;
+ 				if ( parentStmt->isResultSetFromSystemCatalog )
+@@ -834,7 +834,7 @@
+ 				else
+ 					return &OdbcConvert::convVarStringToStringW;
+ 			case SQL_C_BINARY:
+-				if ( from->isIndicatorSqlDa && from->dataBlobPtr && from->dataBlobPtr->isArray() )
++				if ( from->isIndicatorSqlDa && from->dataBlobPtr )
+ 					return &OdbcConvert::convBlobToBlob;
+ 				return &OdbcConvert::convVarStringToString;
+ 			default:
+@@ -2852,6 +2852,7 @@
+ 		{ // attach new blob
+ 			from->dataOffset = 0;
+ 			from->startedReturnSQLData = false;
++			from->freeLocalDataPtr();
+ 			if ( !fetched || blob->getOffset() )
+ 			{
+ 				if ( parentStmt->isStaticCursor() )
+@@ -2869,14 +2870,43 @@
+ 
+ 		int length;
+ 
+-		if ( blob->isArray() )
+-			length = ((BinaryBlob*)blob)->getLength();
++		if (blob->isBlob())
++		{
++			length = blob->length() * 2;
++		}
++		else if (!from->isLocalDataPtr)
++		{
++			// we cannot tell the length of the codepage-converted output
++			// in advance. so fetch all and convert in advance
++
++			if ( blob->isArray() )
++				length = ((BinaryBlob*)blob)->getLength();
++			else
++				length = blob->length();
++
++			from->allocateLocalDataPtr((length + 1) * sizeof(wchar_t));
++			wchar_t *wcs = (wchar_t*) from->localDataPtr;
++			char *tmp = new char[length];
++
++			if ( !directOpen )
++			{
++				blob->getBytes (0, length, tmp);
++			}
++			else
++			{
++				int lenRead = 0;
++				blob->directFetchBlob(tmp, length, lenRead);
++				length = lenRead;
++			}
++
++			length = from->MbsToWcs(wcs, tmp, length);
++			wcs[length] = L'\0';
++
++			delete [] tmp;
++		}
+ 		else
+ 		{
+-			length = blob->length();
+-			
+-			if ( blob->isBlob() )
+-				length *= 2;
++			length = wcslen(((wchar_t*) from->localDataPtr) + from->dataOffset) + from->dataOffset;
+ 		}
+ 
+ 		dataRemaining = length - from->dataOffset;
+@@ -2891,36 +2921,38 @@
+ 		else
+ 		{
+ 			from->startedReturnSQLData = true;
+-			int len = MIN(dataRemaining, MAX(0, (int)to->length / 2 - 1));
+-			int lenRead;
++			int len = MIN(dataRemaining, MAX(0, to->length / (int)sizeof(wchar_t) - 1));
+ 			 
+ 			if ( pointer )
+ 			{
+-				if ( len > 0 ) 
++				if (blob->isBlob())
+ 				{
+-					if ( !directOpen )
++					len &= ~1;  // we can only return an even number
++					if ( len > 0 ) 
+ 					{
+-						if ( blob->isBlob() )
+-							blob->getHexString (from->dataOffset/2, len/2, pointer);
++						char *tmp = new char[len];
++
++						if ( !directOpen )
++						{
++							blob->getHexString (from->dataOffset/2, len/2, tmp);
++						}
+ 						else
+-//							blob->getBytesW (from->dataOffset, len, pointer);
+-							blob->getBytes (from->dataOffset, len, pointer);
+-					}
+-					else
+-					{
+-						if ( blob->isBlob() )
+-							blob->directGetSegmentToHexStr((char*)pointer, len/2, lenRead);
+-						else
+-							blob->directFetchBlob((char*)pointer, len, lenRead);
+-					}
++						{
++							int lenRead = 0;
++							blob->directGetSegmentToHexStr(tmp, len/2, lenRead);
++							len = lenRead;
++						}
+ 
+-					{
+-						char * tempBuf = new char[len * 2 + 1];
+-						memcpy( tempBuf, (char*)pointer, len );
+-						from->MbsToWcs( (wchar_t *)pointer, tempBuf, len );
+-						delete[] tempBuf;
++						from->MbsToWcs( (wchar_t *)pointer, tmp, len );
++
++						delete [] tmp;
+ 					}
+ 				}
++				else
++				{
++					wcsncpy((wchar_t*) pointer, ((wchar_t*) from->localDataPtr) + from->dataOffset, len);
++				}
++
+ 				((wchar_t *) (pointer)) [len] = L'\0';
+ 
+ 				if ( !statusReturnData )
+@@ -2939,10 +2971,10 @@
+ 	}
+ 
+ 	if ( to->isIndicatorSqlDa ) {
+-		to->headSqlVarPtr->setSqlLen(dataRemaining * 2);
++		to->headSqlVarPtr->setSqlLen(dataRemaining * sizeof(wchar_t));
+ 	} else
+ 	if ( indicatorTo )
+-		*indicatorTo = dataRemaining * 2;
++		*indicatorTo = dataRemaining * sizeof(wchar_t);
+ 
+ 	return ret;
+ }
+@@ -3976,7 +4008,7 @@
+ 	{
+ 		from->startedReturnSQLData = true;
+ 		int len = MAX(0, (int)(to->length / sizeof( wchar_t )) - 1 );
+-		 
++
+ 		if ( !pointerTo )
+ 			length = dataRemaining;
+ 		else

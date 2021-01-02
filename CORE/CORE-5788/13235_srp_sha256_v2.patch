@@ -1,0 +1,1805 @@
+Index: doc/README.SecureRemotePassword.html
+===================================================================
+--- doc/README.SecureRemotePassword.html	(nonexistent)
++++ doc/README.SecureRemotePassword.html	(revision 20)
+@@ -0,0 +1,32 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><!--This file was converted to xhtml by LibreOffice - see http://cgit.freedesktop.org/libreoffice/core/tree/filter/source/xslt for the code.--><head profile="http://dublincore.org/documents/dcmi-terms/"><meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/><title xml:lang="en-US">- no title specified</title><meta name="DCTERMS.title" content="" xml:lang="en-US"/><meta name="DCTERMS.language" content="en-US" scheme="DCTERMS.RFC4646"/><meta name="DCTERMS.source" content="http://xml.openoffice.org/odf2xhtml"/><meta name="DCTERMS.issued" content="2018-04-09T10:14:20.507318741" scheme="DCTERMS.W3CDTF"/><meta name="DCTERMS.modified" content="2018-04-09T10:14:29.569131327" scheme="DCTERMS.W3CDTF"/><meta name="DCTERMS.provenance" content="" xml:lang="en-US"/><meta name="DCTERMS.subject" content="," xml:lang="en-US"/><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" hreflang="en"/><link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" hreflang="en"/><link rel="schema.DCTYPE" href="http://purl.org/dc/dcmitype/" hreflang="en"/><link rel="schema.DCAM" href="http://purl.org/dc/dcam/" hreflang="en"/><style type="text/css">
++	@page {  }
++	table { border-collapse:collapse; border-spacing:0; empty-cells:show }
++	td, th { vertical-align:top; font-size:12pt;}
++	h1, h2, h3, h4, h5, h6 { clear:both }
++	ol, ul { margin:0; padding:0;}
++	li { list-style: none; margin:0; padding:0;}
++	<!-- "li span.odfLiEnd" - IE 7 issue-->
++	li span. { clear: both; line-height:0; width:0; height:0; margin:0; padding:0; }
++	span.footnodeNumber { padding-right:1em; }
++	span.annotation_style_by_filter { font-size:95%; font-family:Arial; background-color:#fff000;  margin:0; border:0; padding:0;  }
++	* { margin:0;}
++	.Heading_20_1 { font-size:130%; margin-bottom:0.0835in; margin-top:0.1665in; font-family:Liberation Sans; writing-mode:page; margin-left:0in; margin-right:0in; text-indent:0in; font-weight:bold; }
++	.Heading_20_2 { font-size:115%; margin-bottom:0.0835in; margin-top:0.139in; font-family:Liberation Sans; writing-mode:page; margin-left:0in; margin-right:0in; text-indent:0in; font-weight:bold; }
++	.P1 { font-size:12pt; line-height:120%; margin-bottom:0.0972in; margin-top:0in; font-family:Liberation Serif; writing-mode:page; }
++	.P10 { font-size:12pt; line-height:120%; margin-bottom:0in; margin-top:0in; font-family:Liberation Serif; writing-mode:page; }
++	.P2 { font-size:12pt; line-height:120%; margin-bottom:0.0972in; margin-top:0in; font-family:Liberation Serif; writing-mode:page; }
++	.P4 { font-size:12pt; line-height:120%; margin-bottom:0.0972in; margin-top:0in; font-family:Liberation Serif; writing-mode:page; }
++	.P5 { font-size:12pt; line-height:120%; margin-bottom:0.0972in; margin-top:0in; font-family:Liberation Serif; writing-mode:page; }
++	.P6 { font-size:12pt; line-height:120%; margin-bottom:0.0972in; margin-top:0in; font-family:Liberation Serif; writing-mode:page; }
++	.P7 { font-size:12pt; line-height:120%; margin-bottom:0.0972in; margin-top:0in; font-family:Liberation Serif; writing-mode:page; }
++	.P9 { font-size:12pt; line-height:120%; margin-bottom:0.0972in; margin-top:0in; font-family:Liberation Serif; writing-mode:page; }
++	.Table1 { width:6.6931in; float:none; }
++	.Table1_A1 { padding:0.0382in; border-style:none; }
++	.Table1_A { width:1.6236in; }
++	.Table1_B { width:5.0694in; }
++	.Bullet_20_Symbols { font-family:OpenSymbol; }
++	.Internet_20_link { color:#000080; text-decoration:underline; }
++	<!-- ODF styles with no properties representable as CSS -->
++	.T1 .T10 .T2 .T3 .T4 .T5 .T6 .T7 .T8 .T9  { }
++	</style></head><body dir="ltr" style="max-width:8.2681in;margin-top:0.7874in; margin-bottom:0.7874in; margin-left:0.7874in; margin-right:0.7874in; "><h1 class="Heading_20_1"><a id="a__Replacement_of_use_of_SHA-1_in_the_SRP_Client_Proof_with_a_SHA-2_Message_Digest"><span/></a>Replacement of use of SHA-1 in the SRP Client Proof with <span class="T8">a </span>SHA-2 <span class="T10">Message Digest</span></h1><p class="P1"><span class="T5">The Firebird implementation of the Secure Remote Protocol (SRP) for password based user authentication has been updated following</span> a security review of the <span class="T9">original </span>Firebird SRP-6a implementation taking into account current NIST guidance on the use of SHA-1 – see <span class="T1">NIST Special Publication 800-131A, Revision 1, Transitions: Recommendation for Transitioning the Use of Cryptographic Algorithms and Key Lengths </span>(<a href="http://dx.doi.org/10.6028/NIST.SP.800-131Ar1" class="Internet_20_link"><span class="T1">http://dx.doi.org/10.6028/NIST.SP.800-131Ar1</span></a>) chapter 9. This guidance disallows the general use of SHA-1 for “Digital Signature Generation” whilst permitting continued use for “Digital Signature Verification”. <span class="T6">The background to making this change is given below.</span></p><p class="P4">By default, the SHA-256 message digest is now used instead of SHA-1 for generating the Client Proof. Alternatively, SHA-1 (deprecated and for legacy use only), SHA-224, SHA-384 and SHA-512 may be used for the Client Proof. Separate AuthServer and AuthClient plugins are available for each supported message digest, with the following names:</p><table border="0" cellspacing="0" cellpadding="0" class="Table1"><colgroup><col width="180"/><col width="563"/></colgroup><tr><td style="text-align:left;width:1.6236in; " class="Table1_A1"><ul><li><p class="P6" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>S<span class="T6">rp</span><span class="odfLiEnd"/> </p></li></ul></td><td style="text-align:left;width:5.0694in; " class="Table1_A1"><p class="P4">SHA-1 Client Proof</p></td></tr><tr><td style="text-align:left;width:1.6236in; " class="Table1_A1"><ul><li><p class="P6" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>S<span class="T6">rp</span>224<span class="odfLiEnd"/> </p></li></ul></td><td style="text-align:left;width:5.0694in; " class="Table1_A1"><p class="P4">SHA-224 Client Proof</p></td></tr><tr><td style="text-align:left;width:1.6236in; " class="Table1_A1"><ul><li><p class="P6" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>S<span class="T6">rp</span>256<span class="odfLiEnd"/> </p></li></ul></td><td style="text-align:left;width:5.0694in; " class="Table1_A1"><p class="P4">SHA-256 Client Proof</p></td></tr><tr><td style="text-align:left;width:1.6236in; " class="Table1_A1"><ul><li><p class="P6" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>S<span class="T6">rp</span>384<span class="odfLiEnd"/> </p></li></ul></td><td style="text-align:left;width:5.0694in; " class="Table1_A1"><p class="P4">SHA-384 Client Proof</p></td></tr><tr><td style="text-align:left;width:1.6236in; " class="Table1_A1"><ul><li><p class="P6" style="margin-left:0cm;"><span class="Bullet_20_Symbols" style="display:block;float:left;min-width:0.635cm;">•</span>S<span class="T6">rp</span>512<span class="odfLiEnd"/> </p></li></ul></td><td style="text-align:left;width:5.0694in; " class="Table1_A1"><p class="P4">SHA-512 Client Proof</p></td></tr></table><p class="P5">Both client and server must have an SRP authentication plugin in common in order to enable successfully authentication of a user's password. </p><p class="P5">There is no change to the SRP User Manager. This is still called (“S<span class="T9">rp</span>”) and the User Manager and the security database are not affected by the choice of message digest used to compute the client proof.</p><p class="P4">The “firebird.conf” default configuration file entries for AuthServer and AuthClient <span class="T8">are</span> now:</p><p class="P4">AuthServer = Srp256, Srp<br/>AuthClient = Srp256, Legacy_Auth (Non -windows clients)<br/>AuthClient = Srp256, Win_Sspi, Legacy_Auth (windows clients)</p><p class="P4">With these settings, a Firebird Server <span class="T6">can use Srp to authenticate a client using either SHA-256 or SHA-1 to compute the client proof and is thus backwards compatible with older Firebird 3 clients. On the other hand, a Firebird client will only attempt to authenticate the user using SHA-256 to compute the client proof. It will hence not be able to use an older Firebird 3 Server.</span></p><p class="P7">Other combinations are possible. For example, adding “Srp” to the AuthClient list will enable a client to use an older Firebird 3 server. However, Srp (using SHA-1) is strongly deprecated for client use and is not believed to be compatible with NIST Guidance. </p><p class="P7">A deployment where both client and servers support the legacy Srp (using SHA-1) and one or more of the SHA-2 authentication plugins (e.g. Srp256) should be avoided. This is because an attacker might be able to disrupt the Srp256 authentication thereby forcing Firebird to use the weaker Srp SHA-1 client proof without the user being aware.</p><h2 class="Heading_20_2"><a id="a__REASON_FOR_CHANGE"><span/></a>REASON FOR CHANGE</h2><p class="P1">Review of the Firebird SRP implementation appears to indicate th<span class="T4">at</span> most uses of SHA-1 continue to be permitted under NIST guidance except for its use in generating the client proof. The SRP client proof may be characterised as a “Poor Man's Digital Signature” in that it provides a two party proof of identity rather than the third party proof normally expected from a Digital Signature i.e. it is not a non-repudiable proof. <span class="T3">Nevertheless, it is believed that generation of the client proof falls under the heading of “Digital Signature Generation” when considering the NIST Guidance.</span></p><p class="P2">Continued use of SHA-1 in order to generate the client proof appears to risk leakage of the encryption key used to encrypt “over-the-wire” encryption and which hence also provides peer entity authentication during the lifetime of the connection. This may result in an attacker being able to monitor confidential communication either during the connection or at some later date and this could include leakage of an encryption key used to encrypt the user database, if this is passed from client to server during the connection.</p><p class="P2">Such an attack is viable if weaknesses in SHA-1 can be exploited to allow a brute force attack on the client proof to be computationally feasible. All parts of the message on which the client proof is based may be known to an attacker with the exception of the shared session key and such an attack would concentrate on revealing this key. If it were possible to reveal the shared session key in real time then additionally a man-in-the-middle attack would be feasible.</p><p class="P2">The severity of this issue is viewed as Important but not Critical. <span class="T7">U</span>sers that rely on SRP <span class="T9">(using SHA-1)</span>/over the wire encryption to protect confidential communication have a long term risk that the confidentiality of  their data may be compromised. <span class="T4">The attack may also be mitigated through the use of other procedures to protect communications (e.g. a secure VPN).</span></p><p class="P9">The <span class="T8">update</span> adds a new directory to the source code tree (src/common/sha2) containing an implementation of the SHA-2 family of message digests <span class="T2">derived from the implementation published by Olivier Gay &lt;</span><a href="mailto:olivier.gay@a3.epfl.ch" class="Internet_20_link"><span class="T2">olivier.gay@a3.epfl.ch</span></a><span class="T2">&gt; (see https://github.com/ouah/sha2). The following copyright notice is included at the request of the original author and applies to the files in </span>src/common/sha2<span class="T2">:</span></p><p class="P10">FIPS 180-2 SHA-224/256/384/512 implementation</p><p class="P10">Last update: 02/02/2007</p><p class="P10">Issue date:  04/30/2005</p><p class="P10">https://github.com/ouah/sha2</p><p class="P10"> </p><p class="P10">Copyright (C) 2005, 2007 Olivier Gay &lt;olivier.gay@a3.epfl.ch&gt;</p><p class="P10">All rights reserved.</p><p class="P10"> </p><p class="P10">Redistribution and use in source and binary forms, with or without</p><p class="P10">modification, are permitted provided that the following conditions</p><p class="P10">are met:</p><p class="P10">1. Redistributions of source code must retain the above copyright</p><p class="P10">   notice, this list of conditions and the following disclaimer.</p><p class="P10">2. Redistributions in binary form must reproduce the above copyright</p><p class="P10">   notice, this list of conditions and the following disclaimer in the</p><p class="P10">   documentation and/or other materials provided with the distribution.</p><p class="P10">3. Neither the name of the project nor the names of its contributors</p><p class="P10">   may be used to endorse or promote products derived from this software</p><p class="P10">   without specific prior written permission.</p><p class="P10"> </p><p class="P10">THIS SOFTWARE IS PROVIDED BY THE PROJECT AND CONTRIBUTORS ``AS IS'' AND</p><p class="P10">ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</p><p class="P10">IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</p><p class="P10">ARE DISCLAIMED.  IN NO EVENT SHALL THE PROJECT OR CONTRIBUTORS BE LIABLE</p><p class="P10">FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</p><p class="P10">DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</p><p class="P10">OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</p><p class="P10">HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</p><p class="P10">LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</p><p class="P10">OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</p><p class="P10">SUCH DAMAGE.</p></body></html>
+\ No newline at end of file
+Index: builds/install/misc/firebird.conf.in
+===================================================================
+--- builds/install/misc/firebird.conf.in	(revision 1)
++++ builds/install/misc/firebird.conf.in	(working copy)
+@@ -394,22 +394,30 @@
+ #
+ # Type: string
+ 
+-# AuthServer and AuthClient determine what authentication methods will be used
+-# by network server and client redirector. Secure remote passwords plugin
+-# is default one. Except configured by default SRP plugin firebird also has
+-# Legacy_Auth plugin which is used to emulate pre-FB3 login protocol making it
+-# possible for client to talk to old servers and for server to listen to requests
+-# from old clients. Legacy_Auth is VERY unsecure. On windows Win_Sspi plugin may
+-# be also used - it implements windows trusted authentication and backward
++# AuthServer and AuthClient determine which authentication methods will be used
++# by network server and client redirector. The Secure remote password plugin
++# using SHA-256 for the client proof is the default for both client and Server.
++# Additionally, the default server configuration (AuthServer) also supports the older Srp
++# plugin using SHA-1 for the client proof. This enables backwards compatibility
++# with older Firebrid 3 Srp clients but is deprecated for current client use. For a full
++# list of available Srp authentication plugins see doc/README.SecureReportPassword.html.
++#
++# The default client configuration (AuthClient) also supports the pre-Firebird 3 legacy 
++# authentication protocol (Legacy_Auth). This is again for backwards 
++# compatibility but has many known weaknesses and is deprecated for current use.
++#
++# The default Windows client configuration (AuthClient) also includes support for
++# the Win_Sspi plugin. This implements windows trusted authentication and is backward
+ # compatible with 2.1 and 2.5 clients and servers running on windows.
+ #
+ # Per-database configurable.
+ #
+-#AuthServer = Srp
++#AuthServer = Srp256, Srp
+ #
+ # Per-connection and per-database configurable.
+ #
+-#AuthClient = Srp, Win_Sspi, Legacy_Auth
++#AuthClient = Srp256, Legacy_Auth           #Non Windows clients
++#AuthClient = Srp256, Win_Sspi, Legacy_Auth #Windows clients
+ #
+ # If you need to use server plugins that do not provide encryption key (both Legacy_Auth
+ # & Win_Sspi) you should also turn off required encryption on the wire with WireCrypt
+Index: builds/posix/make.shared.variables
+===================================================================
+--- builds/posix/make.shared.variables	(revision 1)
++++ builds/posix/make.shared.variables	(working copy)
+@@ -29,7 +29,8 @@
+ CO3:= $(call dirObjects,common/config)
+ #CO4:= $(call dirObjects,common/exceptions)
+ #CO5:= $(call dirObjects,common/sync)
+-Common_Objects:= $(CO1) $(CO2) $(CO3) 
++CO5:= $(call dirObjects,common/sha2)
++Common_Objects:= $(CO1) $(CO2) $(CO3) $(CO5)
+ # $(CO4) $(CO5)
+ 
+ AllObjects += $(Common_Objects)
+
+ 
+Index: src/common/config/config.cpp
+===================================================================
+--- src/common/config/config.cpp	(revision 1)
++++ src/common/config/config.cpp	(working copy)
+@@ -179,11 +179,11 @@
+ 	{TYPE_INTEGER,		"MaxUserTraceLogSize",		(ConfigValue) 10},		// maximum size of user session trace log
+ 	{TYPE_INTEGER,		"FileSystemCacheSize",		(ConfigValue) 0},		// percent
+ 	{TYPE_STRING,		"Providers",				(ConfigValue) "Remote, " CURRENT_ENGINE ", Loopback"},
+-	{TYPE_STRING,		"AuthServer",				(ConfigValue) "Srp"},
++	{TYPE_STRING,		"AuthServer",				(ConfigValue) "Srp256, Srp"},
+ #ifdef WIN_NT
+-	{TYPE_STRING,		"AuthClient",				(ConfigValue) "Srp, Win_Sspi, Legacy_Auth"},
++	{TYPE_STRING,		"AuthClient",				(ConfigValue) "Srp256, Win_Sspi, Legacy_Auth"},
+ #else
+-	{TYPE_STRING,		"AuthClient",				(ConfigValue) "Srp, Legacy_Auth"},
++	{TYPE_STRING,		"AuthClient",				(ConfigValue) "Srp256, Legacy_Auth"},
+ #endif
+ 	{TYPE_STRING,		"UserManager",				(ConfigValue) "Srp"},
+ 	{TYPE_STRING,		"TracePlugin",				(ConfigValue) "fbtrace"},
+Index: src/common/sha2/ChangeLog
+===================================================================
+--- src/common/sha2/ChangeLog	(nonexistent)
++++ src/common/sha2/ChangeLog	(revision 13)
+@@ -0,0 +1,17 @@
++2007-02-02  Olivier Gay  <olivier.gay@a3.epfl.ch>
++
++	* sha2.c (sha512_transf) [UNROLL_LOOPS]: Group together SHA512_EXP calls
++	in a loop to optimize speed in SHA-384 and SHA-512.
++
++	* sha2.h, sha2.c: Remove HAVE_STDINT and use new typedef for fixed-width
++	integer types.
++
++2007-02-02  Tad  <sha2@ds3switch.com>
++
++	* sha2.c (sha224_update, sha256_update, sha384_update, sha512_update): Check
++	the read size is within the buffer limits when updating small data.
++
++2005-05-23  Olivier Gay  <olivier.gay@a3.epfl.ch>
++
++	* sha2.h, sha2.c: Support of SHA-224 functions.
++
+Index: src/common/sha2/sha2.cpp
+===================================================================
+--- src/common/sha2/sha2.cpp	(nonexistent)
++++ src/common/sha2/sha2.cpp	(revision 13)
+@@ -0,0 +1,954 @@
++/*
++ * FIPS 180-2 SHA-224/256/384/512 implementation
++ * Last update: 02/02/2007
++ * Issue date:  04/30/2005
++ * https://github.com/ouah/sha2
++ *
++ * Copyright (C) 2005, 2007 Olivier Gay <olivier.gay@a3.epfl.ch>
++ * All rights reserved.
++ *
++ * Redistribution and use in source and binary forms, with or without
++ * modification, are permitted provided that the following conditions
++ * are met:
++ * 1. Redistributions of source code must retain the above copyright
++ *    notice, this list of conditions and the following disclaimer.
++ * 2. Redistributions in binary form must reproduce the above copyright
++ *    notice, this list of conditions and the following disclaimer in the
++ *    documentation and/or other materials provided with the distribution.
++ * 3. Neither the name of the project nor the names of its contributors
++ *    may be used to endorse or promote products derived from this software
++ *    without specific prior written permission.
++ * 
++ * Updated for use in Firebird by Tony Whyman <tony@mwasoftware.co.uk>
++ *
++ * THIS SOFTWARE IS PROVIDED BY THE PROJECT AND CONTRIBUTORS ``AS IS'' AND
++ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
++ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
++ * ARE DISCLAIMED.  IN NO EVENT SHALL THE PROJECT OR CONTRIBUTORS BE LIABLE
++ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
++ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
++ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
++ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
++ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
++ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
++ * SUCH DAMAGE.
++ */
++
++#if 0
++#define UNROLL_LOOPS /* Enable loops unrolling */
++#endif
++
++#include "sha2.h"
++
++#define SHFR(x, n)    (x >> n)
++#define ROTR(x, n)   ((x >> n) | (x << ((sizeof(x) << 3) - n)))
++#define ROTL(x, n)   ((x << n) | (x >> ((sizeof(x) << 3) - n)))
++#define CH(x, y, z)  ((x & y) ^ (~x & z))
++#define MAJ(x, y, z) ((x & y) ^ (x & z) ^ (y & z))
++
++#define SHA256_F1(x) (ROTR(x,  2) ^ ROTR(x, 13) ^ ROTR(x, 22))
++#define SHA256_F2(x) (ROTR(x,  6) ^ ROTR(x, 11) ^ ROTR(x, 25))
++#define SHA256_F3(x) (ROTR(x,  7) ^ ROTR(x, 18) ^ SHFR(x,  3))
++#define SHA256_F4(x) (ROTR(x, 17) ^ ROTR(x, 19) ^ SHFR(x, 10))
++
++#define SHA512_F1(x) (ROTR(x, 28) ^ ROTR(x, 34) ^ ROTR(x, 39))
++#define SHA512_F2(x) (ROTR(x, 14) ^ ROTR(x, 18) ^ ROTR(x, 41))
++#define SHA512_F3(x) (ROTR(x,  1) ^ ROTR(x,  8) ^ SHFR(x,  7))
++#define SHA512_F4(x) (ROTR(x, 19) ^ ROTR(x, 61) ^ SHFR(x,  6))
++
++#define UNPACK32(x, str)                      \
++{                                             \
++    *((str) + 3) = (uint8) ((x)      );       \
++    *((str) + 2) = (uint8) ((x) >>  8);       \
++    *((str) + 1) = (uint8) ((x) >> 16);       \
++    *((str) + 0) = (uint8) ((x) >> 24);       \
++}
++
++#define PACK32(str, x)                        \
++{                                             \
++    *(x) =   ((uint32) *((str) + 3)      )    \
++           | ((uint32) *((str) + 2) <<  8)    \
++           | ((uint32) *((str) + 1) << 16)    \
++           | ((uint32) *((str) + 0) << 24);   \
++}
++
++#define UNPACK64(x, str)                      \
++{                                             \
++    *((str) + 7) = (uint8) ((x)      );       \
++    *((str) + 6) = (uint8) ((x) >>  8);       \
++    *((str) + 5) = (uint8) ((x) >> 16);       \
++    *((str) + 4) = (uint8) ((x) >> 24);       \
++    *((str) + 3) = (uint8) ((x) >> 32);       \
++    *((str) + 2) = (uint8) ((x) >> 40);       \
++    *((str) + 1) = (uint8) ((x) >> 48);       \
++    *((str) + 0) = (uint8) ((x) >> 56);       \
++}
++
++#define PACK64(str, x)                        \
++{                                             \
++    *(x) =   ((uint64) *((str) + 7)      )    \
++           | ((uint64) *((str) + 6) <<  8)    \
++           | ((uint64) *((str) + 5) << 16)    \
++           | ((uint64) *((str) + 4) << 24)    \
++           | ((uint64) *((str) + 3) << 32)    \
++           | ((uint64) *((str) + 2) << 40)    \
++           | ((uint64) *((str) + 1) << 48)    \
++           | ((uint64) *((str) + 0) << 56);   \
++}
++
++/* Macros used for loops unrolling */
++
++#define SHA256_SCR(i)                         \
++{                                             \
++    w[i] =  SHA256_F4(w[i -  2]) + w[i -  7]  \
++          + SHA256_F3(w[i - 15]) + w[i - 16]; \
++}
++
++#define SHA512_SCR(i)                         \
++{                                             \
++    w[i] =  SHA512_F4(w[i -  2]) + w[i -  7]  \
++          + SHA512_F3(w[i - 15]) + w[i - 16]; \
++}
++
++#define SHA256_EXP(a, b, c, d, e, f, g, h, j)               \
++{                                                           \
++    t1 = wv[h] + SHA256_F2(wv[e]) + CH(wv[e], wv[f], wv[g]) \
++         + sha256_k[j] + w[j];                              \
++    t2 = SHA256_F1(wv[a]) + MAJ(wv[a], wv[b], wv[c]);       \
++    wv[d] += t1;                                            \
++    wv[h] = t1 + t2;                                        \
++}
++
++#define SHA512_EXP(a, b, c, d, e, f, g ,h, j)               \
++{                                                           \
++    t1 = wv[h] + SHA512_F2(wv[e]) + CH(wv[e], wv[f], wv[g]) \
++         + sha512_k[j] + w[j];                              \
++    t2 = SHA512_F1(wv[a]) + MAJ(wv[a], wv[b], wv[c]);       \
++    wv[d] += t1;                                            \
++    wv[h] = t1 + t2;                                        \
++}
++
++namespace Firebird {
++
++
++sha2_base::uint32 sha224_h0[8] =
++            {0xc1059ed8, 0x367cd507, 0x3070dd17, 0xf70e5939,
++             0xffc00b31, 0x68581511, 0x64f98fa7, 0xbefa4fa4};
++
++sha2_base::uint32 sha256_h0[8] =
++            {0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a,
++             0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19};
++
++sha2_base::uint64 sha384_h0[8] =
++            {0xcbbb9d5dc1059ed8ULL, 0x629a292a367cd507ULL,
++             0x9159015a3070dd17ULL, 0x152fecd8f70e5939ULL,
++             0x67332667ffc00b31ULL, 0x8eb44a8768581511ULL,
++             0xdb0c2e0d64f98fa7ULL, 0x47b5481dbefa4fa4ULL};
++
++sha2_base::uint64 sha512_h0[8] =
++            {0x6a09e667f3bcc908ULL, 0xbb67ae8584caa73bULL,
++             0x3c6ef372fe94f82bULL, 0xa54ff53a5f1d36f1ULL,
++             0x510e527fade682d1ULL, 0x9b05688c2b3e6c1fULL,
++             0x1f83d9abfb41bd6bULL, 0x5be0cd19137e2179ULL};
++
++sha2_base::uint32 sha256_k[64] =
++            {0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5,
++             0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
++             0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3,
++             0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,
++             0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc,
++             0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da,
++             0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7,
++             0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967,
++             0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13,
++             0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85,
++             0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3,
++             0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070,
++             0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5,
++             0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3,
++             0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208,
++             0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2};
++
++sha2_base::uint64 sha512_k[80] =
++            {0x428a2f98d728ae22ULL, 0x7137449123ef65cdULL,
++             0xb5c0fbcfec4d3b2fULL, 0xe9b5dba58189dbbcULL,
++             0x3956c25bf348b538ULL, 0x59f111f1b605d019ULL,
++             0x923f82a4af194f9bULL, 0xab1c5ed5da6d8118ULL,
++             0xd807aa98a3030242ULL, 0x12835b0145706fbeULL,
++             0x243185be4ee4b28cULL, 0x550c7dc3d5ffb4e2ULL,
++             0x72be5d74f27b896fULL, 0x80deb1fe3b1696b1ULL,
++             0x9bdc06a725c71235ULL, 0xc19bf174cf692694ULL,
++             0xe49b69c19ef14ad2ULL, 0xefbe4786384f25e3ULL,
++             0x0fc19dc68b8cd5b5ULL, 0x240ca1cc77ac9c65ULL,
++             0x2de92c6f592b0275ULL, 0x4a7484aa6ea6e483ULL,
++             0x5cb0a9dcbd41fbd4ULL, 0x76f988da831153b5ULL,
++             0x983e5152ee66dfabULL, 0xa831c66d2db43210ULL,
++             0xb00327c898fb213fULL, 0xbf597fc7beef0ee4ULL,
++             0xc6e00bf33da88fc2ULL, 0xd5a79147930aa725ULL,
++             0x06ca6351e003826fULL, 0x142929670a0e6e70ULL,
++             0x27b70a8546d22ffcULL, 0x2e1b21385c26c926ULL,
++             0x4d2c6dfc5ac42aedULL, 0x53380d139d95b3dfULL,
++             0x650a73548baf63deULL, 0x766a0abb3c77b2a8ULL,
++             0x81c2c92e47edaee6ULL, 0x92722c851482353bULL,
++             0xa2bfe8a14cf10364ULL, 0xa81a664bbc423001ULL,
++             0xc24b8b70d0f89791ULL, 0xc76c51a30654be30ULL,
++             0xd192e819d6ef5218ULL, 0xd69906245565a910ULL,
++             0xf40e35855771202aULL, 0x106aa07032bbd1b8ULL,
++             0x19a4c116b8d2d0c8ULL, 0x1e376c085141ab53ULL,
++             0x2748774cdf8eeb99ULL, 0x34b0bcb5e19b48a8ULL,
++             0x391c0cb3c5c95a63ULL, 0x4ed8aa4ae3418acbULL,
++             0x5b9cca4f7763e373ULL, 0x682e6ff3d6b2b8a3ULL,
++             0x748f82ee5defb2fcULL, 0x78a5636f43172f60ULL,
++             0x84c87814a1f0ab72ULL, 0x8cc702081a6439ecULL,
++             0x90befffa23631e28ULL, 0xa4506cebde82bde9ULL,
++             0xbef9a3f7b2c67915ULL, 0xc67178f2e372532bULL,
++             0xca273eceea26619cULL, 0xd186b8c721c0c207ULL,
++             0xeada7dd6cde0eb1eULL, 0xf57d4f7fee6ed178ULL,
++             0x06f067aa72176fbaULL, 0x0a637dc5a2c898a6ULL,
++             0x113f9804bef90daeULL, 0x1b710b35131c471bULL,
++             0x28db77f523047d84ULL, 0x32caab7b40c72493ULL,
++             0x3c9ebe0a15c9bebcULL, 0x431d67c49c100d4cULL,
++             0x4cc5d4becb3e42b6ULL, 0x597f299cfc657e2aULL,
++             0x5fcb6fab3ad6faecULL, 0x6c44198c4a475817ULL};
++             
++/* sha2_base */
++
++void sha2_base::getHash(unsigned char *digest) 
++{
++	sha_final(digest);
++	reset();
++};   
++
++#ifndef NIST_COMPLIANCY_TESTS
++void sha2_base::getHash(UCharBuffer& h) 
++{
++	sha_final(h.getBuffer(get_DigestSize()));
++	reset();
++};
++#endif          
++             
++
++/* SHA-256 functions */
++
++sha256::sha256() : sha2_base() 
++{
++	sha256_init(&ctx);
++}
++
++void sha256::sha256_transf(sha256_ctx * ctx, const unsigned char *message,
++                   unsigned int block_nb)
++{
++    uint32 w[64];
++    uint32 wv[8];
++    uint32 t1, t2;
++    const unsigned char *sub_block;
++    int i;
++
++#ifndef UNROLL_LOOPS
++    int j;
++#endif
++
++    for (i = 0; i < (int) block_nb; i++) {
++        sub_block = message + (i << 6);
++
++#ifndef UNROLL_LOOPS
++        for (j = 0; j < 16; j++) {
++            PACK32(&sub_block[j << 2], &w[j]);
++        }
++
++        for (j = 16; j < 64; j++) {
++            SHA256_SCR(j);
++        }
++
++        for (j = 0; j < 8; j++) {
++            wv[j] = ctx->h[j];
++        }
++
++        for (j = 0; j < 64; j++) {
++            t1 = wv[7] + SHA256_F2(wv[4]) + CH(wv[4], wv[5], wv[6])
++                + sha256_k[j] + w[j];
++            t2 = SHA256_F1(wv[0]) + MAJ(wv[0], wv[1], wv[2]);
++            wv[7] = wv[6];
++            wv[6] = wv[5];
++            wv[5] = wv[4];
++            wv[4] = wv[3] + t1;
++            wv[3] = wv[2];
++            wv[2] = wv[1];
++            wv[1] = wv[0];
++            wv[0] = t1 + t2;
++        }
++
++        for (j = 0; j < 8; j++) {
++            ctx->h[j] += wv[j];
++        }
++#else
++        PACK32(&sub_block[ 0], &w[ 0]); PACK32(&sub_block[ 4], &w[ 1]);
++        PACK32(&sub_block[ 8], &w[ 2]); PACK32(&sub_block[12], &w[ 3]);
++        PACK32(&sub_block[16], &w[ 4]); PACK32(&sub_block[20], &w[ 5]);
++        PACK32(&sub_block[24], &w[ 6]); PACK32(&sub_block[28], &w[ 7]);
++        PACK32(&sub_block[32], &w[ 8]); PACK32(&sub_block[36], &w[ 9]);
++        PACK32(&sub_block[40], &w[10]); PACK32(&sub_block[44], &w[11]);
++        PACK32(&sub_block[48], &w[12]); PACK32(&sub_block[52], &w[13]);
++        PACK32(&sub_block[56], &w[14]); PACK32(&sub_block[60], &w[15]);
++
++        SHA256_SCR(16); SHA256_SCR(17); SHA256_SCR(18); SHA256_SCR(19);
++        SHA256_SCR(20); SHA256_SCR(21); SHA256_SCR(22); SHA256_SCR(23);
++        SHA256_SCR(24); SHA256_SCR(25); SHA256_SCR(26); SHA256_SCR(27);
++        SHA256_SCR(28); SHA256_SCR(29); SHA256_SCR(30); SHA256_SCR(31);
++        SHA256_SCR(32); SHA256_SCR(33); SHA256_SCR(34); SHA256_SCR(35);
++        SHA256_SCR(36); SHA256_SCR(37); SHA256_SCR(38); SHA256_SCR(39);
++        SHA256_SCR(40); SHA256_SCR(41); SHA256_SCR(42); SHA256_SCR(43);
++        SHA256_SCR(44); SHA256_SCR(45); SHA256_SCR(46); SHA256_SCR(47);
++        SHA256_SCR(48); SHA256_SCR(49); SHA256_SCR(50); SHA256_SCR(51);
++        SHA256_SCR(52); SHA256_SCR(53); SHA256_SCR(54); SHA256_SCR(55);
++        SHA256_SCR(56); SHA256_SCR(57); SHA256_SCR(58); SHA256_SCR(59);
++        SHA256_SCR(60); SHA256_SCR(61); SHA256_SCR(62); SHA256_SCR(63);
++
++        wv[0] = ctx->h[0]; wv[1] = ctx->h[1];
++        wv[2] = ctx->h[2]; wv[3] = ctx->h[3];
++        wv[4] = ctx->h[4]; wv[5] = ctx->h[5];
++        wv[6] = ctx->h[6]; wv[7] = ctx->h[7];
++
++        SHA256_EXP(0,1,2,3,4,5,6,7, 0); SHA256_EXP(7,0,1,2,3,4,5,6, 1);
++        SHA256_EXP(6,7,0,1,2,3,4,5, 2); SHA256_EXP(5,6,7,0,1,2,3,4, 3);
++        SHA256_EXP(4,5,6,7,0,1,2,3, 4); SHA256_EXP(3,4,5,6,7,0,1,2, 5);
++        SHA256_EXP(2,3,4,5,6,7,0,1, 6); SHA256_EXP(1,2,3,4,5,6,7,0, 7);
++        SHA256_EXP(0,1,2,3,4,5,6,7, 8); SHA256_EXP(7,0,1,2,3,4,5,6, 9);
++        SHA256_EXP(6,7,0,1,2,3,4,5,10); SHA256_EXP(5,6,7,0,1,2,3,4,11);
++        SHA256_EXP(4,5,6,7,0,1,2,3,12); SHA256_EXP(3,4,5,6,7,0,1,2,13);
++        SHA256_EXP(2,3,4,5,6,7,0,1,14); SHA256_EXP(1,2,3,4,5,6,7,0,15);
++        SHA256_EXP(0,1,2,3,4,5,6,7,16); SHA256_EXP(7,0,1,2,3,4,5,6,17);
++        SHA256_EXP(6,7,0,1,2,3,4,5,18); SHA256_EXP(5,6,7,0,1,2,3,4,19);
++        SHA256_EXP(4,5,6,7,0,1,2,3,20); SHA256_EXP(3,4,5,6,7,0,1,2,21);
++        SHA256_EXP(2,3,4,5,6,7,0,1,22); SHA256_EXP(1,2,3,4,5,6,7,0,23);
++        SHA256_EXP(0,1,2,3,4,5,6,7,24); SHA256_EXP(7,0,1,2,3,4,5,6,25);
++        SHA256_EXP(6,7,0,1,2,3,4,5,26); SHA256_EXP(5,6,7,0,1,2,3,4,27);
++        SHA256_EXP(4,5,6,7,0,1,2,3,28); SHA256_EXP(3,4,5,6,7,0,1,2,29);
++        SHA256_EXP(2,3,4,5,6,7,0,1,30); SHA256_EXP(1,2,3,4,5,6,7,0,31);
++        SHA256_EXP(0,1,2,3,4,5,6,7,32); SHA256_EXP(7,0,1,2,3,4,5,6,33);
++        SHA256_EXP(6,7,0,1,2,3,4,5,34); SHA256_EXP(5,6,7,0,1,2,3,4,35);
++        SHA256_EXP(4,5,6,7,0,1,2,3,36); SHA256_EXP(3,4,5,6,7,0,1,2,37);
++        SHA256_EXP(2,3,4,5,6,7,0,1,38); SHA256_EXP(1,2,3,4,5,6,7,0,39);
++        SHA256_EXP(0,1,2,3,4,5,6,7,40); SHA256_EXP(7,0,1,2,3,4,5,6,41);
++        SHA256_EXP(6,7,0,1,2,3,4,5,42); SHA256_EXP(5,6,7,0,1,2,3,4,43);
++        SHA256_EXP(4,5,6,7,0,1,2,3,44); SHA256_EXP(3,4,5,6,7,0,1,2,45);
++        SHA256_EXP(2,3,4,5,6,7,0,1,46); SHA256_EXP(1,2,3,4,5,6,7,0,47);
++        SHA256_EXP(0,1,2,3,4,5,6,7,48); SHA256_EXP(7,0,1,2,3,4,5,6,49);
++        SHA256_EXP(6,7,0,1,2,3,4,5,50); SHA256_EXP(5,6,7,0,1,2,3,4,51);
++        SHA256_EXP(4,5,6,7,0,1,2,3,52); SHA256_EXP(3,4,5,6,7,0,1,2,53);
++        SHA256_EXP(2,3,4,5,6,7,0,1,54); SHA256_EXP(1,2,3,4,5,6,7,0,55);
++        SHA256_EXP(0,1,2,3,4,5,6,7,56); SHA256_EXP(7,0,1,2,3,4,5,6,57);
++        SHA256_EXP(6,7,0,1,2,3,4,5,58); SHA256_EXP(5,6,7,0,1,2,3,4,59);
++        SHA256_EXP(4,5,6,7,0,1,2,3,60); SHA256_EXP(3,4,5,6,7,0,1,2,61);
++        SHA256_EXP(2,3,4,5,6,7,0,1,62); SHA256_EXP(1,2,3,4,5,6,7,0,63);
++
++        ctx->h[0] += wv[0]; ctx->h[1] += wv[1];
++        ctx->h[2] += wv[2]; ctx->h[3] += wv[3];
++        ctx->h[4] += wv[4]; ctx->h[5] += wv[5];
++        ctx->h[6] += wv[6]; ctx->h[7] += wv[7];
++#endif /* !UNROLL_LOOPS */
++    }
++}
++
++void sha256::sha256_init(sha256_ctx * ctx)
++{
++#ifndef UNROLL_LOOPS
++    int i;
++    for (i = 0; i < 8; i++) {
++        ctx->h[i] = sha256_h0[i];
++    }
++#else
++    ctx->h[0] = sha256_h0[0]; ctx->h[1] = sha256_h0[1];
++    ctx->h[2] = sha256_h0[2]; ctx->h[3] = sha256_h0[3];
++    ctx->h[4] = sha256_h0[4]; ctx->h[5] = sha256_h0[5];
++    ctx->h[6] = sha256_h0[6]; ctx->h[7] = sha256_h0[7];
++#endif /* !UNROLL_LOOPS */
++
++    ctx->len = 0;
++    ctx->tot_len = 0;
++}
++
++void sha256::sha256_update(sha256_ctx * ctx, const unsigned char *message,
++                   unsigned int len)
++{
++    unsigned int block_nb;
++    unsigned int new_len, rem_len, tmp_len;
++    const unsigned char *shifted_message;
++
++    tmp_len = SHA256_BLOCK_SIZE - ctx->len;
++    rem_len = len < tmp_len ? len : tmp_len;
++
++    memcpy(&ctx->block[ctx->len], message, rem_len);
++
++    if (ctx->len + len < SHA256_BLOCK_SIZE) {
++        ctx->len += len;
++        return;
++    }
++
++    new_len = len - rem_len;
++    block_nb = new_len / SHA256_BLOCK_SIZE;
++
++    shifted_message = message + rem_len;
++
++    sha256_transf(ctx, ctx->block, 1);
++    sha256_transf(ctx, shifted_message, block_nb);
++
++    rem_len = new_len % SHA256_BLOCK_SIZE;
++
++    memcpy(ctx->block, &shifted_message[block_nb << 6],
++           rem_len);
++
++    ctx->len = rem_len;
++    ctx->tot_len += (block_nb + 1) << 6;
++}
++
++void sha256::sha256_final(sha256_ctx * ctx, unsigned char *digest)
++{
++    unsigned int block_nb;
++    unsigned int pm_len;
++    unsigned int len_b;
++
++#ifndef UNROLL_LOOPS
++    int i;
++#endif
++
++    block_nb = (1 + ((SHA256_BLOCK_SIZE - 9)
++                     < (ctx->len % SHA256_BLOCK_SIZE)));
++
++    len_b = (ctx->tot_len + ctx->len) << 3;
++    pm_len = block_nb << 6;
++
++    memset(ctx->block + ctx->len, 0, pm_len - ctx->len);
++    ctx->block[ctx->len] = 0x80;
++    UNPACK32(len_b, ctx->block + pm_len - 4);
++
++    sha256_transf(ctx, ctx->block, block_nb);
++
++#ifndef UNROLL_LOOPS
++    for (i = 0 ; i < 8; i++) {
++        UNPACK32(ctx->h[i], &digest[i << 2]);
++    }
++#else
++   UNPACK32(ctx->h[0], &digest[ 0]);
++   UNPACK32(ctx->h[1], &digest[ 4]);
++   UNPACK32(ctx->h[2], &digest[ 8]);
++   UNPACK32(ctx->h[3], &digest[12]);
++   UNPACK32(ctx->h[4], &digest[16]);
++   UNPACK32(ctx->h[5], &digest[20]);
++   UNPACK32(ctx->h[6], &digest[24]);
++   UNPACK32(ctx->h[7], &digest[28]);
++#endif /* !UNROLL_LOOPS */
++}
++
++/* SHA-512 functions */
++
++sha512::sha512() : sha2_base()
++{
++	sha512_init(&ctx);
++}
++
++void sha512::sha512_transf(sha512_ctx *ctx, const unsigned char *message,
++                   unsigned int block_nb)
++{
++    uint64 w[80];
++    uint64 wv[8];
++    uint64 t1, t2;
++    const unsigned char *sub_block;
++    int i, j;
++
++    for (i = 0; i < (int) block_nb; i++) {
++        sub_block = message + (i << 7);
++
++#ifndef UNROLL_LOOPS
++        for (j = 0; j < 16; j++) {
++            PACK64(&sub_block[j << 3], &w[j]);
++        }
++
++        for (j = 16; j < 80; j++) {
++            SHA512_SCR(j);
++        }
++
++        for (j = 0; j < 8; j++) {
++            wv[j] = ctx->h[j];
++        }
++
++        for (j = 0; j < 80; j++) {
++            t1 = wv[7] + SHA512_F2(wv[4]) + CH(wv[4], wv[5], wv[6])
++                + sha512_k[j] + w[j];
++            t2 = SHA512_F1(wv[0]) + MAJ(wv[0], wv[1], wv[2]);
++            wv[7] = wv[6];
++            wv[6] = wv[5];
++            wv[5] = wv[4];
++            wv[4] = wv[3] + t1;
++            wv[3] = wv[2];
++            wv[2] = wv[1];
++            wv[1] = wv[0];
++            wv[0] = t1 + t2;
++        }
++
++        for (j = 0; j < 8; j++) {
++            ctx->h[j] += wv[j];
++        }
++#else
++        PACK64(&sub_block[  0], &w[ 0]); PACK64(&sub_block[  8], &w[ 1]);
++        PACK64(&sub_block[ 16], &w[ 2]); PACK64(&sub_block[ 24], &w[ 3]);
++        PACK64(&sub_block[ 32], &w[ 4]); PACK64(&sub_block[ 40], &w[ 5]);
++        PACK64(&sub_block[ 48], &w[ 6]); PACK64(&sub_block[ 56], &w[ 7]);
++        PACK64(&sub_block[ 64], &w[ 8]); PACK64(&sub_block[ 72], &w[ 9]);
++        PACK64(&sub_block[ 80], &w[10]); PACK64(&sub_block[ 88], &w[11]);
++        PACK64(&sub_block[ 96], &w[12]); PACK64(&sub_block[104], &w[13]);
++        PACK64(&sub_block[112], &w[14]); PACK64(&sub_block[120], &w[15]);
++
++        SHA512_SCR(16); SHA512_SCR(17); SHA512_SCR(18); SHA512_SCR(19);
++        SHA512_SCR(20); SHA512_SCR(21); SHA512_SCR(22); SHA512_SCR(23);
++        SHA512_SCR(24); SHA512_SCR(25); SHA512_SCR(26); SHA512_SCR(27);
++        SHA512_SCR(28); SHA512_SCR(29); SHA512_SCR(30); SHA512_SCR(31);
++        SHA512_SCR(32); SHA512_SCR(33); SHA512_SCR(34); SHA512_SCR(35);
++        SHA512_SCR(36); SHA512_SCR(37); SHA512_SCR(38); SHA512_SCR(39);
++        SHA512_SCR(40); SHA512_SCR(41); SHA512_SCR(42); SHA512_SCR(43);
++        SHA512_SCR(44); SHA512_SCR(45); SHA512_SCR(46); SHA512_SCR(47);
++        SHA512_SCR(48); SHA512_SCR(49); SHA512_SCR(50); SHA512_SCR(51);
++        SHA512_SCR(52); SHA512_SCR(53); SHA512_SCR(54); SHA512_SCR(55);
++        SHA512_SCR(56); SHA512_SCR(57); SHA512_SCR(58); SHA512_SCR(59);
++        SHA512_SCR(60); SHA512_SCR(61); SHA512_SCR(62); SHA512_SCR(63);
++        SHA512_SCR(64); SHA512_SCR(65); SHA512_SCR(66); SHA512_SCR(67);
++        SHA512_SCR(68); SHA512_SCR(69); SHA512_SCR(70); SHA512_SCR(71);
++        SHA512_SCR(72); SHA512_SCR(73); SHA512_SCR(74); SHA512_SCR(75);
++        SHA512_SCR(76); SHA512_SCR(77); SHA512_SCR(78); SHA512_SCR(79);
++
++        wv[0] = ctx->h[0]; wv[1] = ctx->h[1];
++        wv[2] = ctx->h[2]; wv[3] = ctx->h[3];
++        wv[4] = ctx->h[4]; wv[5] = ctx->h[5];
++        wv[6] = ctx->h[6]; wv[7] = ctx->h[7];
++
++        j = 0;
++
++        do {
++            SHA512_EXP(0,1,2,3,4,5,6,7,j); j++;
++            SHA512_EXP(7,0,1,2,3,4,5,6,j); j++;
++            SHA512_EXP(6,7,0,1,2,3,4,5,j); j++;
++            SHA512_EXP(5,6,7,0,1,2,3,4,j); j++;
++            SHA512_EXP(4,5,6,7,0,1,2,3,j); j++;
++            SHA512_EXP(3,4,5,6,7,0,1,2,j); j++;
++            SHA512_EXP(2,3,4,5,6,7,0,1,j); j++;
++            SHA512_EXP(1,2,3,4,5,6,7,0,j); j++;
++        } while (j < 80);
++
++        ctx->h[0] += wv[0]; ctx->h[1] += wv[1];
++        ctx->h[2] += wv[2]; ctx->h[3] += wv[3];
++        ctx->h[4] += wv[4]; ctx->h[5] += wv[5];
++        ctx->h[6] += wv[6]; ctx->h[7] += wv[7];
++#endif /* !UNROLL_LOOPS */
++    }
++}
++
++void sha512::sha512_init(sha512_ctx *ctx)
++{
++#ifndef UNROLL_LOOPS
++    int i;
++    for (i = 0; i < 8; i++) {
++        ctx->h[i] = sha512_h0[i];
++    }
++#else
++    ctx->h[0] = sha512_h0[0]; ctx->h[1] = sha512_h0[1];
++    ctx->h[2] = sha512_h0[2]; ctx->h[3] = sha512_h0[3];
++    ctx->h[4] = sha512_h0[4]; ctx->h[5] = sha512_h0[5];
++    ctx->h[6] = sha512_h0[6]; ctx->h[7] = sha512_h0[7];
++#endif /* !UNROLL_LOOPS */
++
++    ctx->len = 0;
++    ctx->tot_len = 0;
++}
++
++void sha512::sha512_update(sha512_ctx *ctx, const unsigned char *message,
++                   unsigned int len)
++{
++    unsigned int block_nb;
++    unsigned int new_len, rem_len, tmp_len;
++    const unsigned char *shifted_message;
++
++    tmp_len = SHA512_BLOCK_SIZE - ctx->len;
++    rem_len = len < tmp_len ? len : tmp_len;
++
++    memcpy(&ctx->block[ctx->len], message, rem_len);
++
++    if (ctx->len + len < SHA512_BLOCK_SIZE) {
++        ctx->len += len;
++        return;
++    }
++
++    new_len = len - rem_len;
++    block_nb = new_len / SHA512_BLOCK_SIZE;
++
++    shifted_message = message + rem_len;
++
++    sha512_transf(ctx, ctx->block, 1);
++    sha512_transf(ctx, shifted_message, block_nb);
++
++    rem_len = new_len % SHA512_BLOCK_SIZE;
++
++    memcpy(ctx->block, &shifted_message[block_nb << 7],
++           rem_len);
++
++    ctx->len = rem_len;
++    ctx->tot_len += (block_nb + 1) << 7;
++}
++
++void sha512::sha512_final(sha512_ctx *ctx, unsigned char *digest)
++{
++    unsigned int block_nb;
++    unsigned int pm_len;
++    unsigned int len_b;
++
++#ifndef UNROLL_LOOPS
++    int i;
++#endif
++
++    block_nb = 1 + ((SHA512_BLOCK_SIZE - 17)
++                     < (ctx->len % SHA512_BLOCK_SIZE));
++
++    len_b = (ctx->tot_len + ctx->len) << 3;
++    pm_len = block_nb << 7;
++
++    memset(ctx->block + ctx->len, 0, pm_len - ctx->len);
++    ctx->block[ctx->len] = 0x80;
++    UNPACK32(len_b, ctx->block + pm_len - 4);
++
++    sha512_transf(ctx, ctx->block, block_nb);
++
++#ifndef UNROLL_LOOPS
++    for (i = 0 ; i < 8; i++) {
++        UNPACK64(ctx->h[i], &digest[i << 3]);
++    }
++#else
++    UNPACK64(ctx->h[0], &digest[ 0]);
++    UNPACK64(ctx->h[1], &digest[ 8]);
++    UNPACK64(ctx->h[2], &digest[16]);
++    UNPACK64(ctx->h[3], &digest[24]);
++    UNPACK64(ctx->h[4], &digest[32]);
++    UNPACK64(ctx->h[5], &digest[40]);
++    UNPACK64(ctx->h[6], &digest[48]);
++    UNPACK64(ctx->h[7], &digest[56]);
++#endif /* !UNROLL_LOOPS */
++}
++
++/* SHA-384 functions */
++
++sha384::sha384() : sha512()
++{
++	sha384_init(&ctx);
++}
++
++void sha384::sha384_init(sha384_ctx *ctx)
++{
++#ifndef UNROLL_LOOPS
++    int i;
++    for (i = 0; i < 8; i++) {
++        ctx->h[i] = sha384_h0[i];
++    }
++#else
++    ctx->h[0] = sha384_h0[0]; ctx->h[1] = sha384_h0[1];
++    ctx->h[2] = sha384_h0[2]; ctx->h[3] = sha384_h0[3];
++    ctx->h[4] = sha384_h0[4]; ctx->h[5] = sha384_h0[5];
++    ctx->h[6] = sha384_h0[6]; ctx->h[7] = sha384_h0[7];
++#endif /* !UNROLL_LOOPS */
++
++    ctx->len = 0;
++    ctx->tot_len = 0;
++}
++
++void sha384::sha384_update(sha384_ctx *ctx,const unsigned char *message,
++                   unsigned int len)
++{
++    unsigned int block_nb;
++    unsigned int new_len, rem_len, tmp_len;
++    const unsigned char *shifted_message;
++
++    tmp_len = SHA384_BLOCK_SIZE - ctx->len;
++    rem_len = len < tmp_len ? len : tmp_len;
++
++    memcpy(&ctx->block[ctx->len], message, rem_len);
++
++    if (ctx->len + len < SHA384_BLOCK_SIZE) {
++        ctx->len += len;
++        return;
++    }
++
++    new_len = len - rem_len;
++    block_nb = new_len / SHA384_BLOCK_SIZE;
++
++    shifted_message = message + rem_len;
++
++    sha512_transf(ctx, ctx->block, 1);
++    sha512_transf(ctx, shifted_message, block_nb);
++
++    rem_len = new_len % SHA384_BLOCK_SIZE;
++
++    memcpy(ctx->block, &shifted_message[block_nb << 7],
++           rem_len);
++
++    ctx->len = rem_len;
++    ctx->tot_len += (block_nb + 1) << 7;
++}
++
++void sha384::sha384_final(sha384_ctx *ctx, unsigned char *digest)
++{
++    unsigned int block_nb;
++    unsigned int pm_len;
++    unsigned int len_b;
++
++#ifndef UNROLL_LOOPS
++    int i;
++#endif
++
++    block_nb = (1 + ((SHA384_BLOCK_SIZE - 17)
++                     < (ctx->len % SHA384_BLOCK_SIZE)));
++
++    len_b = (ctx->tot_len + ctx->len) << 3;
++    pm_len = block_nb << 7;
++
++    memset(ctx->block + ctx->len, 0, pm_len - ctx->len);
++    ctx->block[ctx->len] = 0x80;
++    UNPACK32(len_b, ctx->block + pm_len - 4);
++
++    sha512_transf(ctx, ctx->block, block_nb);
++
++#ifndef UNROLL_LOOPS
++    for (i = 0 ; i < 6; i++) {
++        UNPACK64(ctx->h[i], &digest[i << 3]);
++    }
++#else
++    UNPACK64(ctx->h[0], &digest[ 0]);
++    UNPACK64(ctx->h[1], &digest[ 8]);
++    UNPACK64(ctx->h[2], &digest[16]);
++    UNPACK64(ctx->h[3], &digest[24]);
++    UNPACK64(ctx->h[4], &digest[32]);
++    UNPACK64(ctx->h[5], &digest[40]);
++#endif /* !UNROLL_LOOPS */
++}
++
++/* SHA-224 functions */
++
++sha224::sha224() : sha256()
++{
++	sha224_init(&ctx);
++}
++
++void sha224::sha224_init(sha224_ctx *ctx)
++{
++#ifndef UNROLL_LOOPS
++    int i;
++    for (i = 0; i < 8; i++) {
++        ctx->h[i] = sha224_h0[i];
++    }
++#else
++    ctx->h[0] = sha224_h0[0]; ctx->h[1] = sha224_h0[1];
++    ctx->h[2] = sha224_h0[2]; ctx->h[3] = sha224_h0[3];
++    ctx->h[4] = sha224_h0[4]; ctx->h[5] = sha224_h0[5];
++    ctx->h[6] = sha224_h0[6]; ctx->h[7] = sha224_h0[7];
++#endif /* !UNROLL_LOOPS */
++
++    ctx->len = 0;
++    ctx->tot_len = 0;
++}
++
++void sha224::sha224_update(sha224_ctx *ctx, const unsigned char *message,
++                   unsigned int len)
++{
++    unsigned int block_nb;
++    unsigned int new_len, rem_len, tmp_len;
++    const unsigned char *shifted_message;
++
++    tmp_len = SHA224_BLOCK_SIZE - ctx->len;
++    rem_len = len < tmp_len ? len : tmp_len;
++
++    memcpy(&ctx->block[ctx->len], message, rem_len);
++
++    if (ctx->len + len < SHA224_BLOCK_SIZE) {
++        ctx->len += len;
++        return;
++    }
++
++    new_len = len - rem_len;
++    block_nb = new_len / SHA224_BLOCK_SIZE;
++
++    shifted_message = message + rem_len;
++
++    sha256_transf(ctx,ctx->block, 1);
++    sha256_transf(ctx, shifted_message, block_nb);
++
++    rem_len = new_len % SHA224_BLOCK_SIZE;
++
++    memcpy(ctx->block, &shifted_message[block_nb << 6],
++           rem_len);
++
++    ctx->len = rem_len;
++    ctx->tot_len += (block_nb + 1) << 6;
++}
++
++void sha224::sha224_final(sha224_ctx *ctx, unsigned char *digest)
++{
++    unsigned int block_nb;
++    unsigned int pm_len;
++    unsigned int len_b;
++
++#ifndef UNROLL_LOOPS
++    int i;
++#endif
++
++    block_nb = (1 + ((SHA224_BLOCK_SIZE - 9)
++                     < (ctx->len % SHA224_BLOCK_SIZE)));
++
++    len_b = (ctx->tot_len + ctx->len) << 3;
++    pm_len = block_nb << 6;
++
++    memset(ctx->block + ctx->len, 0, pm_len - ctx->len);
++    ctx->block[ctx->len] = 0x80;
++    UNPACK32(len_b, ctx->block + pm_len - 4);
++
++    sha256_transf(ctx, ctx->block, block_nb);
++
++#ifndef UNROLL_LOOPS
++    for (i = 0 ; i < 7; i++) {
++        UNPACK32(ctx->h[i], &digest[i << 2]);
++    }
++#else
++   UNPACK32(ctx->h[0], &digest[ 0]);
++   UNPACK32(ctx->h[1], &digest[ 4]);
++   UNPACK32(ctx->h[2], &digest[ 8]);
++   UNPACK32(ctx->h[3], &digest[12]);
++   UNPACK32(ctx->h[4], &digest[16]);
++   UNPACK32(ctx->h[5], &digest[20]);
++   UNPACK32(ctx->h[6], &digest[24]);
++#endif /* !UNROLL_LOOPS */
++}
++
++} // namespace Firebird
++
++#ifdef NIST_COMPLIANCY_TESTS
++
++/* FIPS 180-2 Validation tests */
++
++#include <stdio.h>
++#include <stdlib.h>
++
++void test(const char *vector, unsigned char *digest,
++          unsigned int digest_size)
++{
++    char output[2 * SHA_MAX_DIGEST_SIZE + 1];
++    int i;
++
++    output[2 * digest_size] = '\0';
++
++    for (i = 0; i < (int) digest_size ; i++) {
++       sprintf(output + 2 * i, "%02x", digest[i]);
++    }
++
++    printf("H: %s\n", output);
++    if (strcmp(vector, output)) {
++        fprintf(stderr, "Test failed.\n");
++        exit(EXIT_FAILURE);
++    }
++}
++
++using namespace Firebird;
++
++int main(void)
++{
++    static const char *vectors[4][3] =
++    {   /* SHA-224 */
++        {
++        "23097d223405d8228642a477bda255b32aadbce4bda0b3f7e36c9da7",
++        "75388b16512776cc5dba5da1fd890150b0c6455cb4f58b1952522525",
++        "20794655980c91d8bbb4c1ea97618a4bf03f42581948b2ee4ee7ad67",
++        },
++        /* SHA-256 */
++        {
++        "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
++        "248d6a61d20638b8e5c026930c3e6039a33ce45964ff2167f6ecedd419db06c1",
++        "cdc76e5c9914fb9281a1c7e284d73e67f1809a48a497200e046d39ccc7112cd0",
++        },
++        /* SHA-384 */
++        {
++        "cb00753f45a35e8bb5a03d699ac65007272c32ab0eded1631a8b605a43ff5bed"
++        "8086072ba1e7cc2358baeca134c825a7",
++        "09330c33f71147e83d192fc782cd1b4753111b173b3b05d22fa08086e3b0f712"
++        "fcc7c71a557e2db966c3e9fa91746039",
++        "9d0e1809716474cb086e834e310a4a1ced149e9c00f248527972cec5704c2a5b"
++        "07b8b3dc38ecc4ebae97ddd87f3d8985",
++        },
++        /* SHA-512 */
++        {
++        "ddaf35a193617abacc417349ae20413112e6fa4e89a97ea20a9eeee64b55d39a"
++        "2192992a274fc1a836ba3c23a3feebbd454d4423643ce80e2a9ac94fa54ca49f",
++        "8e959b75dae313da8cf4f72814fc143f8f7779c6eb9f7fa17299aeadb6889018"
++        "501d289e4900f7e4331b99dec4b5433ac7d329eeb6dd26545e96e55b874be909",
++        "e718483d0ce769644e2e42c7bc15b4638e1f98b13b2044285632a803afa973eb"
++        "de0ff244877ea60a4cb0432ce577c31beb009c5c2c49aa2e4eadb217ad8cc09b"
++        }
++    };
++
++    static const char message1[] = "abc";
++    static const char message2a[] = "abcdbcdecdefdefgefghfghighijhi"
++                                    "jkijkljklmklmnlmnomnopnopq";
++    static const char message2b[] = "abcdefghbcdefghicdefghijdefghijkefghij"
++                                    "klfghijklmghijklmnhijklmnoijklmnopjklm"
++                                    "nopqklmnopqrlmnopqrsmnopqrstnopqrstu";
++    unsigned char *message3;
++    unsigned int message3_len = 1000000;
++    unsigned char digest[SHA512_DIGEST_SIZE];
++
++    message3 = (unsigned char *) malloc(message3_len);
++    if (message3 == NULL) {
++        fprintf(stderr, "Can't allocate memory\n");
++        return -1;
++    }
++    memset(message3, 'a', message3_len);
++    printf("SHA-2 FIPS 180-2 Validation tests\n\n");
++    printf("SHA-224 Test vectors\n");
++
++    get_digest<sha224>((const unsigned char *) message1, strlen(message1), digest);
++    test(vectors[0][0], digest, SHA224_DIGEST_SIZE);
++    get_digest<sha224>((const unsigned char *) message2a, strlen(message2a), digest);
++    test(vectors[0][1], digest, SHA224_DIGEST_SIZE);
++    get_digest<sha224>(message3, message3_len, digest);
++    test(vectors[0][2], digest, SHA224_DIGEST_SIZE);
++    printf("\n");
++
++    printf("SHA-256 Test vectors\n");
++
++    get_digest<sha256>((const unsigned char *) message1, strlen(message1), digest);
++    test(vectors[1][0], digest, SHA256_DIGEST_SIZE);
++    get_digest<sha256>((const unsigned char *) message2a, strlen(message2a), digest);
++    test(vectors[1][1], digest, SHA256_DIGEST_SIZE);
++    get_digest<sha256>(message3, message3_len, digest);
++    test(vectors[1][2], digest, SHA256_DIGEST_SIZE);
++    printf("\n");
++
++    printf("SHA-384 Test vectors\n");
++
++    get_digest<sha384>((const unsigned char *) message1, strlen(message1), digest);
++    test(vectors[2][0], digest, SHA384_DIGEST_SIZE);
++    get_digest<sha384>((const unsigned char *)message2b, strlen(message2b), digest);
++    test(vectors[2][1], digest, SHA384_DIGEST_SIZE);
++    get_digest<sha384>(message3, message3_len, digest);
++    test(vectors[2][2], digest, SHA384_DIGEST_SIZE);
++    printf("\n");
++
++    printf("SHA-512 Test vectors\n");
++
++    get_digest<sha512>((const unsigned char *) message1, strlen(message1), digest);
++    test(vectors[3][0], digest, SHA512_DIGEST_SIZE);
++    get_digest<sha512>((const unsigned char *) message2b, strlen(message2b), digest);
++    test(vectors[3][1], digest, SHA512_DIGEST_SIZE);
++    get_digest<sha512>(message3, message3_len, digest);
++    test(vectors[3][2], digest, SHA512_DIGEST_SIZE);
++    printf("\n");
++
++    printf("All tests passed.\n");
++
++    return 0;
++}
++
++#endif /* TEST_VECTORS */
++
+Index: src/common/sha2/sha2.h
+===================================================================
+--- src/common/sha2/sha2.h	(nonexistent)
++++ src/common/sha2/sha2.h	(revision 13)
+@@ -0,0 +1,276 @@
++/*
++ * FIPS 180-2 SHA-224/256/384/512 implementation
++ * Last update: 02/02/2007
++ * Issue date:  04/30/2005
++ * https://github.com/ouah/sha2
++ *
++ * Copyright (C) 2005, 2007 Olivier Gay <olivier.gay@a3.epfl.ch>
++ * All rights reserved.
++ *
++ * Redistribution and use in source and binary forms, with or without
++ * modification, are permitted provided that the following conditions
++ * are met:
++ * 1. Redistributions of source code must retain the above copyright
++ *    notice, this list of conditions and the following disclaimer.
++ * 2. Redistributions in binary form must reproduce the above copyright
++ *    notice, this list of conditions and the following disclaimer in the
++ *    documentation and/or other materials provided with the distribution.
++ * 3. Neither the name of the project nor the names of its contributors
++ *    may be used to endorse or promote products derived from this software
++ *    without specific prior written permission.
++ * 
++ * Updated for use in Firebird by Tony Whyman <tony@mwasoftware.co.uk>
++ *
++ * THIS SOFTWARE IS PROVIDED BY THE PROJECT AND CONTRIBUTORS ``AS IS'' AND
++ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
++ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
++ * ARE DISCLAIMED.  IN NO EVENT SHALL THE PROJECT OR CONTRIBUTORS BE LIABLE
++ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
++ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
++ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
++ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
++ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
++ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
++ * SUCH DAMAGE.
++ */
++ 
++ /*
++  * This update is intended to make available the SHA-2 family of message
++  * digests as C++ classes for use in Firebird. sha224, sha256, sha384 and 
++  * sha512 are each implemented as separate classes. The class methods are
++  * intended to be as similar as possible to the legacy class sha1 in order
++  * to facilitate straightforward replacement.
++  * 
++  * This implementation also comes with a NIST compliancy test for each
++  * digest. This is enabled by building with the NIST_COMPLIANCY_TESTS symbol
++  * defined.
++  */
++
++#ifndef _SHA2_H
++#define _SHA2_H
++
++#include <string>
++#include <string.h>
++#ifndef NIST_COMPLIANCY_TESTS
++#include "firebird.h"
++#include "../../common/classes/alloc.h"
++#include "../../common/classes/array.h"
++#include "../../common/classes/fb_string.h"
++#include "../../common/utils_proto.h"
++#endif
++
++
++#define SHA224_DIGEST_SIZE ( 224 / 8)
++#define SHA256_DIGEST_SIZE ( 256 / 8)
++#define SHA384_DIGEST_SIZE ( 384 / 8)
++#define SHA512_DIGEST_SIZE ( 512 / 8)
++#define SHA_MAX_DIGEST_SIZE SHA512_DIGEST_SIZE
++
++#define SHA256_BLOCK_SIZE  ( 512 / 8)
++#define SHA512_BLOCK_SIZE  (1024 / 8)
++#define SHA384_BLOCK_SIZE  SHA512_BLOCK_SIZE
++#define SHA224_BLOCK_SIZE  SHA256_BLOCK_SIZE
++
++namespace Firebird {
++	
++/* This template function provides a simple one line means of computing a SHA-2
++ * digest from an arbitrary length message.
++ */
++	
++template<class SHA>void get_digest(const unsigned char *message, size_t len, unsigned char *digest)
++{
++    SHA sha;
++    sha.process(len, message);
++	sha.getHash(digest);
++}
++
++
++#ifndef NIST_COMPLIANCY_TESTS
++/* This template class provides a simple one line means of computing a SHA-2
++ * digest from an arbitrary length message, and encoding the result in BASE64.
++ */
++template<class SHA> void hashBased64(Firebird::string& hash, const Firebird::string& data)
++{
++	SHA digest;
++	digest.process(data.length(), data.c_str());
++	UCharBuffer b;
++	digest.getHash(b);
++	fb_utils::base64(hash, b);
++}
++
++/* The sha2_base class is an abstract class that is the ancestor for all
++ * the SHA-2 classes. It defines all public methods for the classes and
++ * a common model of use.
++ * 
++ * When instatiated a SHA-2 class is already initialized for use. The message
++ * for which a digest is required is then fed to the class using one of
++ * the "process" methods, either as a single action or accumulatively.
++ * 
++ * When the entire message has been input, the resulting digest is returned
++ * by a "getHash" method. Calling "getHash" also clears the digest and 
++ * re-initializes the SHA-2 generator ready to compute a new digest.
++ * 
++ * A SHA-2 generator can be cleared down and re-initialized at any time
++ * by calling the "reset" method.
++ */
++
++class sha2_base : public GlobalStorage {
++#else
++class sha2_base {
++#endif
++public:
++	sha2_base() {};
++	virtual ~sha2_base() {};
++  
++	virtual const unsigned int get_DigestSize()=0;
++	virtual const unsigned int get_BlockSize()=0; 
++  
++	typedef unsigned char uint8;
++	typedef unsigned int  uint32;
++	typedef unsigned long long uint64;
++	
++protected:
++	virtual void sha_init() {};
++	virtual void sha_update(const unsigned char *message, unsigned int len)=0;
++	virtual void sha_final(unsigned char *digest)=0;
++	
++public:
++	void reset() {sha_init();};
++	
++	void process(size_t length, const void* bytes)
++	{
++		sha_update(static_cast<const unsigned char*>(bytes), length);
++	}
++
++	void process(size_t length, const unsigned char* message)
++	{
++		sha_update(message, length);
++	}
++
++	void process(const std::string& str)
++	{
++		process(str.length(), str.c_str());
++	}
++
++	void process(const char* str)
++	{
++		process(strlen(str), str);
++	}
++	
++	void getHash(unsigned char *digest);
++
++#ifndef NIST_COMPLIANCY_TESTS
++	void process(const UCharBuffer& bytes)
++	{
++		process(bytes.getCount(), bytes.begin());
++	}
++	
++	void getHash(UCharBuffer& h);
++#endif
++	
++};
++
++class sha256 : public sha2_base { 
++public:
++	sha256();
++	const unsigned int get_DigestSize() {return SHA256_DIGEST_SIZE;};
++	const unsigned int get_BlockSize() {return SHA256_BLOCK_SIZE;}; 
++	
++protected:
++	typedef struct {
++		unsigned int tot_len;
++		unsigned int len;
++		unsigned char block[2 * SHA256_BLOCK_SIZE];
++		uint32 h[8];
++	} sha256_ctx;
++	
++private:
++	void sha256_init(sha256_ctx * ctx);
++	void sha256_update(sha256_ctx *ctx, const unsigned char *message,
++                   unsigned int len);
++	void sha256_final(sha256_ctx *ctx, unsigned char *digest);
++	
++protected:
++	sha256_ctx ctx;
++	
++	void sha256_transf(sha256_ctx * ctx, const unsigned char *message,
++                   unsigned int block_nb);	
++	void sha_init() {sha256_init(&ctx);};
++	void sha_update(const unsigned char *message, unsigned int len) {sha256_update(&ctx,message,len);};
++	void sha_final(unsigned char *digest) {sha256_final(&ctx,digest);};
++};
++
++class sha224 : public sha256 {
++public:
++    sha224();
++	const unsigned int get_DigestSize() {return SHA224_DIGEST_SIZE;};
++	const unsigned int get_BlockSize() {return SHA224_BLOCK_SIZE;}; 
++	
++private:
++	typedef sha256_ctx sha224_ctx;
++	void sha224_init(sha224_ctx *ctx);
++	void sha224_update(sha224_ctx *ctx, const unsigned char *message,
++                   unsigned int len);
++	void sha224_final(sha224_ctx *ctx, unsigned char *digest);
++
++protected:
++	void sha_init() {sha224_init(&ctx);};
++	void sha_update(const unsigned char *message, unsigned int len) {sha224_update(&ctx, message, len);};
++	void sha_final(unsigned char *digest) {sha224_final(&ctx,digest);};
++};
++
++class sha512 : public sha2_base {
++public:
++	sha512();
++	const unsigned int get_DigestSize() {return SHA512_DIGEST_SIZE;};
++	const unsigned int get_BlockSize() {return SHA512_BLOCK_SIZE;}; 
++	
++protected:
++	typedef struct {
++		unsigned int tot_len;
++		unsigned int len;
++		unsigned char block[2 * SHA512_BLOCK_SIZE];
++		uint64 h[8];
++	} sha512_ctx;
++	
++private:
++	void sha512_init(sha512_ctx *ctx);
++	void sha512_update(sha512_ctx *ctx, const unsigned char *message,
++                   unsigned int len);
++	void sha512_final(sha512_ctx *ctx, unsigned char *digest);
++protected:
++	
++	sha512_ctx ctx;
++
++	void sha512_transf(sha512_ctx *ctx, const unsigned char *message,
++                   unsigned int block_nb);
++	void sha_init() {sha512_init(&ctx);};
++	void sha_update(const unsigned char *message, unsigned int len) {sha512_update(&ctx, message, len);};
++	void sha_final(unsigned char *digest) {sha512_final(&ctx, digest);};
++
++};
++
++class sha384 : public sha512 {
++public:
++	sha384();
++	const unsigned int get_DigestSize() {return SHA384_DIGEST_SIZE;};
++	const unsigned int get_BlockSize() {return SHA384_BLOCK_SIZE;}; 
++	
++private:
++	typedef sha512_ctx sha384_ctx;
++	void sha384_init(sha384_ctx *ctx);
++	void sha384_update(sha384_ctx *ctx, const unsigned char *message,
++                   unsigned int len);
++	void sha384_final(sha384_ctx *ctx, unsigned char *digest);
++
++protected:
++	void sha_init() {sha384_init(&ctx);};
++	void sha_update(const unsigned char *message, unsigned int len) {sha384_update(&ctx,message,len);};
++	void sha_final(unsigned char *digest) {sha384_final(&ctx, digest);};
++
++};
++
++} //Firebird
++
++#endif /* !_SHA2_H */
++
+Index: src/common/sha2/test/Makefile
+===================================================================
+--- src/common/sha2/test/Makefile	(nonexistent)
++++ src/common/sha2/test/Makefile	(revision 13)
+@@ -0,0 +1,11 @@
++all: sha2
++
++sha2: sha2.o
++	$(CC) $< -o $@ -lstdc++
++
++sha2.o: ../sha2.cpp ../sha2.h
++	$(CC) -DNIST_COMPLIANCY_TESTS -c $<
++
++clean:
++	-rm -rf *.o sha2
++
+Index: src/auth/SecureRemotePassword/misc/test_srp.cpp
+===================================================================
+--- src/auth/SecureRemotePassword/misc/test_srp.cpp	(revision 1)
++++ src/auth/SecureRemotePassword/misc/test_srp.cpp	(working copy)
+@@ -2,19 +2,19 @@
+ 
+ using namespace Auth;
+ 
+-int main(int argc, char** argv)
++template<class SHA>void runTest(int argc, char** argv)
+ {
+ 	Firebird::string salt;
+ #if SRP_DEBUG > 1
+-	BigInteger s("02E268803000000079A478A700000002D1A6979000000026E1601C000000054F");
++	Firebird::BigInteger s("02E268803000000079A478A700000002D1A6979000000026E1601C000000054F");
+ #else
+-	BigInteger s;
++	Firebird::BigInteger s;
+ 	s.random(128);
+ #endif
+ 	s.getText(salt);
+ 
+-	RemotePassword* server = FB_NEW RemotePassword();
+-	RemotePassword* client = FB_NEW RemotePassword();
++	RemotePassword* server = FB_NEW RemotePasswordImpl<SHA>();
++	RemotePassword* client = FB_NEW RemotePasswordImpl<SHA>();
+ 
+ 	const char* account = "SYSDBA";
+ 	const char* password = "masterkey";
+@@ -37,8 +37,20 @@
+ 	client->clientSessionKey(key1, account, salt.c_str(), argc > 1 ? argv[1] : password, serverPubKey.c_str());
+ 	server->serverSessionKey(key2, clientPubKey.c_str(), verifier);
+ 
+-	BigInteger cProof = client->clientProof(account, salt.c_str(), key1);
+-	BigInteger sProof = server->clientProof(account, salt.c_str(), key2);
++	Firebird::BigInteger cProof = client->clientProof(account, salt.c_str(), key1);
++	Firebird::BigInteger sProof = server->clientProof(account, salt.c_str(), key2);
+ 
++	printf("Proof length = %d\n",cProof.length());
+ 	printf("%s\n", cProof == sProof ? "OK" : "differ");
++
+ }
++
++int main(int argc, char** argv)
++{
++	runTest<Firebird::Sha1>(argc,argv);
++	runTest<Firebird::sha224>(argc,argv);
++	runTest<Firebird::sha256>(argc,argv);
++	runTest<Firebird::sha384>(argc,argv);
++	runTest<Firebird::sha512>(argc,argv);
++}
++
+Index: src/auth/SecureRemotePassword/misc/test.sh
+===================================================================
+--- src/auth/SecureRemotePassword/misc/test.sh	(revision 1)
++++ src/auth/SecureRemotePassword/misc/test.sh	(working copy)
+@@ -4,9 +4,8 @@
+ 	file=test_${1}
+ 	g++ -I../../../include -DLINUX -DAMD64 -DDEV_BUILD ${file}.cpp \
+ 		../../../../temp/Debug/auth/SecureRemotePassword/srp.o \
+-		../../../../temp/Debug/auth/SecureRemotePassword/BigInteger.o \
+ 		../../../../temp/Debug/common.a -ltommath ../../../../gen/Debug/firebird/lib/libfbclient.so \
+-		 -Wl,-rpath,../../../../gen/Debug/firebird/lib -lrt -o ${file} && ./${file}
++		 -lpthread -Wl,-rpath,../../../../gen/Debug/firebird/lib -lrt -o ${file} && ./${file}
+ }
+ 
+ compile srp
+Index: src/auth/SecureRemotePassword/client/SrpClient.cpp
+===================================================================
+--- src/auth/SecureRemotePassword/client/SrpClient.cpp	(revision 1)
++++ src/auth/SecureRemotePassword/client/SrpClient.cpp	(working copy)
+@@ -34,7 +34,7 @@
+ 
+ namespace Auth {
+ 
+-class SrpClient FB_FINAL : public StdPlugin<IClientImpl<SrpClient, CheckStatusWrapper> >
++class SrpClient : public StdPlugin<IClientImpl<SrpClient, CheckStatusWrapper> >
+ {
+ public:
+ 	explicit SrpClient(IPluginConfig*)
+@@ -55,8 +55,22 @@
+ 	RemotePassword* client;
+ 	string data;
+ 	UCharBuffer sessionKey;
++protected:
++    virtual RemotePassword* RemotePasswordFactory()=0;
+ };
+ 
++template <class SHA> class SrpClientImpl FB_FINAL : public SrpClient  
++{
++public:
++	explicit SrpClientImpl<SHA>(IPluginConfig* ipc)
++	  : SrpClient(ipc) {}
++protected:
++    RemotePassword* RemotePasswordFactory()
++    {
++		return FB_NEW RemotePasswordImpl<SHA>;
++	}
++};
++
+ int SrpClient::authenticate(CheckStatusWrapper* status, IClientBlock* cb)
+ {
+ 	try
+@@ -76,7 +90,7 @@
+ 				return AUTH_CONTINUE;
+ 			}
+ 
+-			client = FB_NEW RemotePassword;
++			client = RemotePasswordFactory();
+ 			client->genClientKey(data);
+ 			dumpIt("Clnt: clientPubKey", data);
+ 			cb->putData(status, data.length(), data.begin());
+@@ -130,7 +144,7 @@
+ 
+ 		BigInteger cProof = client->clientProof(cb->getLogin(), salt.c_str(), sessionKey);
+ 		cProof.getText(data);
+-
++        	dumpIt("Clnt: Client Proof",cProof);
+ 		cb->putData(status, data.length(), data.c_str());
+ 		if (status->getState() & IStatus::STATE_ERRORS)
+ 		{
+@@ -170,12 +184,20 @@
+ 
+ namespace
+ {
+-	SimpleFactory<SrpClient> factory;
++	SimpleFactory<SrpClientImpl<Sha1> > factory_sha1;
++	SimpleFactory<SrpClientImpl<sha224> > factory_sha224;
++	SimpleFactory<SrpClientImpl<sha256> > factory_sha256;
++	SimpleFactory<SrpClientImpl<sha384> > factory_sha384;
++	SimpleFactory<SrpClientImpl<sha512> > factory_sha512;
+ }
+ 
+ void registerSrpClient(IPluginManager* iPlugin)
+ {
+-	iPlugin->registerPluginFactory(IPluginManager::TYPE_AUTH_CLIENT, RemotePassword::plugName, &factory);
++	iPlugin->registerPluginFactory(IPluginManager::TYPE_AUTH_CLIENT, RemotePassword::plugName, &factory_sha1);
++	iPlugin->registerPluginFactory(IPluginManager::TYPE_AUTH_CLIENT, RemotePassword::pluginName("224"), &factory_sha224);
++	iPlugin->registerPluginFactory(IPluginManager::TYPE_AUTH_CLIENT, RemotePassword::pluginName("256"), &factory_sha256);
++	iPlugin->registerPluginFactory(IPluginManager::TYPE_AUTH_CLIENT, RemotePassword::pluginName("384"), &factory_sha384);
++	iPlugin->registerPluginFactory(IPluginManager::TYPE_AUTH_CLIENT, RemotePassword::pluginName("512"), &factory_sha512);
+ }
+ 
+ } // namespace Auth
+Index: src/auth/SecureRemotePassword/srp.cpp
+===================================================================
+--- src/auth/SecureRemotePassword/srp.cpp	(revision 1)
++++ src/auth/SecureRemotePassword/srp.cpp	(working copy)
+@@ -29,7 +29,7 @@
+ 	explicit RemoteGroup(Firebird::MemoryPool&)
+ 		: prime(primeStr), generator(genStr), k()
+ 	{
+-		Auth::Sha1 hash;
++		Auth::SecureHash<Firebird::Sha1> hash;
+ 
+ 		hash.processInt(prime);
+ 		if (prime.length() > generator.length())
+@@ -59,6 +59,13 @@
+ 
+ const char* RemotePassword::plugName = "Srp";
+ 
++const char* RemotePassword::pluginName(const char * bits)
++{
++	std::string plg(plugName);
++	plg += bits;
++	return plg.c_str();
++}
++
+ RemotePassword::RemotePassword()
+ 	: group(RemoteGroup::getGroup())
+ {
+@@ -187,18 +194,7 @@
+ 	hash.reset();
+ 	hash.process(account);
+ 	hash.getInt(n2);
+-
+-	hash.reset();
+-	hash.processInt(n1);				// H(prime) ^ H(g)
+-	hash.processInt(n2);				// H(I)
+-	hash.process(salt);					// s
+-	hash.processInt(clientPublicKey);	// A
+-	hash.processInt(serverPublicKey);	// B
+-	hash.process(sessionKey);			// K
+-
+-	BigInteger rc;
+-	hash.getInt(rc);
+-	return rc;
++	return MakeProof(n1,n2,salt,sessionKey);
+ }
+ 
+ #if SRP_DEBUG > 0
+Index: src/auth/SecureRemotePassword/server/SrpServer.cpp
+===================================================================
+--- src/auth/SecureRemotePassword/server/SrpServer.cpp	(revision 1)
++++ src/auth/SecureRemotePassword/server/SrpServer.cpp	(working copy)
+@@ -48,7 +48,7 @@
+ 
+ namespace Auth {
+ 
+-class SrpServer FB_FINAL : public StdPlugin<IServerImpl<SrpServer, CheckStatusWrapper> >
++class SrpServer : public StdPlugin<IServerImpl<SrpServer, CheckStatusWrapper> >
+ {
+ public:
+ 	explicit SrpServer(IPluginConfig* par)
+@@ -68,12 +68,12 @@
+ 	void setDbCryptCallback(CheckStatusWrapper* status, ICryptKeyCallback* callback);
+     int release();
+ 
+-private:
+ 	~SrpServer()
+ 	{
+ 		delete server;
+ 	}
+ 
++private:
+ 	RemotePassword* server;
+ 	string data;
+ 	string account;
+@@ -84,8 +84,22 @@
+ 	RefPtr<IFirebirdConf> config;
+ 	const char* secDbName;
+ 	ICryptKeyCallback* cryptCallback;
++protected:
++    virtual RemotePassword* RemotePasswordFactory()=0;
+ };
+ 
++template <class SHA> class SrpServerImpl FB_FINAL : public SrpServer  
++{
++public:
++	explicit SrpServerImpl<SHA>(IPluginConfig* ipc)
++	  : SrpServer(ipc) {}
++protected:
++    RemotePassword* RemotePasswordFactory()
++    {
++		return FB_NEW RemotePasswordImpl<SHA>;
++	}
++};
++
+ int SrpServer::authenticate(CheckStatusWrapper* status, IServerBlock* sb, IWriter* writerInterface)
+ {
+ 	try
+@@ -215,7 +229,7 @@
+ 				throw;
+ 			}
+ 
+-			server = FB_NEW RemotePassword;
++			server = RemotePasswordFactory();
+ 			server->genServerKey(serverPubKey, verifier);
+ 
+ 			// Ready to prepare data for client and calculate session key
+@@ -248,6 +262,9 @@
+ 		proof.assign(val, length);
+ 		BigInteger clientProof(proof.c_str());
+ 		BigInteger serverProof = server->clientProof(account.c_str(), salt.c_str(), sessionKey);
++		HANDSHAKE_DEBUG(fprintf(stderr, "Client Proof Received, Length = %d\n", clientProof.length()));
++		dumpIt("Srv: Client Proof",clientProof);
++		dumpIt("Srv: Server Proof",serverProof);
+ 		if (clientProof == serverProof)
+ 		{
+ 			// put the record into authentication block
+@@ -311,12 +328,20 @@
+ 
+ namespace
+ {
+-	SimpleFactory<SrpServer> factory;
++	SimpleFactory<SrpServerImpl<Sha1> > factory_sha1;
++	SimpleFactory<SrpServerImpl<sha224> > factory_sha224;
++	SimpleFactory<SrpServerImpl<sha256> > factory_sha256;
++	SimpleFactory<SrpServerImpl<sha384> > factory_sha384;
++	SimpleFactory<SrpServerImpl<sha512> > factory_sha512;
+ }
+ 
+ void registerSrpServer(IPluginManager* iPlugin)
+ {
+-	iPlugin->registerPluginFactory(IPluginManager::TYPE_AUTH_SERVER, RemotePassword::plugName, &factory);
++	iPlugin->registerPluginFactory(IPluginManager::TYPE_AUTH_SERVER, RemotePassword::plugName, &factory_sha1);
++	iPlugin->registerPluginFactory(IPluginManager::TYPE_AUTH_SERVER, RemotePassword::pluginName("224"), &factory_sha224);
++	iPlugin->registerPluginFactory(IPluginManager::TYPE_AUTH_SERVER, RemotePassword::pluginName("256"), &factory_sha256);
++	iPlugin->registerPluginFactory(IPluginManager::TYPE_AUTH_SERVER, RemotePassword::pluginName("384"), &factory_sha384);
++	iPlugin->registerPluginFactory(IPluginManager::TYPE_AUTH_SERVER, RemotePassword::pluginName("512"), &factory_sha512);
+ }
+ 
+ } // namespace Auth
+Index: src/auth/SecureRemotePassword/manage/SrpManagement.cpp
+===================================================================
+--- src/auth/SecureRemotePassword/manage/SrpManagement.cpp	(revision 1)
++++ src/auth/SecureRemotePassword/manage/SrpManagement.cpp	(working copy)
+@@ -676,7 +676,7 @@
+ 	Firebird::RefPtr<Firebird::IFirebirdConf> config;
+ 	Firebird::RefPtr<Firebird::IAttachment> att;
+ 	Firebird::RefPtr<Firebird::ITransaction> tra;
+-	RemotePassword server;
++	RemotePasswordImpl<Firebird::Sha1> server;
+ 	int upCount, delCount;
+ 
+ 	bool checkCount(Firebird::CheckStatusWrapper* status, int* count, UCHAR item)
+Index: src/auth/SecureRemotePassword/srp.h
+===================================================================
+--- src/auth/SecureRemotePassword/srp.h	(revision 1)
++++ src/auth/SecureRemotePassword/srp.h	(working copy)
+@@ -2,6 +2,7 @@
+ #include "../common/classes/alloc.h"
+ #include "../common/classes/fb_string.h"
+ #include "../common/sha.h"
++#include "../common/sha2/sha2.h"
+ 
+ #define SRP_DEBUG 0		// >0 - prints some debug info
+ 						// >1 - uses consts instead randoms, NEVER use in PRODUCTION!
+@@ -46,13 +47,13 @@
+ 
+ class RemoteGroup;
+ 
+-class Sha1 : public Firebird::Sha1
++template <class SHA> class SecureHash : public SHA
+ {
+ public:
+ 	void getInt(Firebird::BigInteger& hash)
+ 	{
+ 		Firebird::UCharBuffer tmp;
+-		getHash(tmp);
++		SHA::getHash(tmp);
+ 		hash.assign(tmp.getCount(), tmp.begin());
+ 	}
+ 
+@@ -60,7 +61,7 @@
+ 	{
+ 		Firebird::UCharBuffer bytes;
+ 		data.getBytes(bytes);
+-		process(bytes);
++		SHA::process(bytes);
+ 	}
+ 
+ 	void processStrippedInt(const Firebird::BigInteger& data)
+@@ -70,18 +71,23 @@
+ 		if (bytes.getCount())
+ 		{
+ 			unsigned int n = (bytes[0] == 0) ? 1u : 0;
+-			process(bytes.getCount() - n, bytes.begin() + n);
++			SHA::process(bytes.getCount() - n, bytes.begin() + n);
+ 		}
+ 	}
+ };
+ 
++
+ class RemotePassword : public Firebird::GlobalStorage
+ {
+ private:
+ 	const RemoteGroup*		group;
+-	Auth::Sha1				hash;
++	Auth::SecureHash<Firebird::Sha1>	hash;
+ 	Firebird::BigInteger	privateKey;
+ 	Firebird::BigInteger	scramble;
++	
++protected:
++    virtual Firebird::BigInteger MakeProof(const Firebird::BigInteger n1, const Firebird::BigInteger n2, 
++                const char* salt, const Firebird::UCharBuffer& sessionKey) = 0;
+ 
+ public:
+ 	Firebird::BigInteger	clientPublicKey;
+@@ -94,6 +100,8 @@
+ 	static const unsigned SRP_KEY_SIZE = 128;
+ 	static const unsigned SRP_VERIFIER_SIZE = SRP_KEY_SIZE;
+ 	static const unsigned SRP_SALT_SIZE = 32;
++	
++	static const char* pluginName(const char * bits);
+ 
+ 	Firebird::BigInteger getUserHash(const char* account,
+ 									 const char* salt,
+@@ -115,7 +123,28 @@
+ 									 const Firebird::UCharBuffer& sessionKey);
+ };
+ 
++template <class SHA> class RemotePasswordImpl : public RemotePassword
++{
++protected:
++	Firebird::BigInteger MakeProof(const Firebird::BigInteger n1, const Firebird::BigInteger n2, 
++                const char* salt, const Firebird::UCharBuffer& sessionKey)
++    {
++		Auth::SecureHash<SHA> digest;
++		digest.processInt(n1);				// H(prime) ^ H(g)
++		digest.processInt(n2);				// H(I)
++		digest.process(salt);					// s
++		digest.processInt(clientPublicKey);	// A
++		digest.processInt(serverPublicKey);	// B
++		digest.process(sessionKey);			// K
+ 
++		Firebird::BigInteger rc;
++		digest.getInt(rc);
++		return rc;
++	}									 
++};
++
++
++
+ #if SRP_DEBUG > 0
+ void dumpIt(const char* name, const Firebird::BigInteger& bi);
+ void dumpIt(const char* name, const Firebird::UCharBuffer& data);
+Index: src/CMakeLists.txt
+===================================================================
+--- src/CMakeLists.txt	(revision 1)
++++ src/CMakeLists.txt	(working copy)
+@@ -360,7 +360,7 @@
+ # LIBRARY common
+ ########################################
+ 
+-file(GLOB common_src "common/*.cpp" "common/classes/*.cpp" "common/config/*.cpp" "common/os/${OS_DIR}/*.cpp")
++file(GLOB common_src "common/*.cpp" "common/classes/*.cpp" "common/config/*.cpp" "common/os/${OS_DIR}/*.cpp" "common/sha2/*.cpp")
+ file(GLOB_RECURSE common_include "common/*.h")
+ 
+ if (APPLE) 

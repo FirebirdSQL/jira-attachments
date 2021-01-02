@@ -1,0 +1,314 @@
+INFO: [BlazeDS]Channel endpoint my-amf received request.
+INFO: [BlazeDS]Deserializing AMF/HTTP request
+Version: 3
+  (Message #0 targetURI=null, responseURI=/6)
+    (Array #0)
+      [0] = (Typed Object #0 'flex.messaging.messages.RemotingMessage')
+        source = null
+        operation = "create"
+        body = (Array #1)
+          [0] = (Typed Object #2 'fr.cinematheque.model.Movie')
+            status = 0
+            id = NaN
+            dateRelease = 0
+            title = "coucou2"
+        clientId = "3255CB0C-B80C-288F-155E-EB0F15AADA3D"
+        headers = (Object #3)
+          DSEndpoint = "my-amf"
+          DSId = "3255C9B4-7B0E-DB67-1D4E-993726D15015"
+        messageId = "3B713CCD-F0E1-5EBB-8FE3-B0AD80CC30A9"
+        timeToLive = 0
+        destination = "movieEJBDestination"
+        timestamp = 0
+
+PLUS FIN: client acquired: 132347861
+PLUS FIN: TX binding to tx mgr, status=STATUS_ACTIVE
+PLUS FIN: acquire unit of work: 1724925182
+LE PLUS FIN: persist() operation called on: fr.cinematheque.model.Movie[ id=0 ].
+LE PLUS FIN: Execute query ValueReadQuery(sql="SELECT GEN_ID(GEN_MOVIE_ID, 1) FROM RDB$DATABASE")
+LE PLUS FIN: Connection acquired from connection pool [read].
+LE PLUS FIN: reconnecting to external connection pool
+FIN: SELECT GEN_ID(GEN_MOVIE_ID, 1) FROM RDB$DATABASE
+LE PLUS FIN: Connection released to connection pool [read].
+LE PLUS FIN: assign sequence to the object (44 -> fr.cinematheque.model.Movie[ id=0 ])
+PLUS FIN: TX beforeCompletion callback, status=STATUS_ACTIVE
+PLUS FIN: begin unit of work commit
+PLUS FIN: TX beginTransaction, status=STATUS_ACTIVE
+LE PLUS FIN: Execute query InsertObjectQuery(fr.cinematheque.model.Movie[ id=44 ])
+LE PLUS FIN: Connection acquired from connection pool [default].
+LE PLUS FIN: reconnecting to external connection pool
+FIN: INSERT INTO MOVIE (ID, DATE_RELEASE, STATUS, TITLE) VALUES (?, ?, ?, ?)
+	bind => [4 parameters bound]
+LE PLUS FIN: Connection released to connection pool [default].
+PLUS FIN: TX afterCompletion callback, status=COMMITTED
+PLUS FIN: end unit of work commit
+PLUS FIN: release unit of work
+PLUS FIN: client released
+INFO: [BlazeDS]Adapter 'java-object' called 'java:comp/env/MovieEJB.create(java.util.Arrays$ArrayList (Collection size:1)
+  [0] = fr.cinematheque.model.Movie[ id=44 ]
+)'
+INFO: [BlazeDS]Result: 'null'
+INFO: [BlazeDS]Serializing AMF/HTTP response
+Version: 3
+  (Message #0 targetURI=/6/onResult, responseURI=)
+    (Externalizable Object #0 'DSK')
+      1.321519120754E12
+(Byte Array #1, Length 16)
+(Byte Array #2, Length 16)
+(Byte Array #3, Length 16)
+
+INFO: [BlazeDS]Channel endpoint my-amf received request.
+INFO: [BlazeDS]Deserializing AMF/HTTP request
+Version: 3
+  (Message #0 targetURI=null, responseURI=/7)
+    (Array #0)
+      [0] = (Typed Object #0 'flex.messaging.messages.RemotingMessage')
+        source = null
+        operation = "findAll"
+        body = (Array #1)
+        clientId = "3255CB0C-B80C-288F-155E-EB0F15AADA3D"
+        headers = (Object #2)
+          DSEndpoint = "my-amf"
+          DSId = "3255C9B4-7B0E-DB67-1D4E-993726D15015"
+        messageId = "53A8F4FA-886C-A308-19FF-B0AD81904CDB"
+        timeToLive = 0
+        destination = "movieEJBDestination"
+        timestamp = 0
+
+PLUS FIN: client acquired: 1539727258
+PLUS FIN: TX binding to tx mgr, status=STATUS_ACTIVE
+PLUS FIN: acquire unit of work: 1018078856
+PLUS FIN: begin unit of work flush
+PLUS FIN: end unit of work flush
+LE PLUS FIN: Execute query ReadAllQuery(referenceClass=Movie )
+LE PLUS FIN: Connection acquired from connection pool [read].
+LE PLUS FIN: reconnecting to external connection pool
+FIN: SELECT ID, DATE_RELEASE, STATUS, TITLE FROM MOVIE
+LE PLUS FIN: Connection released to connection pool [read].
+ATTENTION: java.lang.NullPointerException
+	at org.eclipse.persistence.internal.sessions.ArrayRecord.get(ArrayRecord.java:129)
+	at org.eclipse.persistence.descriptors.InheritancePolicy.classFromRow(InheritancePolicy.java:338)
+	at org.eclipse.persistence.internal.descriptors.ObjectBuilder.buildObject(ObjectBuilder.java:597)
+	at org.eclipse.persistence.internal.descriptors.ObjectBuilder.buildObject(ObjectBuilder.java:568)
+	at org.eclipse.persistence.queries.ObjectLevelReadQuery.buildObject(ObjectLevelReadQuery.java:733)
+	at org.eclipse.persistence.queries.ReadAllQuery.registerResultInUnitOfWork(ReadAllQuery.java:767)
+	at org.eclipse.persistence.queries.ReadAllQuery.executeObjectLevelReadQuery(ReadAllQuery.java:431)
+	at org.eclipse.persistence.queries.ObjectLevelReadQuery.executeDatabaseQuery(ObjectLevelReadQuery.java:1097)
+	at org.eclipse.persistence.queries.DatabaseQuery.execute(DatabaseQuery.java:829)
+	at org.eclipse.persistence.queries.ObjectLevelReadQuery.execute(ObjectLevelReadQuery.java:1056)
+	at org.eclipse.persistence.queries.ReadAllQuery.execute(ReadAllQuery.java:390)
+	at org.eclipse.persistence.queries.ObjectLevelReadQuery.executeInUnitOfWork(ObjectLevelReadQuery.java:1144)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.internalExecuteQuery(UnitOfWorkImpl.java:2863)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1501)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1483)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1457)
+	at org.eclipse.persistence.internal.jpa.EJBQueryImpl.executeReadQuery(EJBQueryImpl.java:485)
+	at org.eclipse.persistence.internal.jpa.EJBQueryImpl.getResultList(EJBQueryImpl.java:742)
+	at fr.cinematheque.dao.AbstractFacade.findAll(AbstractFacade.java:41)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.glassfish.ejb.security.application.EJBSecurityManager.runMethod(EJBSecurityManager.java:1052)
+	at org.glassfish.ejb.security.application.EJBSecurityManager.invoke(EJBSecurityManager.java:1124)
+	at com.sun.ejb.containers.BaseContainer.invokeBeanMethod(BaseContainer.java:5366)
+	at com.sun.ejb.EjbInvocation.invokeBeanMethod(EjbInvocation.java:619)
+	at com.sun.ejb.containers.interceptors.AroundInvokeChainImpl.invokeNext(InterceptorManager.java:800)
+	at com.sun.ejb.EjbInvocation.proceed(EjbInvocation.java:571)
+	at org.jboss.weld.ejb.SessionBeanInterceptor.aroundInvoke(SessionBeanInterceptor.java:46)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.sun.ejb.containers.interceptors.AroundInvokeInterceptor.intercept(InterceptorManager.java:861)
+	at com.sun.ejb.containers.interceptors.AroundInvokeChainImpl.invokeNext(InterceptorManager.java:800)
+	at com.sun.ejb.EjbInvocation.proceed(EjbInvocation.java:571)
+	at com.sun.ejb.containers.interceptors.SystemInterceptorProxy.doAround(SystemInterceptorProxy.java:162)
+	at com.sun.ejb.containers.interceptors.SystemInterceptorProxy.aroundInvoke(SystemInterceptorProxy.java:144)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.sun.ejb.containers.interceptors.AroundInvokeInterceptor.intercept(InterceptorManager.java:861)
+	at com.sun.ejb.containers.interceptors.AroundInvokeChainImpl.invokeNext(InterceptorManager.java:800)
+	at com.sun.ejb.containers.interceptors.InterceptorManager.intercept(InterceptorManager.java:370)
+	at com.sun.ejb.containers.BaseContainer.__intercept(BaseContainer.java:5338)
+	at com.sun.ejb.containers.BaseContainer.intercept(BaseContainer.java:5326)
+	at com.sun.ejb.containers.EJBLocalObjectInvocationHandler.invoke(EJBLocalObjectInvocationHandler.java:214)
+	at com.sun.ejb.containers.EJBLocalObjectInvocationHandlerDelegate.invoke(EJBLocalObjectInvocationHandlerDelegate.java:88)
+	at $Proxy252.findAll(Unknown Source)
+	at fr.cinematheque.dao.__EJB31_Generated__MovieEJB__Intf____Bean__.findAll(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at flex.messaging.services.remoting.adapters.JavaAdapter.invoke(JavaAdapter.java:418)
+	at flex.messaging.services.RemotingService.serviceMessage(RemotingService.java:183)
+	at flex.messaging.MessageBroker.routeMessageToService(MessageBroker.java:1400)
+	at flex.messaging.endpoints.AbstractEndpoint.serviceMessage(AbstractEndpoint.java:1005)
+	at flex.messaging.endpoints.amf.MessageBrokerFilter.invoke(MessageBrokerFilter.java:103)
+	at flex.messaging.endpoints.amf.LegacyFilter.invoke(LegacyFilter.java:158)
+	at flex.messaging.endpoints.amf.SessionFilter.invoke(SessionFilter.java:44)
+	at flex.messaging.endpoints.amf.BatchProcessFilter.invoke(BatchProcessFilter.java:67)
+	at flex.messaging.endpoints.amf.SerializationFilter.invoke(SerializationFilter.java:166)
+	at flex.messaging.endpoints.BaseHTTPEndpoint.service(BaseHTTPEndpoint.java:291)
+	at flex.messaging.MessageBrokerServlet.service(MessageBrokerServlet.java:353)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:847)
+	at org.apache.catalina.core.StandardWrapper.service(StandardWrapper.java:1539)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:281)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:175)
+	at org.apache.catalina.core.StandardPipeline.doInvoke(StandardPipeline.java:655)
+	at org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:595)
+	at com.sun.enterprise.web.WebPipeline.invoke(WebPipeline.java:98)
+	at com.sun.enterprise.web.PESessionLockingStandardPipeline.invoke(PESessionLockingStandardPipeline.java:91)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:162)
+	at org.apache.catalina.connector.CoyoteAdapter.doService(CoyoteAdapter.java:330)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:231)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:174)
+	at com.sun.grizzly.http.ProcessorTask.invokeAdapter(ProcessorTask.java:828)
+	at com.sun.grizzly.http.ProcessorTask.doProcess(ProcessorTask.java:725)
+	at com.sun.grizzly.http.ProcessorTask.process(ProcessorTask.java:1019)
+	at com.sun.grizzly.http.DefaultProtocolFilter.execute(DefaultProtocolFilter.java:225)
+	at com.sun.grizzly.DefaultProtocolChain.executeProtocolFilter(DefaultProtocolChain.java:137)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:104)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:90)
+	at com.sun.grizzly.http.HttpProtocolChain.execute(HttpProtocolChain.java:79)
+	at com.sun.grizzly.ProtocolChainContextTask.doCall(ProtocolChainContextTask.java:54)
+	at com.sun.grizzly.SelectionKeyContextTask.call(SelectionKeyContextTask.java:59)
+	at com.sun.grizzly.ContextTask.run(ContextTask.java:71)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:532)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.run(AbstractThreadPool.java:513)
+	at java.lang.Thread.run(Thread.java:662)
+
+PLUS FIN: TX afterCompletion callback, status=ROLLEDBACK
+PLUS FIN: release unit of work
+PLUS FIN: client released
+ATTENTION: A system exception occurred during an invocation on EJB MovieEJB method public java.util.List fr.cinematheque.dao.AbstractFacade.findAll()
+javax.ejb.EJBException
+	at com.sun.ejb.containers.BaseContainer.processSystemException(BaseContainer.java:5193)
+	at com.sun.ejb.containers.BaseContainer.completeNewTx(BaseContainer.java:5091)
+	at com.sun.ejb.containers.BaseContainer.postInvokeTx(BaseContainer.java:4879)
+	at com.sun.ejb.containers.BaseContainer.postInvoke(BaseContainer.java:2039)
+	at com.sun.ejb.containers.BaseContainer.postInvoke(BaseContainer.java:1990)
+	at com.sun.ejb.containers.EJBLocalObjectInvocationHandler.invoke(EJBLocalObjectInvocationHandler.java:222)
+	at com.sun.ejb.containers.EJBLocalObjectInvocationHandlerDelegate.invoke(EJBLocalObjectInvocationHandlerDelegate.java:88)
+	at $Proxy252.findAll(Unknown Source)
+	at fr.cinematheque.dao.__EJB31_Generated__MovieEJB__Intf____Bean__.findAll(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at flex.messaging.services.remoting.adapters.JavaAdapter.invoke(JavaAdapter.java:418)
+	at flex.messaging.services.RemotingService.serviceMessage(RemotingService.java:183)
+	at flex.messaging.MessageBroker.routeMessageToService(MessageBroker.java:1400)
+	at flex.messaging.endpoints.AbstractEndpoint.serviceMessage(AbstractEndpoint.java:1005)
+	at flex.messaging.endpoints.amf.MessageBrokerFilter.invoke(MessageBrokerFilter.java:103)
+	at flex.messaging.endpoints.amf.LegacyFilter.invoke(LegacyFilter.java:158)
+	at flex.messaging.endpoints.amf.SessionFilter.invoke(SessionFilter.java:44)
+	at flex.messaging.endpoints.amf.BatchProcessFilter.invoke(BatchProcessFilter.java:67)
+	at flex.messaging.endpoints.amf.SerializationFilter.invoke(SerializationFilter.java:166)
+	at flex.messaging.endpoints.BaseHTTPEndpoint.service(BaseHTTPEndpoint.java:291)
+	at flex.messaging.MessageBrokerServlet.service(MessageBrokerServlet.java:353)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:847)
+	at org.apache.catalina.core.StandardWrapper.service(StandardWrapper.java:1539)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:281)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:175)
+	at org.apache.catalina.core.StandardPipeline.doInvoke(StandardPipeline.java:655)
+	at org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:595)
+	at com.sun.enterprise.web.WebPipeline.invoke(WebPipeline.java:98)
+	at com.sun.enterprise.web.PESessionLockingStandardPipeline.invoke(PESessionLockingStandardPipeline.java:91)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:162)
+	at org.apache.catalina.connector.CoyoteAdapter.doService(CoyoteAdapter.java:330)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:231)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:174)
+	at com.sun.grizzly.http.ProcessorTask.invokeAdapter(ProcessorTask.java:828)
+	at com.sun.grizzly.http.ProcessorTask.doProcess(ProcessorTask.java:725)
+	at com.sun.grizzly.http.ProcessorTask.process(ProcessorTask.java:1019)
+	at com.sun.grizzly.http.DefaultProtocolFilter.execute(DefaultProtocolFilter.java:225)
+	at com.sun.grizzly.DefaultProtocolChain.executeProtocolFilter(DefaultProtocolChain.java:137)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:104)
+	at com.sun.grizzly.DefaultProtocolChain.execute(DefaultProtocolChain.java:90)
+	at com.sun.grizzly.http.HttpProtocolChain.execute(HttpProtocolChain.java:79)
+	at com.sun.grizzly.ProtocolChainContextTask.doCall(ProtocolChainContextTask.java:54)
+	at com.sun.grizzly.SelectionKeyContextTask.call(SelectionKeyContextTask.java:59)
+	at com.sun.grizzly.ContextTask.run(ContextTask.java:71)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:532)
+	at com.sun.grizzly.util.AbstractThreadPool$Worker.run(AbstractThreadPool.java:513)
+	at java.lang.Thread.run(Thread.java:662)
+Caused by: java.lang.NullPointerException
+	at org.eclipse.persistence.internal.sessions.ArrayRecord.get(ArrayRecord.java:129)
+	at org.eclipse.persistence.descriptors.InheritancePolicy.classFromRow(InheritancePolicy.java:338)
+	at org.eclipse.persistence.internal.descriptors.ObjectBuilder.buildObject(ObjectBuilder.java:597)
+	at org.eclipse.persistence.internal.descriptors.ObjectBuilder.buildObject(ObjectBuilder.java:568)
+	at org.eclipse.persistence.queries.ObjectLevelReadQuery.buildObject(ObjectLevelReadQuery.java:733)
+	at org.eclipse.persistence.queries.ReadAllQuery.registerResultInUnitOfWork(ReadAllQuery.java:767)
+	at org.eclipse.persistence.queries.ReadAllQuery.executeObjectLevelReadQuery(ReadAllQuery.java:431)
+	at org.eclipse.persistence.queries.ObjectLevelReadQuery.executeDatabaseQuery(ObjectLevelReadQuery.java:1097)
+	at org.eclipse.persistence.queries.DatabaseQuery.execute(DatabaseQuery.java:829)
+	at org.eclipse.persistence.queries.ObjectLevelReadQuery.execute(ObjectLevelReadQuery.java:1056)
+	at org.eclipse.persistence.queries.ReadAllQuery.execute(ReadAllQuery.java:390)
+	at org.eclipse.persistence.queries.ObjectLevelReadQuery.executeInUnitOfWork(ObjectLevelReadQuery.java:1144)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.internalExecuteQuery(UnitOfWorkImpl.java:2863)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1501)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1483)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1457)
+	at org.eclipse.persistence.internal.jpa.EJBQueryImpl.executeReadQuery(EJBQueryImpl.java:485)
+	at org.eclipse.persistence.internal.jpa.EJBQueryImpl.getResultList(EJBQueryImpl.java:742)
+	at fr.cinematheque.dao.AbstractFacade.findAll(AbstractFacade.java:41)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.glassfish.ejb.security.application.EJBSecurityManager.runMethod(EJBSecurityManager.java:1052)
+	at org.glassfish.ejb.security.application.EJBSecurityManager.invoke(EJBSecurityManager.java:1124)
+	at com.sun.ejb.containers.BaseContainer.invokeBeanMethod(BaseContainer.java:5366)
+	at com.sun.ejb.EjbInvocation.invokeBeanMethod(EjbInvocation.java:619)
+	at com.sun.ejb.containers.interceptors.AroundInvokeChainImpl.invokeNext(InterceptorManager.java:800)
+	at com.sun.ejb.EjbInvocation.proceed(EjbInvocation.java:571)
+	at org.jboss.weld.ejb.SessionBeanInterceptor.aroundInvoke(SessionBeanInterceptor.java:46)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.sun.ejb.containers.interceptors.AroundInvokeInterceptor.intercept(InterceptorManager.java:861)
+	at com.sun.ejb.containers.interceptors.AroundInvokeChainImpl.invokeNext(InterceptorManager.java:800)
+	at com.sun.ejb.EjbInvocation.proceed(EjbInvocation.java:571)
+	at com.sun.ejb.containers.interceptors.SystemInterceptorProxy.doAround(SystemInterceptorProxy.java:162)
+	at com.sun.ejb.containers.interceptors.SystemInterceptorProxy.aroundInvoke(SystemInterceptorProxy.java:144)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.sun.ejb.containers.interceptors.AroundInvokeInterceptor.intercept(InterceptorManager.java:861)
+	at com.sun.ejb.containers.interceptors.AroundInvokeChainImpl.invokeNext(InterceptorManager.java:800)
+	at com.sun.ejb.containers.interceptors.InterceptorManager.intercept(InterceptorManager.java:370)
+	at com.sun.ejb.containers.BaseContainer.__intercept(BaseContainer.java:5338)
+	at com.sun.ejb.containers.BaseContainer.intercept(BaseContainer.java:5326)
+	at com.sun.ejb.containers.EJBLocalObjectInvocationHandler.invoke(EJBLocalObjectInvocationHandler.java:214)
+	... 44 more
+
+INFO: [BlazeDS]Serializing AMF/HTTP response
+Version: 3
+  (Message #0 targetURI=/7/onStatus, responseURI=)
+    (Typed Object #0 'flex.messaging.messages.ErrorMessage')
+      headers = (Object #1)
+      rootCause = (Typed Object #2 'javax.ejb.EJBException')
+        message = null
+        localizedMessage = null
+        cause = (Typed Object #3 'java.lang.NullPointerException')
+          message = null
+          localizedMessage = null
+          cause = null
+        causedByException = (Ref #3)
+      body = null
+      correlationId = "53A8F4FA-886C-A308-19FF-B0AD81904CDB"
+      faultDetail = null
+      faultString = "javax.ejb.EJBException : null"
+      clientId = "3255CB0C-B80C-288F-155E-EB0F15AADA3D"
+      timeToLive = 0.0
+      destination = "movieEJBDestination"
+      timestamp = 1.321519122353E12
+      extendedData = null
+      faultCode = "Server.Processing"
+      messageId = "3257A847-210A-4E27-009A-1C09EB852149"
+

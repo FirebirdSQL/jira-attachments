@@ -1,0 +1,52 @@
+Mar 23 21:13:19 iMac-di-Phelipe Installer[4982]: @(#)PROGRAM:Install  PROJECT:Install-686.3
+Mar 23 21:13:19 iMac-di-Phelipe Installer[4982]: @(#)PROGRAM:Installer  PROJECT:Installer-530
+Mar 23 21:13:19 iMac-di-Phelipe Installer[4982]: Hardware: iMac8,1 @ 2.80 GHz (x 2), 4096 MB RAM
+Mar 23 21:13:19 iMac-di-Phelipe Installer[4982]: Running OS Build: Mac OS X 10.7.3 (11D50)
+Mar 23 21:13:19 iMac-di-Phelipe Installer[4982]: Env: PATH=/usr/bin:/bin:/usr/sbin:/sbin
+Mar 23 21:13:19 iMac-di-Phelipe Installer[4982]: Env: TMPDIR=/var/folders/rx/7b6sb39s7pj0z2kt7s02hn3h0000gn/T/
+Mar 23 21:13:19 iMac-di-Phelipe Installer[4982]: Env: SHELL=/bin/bash
+Mar 23 21:13:19 iMac-di-Phelipe Installer[4982]: Env: HOME=/Users/phelipe
+Mar 23 21:13:19 iMac-di-Phelipe Installer[4982]: Env: USER=phelipe
+Mar 23 21:13:19 iMac-di-Phelipe Installer[4982]: Env: LOGNAME=phelipe
+Mar 23 21:13:19 iMac-di-Phelipe Installer[4982]: Env: DISPLAY=/tmp/launch-9Fklxn/org.x:0
+Mar 23 21:13:19 iMac-di-Phelipe Installer[4982]: Env: SSH_AUTH_SOCK=/tmp/launch-J2VsmZ/Listeners
+Mar 23 21:13:19 iMac-di-Phelipe Installer[4982]: Env: Apple_Ubiquity_Message=/tmp/launch-ceOK1O/Apple_Ubiquity_Message
+Mar 23 21:13:19 iMac-di-Phelipe Installer[4982]: Env: Apple_PubSub_Socket_Render=/tmp/launch-nVE63g/Render
+Mar 23 21:13:19 iMac-di-Phelipe Installer[4982]: Env: COMMAND_MODE=unix2003
+Mar 23 21:13:19 iMac-di-Phelipe Installer[4982]: Env: __CF_USER_TEXT_ENCODING=0x1F5:0:4
+Mar 23 21:13:19 iMac-di-Phelipe Installer[4982]: Firebird Database  Installation Log
+Mar 23 21:13:19 iMac-di-Phelipe Installer[4982]: Opened from: /Users/phelipe/Downloads/FirebirdSS-2.5.1-26351-x86_64.pkg
+Mar 23 21:13:45 iMac-di-Phelipe Installer[4982]: InstallerStatusNotifications plugin loaded
+Mar 23 21:13:51 iMac-di-Phelipe runner[4988]: Administrator authorization granted.
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: ================================================================================
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: User picked Standard Install
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: Choices selected for installation:
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: 	Installa: "Firebird Database"
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: 		FirebirdSS-2.5.1-26351-x86_64.pkg : org.firebirdsql.Firebird : 2.5.0.2.5
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: ================================================================================
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: It took 0.00 seconds to summarize the package selections.
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: -[IFPKGDerivedDocument sortedPackageLocations]: result = (
+	    "file://localhost"
+	)
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: -[IFDInstallController(Private) _buildInstallPlan]: location = file://localhost
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: -[IFDInstallController(Private) _buildInstallPlan]: file://localhost/Users/phelipe/Downloads/FirebirdSS-2.5.1-26351-x86_64.pkg
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: Set authorization level to root for session
+Mar 23 21:13:51 iMac-di-Phelipe runner[4988]: Administrator authorization granted.
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: Package file://localhost/Users/phelipe/Downloads/FirebirdSS-2.5.1-26351-x86_64.pkg not supported by PK
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: Will use IF session
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: Starting installation:
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: Configuring volume "Macintosh HD"
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: Preparing disk for local booted install.
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: Free space on "Macintosh HD": 956.6 GB (956604190720 bytes).
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: Create temporary directory "/var/folders/rx/7b6sb39s7pj0z2kt7s02hn3h0000gn/T//Install.4982GbAFQT"
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: Processing Firebird Database:
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: 	Determining files to install
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: 	It took 0.00 seconds to create the install plan for FirebirdSS-2.5.1-26351-x86_64.
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: 	Configuring deferred files
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: 	Assembling temporary receipt
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: 	Performing pre-extraction actions
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: 	run preinstall script for Firebird Database
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: Install failed: Il seguente passaggio di installazione non è riuscito: run preinstall script for Firebird Database. Contatta il produttore del software per ottenere assistenza.
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: IFDInstallController A9C668A0 state = 7
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: Displaying 'Install Failed' UI.
+Mar 23 21:13:51 iMac-di-Phelipe Installer[4982]: 'Install Failed' UI displayed message:'Il seguente passaggio di installazione non è riuscito: run preinstall script for Firebird Database. Contatta il produttore del software per ottenere assistenza.'.

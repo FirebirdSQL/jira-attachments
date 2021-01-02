@@ -1,0 +1,220 @@
+[ODBC][20339][1387354235.318765][__handles.c][460]
+		Exit:[SQL_SUCCESS]
+			Environment = 0xd1b2b0
+[ODBC][20339][1387354235.318807][SQLSetEnvAttr.c][189]
+		Entry:
+			Environment = 0xd1b2b0
+			Attribute = SQL_ATTR_ODBC_VERSION
+			Value = 0x3
+			StrLen = -6
+[ODBC][20339][1387354235.318829][SQLSetEnvAttr.c][364]
+		Exit:[SQL_SUCCESS]
+[ODBC][20339][1387354235.319061][SQLAllocHandle.c][375]
+		Entry:
+			Handle Type = 2
+			Input Handle = 0xd1b2b0
+[ODBC][20339][1387354235.319087][SQLAllocHandle.c][493]
+		Exit:[SQL_SUCCESS]
+			Output Handle = 0xd584e0
+[ODBC][20339][1387354235.319115][SQLSetConnectAttr.c][396]
+		Entry:
+			Connection = 0xd584e0
+			Attribute = SQL_ATTR_AUTOCOMMIT
+			Value = (nil)
+			StrLen = -5
+[ODBC][20339][1387354235.319138][SQLSetConnectAttr.c][671]
+		Exit:[SQL_SUCCESS]
+[ODBC][20339][1387354235.319386][SQLDriverConnect.c][728]
+		Entry:
+			Connection = 0xd584e0
+			Window Hdl = (nil)
+			Str In = [DSN=U53;UID=SYSDBA;PWD=*********][length = 32]
+			Str Out = 0xd5a5c8
+			Str Out Max = 1024
+			Str Out Ptr = 0x7fff43ebcc30
+			Completion = 0
+		UNICODE Using encoding ASCII 'ANSI_X3.4-1968' and UNICODE 'UCS-2LE'
+
+[ODBC][20339][1387354235.335509][SQLDriverConnect.c][1695]
+		Exit:[SQL_SUCCESS]
+			Connection Out [DSN=U53;Driver=Firebird/InterBase(r) driver;Dbname=147.229.4.166...]
+[ODBC][20339][1387354235.335582][SQLGetFunctions.c][151]
+		Entry:
+			Connection = 0xd584e0
+			Id = 999
+			Supported = 0xd53a90
+[ODBC][20339][1387354235.335607][SQLGetFunctions.c][186]
+		Exit:[SQL_SUCCESS]
+			Supported = 0xd53a90 -> -2
+[ODBC][20339][1387354235.335662][SQLGetInfo.c][554]
+		Entry:
+			Connection = 0xd584e0
+			Info Type = SQL_DRIVER_NAME (6)
+			Info Value = 0x7fff43ebc930
+			Buffer Length = 512
+			StrLen = 0x7fff43ebcc34
+[ODBC][20339][1387354235.335692][SQLGetInfo.c][617]
+		Exit:[SQL_SUCCESS]
+[ODBC][20339][1387354235.335718][SQLGetInfo.c][554]
+		Entry:
+			Connection = 0xd584e0
+			Info Type = SQL_DRIVER_VER (7)
+			Info Value = 0x7fff43ebc930
+			Buffer Length = 512
+			StrLen = 0x7fff43ebcc34
+[ODBC][20339][1387354235.335740][SQLGetInfo.c][617]
+		Exit:[SQL_SUCCESS]
+[ODBC][20339][1387354235.335771][SQLGetInfo.c][554]
+		Entry:
+			Connection = 0xd584e0
+			Info Type = SQL_DBMS_NAME (17)
+			Info Value = 0x7fff43ebc930
+			Buffer Length = 512
+			StrLen = 0x7fff43ebcc34
+[ODBC][20339][1387354235.335803][SQLGetInfo.c][617]
+		Exit:[SQL_SUCCESS]
+[ODBC][20339][1387354235.335838][SQLGetInfo.c][554]
+		Entry:
+			Connection = 0xd584e0
+			Info Type = SQL_DBMS_VER (18)
+			Info Value = 0x7fff43ebc930
+			Buffer Length = 512
+			StrLen = 0x7fff43ebcc34
+[ODBC][20339][1387354235.335861][SQLGetInfo.c][617]
+		Exit:[SQL_SUCCESS]
+[ODBC][20339][1387354235.335919][SQLGetInfo.c][554]
+		Entry:
+			Connection = 0xd584e0
+			Info Type = SQL_CATALOG_NAME (10003)
+			Info Value = 0x7fff43ebcc90
+			Buffer Length = 512
+			StrLen = 0x7fff43ebcf20
+[ODBC][20339][1387354235.335946][SQLGetInfo.c][617]
+		Exit:[SQL_SUCCESS]
+[ODBC][20339][1387354235.335989][SQLGetInfo.c][554]
+		Entry:
+			Connection = 0xd584e0
+			Info Type = SQL_MAX_CATALOG_NAME_LEN (34)
+			Info Value = 0x7fff43ebcf1c
+			Buffer Length = 2
+			StrLen = (nil)
+[ODBC][20339][1387354235.336012][SQLGetInfo.c][617]
+		Exit:[SQL_SUCCESS]
+[ODBC][20339][1387354235.336050][SQLGetConnectAttr.c][292]
+		Entry:
+			Connection = 0xd584e0
+			Attribute = SQL_ATTR_CURRENT_CATALOG
+			Value = 0xd6fbc0
+			Buffer Length = 4096
+			StrLen = 0xd53e10
+[ODBC][20339][1387354235.336078][SQLGetConnectAttr.c][758]
+		Exit:[SQL_SUCCESS]
+[ODBC][20339][1387354235.337015][SQLGetInfo.c][554]
+		Entry:
+			Connection = 0xd584e0
+			Info Type = SQL_SCHEMA_USAGE (91)
+			Info Value = 0x7fff43ebcff0
+			Buffer Length = 4
+			StrLen = 0x7fff43ebd00c
+[ODBC][20339][1387354235.337042][SQLGetInfo.c][617]
+		Exit:[SQL_SUCCESS]
+[ODBC][20339][1387354235.337072][SQLGetInfo.c][554]
+		Entry:
+			Connection = 0xd584e0
+			Info Type = SQL_TXN_CAPABLE (46)
+			Info Value = 0xd54384
+			Buffer Length = 2
+			StrLen = 0x7fff43ebd014
+[ODBC][20339][1387354235.337093][SQLGetInfo.c][617]
+		Exit:[SQL_SUCCESS]
+[ODBC][20339][1387354235.337114][SQLGetInfo.c][554]
+		Entry:
+			Connection = 0xd584e0
+			Info Type = SQL_TXN_ISOLATION_OPTION (72)
+			Info Value = 0xd54388
+			Buffer Length = 4
+			StrLen = 0x7fff43ebd014
+[ODBC][20339][1387354235.337141][SQLGetInfo.c][617]
+		Exit:[SQL_SUCCESS]
+[ODBC][20339][1387354235.337171][SQLGetInfo.c][554]
+		Entry:
+			Connection = 0xd584e0
+			Info Type = SQL_MAX_SCHEMA_NAME_LEN (32)
+			Info Value = 0x7fff43ebd010
+			Buffer Length = 2
+			StrLen = 0x7fff43ebd00c
+[ODBC][20339][1387354235.337192][SQLGetInfo.c][617]
+		Exit:[SQL_SUCCESS]
+[ODBC][20339][1387354235.337221][SQLGetInfo.c][554]
+		Entry:
+			Connection = 0xd584e0
+			Info Type = SQL_MAX_TABLE_NAME_LEN (35)
+			Info Value = 0x7fff43ebd010
+			Buffer Length = 2
+			StrLen = 0x7fff43ebd00c
+[ODBC][20339][1387354235.337256][SQLGetInfo.c][617]
+		Exit:[SQL_SUCCESS]
+[ODBC][20339][1387354235.337292][SQLGetInfo.c][554]
+		Entry:
+			Connection = 0xd584e0
+			Info Type = SQL_MAX_PROCEDURE_NAME_LEN (33)
+			Info Value = 0x7fff43ebd010
+			Buffer Length = 2
+			StrLen = 0x7fff43ebd00c
+[ODBC][20339][1387354235.337314][SQLGetInfo.c][617]
+		Exit:[SQL_SUCCESS]
+[ODBC][20339][1387354235.337351][SQLGetInfo.c][554]
+		Entry:
+			Connection = 0xd584e0
+			Info Type = SQL_IDENTIFIER_QUOTE_CHAR (29)
+			Info Value = 0x7fff43ebcd20
+			Buffer Length = 512
+			StrLen = 0x7fff43ebd00c
+[ODBC][20339][1387354235.337374][SQLGetInfo.c][617]
+		Exit:[SQL_SUCCESS]
+[ODBC][20339][1387354235.337418][SQLAllocHandle.c][540]
+		Entry:
+			Handle Type = 3
+			Input Handle = 0xd584e0
+[ODBC][20339][1387354235.337479][SQLAllocHandle.c][1081]
+		Exit:[SQL_SUCCESS]
+			Output Handle = 0xd77dc0
+[ODBC][20339][1387354235.337504][SQLBindCol.c][236]
+		Entry:
+			Statement = 0xd77dc0
+			Column Number = 1
+			Target Type = 1 SQL_CHAR
+			Target Value = 0x7fff43ebca30
+			Buffer Length = 120
+			StrLen Or Ind = 0x7fff43ebcf80
+[ODBC][20339][1387354235.337536][SQLBindCol.c][341]
+		Exit:[SQL_SUCCESS]
+[ODBC][20339][1387354235.337558][SQLBindCol.c][236]
+		Entry:
+			Statement = 0xd77dc0
+			Column Number = 3
+			Target Type = -16 SQL_C_SLONG
+			Target Value = 0x7fff43ebcfec
+			Buffer Length = 0
+			StrLen Or Ind = 0x7fff43ebcf70
+[ODBC][20339][1387354235.337580][SQLBindCol.c][341]
+		Exit:[SQL_SUCCESS]
+[ODBC][20339][1387354235.337600][SQLBindCol.c][236]
+		Entry:
+			Statement = 0xd77dc0
+			Column Number = 10
+			Target Type = -15 SQL_C_SSHORT
+			Target Value = 0x7fff43ebd008
+			Buffer Length = 0
+			StrLen Or Ind = 0x7fff43ebcf78
+[ODBC][20339][1387354235.337621][SQLBindCol.c][341]
+		Exit:[SQL_SUCCESS]
+[ODBC][20339][1387354235.337644][SQLGetTypeInfo.c][168]
+		Entry:
+			Statement = 0xd77dc0
+			Data Type = SQL_VARCHAR
+[ODBC][20339][1387354235.342597][SQLGetTypeInfo.c][318]
+		Exit:[SQL_SUCCESS]
+[ODBC][20339][1387354235.342632][SQLFetch.c][162]
+		Entry:
+			Statement = 0xd77dc0

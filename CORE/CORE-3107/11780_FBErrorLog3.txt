@@ -1,0 +1,22 @@
+XSERV-7BF62F (Server)	Mon Sep 13 12:26:48 2010
+	Database: G:\BAZA.EWI.LLL
+	Relation has 1 orphan backversions (0 in use) in table STER_STAT (145)
+
+
+XSERV-7BF62F (Server)	Mon Sep 13 12:28:50 2010
+	Database: G:\BAZA.EWI.LLL
+	Relation has 1 orphan backversions (0 in use) in table ADRESY_EX (164)
+
+
+XSERV-7BF62F (Server)	Mon Sep 13 12:31:21 2010
+	INET/inet_error: read errno = 10038
+
+
+XSERV-7BF62F (Server)	Mon Sep 13 12:33:18 2010
+	INET/inet_error: read errno = 10038
+
+
+XSERV-7BF62F (Server)	Mon Sep 13 12:36:14 2010
+	Database: G:\BAZA.EWI.LLL
+	Index 5 is corrupt on page 135157 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table GPRSTEST_DB (171)

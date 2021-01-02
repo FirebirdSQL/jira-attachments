@@ -1,0 +1,31 @@
+22.12.2011 23:35:16 testbasejavaapplication.Main main
+SEVERE: null
+org.firebirdsql.jdbc.FBSQLException: GDS Exception. 335544569. Dynamic SQL Error
+SQL error code = -303
+arithmetic exception, numeric overflow, or string truncation
+No message for code 335544914 found.
+	at org.firebirdsql.jdbc.AbstractPreparedStatement.internalExecute(AbstractPreparedStatement.java:730)
+	at org.firebirdsql.jdbc.AbstractPreparedStatement.executeUpdate(AbstractPreparedStatement.java:190)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.firebirdsql.pool.PooledPreparedStatementHandler.invoke(PooledPreparedStatementHandler.java:166)
+	at org.firebirdsql.pool.$Proxy1.executeUpdate(Unknown Source)
+	at testbasejavaapplication.Main.main(Main.java:43)
+at org.firebirdsql.gds.GDSException: Dynamic SQL Error
+SQL error code = -303
+arithmetic exception, numeric overflow, or string truncation
+No message for code 335544914 found.
+	at org.firebirdsql.gds.impl.jni.JniGDSImpl.native_isc_dsql_execute2(Native Method)
+	at org.firebirdsql.gds.impl.jni.BaseGDSImpl.iscDsqlExecute2(BaseGDSImpl.java:422)
+	at org.firebirdsql.gds.impl.GDSHelper.executeStatement(GDSHelper.java:226)
+	at org.firebirdsql.jdbc.AbstractPreparedStatement.internalExecute(AbstractPreparedStatement.java:726)
+	at org.firebirdsql.jdbc.AbstractPreparedStatement.executeUpdate(AbstractPreparedStatement.java:190)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.firebirdsql.pool.PooledPreparedStatementHandler.invoke(PooledPreparedStatementHandler.java:166)
+	at org.firebirdsql.pool.$Proxy1.executeUpdate(Unknown Source)
+	at testbasejavaapplication.Main.main(Main.java:43)

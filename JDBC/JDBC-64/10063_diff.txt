@@ -1,0 +1,55 @@
+Index: src/main/org/firebirdsql/gds/XdrOutputStream.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/main/org/firebirdsql/gds/XdrOutputStream.java,v
+retrieving revision 1.1
+diff -c -r1.1 XdrOutputStream.java
+*** src/main/org/firebirdsql/gds/XdrOutputStream.java	20 Aug 2003 21:56:23 -0000	1.1
+--- src/main/org/firebirdsql/gds/XdrOutputStream.java	13 Jul 2004 07:18:33 -0000
+***************
+*** 46,57 ****
+   */
+  public final class XdrOutputStream {
+  
+      private static Logger log = LoggerFactory.getLogger(XdrOutputStream.class,false);
+!     private static byte[] textPad = new byte[32767];
+      private static byte[] zero = new XSQLVAR().encodeInt(0);   // todo
+      private static byte[] minusOne = new XSQLVAR().encodeInt(-1);
+  
+!     private byte[] buf = new byte[32767];
+      private int count;
+  
+      private OutputStream out = null;
+--- 46,61 ----
+   */
+  public final class XdrOutputStream {
+  
++     private static final int BUF_SIZE = 32767;
++     private static final int BUF_MAX = (int)(BUF_SIZE * 0.8);
++ 
+      private static Logger log = LoggerFactory.getLogger(XdrOutputStream.class,false);
+!     private static byte[] textPad = new byte[BUF_SIZE];
+      private static byte[] zero = new XSQLVAR().encodeInt(0);   // todo
+      private static byte[] minusOne = new XSQLVAR().encodeInt(-1);
+  
+!     private byte[] buf = new byte[BUF_SIZE];
+! 
+      private int count;
+  
+      private OutputStream out = null;
+***************
+*** 232,238 ****
+      //
+  
+      public void write(byte[] b, int len, int pad) throws IOException {
+!         if (len > 256){
+              if (count > 0)
+                  out.write(buf, 0, count);
+              out.write(b, 0, len);
+--- 236,242 ----
+      //
+  
+      public void write(byte[] b, int len, int pad) throws IOException {
+!         if (len > 256 || count + len >= BUF_MAX){
+              if (count > 0)
+                  out.write(buf, 0, count);
+              out.write(b, 0, len);

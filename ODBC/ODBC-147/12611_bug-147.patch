@@ -1,0 +1,27 @@
+Index: OdbcConnection.cpp
+===================================================================
+--- OdbcConnection.cpp	(revision 4)
++++ OdbcConnection.cpp	(revision 5)
+@@ -528,10 +528,21 @@
+ 		q = value;
+ 		if (c == '=')
+ 		{
++			char term = ';';
++
+ 			while (p < end && *p == ' ') p++;
+ 
+-			while (p < end && (c = *p++) != ';')
++			if (*p == '{')
++			{
++				term = '}';
++				p++;
++			}
++
++			while (p < end && (c = *p++) != term)
+ 				*q++ = c;
++
++			if (term != ';')
++				while (p < end && (c = *p++) != ';');
+ 		}
+ 		*q = 0;
+ 

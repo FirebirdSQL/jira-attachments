@@ -1,0 +1,37 @@
+Description: minor spelling errors in messages
+ supress --> suppress
+ priviledge --> privilege
+Author: Damyan Ivanov <dmn@debian.org>
+
+--- a/src/gpre/gpreswi.h
++++ b/src/gpre/gpreswi.h
+@@ -196,6 +196,6 @@ static const in_sw_tab_t gpre_in_sw_tabl
+ #ifdef GPRE_COBOL
+ 	{IN_SW_GPRE_DATE_FMT, 0, "DFM"			, 0, 0, 0, false, 0, 0, "\t\tCobol date format"},
+ #endif
+-	{IN_SW_NO_QLI		, 0, "NOQLI"		, 0, 0, 0, false, 0, 0, "\t\tsupress QLI syntax"},
++	{IN_SW_NO_QLI		, 0, "NOQLI"		, 0, 0, 0, false, 0, 0, "\t\tsuppress QLI syntax"},
+ 	{IN_SW_GPRE_0		, 0, NULL			, 0, 0, 0, false, 0, 0, NULL}
+ };
+--- a/src/include/gen/msgs.h
++++ b/src/include/gen/msgs.h
+@@ -483,7 +483,7 @@ static const struct {
+ 	{335544779, "Integer overflow.  The result of an integer operation caused the most significant bit of the result to carry."},		/* 459, exception_integer_overflow */
+ 	{335544780, "An exception occurred that does not have a description.  Exception number @1."},		/* 460, exception_unknown */
+ 	{335544781, "Stack overflow.  The resource requirements of the runtime stack have exceeded the memory available to it."},		/* 461, exception_stack_overflow */
+-	{335544782, "Segmentation Fault. The code attempted to access memory without priviledges."},		/* 462, exception_sigsegv */
++	{335544782, "Segmentation Fault. The code attempted to access memory without privileges."},		/* 462, exception_sigsegv */
+ 	{335544783, "Illegal Instruction. The Code attempted to perfrom an illegal operation."},		/* 463, exception_sigill */
+ 	{335544784, "Bus Error. The Code caused a system bus error."},		/* 464, exception_sigbus */
+ 	{335544785, "Floating Point Error. The Code caused an Arithmetic Exception or a floating point exception."},		/* 465, exception_sigfpe */
+--- a/src/msgs/messages2.sql
++++ b/src/msgs/messages2.sql
+@@ -558,7 +558,7 @@ without specifying a character set.', NU
+ ('exception_integer_overflow', 'POST_EXCEPTIONS and POST_EXTRENA', 'common.h', NULL, 0, 459, NULL, 'Integer overflow.  The result of an integer operation caused the most significant bit of the result to carry.', NULL, NULL);
+ ('exception_unknown', 'POST_EXCEPTIONS and POST_EXTRENA', 'common.h', 'obsolete', 0, 460, NULL, 'An exception occurred that does not have a description.  Exception number @1.', NULL, NULL);
+ ('exception_stack_overflow', 'POST_EXCEPTION', 'common.h', NULL, 0, 461, NULL, 'Stack overflow.  The resource requirements of the runtime stack have exceeded the memory available to it.', NULL, NULL);
+-('exception_sigsegv', 'ISC_exception_post', 'isc_sync.c', NULL, 0, 462, NULL, 'Segmentation Fault. The code attempted to access memory without priviledges.', NULL, NULL);
++('exception_sigsegv', 'ISC_exception_post', 'isc_sync.c', NULL, 0, 462, NULL, 'Segmentation Fault. The code attempted to access memory without privileges.', NULL, NULL);
+ ('exception_sigill', 'ISC_exception_post', 'isc_sync.c', NULL, 0, 463, NULL, 'Illegal Instruction. The Code attempted to perfrom an illegal operation.', NULL, NULL);
+ ('exception_sigbus', 'ISC_exception_post', 'isc_sync.c', NULL, 0, 464, NULL, 'Bus Error. The Code caused a system bus error.', NULL, NULL);
+ ('exception_sigfpe', 'ISC_exception_post', 'isc_sync.c', NULL, 0, 465, NULL, 'Floating Point Error. The Code caused an Arithmetic Exception or a floating point exception.', NULL, NULL);

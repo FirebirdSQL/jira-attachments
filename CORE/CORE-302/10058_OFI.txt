@@ -1,0 +1,1688 @@
+SET SQL DIALECT 1;
+
+/* CREATE DATABASE 'GRIV01LAB:D:\Firebird\Db\OFI.fdb' PAGE_SIZE 4096
+ DEFAULT CHARACTER SET ASCII */
+
+create database 'ofi.fdb';
+
+/*  External Function declarations
+
+DECLARE EXTERNAL FUNCTION DATETODOUBLE
+TIMESTAMP
+RETURNS DOUBLE PRECISION BY VALUE 
+ENTRY_POINT 'fn_datetodouble' MODULE_NAME 'rfunc';
+
+
+DECLARE EXTERNAL FUNCTION DATETOSTR
+TIMESTAMP, CSTRING(256) CHARACTER SET ASCII
+RETURNS CSTRING(256) CHARACTER SET ASCII FREE_IT
+ENTRY_POINT 'fn_datetostr' MODULE_NAME 'rfunc';
+
+
+DECLARE EXTERNAL FUNCTION DAYPERMONTH
+INTEGER, INTEGER
+RETURNS INTEGER BY VALUE 
+ENTRY_POINT 'fn_daypermonth' MODULE_NAME 'rfunc';
+
+
+DECLARE EXTERNAL FUNCTION DAYSBETWEEN
+TIMESTAMP, TIMESTAMP
+RETURNS INTEGER BY VALUE 
+ENTRY_POINT 'fn_daysbetween' MODULE_NAME 'rfunc';
+
+
+DECLARE EXTERNAL FUNCTION DOUBLETODATE
+DOUBLE PRECISION
+RETURNS TIMESTAMP FREE_IT
+ENTRY_POINT 'fn_doubletodate' MODULE_NAME 'rfunc';
+
+
+DECLARE EXTERNAL FUNCTION DOUBLETOTIME
+DOUBLE PRECISION
+RETURNS TIMESTAMP FREE_IT
+ENTRY_POINT 'fn_doubletotime' MODULE_NAME 'rfunc';
+
+
+DECLARE EXTERNAL FUNCTION DOW
+TIMESTAMP
+RETURNS INTEGER BY VALUE 
+ENTRY_POINT 'fn_dow' MODULE_NAME 'rfunc';
+
+
+DECLARE EXTERNAL FUNCTION ENCODEDATE
+INTEGER, INTEGER, INTEGER
+RETURNS TIMESTAMP FREE_IT
+ENTRY_POINT 'fn_encodedate' MODULE_NAME 'rfunc';
+
+
+DECLARE EXTERNAL FUNCTION ENCODEDATETIME
+INTEGER, INTEGER, INTEGER, INTEGER, INTEGER, INTEGER
+RETURNS TIMESTAMP FREE_IT
+ENTRY_POINT 'fn_encodedatetime' MODULE_NAME 'rfunc';
+
+
+DECLARE EXTERNAL FUNCTION FIRSTDAYMONTH
+TIMESTAMP
+RETURNS TIMESTAMP
+ENTRY_POINT 'fn_firstdaymonth' MODULE_NAME 'rfunc';
+
+
+DECLARE EXTERNAL FUNCTION INCDATE
+TIMESTAMP, INTEGER, INTEGER, INTEGER
+RETURNS TIMESTAMP
+ENTRY_POINT 'fn_incdate' MODULE_NAME 'rfunc';
+
+
+DECLARE EXTERNAL FUNCTION INCDATETIME
+TIMESTAMP, INTEGER, INTEGER, INTEGER, INTEGER, INTEGER, INTEGER
+RETURNS TIMESTAMP
+ENTRY_POINT 'fn_incdatetime' MODULE_NAME 'rfunc';
+
+
+DECLARE EXTERNAL FUNCTION LASTDAYMONTH
+TIMESTAMP
+RETURNS TIMESTAMP
+ENTRY_POINT 'fn_lastdaymonth' MODULE_NAME 'rfunc';
+
+
+DECLARE EXTERNAL FUNCTION MAXDATE
+TIMESTAMP, TIMESTAMP
+RETURNS TIMESTAMP
+ENTRY_POINT 'fn_maxdate' MODULE_NAME 'rfunc';
+
+
+DECLARE EXTERNAL FUNCTION MINDATE
+TIMESTAMP, TIMESTAMP
+RETURNS TIMESTAMP
+ENTRY_POINT 'fn_mindate' MODULE_NAME 'rfunc';
+
+
+DECLARE EXTERNAL FUNCTION QUARTER
+TIMESTAMP
+RETURNS INTEGER BY VALUE 
+ENTRY_POINT 'fn_quarter' MODULE_NAME 'rfunc';
+
+
+DECLARE EXTERNAL FUNCTION TIMETODOUBLE
+TIMESTAMP
+RETURNS DOUBLE PRECISION BY VALUE 
+ENTRY_POINT 'fn_timetodouble' MODULE_NAME 'rfunc';
+*/
+
+
+/* Domain definitions */
+CREATE DOMAIN ADATE AS TIMESTAMP NOT NULL;
+CREATE DOMAIN ADATE_N AS TIMESTAMP;
+CREATE DOMAIN BATCH_NO AS VARCHAR(12) CHARACTER SET ASCII;
+CREATE DOMAIN BOOL AS CHAR(1) CHARACTER SET ASCII
+	 DEFAULT '0'
+	 CHECK (value in('1','0')) NOT NULL;
+CREATE DOMAIN CUST_NO AS VARCHAR(8) CHARACTER SET ASCII;
+CREATE DOMAIN INTGR AS INTEGER;
+CREATE DOMAIN PHONE_NUM AS VARCHAR(15) CHARACTER SET ASCII;
+CREATE DOMAIN STATE AS CHAR(2) CHARACTER SET ASCII;
+CREATE DOMAIN TBL_ID AS INTEGER
+	 DEFAULT 0 NOT NULL;
+CREATE DOMAIN TXT_BLOB AS BLOB SUB_TYPE TEXT SEGMENT SIZE 80 CHARACTER SET ASCII;
+CREATE DOMAIN USERID AS VARCHAR(15) CHARACTER SET ASCII
+	 DEFAULT '0' NOT NULL;
+CREATE DOMAIN VC_128 AS VARCHAR(128) CHARACTER SET ASCII;
+CREATE DOMAIN VC_15 AS VARCHAR(15) CHARACTER SET ASCII;
+CREATE DOMAIN VC_25 AS VARCHAR(25) CHARACTER SET ASCII;
+CREATE DOMAIN VC_50 AS VARCHAR(50) CHARACTER SET ASCII;
+CREATE DOMAIN VC_80 AS VARCHAR(80) CHARACTER SET ASCII;
+CREATE DOMAIN ZIP_CODE AS CHAR(10) CHARACTER SET ASCII;
+
+/* Table: APPROVE, Owner: SYSDBA */
+
+CREATE TABLE APPROVE 
+(
+  ID	 TBL_ID  DEFAULT 0,
+  RESPONSE_ID	 TBL_ID  DEFAULT 0 NOT NULL,
+  APPROVER_ID	 USERID  DEFAULT '0' NOT NULL,
+  PLANT_ID	 TBL_ID  DEFAULT 0 NOT NULL,
+  CRE_DATE	 ADATE ,
+  CHG_DATE	 ADATE ,
+  REVIEW	 BOOL  DEFAULT '0',
+  REVIEW_DATE	 ADATE_N ,
+  SERVICE_FAILURE	 BOOL  DEFAULT '0',
+  PRODUCT_FAILURE	 BOOL  DEFAULT '0',
+  RECURRING_ROOT	 BOOL  DEFAULT '0',
+  RECURRING	 BOOL  DEFAULT '0',
+  APPROVE_NOTE	 TXT_BLOB ,
+  TEAM_NOTE	 TXT_BLOB ,
+  EXT_CAUSE	 BOOL  DEFAULT '0',
+  STATUS_ID	 TBL_ID  DEFAULT 0,
+CONSTRAINT APPROVE_ID PRIMARY KEY (ID)
+);
+
+/* Table: APPRV_STATUS, Owner: SYSDBA */
+
+CREATE TABLE APPRV_STATUS 
+(
+  ID	 TBL_ID  DEFAULT 0 NOT NULL,
+  NAME	 VC_50  NOT NULL,
+CONSTRAINT PK_APPRV_STATUS PRIMARY KEY (ID)
+);
+
+/* Table: AUDIT_TYPES, Owner: SYSDBA */
+
+CREATE TABLE AUDIT_TYPES 
+(
+  ID	 TBL_ID  DEFAULT 0 NOT NULL,
+  NAME	 VC_50 ,
+CONSTRAINT PK_AUDIT_TYPES PRIMARY KEY (ID)
+);
+
+/* Table: CATEGORIES, Owner: SYSDBA */
+
+CREATE TABLE CATEGORIES 
+(
+  ID	 TBL_ID  DEFAULT 0 NOT NULL,
+  NAME	 VC_25 ,
+CONSTRAINT PK_CATEGORIES PRIMARY KEY (ID)
+);
+
+/* Table: CAUSES, Owner: SYSDBA */
+
+CREATE TABLE CAUSES 
+(
+  ID	 VC_15  NOT NULL,
+  NAME	 VC_50  NOT NULL,
+CONSTRAINT PK_CAUSES PRIMARY KEY (ID)
+);
+
+/* Table: COMPLAINTS, Owner: SYSDBA */
+
+CREATE TABLE COMPLAINTS 
+(
+  ID	 TBL_ID  DEFAULT 0 NOT NULL,
+  CODE	 VC_25 ,
+  INITIATOR_ID	 USERID  DEFAULT '0' NOT NULL,
+  RESPONDER_ID	 USERID  DEFAULT '0',
+  OFI_ID	 TBL_ID  DEFAULT 0,
+  IMP_TYPE_ID	 INTGR ,
+  AUD_TYPE_ID	 INTGR ,
+  CAUSE_ID	 VC_15 ,
+  CUSTOMER_ID	 INTGR ,
+  CONTACT	 VC_50 ,
+  PHONE	 VC_25 ,
+  FAX	 VC_25 ,
+  EMAIL	 VC_128 ,
+  PLANT_ID	 TBL_ID  DEFAULT 0,
+  PRODUCT_ID	 TBL_ID  DEFAULT 0,
+  DEPT_ID	 TBL_ID  DEFAULT 0,
+  PACKAGING_ID	 INTGR ,
+  TRANSPORT_ID	 INTGR ,
+  TRANSPORT_CO_ID	 INTGR ,
+  TRAILER_NUM	 VC_50 ,
+  ISS_DATE	 ADATE ,
+  ENT_DATE	 ADATE ,
+  RSP_DATE	 ADATE_N ,
+  CHG_DATE	 ADATE ,
+  REV_DATE	 ADATE_N ,
+  CPL_DATE	 ADATE_N ,
+  DUE_DATE	 ADATE ,
+  DESCRIPTION	 TXT_BLOB ,
+  BATCH_NUM	 BATCH_NO ,
+  LOT_NUM	 VC_50 ,
+  ORDER_NUM	 VC_50 ,
+  DELIVERY_NUM	 VC_50 ,
+  LETTER	 BOOL  DEFAULT '0',
+  LETTER_SENT	 BOOL  DEFAULT '0',
+  NOTE	 TXT_BLOB ,
+  STATUS_ID	 TBL_ID  DEFAULT 0,
+  EMAIL_INIT	 BOOL  DEFAULT '0' NOT NULL,
+  EMAIL_RESP	 BOOL  DEFAULT '0' NOT NULL,
+  EMAIL_TEAM	 BOOL  DEFAULT '0' NOT NULL,
+  EMAIL_APPV	 BOOL  DEFAULT '0' NOT NULL,
+  EMAIL_LETWRI	 BOOL  DEFAULT '0' NOT NULL,
+  REVIEW_CHG	 BOOL  DEFAULT '0' NOT NULL,
+CONSTRAINT PK_COMPLAINTS PRIMARY KEY (ID)
+);
+
+/* Table: CUSTOMERS, Owner: SYSDBA */
+
+CREATE TABLE CUSTOMERS 
+(
+  ID	 TBL_ID  DEFAULT 0 NOT NULL,
+  CODE	 VC_15  NOT NULL,
+  NAME	 VC_50  NOT NULL,
+  ADDR1	 VC_50 ,
+  ADDR2	 VC_50 ,
+  CITY	 VC_50 ,
+  STATE_ID	 TBL_ID  DEFAULT 0,
+  ZIP	 ZIP_CODE ,
+  COUNTRY	 VC_25 ,
+  CONTACT	 VC_50 ,
+  PHONE	 PHONE_NUM ,
+  FAX	 PHONE_NUM ,
+  EMAIL	 VC_50 ,
+CONSTRAINT PK_CUSTOMERS PRIMARY KEY (ID)
+);
+
+/* Table: DEPARTMENT, Owner: SYSDBA */
+
+CREATE TABLE DEPARTMENT 
+(
+  ID	 TBL_ID  DEFAULT 0 NOT NULL,
+  CODE	 VC_15  NOT NULL,
+  NAME	 VC_25  NOT NULL,
+CONSTRAINT PK_DEPARTMENT PRIMARY KEY (ID)
+);
+
+/* Table: IMPACT_LEVELS, Owner: SYSDBA */
+
+CREATE TABLE IMPACT_LEVELS 
+(
+  ID	 TBL_ID  DEFAULT 0 NOT NULL,
+  NAME	 VC_50  NOT NULL,
+CONSTRAINT PK_IMPACT_LEVELS PRIMARY KEY (ID)
+);
+
+/* Table: IMP_TYPE, Owner: SYSDBA */
+
+CREATE TABLE IMP_TYPE 
+(
+  ID	 TBL_ID  DEFAULT 0 NOT NULL,
+  NAME	 VC_50  NOT NULL,
+CONSTRAINT PK_IMP_TYPE PRIMARY KEY (ID)
+);
+
+/* Table: ISSUE_STATUS, Owner: SYSDBA */
+
+CREATE TABLE ISSUE_STATUS 
+(
+  ID	 TBL_ID  DEFAULT 0 NOT NULL,
+  NAME	 VC_50  NOT NULL,
+CONSTRAINT PK_ISSUE_STATUS PRIMARY KEY (ID)
+);
+
+/* Table: JOBS, Owner: SYSDBA */
+
+CREATE TABLE JOBS 
+(
+  ID	 TBL_ID  DEFAULT 0 NOT NULL,
+  MASK	 INTGR  NOT NULL,
+  NAME	 VC_50  NOT NULL,
+CONSTRAINT PK_JOBS PRIMARY KEY (ID)
+);
+
+/* Table: OFI_TYPE, Owner: SYSDBA */
+
+CREATE TABLE OFI_TYPE 
+(
+  ID	 TBL_ID  DEFAULT 0 NOT NULL,
+  CODE	 VC_25  NOT NULL,
+  TYPE_NAME	 VC_50  NOT NULL,
+CONSTRAINT PK_OFI_TYPE PRIMARY KEY (ID)
+);
+
+/* Table: PACKAGING, Owner: SYSDBA */
+
+CREATE TABLE PACKAGING 
+(
+  ID	 TBL_ID  DEFAULT 0 NOT NULL,
+  CODE	 VC_15 ,
+  NAME	 VC_50 ,
+CONSTRAINT PK_PACKAGING PRIMARY KEY (ID)
+);
+
+/* Table: PLANTS, Owner: SYSDBA */
+
+CREATE TABLE PLANTS 
+(
+  ID	 TBL_ID  DEFAULT 0 NOT NULL,
+  CAT_ID	 TBL_ID  DEFAULT 0,
+  ADDR1	 VC_50 ,
+  ADDR2	 VC_50 ,
+  CITY	 VC_50 ,
+  STATE_ID	 TBL_ID  DEFAULT 0,
+  ZIP	 ZIP_CODE ,
+  PHONE	 PHONE_NUM ,
+  TEAM_LDR_ID	 USERID  DEFAULT '0' NOT NULL,
+  APPROVER_ID	 USERID  DEFAULT '0' NOT NULL,
+CONSTRAINT PK_PLANTS PRIMARY KEY (ID)
+);
+
+/* Table: POST_STATES, Owner: SYSDBA */
+
+CREATE TABLE POST_STATES 
+(
+  ID	 TBL_ID  DEFAULT 0 NOT NULL,
+  CODE	 STATE  NOT NULL,
+CONSTRAINT PK_POST_STATES PRIMARY KEY (ID)
+);
+
+/* Table: PRODUCTS, Owner: SYSDBA */
+
+CREATE TABLE PRODUCTS 
+(
+  ID	 TBL_ID  DEFAULT 0 NOT NULL,
+  CODE	 VC_25 ,
+  NAME	 VC_50  NOT NULL,
+  PLANT_ID	 TBL_ID  DEFAULT 0,
+  RESP_ID	 USERID  DEFAULT '0',
+CONSTRAINT PK_PRODUCTS PRIMARY KEY (ID)
+);
+
+/* Table: PROD_LIST, Owner: SYSDBA
+
+CREATE TABLE PROD_LIST 
+EXTERNAL FILE 'D:\FIREBIRD\EXT\PRODLIST.TXT' 
+(
+  CODE	 CHAR(19) CHARACTER SET ASCII,
+  FLD_023	 CHAR(4) CHARACTER SET ASCII,
+  FLD_EN	 CHAR(2) CHARACTER SET ASCII,
+  BLANK1	 CHAR(7) CHARACTER SET ASCII,
+  NAME	 CHAR(41) CHARACTER SET ASCII,
+  CR_LF	 CHAR(2) CHARACTER SET ASCII
+);
+*/
+
+/* Table: RESPONSE, Owner: SYSDBA */
+
+CREATE TABLE RESPONSE 
+(
+  ID	 TBL_ID  DEFAULT 0,
+  COMP_ID	 TBL_ID  DEFAULT 0,
+  RESPONDER_ID	 USERID  DEFAULT '0',
+  PRIMARY_ID	 USERID  DEFAULT '0',
+  DELEGATED_ID	 USERID  DEFAULT '0',
+  APPROVER_ID	 USERID  DEFAULT '0',
+  CRE_DATE	 ADATE ,
+  CHG_DATE	 ADATE ,
+  DUE_DATE	 ADATE ,
+  CPL_DATE	 ADATE_N ,
+  INVESTIGATION	 TXT_BLOB ,
+  ROOT_CAUSE	 TXT_BLOB ,
+  REM_ACTION	 TXT_BLOB ,
+  PREV_ACTION	 TXT_BLOB ,
+  NOTE	 TXT_BLOB ,
+  STATUS_ID	 TBL_ID  DEFAULT 0,
+CONSTRAINT RESPONSE_ID PRIMARY KEY (ID)
+);
+
+/* Table: RESP_STATUS, Owner: SYSDBA */
+
+CREATE TABLE RESP_STATUS 
+(
+  ID	 TBL_ID  DEFAULT 0 NOT NULL,
+  NAME	 VC_50 ,
+CONSTRAINT PK_RESP_STATUS PRIMARY KEY (ID)
+);
+
+/* Table: SEVERITY_LEVELS, Owner: SYSDBA */
+
+CREATE TABLE SEVERITY_LEVELS 
+(
+  ID	 TBL_ID  DEFAULT 0 NOT NULL,
+  NAME	 VC_50  NOT NULL,
+CONSTRAINT PK_SEVERITY_LEVELS PRIMARY KEY (ID)
+);
+
+/* Table: TEAMS, Owner: SYSDBA */
+
+CREATE TABLE TEAMS 
+(
+  ID	 TBL_ID  DEFAULT 0 NOT NULL,
+  PLANT_ID	 TBL_ID  DEFAULT 0,
+  LEADER_ID	 USERID  DEFAULT '0',
+  NAME	 VC_50  NOT NULL,
+CONSTRAINT PK_TEAMS PRIMARY KEY (ID)
+);
+
+/* Table: TRANS_COS, Owner: SYSDBA */
+
+CREATE TABLE TRANS_COS 
+(
+  ID	 TBL_ID  DEFAULT 0 NOT NULL,
+  CODE	 VC_15 ,
+  NAME	 VC_50  NOT NULL,
+  ADDR1	 VC_50 ,
+  ADDR2	 VC_50 ,
+  CITY	 VC_50 ,
+  STATE_ID	 TBL_ID  DEFAULT 0,
+  ZIP	 ZIP_CODE ,
+  CONTACT	 VC_50 ,
+  EMAIL	 VC_128 ,
+  PHONE	 PHONE_NUM ,
+  FAX	 PHONE_NUM ,
+CONSTRAINT PK_TRANS_COS PRIMARY KEY (ID)
+);
+
+/* Table: TRANS_TYPES, Owner: SYSDBA */
+
+CREATE TABLE TRANS_TYPES 
+(
+  ID	 TBL_ID  DEFAULT 0 NOT NULL,
+  NAME	 VC_25  NOT NULL,
+CONSTRAINT PK_TRANS_TYPES PRIMARY KEY (ID)
+);
+
+/* Table: USERS, Owner: SYSDBA */
+
+CREATE TABLE USERS 
+(
+  ID	 VC_15  NOT NULL,
+  NAME	 VC_25  NOT NULL,
+  UNAME	 VC_15  NOT NULL,
+  EMAIL	 VC_50  NOT NULL,
+  PLANT_ID	 TBL_ID  DEFAULT 0,
+  DEPT_ID	 TBL_ID  DEFAULT 0,
+  IS_DEFAULT	 BOOL  DEFAULT '0',
+  DISABLED	 BOOL  DEFAULT '0',
+  JOB_SET	 INTGR  NOT NULL,
+  PW_HASH	 VC_128  NOT NULL,
+CONSTRAINT PK_USERS PRIMARY KEY (ID),
+CONSTRAINT USERS_UNQ_NAME UNIQUE (NAME),
+CONSTRAINT USERS_UNQ_UNAME UNIQUE (UNAME)
+);
+
+/*  Index definitions for all user tables */
+
+CREATE UNIQUE INDEX AUDIT_TYPES_NAME ON AUDIT_TYPES(NAME);
+CREATE UNIQUE INDEX CATEGORIES_NAME ON CATEGORIES(NAME);
+CREATE INDEX CAUSES_NAME ON CAUSES(NAME);
+CREATE INDEX CUSTOMERS_CITY ON CUSTOMERS(CITY);
+CREATE UNIQUE INDEX CUSTOMERS_CODE ON CUSTOMERS(CODE);
+CREATE UNIQUE INDEX IMP_TYPE_NAME ON IMP_TYPE(NAME);
+CREATE UNIQUE INDEX POST_STATES_CODE ON POST_STATES(CODE);
+CREATE INDEX PRODUCTS_CODE ON PRODUCTS(CODE);
+CREATE INDEX PRODUCTS_NAME ON PRODUCTS(NAME);
+CREATE INDEX TEAMS_NAME ON TEAMS(NAME);
+ALTER TABLE APPROVE ADD CONSTRAINT APPROVE_APPV FOREIGN KEY (APPROVER_ID) REFERENCES USERS (ID) ON UPDATE CASCADE ON DELETE SET DEFAULT;
+ALTER TABLE APPROVE ADD CONSTRAINT APPROVE_PLANT FOREIGN KEY (PLANT_ID) REFERENCES PLANTS (ID) ON UPDATE CASCADE ON DELETE SET DEFAULT;
+ALTER TABLE APPROVE ADD CONSTRAINT APPROVE_RESP FOREIGN KEY (RESPONSE_ID) REFERENCES RESPONSE (ID) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE APPROVE ADD CONSTRAINT APPROVE_STAT FOREIGN KEY (STATUS_ID) REFERENCES APPRV_STATUS (ID) ON UPDATE CASCADE ON DELETE SET DEFAULT;
+ALTER TABLE COMPLAINTS ADD CONSTRAINT COMPLAINTS_AUD_TYPE FOREIGN KEY (AUD_TYPE_ID) REFERENCES AUDIT_TYPES (ID) ON UPDATE CASCADE ON DELETE SET DEFAULT;
+ALTER TABLE COMPLAINTS ADD CONSTRAINT COMPLAINTS_CAUSE FOREIGN KEY (CAUSE_ID) REFERENCES CAUSES (ID) ON UPDATE CASCADE ON DELETE SET DEFAULT;
+ALTER TABLE COMPLAINTS ADD CONSTRAINT COMPLAINTS_CUST FOREIGN KEY (CUSTOMER_ID) REFERENCES CUSTOMERS (ID) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE COMPLAINTS ADD CONSTRAINT COMPLAINTS_DEPT FOREIGN KEY (DEPT_ID) REFERENCES DEPARTMENT (ID) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE COMPLAINTS ADD CONSTRAINT COMPLAINTS_IMP_TYPE FOREIGN KEY (IMP_TYPE_ID) REFERENCES IMP_TYPE (ID) ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE COMPLAINTS ADD CONSTRAINT COMPLAINTS_INITIATOR FOREIGN KEY (INITIATOR_ID) REFERENCES USERS (ID) ON UPDATE CASCADE ON DELETE SET DEFAULT;
+ALTER TABLE COMPLAINTS ADD CONSTRAINT COMPLAINTS_OFI FOREIGN KEY (OFI_ID) REFERENCES OFI_TYPE (ID) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE COMPLAINTS ADD CONSTRAINT COMPLAINTS_PKG FOREIGN KEY (PACKAGING_ID) REFERENCES PACKAGING (ID) ON UPDATE CASCADE ON DELETE SET DEFAULT;
+ALTER TABLE COMPLAINTS ADD CONSTRAINT COMPLAINTS_PLANT FOREIGN KEY (PLANT_ID) REFERENCES PLANTS (ID) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE COMPLAINTS ADD CONSTRAINT COMPLAINTS_PROD FOREIGN KEY (PRODUCT_ID) REFERENCES PRODUCTS (ID) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE COMPLAINTS ADD CONSTRAINT COMPLAINTS_RESP FOREIGN KEY (RESPONDER_ID) REFERENCES USERS (ID) ON UPDATE CASCADE ON DELETE SET DEFAULT;
+ALTER TABLE COMPLAINTS ADD CONSTRAINT COMPLAINTS_STATUS FOREIGN KEY (STATUS_ID) REFERENCES ISSUE_STATUS (ID) ON UPDATE CASCADE ON DELETE SET DEFAULT;
+ALTER TABLE COMPLAINTS ADD CONSTRAINT COMPLAINTS_TRANS_CO FOREIGN KEY (TRANSPORT_CO_ID) REFERENCES TRANS_COS (ID) ON UPDATE CASCADE ON DELETE SET DEFAULT;
+ALTER TABLE COMPLAINTS ADD CONSTRAINT COMPLAINTS_VESSEL FOREIGN KEY (TRANSPORT_ID) REFERENCES TRANS_TYPES (ID) ON UPDATE CASCADE ON DELETE SET DEFAULT;
+ALTER TABLE CUSTOMERS ADD CONSTRAINT CUSTOMERS_STATE FOREIGN KEY (STATE_ID) REFERENCES POST_STATES (ID) ON UPDATE CASCADE ON DELETE SET DEFAULT;
+ALTER TABLE PLANTS ADD CONSTRAINT PLANTS_APPV FOREIGN KEY (APPROVER_ID) REFERENCES USERS (ID) ON UPDATE CASCADE ON DELETE SET DEFAULT;
+ALTER TABLE PLANTS ADD CONSTRAINT PLANTS_CAT FOREIGN KEY (CAT_ID) REFERENCES CATEGORIES (ID) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE PLANTS ADD CONSTRAINT PLANTS_TEAM_LDR FOREIGN KEY (TEAM_LDR_ID) REFERENCES USERS (ID) ON UPDATE CASCADE ON DELETE SET DEFAULT;
+ALTER TABLE PRODUCTS ADD CONSTRAINT PRODUCTS_PLANT FOREIGN KEY (PLANT_ID) REFERENCES PLANTS (ID) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE PRODUCTS ADD CONSTRAINT PRODUCTS_RESP FOREIGN KEY (RESP_ID) REFERENCES USERS (ID) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE RESPONSE ADD CONSTRAINT RESPONSE_APPV FOREIGN KEY (APPROVER_ID) REFERENCES USERS (ID) ON UPDATE CASCADE ON DELETE SET DEFAULT;
+ALTER TABLE RESPONSE ADD CONSTRAINT RESPONSE_COMP FOREIGN KEY (COMP_ID) REFERENCES COMPLAINTS (ID) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE RESPONSE ADD CONSTRAINT RESPONSE_DELEG FOREIGN KEY (DELEGATED_ID) REFERENCES USERS (ID) ON UPDATE CASCADE ON DELETE SET DEFAULT;
+ALTER TABLE RESPONSE ADD CONSTRAINT RESPONSE_PRIMARY FOREIGN KEY (PRIMARY_ID) REFERENCES USERS (ID) ON UPDATE CASCADE ON DELETE SET DEFAULT;
+ALTER TABLE RESPONSE ADD CONSTRAINT RESPONSE_RSPDR FOREIGN KEY (RESPONDER_ID) REFERENCES USERS (ID) ON UPDATE CASCADE ON DELETE SET DEFAULT;
+ALTER TABLE RESPONSE ADD CONSTRAINT RESPONSE_STATUS FOREIGN KEY (STATUS_ID) REFERENCES RESP_STATUS (ID) ON UPDATE CASCADE ON DELETE SET DEFAULT;
+ALTER TABLE TEAMS ADD CONSTRAINT TEAMS_LEADER FOREIGN KEY (LEADER_ID) REFERENCES USERS (ID) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE TEAMS ADD CONSTRAINT TEAMS_PLANT FOREIGN KEY (PLANT_ID) REFERENCES PLANTS (ID) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE USERS ADD CONSTRAINT USERS_DEPT FOREIGN KEY (DEPT_ID) REFERENCES DEPARTMENT (ID) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE USERS ADD CONSTRAINT USERS_PLANT FOREIGN KEY (PLANT_ID) REFERENCES PLANTS (ID) ON UPDATE CASCADE ON DELETE CASCADE;
+
+CREATE GENERATOR APPROVE_GEN;
+CREATE GENERATOR APPRV_STAT_GEN;
+CREATE GENERATOR AUDIT_TYPE_GEN;
+CREATE GENERATOR CATEGORIES_GEN;
+CREATE GENERATOR CAUSES_GEN;
+CREATE GENERATOR COMPLAINT_GEN;
+CREATE GENERATOR CUSTOMER_GEN;
+CREATE GENERATOR DEPARTMENT_GEN;
+CREATE GENERATOR IMPACT_GEN;
+CREATE GENERATOR IMP_TYPE_GEN;
+CREATE GENERATOR ISSUE_STAT_GEN;
+CREATE GENERATOR JOBS_GEN;
+CREATE GENERATOR OFI_GEN;
+CREATE GENERATOR PACKAGING_GEN;
+CREATE GENERATOR PLANTS_GEN;
+CREATE GENERATOR PRODUCTS_GEN;
+CREATE GENERATOR RESPONSE_GEN;
+CREATE GENERATOR RESP_STAT_GEN;
+CREATE GENERATOR SEVERITY_GEN;
+CREATE GENERATOR TEAMS_GEN;
+CREATE GENERATOR TRANS_COS_GEN;
+CREATE GENERATOR TRANS_TYPES_GEN;
+COMMIT WORK;
+SET AUTODDL OFF;
+SET TERM ^ ;
+
+/* Stored procedures */
+
+CREATE PROCEDURE COUNTS_BY_REP 
+(
+  START_DATE TIMESTAMP
+)
+RETURNS
+(
+  LBL VARCHAR(50) CHARACTER SET ASCII,
+  JAN FLOAT,
+  FEB FLOAT,
+  MAR FLOAT,
+  APR FLOAT,
+  MAY FLOAT,
+  JUN FLOAT,
+  JUL FLOAT,
+  AUG FLOAT,
+  SEP FLOAT,
+  OCT FLOAT,
+  NOV FLOAT,
+  DCM FLOAT,
+  TOTAL FLOAT
+)
+AS
+BEGIN EXIT; END ^
+
+/*
+CREATE PROCEDURE COUNTS_BY_TYPE 
+(
+  START_DATE TIMESTAMP
+)
+RETURNS
+(
+  LBL VARCHAR(75) CHARACTER SET ASCII,
+  JAN INTEGER,
+  FEB INTEGER,
+  MAR INTEGER,
+  APR INTEGER,
+  MAY INTEGER,
+  JUN INTEGER,
+  JUL INTEGER,
+  AUG INTEGER,
+  SEP INTEGER,
+  OCT INTEGER,
+  NOV INTEGER,
+  DCM INTEGER,
+  TOTAL INTEGER
+)
+AS
+BEGIN EXIT; END ^
+*/
+
+/*
+CREATE PROCEDURE COUNT_OF_AGE 
+(
+  UID VARCHAR(15) CHARACTER SET ASCII,
+  LO_LIMIT INTEGER,
+  HI_LIMIT INTEGER
+)
+RETURNS
+(
+  THE_COUNT INTEGER
+)
+AS
+BEGIN EXIT; END ^
+*/
+
+
+/*
+CREATE PROCEDURE DEL_DUP_SHIPPERS 
+AS
+BEGIN EXIT; END ^
+*/
+
+/*
+CREATE PROCEDURE RESPONSE_AGING 
+RETURNS
+(
+  USER_NAME VARCHAR(50) CHARACTER SET ASCII,
+  PLANT_NAME VARCHAR(50) CHARACTER SET ASCII,
+  BY_5 INTEGER,
+  BY_15 INTEGER,
+  BY_30 INTEGER,
+  BY_60 INTEGER,
+  BY_90 INTEGER,
+  OVER_90 INTEGER,
+  OPEN_OFI_COUNT INTEGER,
+  OFI_COUNT INTEGER,
+  AVG_DAYS NUMERIC(9, 2)
+)
+AS
+BEGIN EXIT; END ^
+*/
+
+ALTER PROCEDURE COUNTS_BY_REP 
+(
+  START_DATE TIMESTAMP
+)
+RETURNS
+(
+  LBL VARCHAR(50) CHARACTER SET ASCII,
+  JAN FLOAT,
+  FEB FLOAT,
+  MAR FLOAT,
+  APR FLOAT,
+  MAY FLOAT,
+  JUN FLOAT,
+  JUL FLOAT,
+  AUG FLOAT,
+  SEP FLOAT,
+  OCT FLOAT,
+  NOV FLOAT,
+  DCM FLOAT,
+  TOTAL FLOAT
+)
+AS
+DECLARE VARIABLE TMP FLOAT;
+begin
+   select distinct 'Recurring Root' from OFI_TYPE
+   into :LBL;
+   
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING_ROOT <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 1
+   into :JAN;
+   
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING_ROOT <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 2
+   into :FEB;
+   
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING_ROOT <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 3
+   into :MAR;
+   
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING_ROOT <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 4
+   into :APR;
+   
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING_ROOT <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 5
+   into :MAY;
+   
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING_ROOT <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 6
+   into :JUN;
+   
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING_ROOT <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 7
+   into :JUL;
+   
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING_ROOT <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 8
+   into :AUG;
+   
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING_ROOT <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 9
+   into :SEP;
+   
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING_ROOT <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 10
+   into :OCT;
+   
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING_ROOT <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 11
+   into :NOV;
+   
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING_ROOT <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 12
+   into :DCM;
+   
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING_ROOT <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+   into :TOTAL;
+   
+   suspend;
+
+   select distinct 'Recurring Co/Location' from OFI_TYPE
+   into :LBL;
+
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 1
+   into :JAN;
+   
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 2
+   into :FEB;
+   
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 3
+   into :MAR;
+   
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 4
+   into :APR;
+   
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 5
+   into :MAY;
+   
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 6
+   into :JUN;
+   
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 7
+   into :JUL;
+   
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 8
+   into :AUG;
+   
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 9
+   into :SEP;
+   
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 10
+   into :OCT;
+   
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 11
+   into :NOV;
+   
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 12
+   into :DCM;
+   
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+   into :TOTAL;
+   
+   suspend;
+   
+   select distinct '% / Total' from OFI_TYPE
+   into :LBL;
+
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING <> '0' or A.RECURRING_ROOT <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 1
+   into :JAN;
+   
+   select count(*)
+   from COMPLAINTS
+   where extract(year from ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from ENT_DATE) = 1
+   into :TMP;
+   
+   if(TMP > 0 and TMP is not NULL)then
+      JAN = (JAN / TMP) * 100.0;
+   else
+      JAN = 0.0;
+
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING <> '0' or A.RECURRING_ROOT <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 2
+   into :FEB;
+   
+   select count(*)
+   from COMPLAINTS
+   where extract(year from ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from ENT_DATE) = 2
+   into :TMP;
+   
+   if(TMP > 0 and TMP is not NULL)then
+      FEB = (FEB / TMP) * 100.0;
+   else
+      FEB = 0.0;
+
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING <> '0' or A.RECURRING_ROOT <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 3
+   into :MAR;
+   
+   select count(*)
+   from COMPLAINTS
+   where extract(year from ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from ENT_DATE) = 3
+   into :TMP;
+   
+   if(TMP > 0 and TMP is not NULL)then
+      MAR = (MAR / TMP) * 100.0;
+   else
+      MAR = 0.0;
+
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING <> '0' or A.RECURRING_ROOT <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 4
+   into :APR;
+   
+   select count(*)
+   from COMPLAINTS
+   where extract(year from ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from ENT_DATE) = 4
+   into :TMP;
+   
+   if(TMP > 0 and TMP is not NULL)then
+      APR = (APR / TMP) * 100.0;
+   else
+      APR = 0.0;
+
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING <> '0' or A.RECURRING_ROOT <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 5
+   into :MAY;
+   
+   select count(*)
+   from COMPLAINTS
+   where extract(year from ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from ENT_DATE) = 5
+   into :TMP;
+   
+   if(TMP > 0 and TMP is not NULL)then
+      MAY = (MAY / TMP) * 100.0;
+   else
+      MAY = 0.0;
+
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING <> '0' or A.RECURRING_ROOT <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 6
+   into :JUN;
+   
+   select count(*)
+   from COMPLAINTS
+   where extract(year from ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from ENT_DATE) = 6
+   into :TMP;
+   
+   if(TMP > 0 and TMP is not NULL)then
+      JUN = (JUN / TMP) * 100.0;
+   else
+      JUN = 0.0;
+
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING <> '0' or A.RECURRING_ROOT <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 7
+   into :JUL;
+   
+   select count(*)
+   from COMPLAINTS
+   where extract(year from ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from ENT_DATE) = 7
+   into :TMP;
+   
+   if(TMP > 0 and TMP is not NULL)then
+      JUL = (JUL / TMP) * 100.0;
+   else
+      JUL = 0.0;
+
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING <> '0' or A.RECURRING_ROOT <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 8
+   into :AUG;
+   
+   select count(*)
+   from COMPLAINTS
+   where extract(year from ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from ENT_DATE) = 8
+   into :TMP;
+   
+   if(TMP > 0 and TMP is not NULL)then
+      AUG = (AUG / TMP) * 100.0;
+   else
+      AUG = 0.0;
+
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING <> '0' or A.RECURRING_ROOT <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 9
+   into :SEP;
+   
+   select count(*)
+   from COMPLAINTS
+   where extract(year from ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from ENT_DATE) = 9
+   into :TMP;
+   
+   if(TMP > 0 and TMP is not NULL)then
+      SEP = (SEP / TMP) * 100.0;
+   else
+      SEP = 0.0;
+
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING <> '0' or A.RECURRING_ROOT <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 10
+   into :OCT;
+   
+   select count(*)
+   from COMPLAINTS
+   where extract(year from ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from ENT_DATE) = 10
+   into :TMP;
+   
+   if(TMP > 0 and TMP is not NULL)then
+      OCT = (OCT / TMP) * 100.0;
+   else
+      OCT = 0.0;
+
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING <> '0' or A.RECURRING_ROOT <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 11
+   into :NOV;
+   
+   select count(*)
+   from COMPLAINTS
+   where extract(year from ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from ENT_DATE) = 11
+   into :TMP;
+   
+   if(TMP > 0 and TMP is not NULL)then
+      NOV = (NOV / TMP) * 100.0;
+   else
+      NOV = 0.0;
+
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING <> '0' or A.RECURRING_ROOT <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from C.ENT_DATE) = 12
+   into :DCM;
+   
+   select count(*)
+   from COMPLAINTS
+   where extract(year from ENT_DATE) = extract(year from :START_DATE)
+      and extract(month from ENT_DATE) = 12
+   into :TMP;
+   
+   if(TMP > 0 and TMP is not NULL)then
+      DCM = (DCM / TMP) * 100.0;
+   else
+      DCM = 0.0;
+
+   select count(*)
+   from COMPLAINTS C
+      join RESPONSE R on R.ID = C.ID
+      join APPROVE A on A.ID = R.ID
+   where A.RECURRING <> '0' or A.RECURRING_ROOT <> '0'
+      and extract(year from C.ENT_DATE) = extract(year from :START_DATE)
+   into :TOTAL;
+   
+   select count(*)
+   from COMPLAINTS
+   where extract(year from ENT_DATE) = extract(year from :START_DATE)
+   into :TMP;
+   
+   if(TMP > 0 and TMP is not NULL)then
+      TOTAL = (TOTAL / TMP) * 100.0;
+   else
+      TOTAL = 0.0;
+
+   suspend;
+end
+ ^
+
+/*
+ALTER PROCEDURE COUNTS_BY_TYPE 
+(
+  START_DATE TIMESTAMP
+)
+RETURNS
+(
+  LBL VARCHAR(75) CHARACTER SET ASCII,
+  JAN INTEGER,
+  FEB INTEGER,
+  MAR INTEGER,
+  APR INTEGER,
+  MAY INTEGER,
+  JUN INTEGER,
+  JUL INTEGER,
+  AUG INTEGER,
+  SEP INTEGER,
+  OCT INTEGER,
+  NOV INTEGER,
+  DCM INTEGER,
+  TOTAL INTEGER
+)
+AS
+DECLARE VARIABLE ID INTEGER;
+begin
+   for select ID, TYPE_NAME
+   from OFI_TYPE
+   where ID > 0
+   order by ID
+   into :ID, :LBL do begin
+      select count(*) from COMPLAINTS
+      where OFI_ID = :ID
+         and extract(year from ent_date) = extract(year from :START_DATE)
+         and extract(month from ent_date) = 1
+      into :JAN;
+      
+      select count(*) from COMPLAINTS
+      where OFI_ID = :ID
+         and extract(year from ent_date) = extract(year from :START_DATE)
+         and extract(month from ent_date) = 2
+      into :FEB;
+      
+      select count(*) from COMPLAINTS
+      where OFI_ID = :ID
+         and extract(year from ent_date) = extract(year from :START_DATE)
+         and extract(month from ent_date) = 3
+      into :MAR;
+      
+      select count(*) from COMPLAINTS
+      where OFI_ID = :ID
+         and extract(year from ent_date) = extract(year from :START_DATE)
+         and extract(month from ent_date) = 4
+      into :APR;
+      
+      select count(*) from COMPLAINTS
+      where OFI_ID = :ID
+         and extract(year from ent_date) = extract(year from :START_DATE)
+         and extract(month from ent_date) = 5
+      into :MAY;
+      
+      select count(*) from COMPLAINTS
+      where OFI_ID = :ID
+         and extract(year from ent_date) = extract(year from :START_DATE)
+         and extract(month from ent_date) = 6
+      into :JUN;
+      
+      select count(*) from COMPLAINTS
+      where OFI_ID = :ID
+         and extract(year from ent_date) = extract(year from :START_DATE)
+         and extract(month from ent_date) = 7
+      into :JUL;
+      
+      select count(*) from COMPLAINTS
+      where OFI_ID = :ID
+         and extract(year from ent_date) = extract(year from :START_DATE)
+         and extract(month from ent_date) = 8
+      into :AUG;
+      
+      select count(*) from COMPLAINTS
+      where OFI_ID = :ID
+         and extract(year from ent_date) = extract(year from :START_DATE)
+         and extract(month from ent_date) = 9
+      into :SEP;
+      
+      select count(*) from COMPLAINTS
+      where OFI_ID = :ID
+         and extract(year from ent_date) = extract(year from :START_DATE)
+         and extract(month from ent_date) = 10
+      into :OCT;
+      
+      select count(*) from COMPLAINTS
+      where OFI_ID = :ID
+         and extract(year from ent_date) = extract(year from :START_DATE)
+         and extract(month from ent_date) = 11
+      into :NOV;
+      
+      select count(*) from COMPLAINTS
+      where OFI_ID = :ID
+         and extract(year from ent_date) = extract(year from :START_DATE)
+         and extract(month from ent_date) = 12
+      into :DCM;
+      
+      select count(*) from COMPLAINTS
+      where OFI_ID = :ID
+         and extract(year from ent_date) = extract(year from :START_DATE)
+      into :TOTAL;
+      
+      suspend;
+   end
+   
+   select distinct NULL
+   from OFI_TYPE
+   into :ID;
+   
+   select distinct 'TOTALS'
+   from OFI_TYPE
+   into :LBL;
+   
+   select count(*) from COMPLAINTS
+   where extract(year from ent_date) = extract(year from :START_DATE)
+      and extract(month from ent_date) = 1
+   into :JAN;
+   
+   select count(*) from COMPLAINTS
+   where extract(year from ent_date) = extract(year from :START_DATE)
+      and extract(month from ent_date) = 2
+   into :FEB;
+   
+   select count(*) from COMPLAINTS
+   where extract(year from ent_date) = extract(year from :START_DATE)
+      and extract(month from ent_date) = 3
+   into :MAR;
+   
+   select count(*) from COMPLAINTS
+   where extract(year from ent_date) = extract(year from :START_DATE)
+      and extract(month from ent_date) = 4
+   into :APR;
+   
+   select count(*) from COMPLAINTS
+   where extract(year from ent_date) = extract(year from :START_DATE)
+      and extract(month from ent_date) = 5
+   into :MAY;
+   
+   select count(*) from COMPLAINTS
+   where extract(year from ent_date) = extract(year from :START_DATE)
+      and extract(month from ent_date) = 6
+   into :JUN;
+   
+   select count(*) from COMPLAINTS
+   where extract(year from ent_date) = extract(year from :START_DATE)
+      and extract(month from ent_date) = 7
+   into :JUL;
+   
+   select count(*) from COMPLAINTS
+   where extract(year from ent_date) = extract(year from :START_DATE)
+      and extract(month from ent_date) = 8
+   into :AUG;
+   
+   select count(*) from COMPLAINTS
+   where extract(year from ent_date) = extract(year from :START_DATE)
+      and extract(month from ent_date) = 9
+   into :SEP;
+   
+   select count(*) from COMPLAINTS
+   where extract(year from ent_date) = extract(year from :START_DATE)
+      and extract(month from ent_date) = 10
+   into :OCT;
+   
+   select count(*) from COMPLAINTS
+   where extract(year from ent_date) = extract(year from :START_DATE)
+      and extract(month from ent_date) = 11
+   into :NOV;
+   
+   select count(*) from COMPLAINTS
+   where extract(year from ent_date) = extract(year from :START_DATE)
+      and extract(month from ent_date) = 12
+   into :DCM;
+   
+   select count(*) from COMPLAINTS
+   where extract(year from ent_date) = extract(year from :START_DATE)
+   into :TOTAL;
+   
+   suspend;
+end
+ ^
+*/
+
+
+/*
+ALTER PROCEDURE COUNT_OF_AGE 
+(
+  UID VARCHAR(15) CHARACTER SET ASCII,
+  LO_LIMIT INTEGER,
+  HI_LIMIT INTEGER
+)
+RETURNS
+(
+  THE_COUNT INTEGER
+)
+AS
+DECLARE VARIABLE DATE1 DATE;
+DECLARE VARIABLE DATE2 DATE;
+begin
+   THE_COUNT = 0;
+   
+   for select
+      c.ent_date,
+      c.rsp_date
+   from users u
+      join complaints c on c.responder_id = u.id
+   where u.id = :UID
+      and c.rsp_date >= 'TODAY' - 365
+   into :DATE1, :DATE2 do
+      if(DAYSBETWEEN(DATE1, DATE2) >= LO_LIMIT and
+         DAYSBETWEEN(DATE1, DATE2) <= HI_LIMIT) then
+            THE_COUNT = THE_COUNT + 1;
+suspend;
+end
+ ^
+*/
+
+/*
+ALTER PROCEDURE DEL_DUP_SHIPPERS 
+AS
+DECLARE VARIABLE THIS_ID INTEGER;
+DECLARE VARIABLE THIS_CO VARCHAR(100);
+DECLARE VARIABLE LAST_CO VARCHAR(100);
+begin
+   LAST_CO = '';
+   for select ID, NAME || ' ' || CITY
+         from TRANS_COS
+         into :THIS_ID, :THIS_CO do begin
+      if(THIS_ID > 1) then begin
+         select NAME || ' ' || CITY
+            from TRANS_COS
+            where ID = :THIS_ID - 1
+            into :LAST_CO;
+
+         if(THIS_CO = LAST_CO) then begin
+            delete from TRANS_COS
+            where ID = :THIS_ID;
+         end
+      end
+   end
+  suspend;
+end
+ ^
+*/
+
+/*
+ALTER PROCEDURE RESPONSE_AGING 
+RETURNS
+(
+  USER_NAME VARCHAR(50) CHARACTER SET ASCII,
+  PLANT_NAME VARCHAR(50) CHARACTER SET ASCII,
+  BY_5 INTEGER,
+  BY_15 INTEGER,
+  BY_30 INTEGER,
+  BY_60 INTEGER,
+  BY_90 INTEGER,
+  OVER_90 INTEGER,
+  OPEN_OFI_COUNT INTEGER,
+  OFI_COUNT INTEGER,
+  AVG_DAYS NUMERIC(9, 2)
+)
+AS
+DECLARE VARIABLE UID VARCHAR(15);
+DECLARE VARIABLE DAYS INTEGER;
+DECLARE VARIABLE TOTAL_DAYS INTEGER;
+begin
+   for select distinct users.id
+   from users
+      join complaints on complaints.responder_id = users.id
+   where users.id > 0
+   order by users.plant_id, users.name
+   into :UID do begin
+      for select users.name, plants.city
+      from users
+         join plants on users.plant_id = plants.id
+         join complaints on complaints.responder_id = users.id
+      where users.id = :UID
+      into :USER_NAME, :PLANT_NAME do begin
+         select the_count from count_of_age(:UID, 0, 5) into :BY_5;
+         select the_count from count_of_age(:UID, 6, 15) into :BY_15;
+         select the_count from count_of_age(:UID, 16, 30) into :BY_30;
+         select the_count from count_of_age(:UID, 31, 60) into :BY_60;
+         select the_count from count_of_age(:UID, 61, 90) into :BY_90;
+         select the_count from count_of_age(:UID, 91, 365) into :OVER_90;
+   
+         select count(*)
+         from complaints
+         where responder_id = :UID
+            and ent_date > 'TODAY' - 365
+            and rsp_date is null
+         into :OPEN_OFI_COUNT;
+   
+         select count(*)
+         from complaints
+         where responder_id = :UID
+            and ent_date > 'TODAY' - 365
+         into :OFI_COUNT;
+   
+         TOTAL_DAYS = 0;
+         
+         for select DAYSBETWEEN(ENT_DATE,RSP_DATE)
+         from COMPLAINTS
+         where RESPONDER_ID = :UID
+            and RSP_DATE is not null
+         into :DAYS do
+            TOTAL_DAYS = TOTAL_DAYS + DAYS;
+         
+         if(OFI_COUNT > 0) then
+            AVG_DAYS = cast(TOTAL_DAYS as float) / cast(OFI_COUNT as float);
+         else
+            AVG_DAYS = 0.0;
+      end
+   suspend;
+   end
+end
+ ^
+*/
+
+SET TERM ; ^
+COMMIT WORK;
+SET AUTODDL ON;
+SET TERM ^ ;
+
+
+/* Triggers only will work for SQL triggers */
+
+CREATE TRIGGER APPROVE_BU0 FOR APPROVE 
+ACTIVE BEFORE UPDATE POSITION 0
+AS
+begin
+   NEW.CHG_DATE = 'NOW';
+end
+ ^
+
+CREATE TRIGGER APPROVE_AU0 FOR APPROVE 
+ACTIVE AFTER UPDATE POSITION 0
+AS
+begin
+   if(NEW.REVIEW = '1' and NEW.REVIEW_DATE is not null) then
+      update COMPLAINTS
+      set REV_DATE = NEW.REVIEW_DATE, REVIEW_CHG = '1'
+      where ID = NEW.ID;
+   
+   if(NEW.STATUS_ID = 2) then begin
+      update COMPLAINTS
+      set STATUS_ID = 4, EMAIL_RESP = '1', EMAIL_TEAM = '1'
+      where ID = NEW.ID
+         and STATUS_ID < 4;
+   end
+   else if(NEW.STATUS_ID = 3) then
+      if(NEW.REVIEW = '1') then begin
+         update RESPONSE
+         set STATUS_ID = 1, DUE_DATE = NEW.REVIEW_DATE
+         where ID = NEW.ID;
+         
+         update COMPLAINTS
+         set STATUS_ID = 5, EMAIL_TEAM = '1', EMAIL_RESP = '1',
+            DUE_DATE = NEW.REVIEW_DATE, RSP_DATE = NULL
+         where ID = NEW.ID
+            and STATUS_ID < 5;
+      end
+end
+ ^
+
+CREATE TRIGGER COMPLAINTS_AI0 FOR COMPLAINTS 
+ACTIVE AFTER INSERT POSITION 0
+AS
+   declare variable RSP_ID integer;
+   declare variable RE_ID varchar(15);
+   declare variable APV_ID varchar(15);
+begin
+
+   select ID
+   from RESPONSE
+   where ID = NEW.ID
+   into :RSP_ID;
+
+   if(RSP_ID is null) then begin
+         
+      select ID
+      from USERS
+      where PLANT_ID = NEW.PLANT_ID
+         and DEPT_ID = NEW.DEPT_ID
+      into :RE_ID;
+      
+      if(RE_ID is null) then
+         select ID
+         from USERS
+         where PLANT_ID = NEW.PLANT_ID
+            and IS_DEFAULT = '1'
+         into :RE_ID;
+         
+      if(RE_ID is null) then
+         RE_ID = '0';
+
+      update COMPLAINTS
+      set RESPONDER_ID = :RE_ID
+      where ID = NEW.ID;
+         
+      select U.ID
+      from USERS U
+        join PLANTS P on P.APPROVER_ID = U.ID
+      where P.ID = NEW.PLANT_ID
+      into :APV_ID;
+      
+      if(APV_ID is null) then
+         APV_ID = '0';
+   
+      insert into RESPONSE(ID, COMP_ID,
+         RESPONDER_ID, PRIMARY_ID, DELEGATED_ID, APPROVER_ID,
+         CRE_DATE, CHG_DATE, DUE_DATE,
+         STATUS_ID)
+      values(NEW.ID, NEW.ID,
+         :RE_ID, :RE_ID, :RE_ID, :APV_ID,
+         'NOW', 'NOW', NEW.DUE_DATE,
+         1);
+   end
+end
+ ^
+
+CREATE TRIGGER COMPLAINTS_BU0 FOR COMPLAINTS 
+ACTIVE BEFORE UPDATE POSITION 0
+AS
+begin
+   if(NEW.CHG_DATE <> 'TODAY') then
+      NEW.CHG_DATE = 'TODAY';
+   
+   if(NEW.STATUS_ID = 7 and NEW.CPL_DATE is NULL) then begin
+      NEW.CPL_DATE = 'TODAY';
+      NEW.EMAIL_INIT = '1';
+      NEW.EMAIL_RESP = '1';
+      if(NEW.LETTER = '1') then
+         NEW.EMAIL_LETWRI = '1';
+   end
+end
+ ^
+
+CREATE TRIGGER RESPONSE_BU0 FOR RESPONSE 
+ACTIVE BEFORE UPDATE POSITION 0
+AS
+begin
+   NEW.CHG_DATE = 'NOW';
+   
+   if(NEW.STATUS_ID = 2) then
+      NEW.CPL_DATE = 'NOW';
+end
+ ^
+
+CREATE TRIGGER RESPONSE_AU0 FOR RESPONSE 
+ACTIVE AFTER UPDATE POSITION 0
+AS
+   declare variable APV_ID varchar(15);
+   declare variable PLT_ID integer;
+   declare variable APVL_ID integer;
+begin
+   if(NEW.STATUS_ID = 1 and NEW.DELEGATED_ID <> OLD.DELEGATED_ID) then
+      update COMPLAINTS
+      set STATUS_ID = 1, RSP_DATE = NULL, EMAIL_RESP = '1'
+      where ID = NEW.ID
+         and STATUS_ID < 3;
+   
+   else if (NEW.STATUS_ID = 2) then
+      begin
+         update COMPLAINTS
+         set STATUS_ID = 3, RSP_DATE = 'TODAY',
+            EMAIL_APPV = '1', EMAIL_RESP = '0'
+         where ID = NEW.ID
+            and STATUS_ID < 3;
+            
+         select P.APPROVER_ID, P.ID
+         from COMPLAINTS C
+            join PLANTS P on C.PLANT_ID = P.ID
+         where C.ID = NEW.ID
+         into :APV_ID, :PLT_ID;
+         
+         select ID
+         from APPROVE
+         where ID = new.ID
+         into :APVL_ID;
+         
+         if(APVL_ID is null and APV_ID is not null and PLT_ID is not null) then
+            insert into APPROVE(ID, RESPONSE_ID,
+               APPROVER_ID, PLANT_ID,
+               CRE_DATE, CHG_DATE,
+               REVIEW, REVIEW_DATE,
+               SERVICE_FAILURE, PRODUCT_FAILURE, RECURRING_ROOT, RECURRING,
+               EXT_CAUSE, STATUS_ID)
+            values(NEW.ID, NEW.ID,
+               :APV_ID, :PLT_ID,
+               'NOW', 'NOW',
+               '0', 'NOW',
+               '0', '0', '0', '0',
+               '0', 1);
+      end
+end
+ ^
+
+COMMIT WORK ^
+SET TERM ;^
+
+/* Grant Roles for this database */
+
+
+/* Grant permissions for this database */
+

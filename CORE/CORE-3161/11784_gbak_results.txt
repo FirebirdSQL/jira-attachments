@@ -1,0 +1,57 @@
+Database size before backup 1.93 GB - it's a restored copy of a client's database
+ODS 11.1
+Page size 4096
+
+
+firebird.conf changes:
+
+DefaultDbCachePages = 8192
+TempBlockSize = 8388608
+TempCacheLimit = 67108864
+RemoteAuxPort = 26000
+LockMemSize = 33554432
+LockHashSlots = 3571
+CpuAffinityMask = 2
+
+Firebird 2.5
+
+backup / restore 1
+gbak -t -user SYSDBA -password masterkey database.fdb test1.fbk  - 4.33
+
+gbak -c -user SYSDBA -password masterkey -FIX_FSS_METADATA WIN1251 test1.fbk test1.fdb - 33.10
+
+backup / restore 2
+gbak -t -user SYSDBA -password masterkey database.fdb test2.fbk  - 4.21
+
+gbak -c -user SYSDBA -password masterkey -FIX_FSS_METADATA WIN1251 test2.fbk test2.fdb - 32.36
+
+backup / restore 3
+gbak -t -user SYSDBA -password masterkey database.fdb test3.fbk  - 4.22
+
+gbak -c -user SYSDBA -password masterkey -FIX_FSS_METADATA WIN1251 test3.fbk test3.fdb - 32.45
+
+After that I've uninstalled Firebird 2.5, deleted gds32.dll and fbclient.dll from windows\system32 and rebooted the system.
+I've installed Firebird verision 2,1,3 and repeated the backup\restore cycle.
+
+Firebird 2.1.3
+
+backup / restore 1
+gbak -t -user SYSDBA -password masterkey database.fdb test1.fbk  - 3.54
+
+gbak -c -user SYSDBA -password masterkey test1.fbk test1.fdb - 28.49
+
+backup / restore 2
+gbak -t -user SYSDBA -password masterkey database.fdb test2.fbk - 3.45
+
+gbak -c -user SYSDBA -password masterkey test2.fbk test2.fdb - 29.13
+
+backup / restore 3
+gbak -t -user SYSDBA -password masterkey database.fdb test3.fbk - 3.48
+
+gbak -c -user SYSDBA -password masterkey test3.fbk test3.fdb - 29.21
+
+If we compare the best 2.5's time and the worst 2.1's time, version 2.5 takes 10% more time for backup or restore.
+I have one bigger - 30GB database file, but I can't do these tests with it.
+With smaller databases it's not so critical to wait for 3 more minutes, but maybe for bigger databases the time will grow.
+I'm reporting this because it was strange to restore 21 MB database for 40 seconds.
+Today the same database with more data (28.4 MB in size) is restored for 21 sec with 2.1.3

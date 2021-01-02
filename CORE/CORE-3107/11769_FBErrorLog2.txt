@@ -1,0 +1,297 @@
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 141913 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 141913 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1649
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 141913 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 141913 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1649
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 141913 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 141913 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 141913 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1649
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 141913 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 141913 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 141913 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 141913 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1649
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 141913 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 141913 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1649
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 141913 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 141913 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 141913 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1649
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 141913 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 141913 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 141913 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1649
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 141913 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 141913 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1649
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 141913 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 141913 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 141913 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 141913 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 376948 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 376948 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1649
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 376948 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 376948 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1649
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 376948 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 376948 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1649
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 376948 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 376948 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1649
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 376948 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 376948 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 376948 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1649
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 376948 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 376948 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1649
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 376948 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 376948 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 376948 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 376948 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1649
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:50:42 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 376948 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMENTY_EX (159)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:51:30 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 2 is corrupt on page 366106 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMSTAN_DB (162)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:51:30 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 2 is corrupt on page 366106 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1649
+	 in table ELEMSTAN_DB (162)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:51:36 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 369333 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMSTAN_DB (162)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:51:36 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 4 is corrupt on page 369333 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1649
+	 in table ELEMSTAN_DB (162)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 11:51:43 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Index 6 is corrupt on page 88611 level 1. File: ..\..\..\src\jrd\validation.cpp, line: 1659
+	 in table ELEMSTAN_DB (162)
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 12:09:28 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Page 407185 is an orphan
+
+
+XSERV-7BF62F (Server)	Tue Sep 07 12:09:28 2010
+	Database: D:\BAZA\BAZA.EWI.XXX
+	Page 407186 is an orphan

@@ -1,0 +1,56 @@
+Thread 1 (Thread 0x7f9d31040700 (LWP 18640)):
+#0  0x00007f9d9a408277 in raise () from /lib64/libc.so.6
+#1  0x00007f9d9a409968 in abort () from /lib64/libc.so.6
+#2  0x00007f9d924832d8 in ERR_punt () at /src/jrd/err.cpp:315
+#3  0x00007f9d924832f1 in ERR_post (v=...) at /src/jrd/err.cpp:290
+#4  0x00007f9d9248347d in internal_error (line=2348, 
+    file=0x7f9d9280e828 "/src/jrd/tra.cpp", number=165, status=335544333)
+    at /src/jrd/err.cpp:426
+#5  ERR_bugcheck (number=number@entry=165, 
+    file=file@entry=0x7f9d9280e828 "/src/jrd/tra.cpp", line=line@entry=2348)
+    at /src/jrd/err.cpp:79
+#6  0x00007f9d9251104f in inventory_page (tdbb=tdbb@entry=0x7f9d3103e500, sequence=sequence@entry=960)
+    at /src/jrd/tra.cpp:2348
+#7  0x00007f9d925110d7 in fetch_inventory_page (tdbb=0x7f9d3103e500, window=0x7f9d310355a0, sequence=960, 
+    lock_level=<optimized out>) at /src/jrd/tra.cpp:2270
+#8  0x00007f9d92511e37 in TRA_get_inventory (tdbb=tdbb@entry=0x7f9d3103e500, bit_vector=bit_vector@entry=0x0, 
+    base=base@entry=62837760, top=top@entry=62794773) at /src/jrd/tra.cpp:577
+#9  0x00007f9d9250ffa4 in Jrd::TipCache::cacheTransactions (this=this@entry=0x7f9c6ec19310, 
+    tdbb=tdbb@entry=0x7f9d3103e500, oldest=oldest@entry=62837760) at /src/jrd/tpc.cpp:521
+#10 0x00007f9d92510a2a in Jrd::TipCache::extendCache (this=this@entry=0x7f9c6ec19310, 
+    tdbb=tdbb@entry=0x7f9d3103e500, number=number@entry=62723308) at /src/jrd/tpc.cpp:590
+#11 0x00007f9d92510d2e in Jrd::TipCache::snapshotState (this=0x7f9c6ec19310, tdbb=tdbb@entry=0x7f9d3103e500, 
+    number=number@entry=62723308) at /src/jrd/tpc.cpp:389
+#12 0x00007f9d925164d9 in TPC_snapshot_state (number=62723308, tdbb=0x7f9d3103e500)
+    at /src/jrd/../jrd/tpc_proto.h:99
+#13 TRA_snapshot_state (tdbb=tdbb@entry=0x7f9d3103e500, trans=trans@entry=0x7f9c6ec18a80, number=62723308)
+    at /src/jrd/tra.cpp:1629
+#14 0x00007f9d925321c1 in VIO_chase_record_version (tdbb=tdbb@entry=0x7f9d3103e500, 
+    rpb=rpb@entry=0x7f9c6dd622e0, transaction=transaction@entry=0x7f9c6ec18a80, pool=pool@entry=0x7f9c6ead61f0, 
+    writelock=writelock@entry=false, noundo=noundo@entry=false) at /src/jrd/vio.cpp:758
+#15 0x00007f9d925332af in VIO_get (tdbb=tdbb@entry=0x7f9d3103e500, rpb=rpb@entry=0x7f9c6dd622e0, 
+    transaction=0x7f9c6ec18a80, pool=0x7f9c6ead61f0) at /src/jrd/vio.cpp:2147
+#16 0x00007f9d926edf37 in Jrd::BitmapTableScan::getRecord (this=<optimized out>, tdbb=0x7f9d3103e500)
+    at /src/jrd/recsrc/BitmapTableScan.cpp:113
+#17 0x00007f9d926f216b in Jrd::FilteredStream::evaluateBoolean (this=this@entry=0x7f9c6dd61d00, 
+    tdbb=tdbb@entry=0x7f9d3103e500) at /src/jrd/recsrc/FilteredStream.cpp:344
+#18 0x00007f9d926f24ab in Jrd::FilteredStream::getRecord (this=0x7f9c6dd61d00, tdbb=0x7f9d3103e500)
+    at /src/jrd/recsrc/FilteredStream.cpp:84
+#19 0x00007f9d926f089c in Jrd::Cursor::fetchNext (this=0x7f9c6dd618e0, tdbb=tdbb@entry=0x7f9d3103e500)
+    at /src/jrd/recsrc/Cursor.cpp:160
+#20 0x00007f9d925ef617 in Jrd::ForNode::execute (this=0x7f9c6dd952c0, tdbb=0x7f9d3103e500, 
+    request=0x7f9c6dd62bc0) at /src/dsql/StmtNodes.cpp:4732
+#21 0x00007f9d9248d802 in EXE_looper (tdbb=tdbb@entry=0x7f9d3103e500, request=request@entry=0x7f9c6dd62bc0, 
+    node=0x7f9c6dd952c0, node@entry=0x7f9c6dd963c0) at /src/jrd/exe.cpp:1266
+#22 0x00007f9d9248e805 in looper_seh (node=0x7f9c6dd963c0, request=0x7f9c6dd62bc0, tdbb=0x7f9d3103e500)
+    at /src/jrd/exe.cpp:1400
+#23 execute_looper (tdbb=tdbb@entry=0x7f9d3103e500, request=request@entry=0x7f9c6dd62bc0, 
+    transaction=transaction@entry=0x7f9c6ec18a80, node=0x7f9c6dd963c0, 
+    next_state=next_state@entry=Jrd::jrd_req::req_proceed) at /src/jrd/exe.cpp:994
+#24 0x00007f9d92490b7b in EXE_receive (tdbb=tdbb@entry=0x7f9d3103e500, request=0x7f9c6dd62bc0, msg=msg@entry=1, 
+    length=length@entry=34, buffer=buffer@entry=0x7f9d31035f10 "SZALLITASICIM_IDX1", ' ' <repeats 13 times>, 
+    top_level=top_level@entry=false) at /src/jrd/exe.cpp:691
+#25 0x00007f9d9258286f in MET_lookup_index (tdbb=0x7f9d3103e500, index_name=..., relation_name=..., 
+    number=<optimized out>) at /temp/Release/jrd/met.cpp:6977
+#26 0x00007f9d92410b07 in Jrd::OptimizerRetrieval::makeIndexScanNode (this=this@entry=0x7f9d31036320, 
+    indexScratch=0x7f9d65a4f780) at /src/jrd/Optimizer.cpp:1110

@@ -1,0 +1,39 @@
+From 876f447bf7eae360c95d961c897a756b25be3892 Mon Sep 17 00:00:00 2001
+From: Alexpux <alexey.pawlow@gmail.com>
+Date: Wed, 19 Nov 2014 07:48:33 +0300
+Subject: [PATCH] Fix conflict with define "lint"
+
+---
+ src/common/utils.cpp | 14 +++++-----
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/src/common/utils.cpp b/src/common/utils.cpp
+index 81453b6..3c12079 100644
+--- a/src/common/utils.cpp
++++ b/src/common/utils.cpp
+@@ -878,15 +878,15 @@ void get_process_times(SINT64 &userTime, SINT64 &sysTime)
+ 	FILETIME utime, stime, dummy;
+ 	if (GetProcessTimes(GetCurrentProcess(), &dummy, &dummy, &stime, &utime))
+ 	{
+-		LARGE_INTEGER lint;
++		LARGE_INTEGER linteg;
+ 
+-		lint.HighPart = stime.dwHighDateTime;
+-		lint.LowPart = stime.dwLowDateTime;
+-		sysTime = lint.QuadPart / 10000;
++		linteg.HighPart = stime.dwHighDateTime;
++		linteg.LowPart = stime.dwLowDateTime;
++		sysTime = linteg.QuadPart / 10000;
+ 
+-		lint.HighPart = utime.dwHighDateTime;
+-		lint.LowPart = utime.dwLowDateTime;
+-		userTime = lint.QuadPart / 10000;
++		linteg.HighPart = utime.dwHighDateTime;
++		linteg.LowPart = utime.dwLowDateTime;
++		userTime = linteg.QuadPart / 10000;
+ 	}
+ 	else
+ 	{
+-- 
+2.1.3
+

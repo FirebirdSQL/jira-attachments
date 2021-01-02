@@ -1,0 +1,79 @@
+Index: FirebirdSql/Data/UnitTests/FbConnectionTests.cs
+===================================================================
+--- FirebirdSql/Data/UnitTests/FbConnectionTests.cs	(revision 53955)
++++ FirebirdSql/Data/UnitTests/FbConnectionTests.cs	(working copy)
+@@ -84,6 +84,74 @@
+ 			Assert.AreEqual(command.Connection, Connection);
+ 		}
+ 
++        private int ActiveUserCount()
++        {
++            FbConnection dbinfo_connection = new FbConnection(this.BuildConnectionString(false));
++            dbinfo_connection.Open();
++            FbDatabaseInfo dbinfo = new FbDatabaseInfo(dbinfo_connection);
++            int count = dbinfo.ActiveUsers.Count;
++            dbinfo_connection.Close();
++            dbinfo_connection.Dispose();
++
++            return count;
++        }
++            
++
++        [Test]
++        public void ConnectionPoolingTimeOutTest()
++        {
++            // Using ActiveUsers as proxy for number of connections
++            FbConnectionStringBuilder csb = this.BuildConnectionStringBuilder();
++            csb.Pooling = true;
++            csb.ConnectionLifeTime = 5;
++            string cs = csb.ToString();
++
++            int ActiveUsersAtStart = ActiveUserCount();
++
++            Console.WriteLine("Active Users at Start: {0}", ActiveUsersAtStart);
++
++            FbConnection myConnection1 = new FbConnection(cs);
++            FbConnection myConnection2 = new FbConnection(cs);
++
++            // Open two connections.
++            Console.WriteLine("Open two connections.");
++            myConnection1.Open();
++            myConnection2.Open();
++                      
++            Console.WriteLine("Active Users: {0}", ActiveUserCount());
++            
++            // Now there are two connections in the pool that matches the connection string.
++            // Return the both connections to the pool. 
++            Console.WriteLine("Return both of the connections to the pool.");
++            myConnection1.Close();
++            myConnection2.Close();
++
++            Console.WriteLine("Active Users: {0}", ActiveUserCount());
++
++            myConnection1.Dispose();
++            myConnection2.Dispose();
++
++            Console.WriteLine("Active Users: {0}", ActiveUserCount());
++
++            Console.WriteLine("Connection pool count: {0}",FbConnection.ConnectionPoolsCount );
++            Console.WriteLine("Let connection timeout and cleanup occur");
++            //GC.Collect();
++            //GC.WaitForFullGCComplete();
++
++            System.Threading.Thread.Sleep(csb.ConnectionLifeTime * 2 * 1000); //allow time for cleanup to occur
++
++            Console.WriteLine("Connection pool count: {0}", FbConnection.ConnectionPoolsCount);
++
++            Console.WriteLine("Active Users at End: {0}", ActiveUserCount());
++
++            Assert.AreEqual(ActiveUsersAtStart, ActiveUserCount());
++
++            // Clear pools
++            FbConnection.ClearAllPools();
++
++        }
++
++
+ 		[Test]
+ 		public void ConnectionPoolingTest()
+ 		{

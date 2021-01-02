@@ -1,0 +1,1446 @@
+Index: src/main/org/firebirdsql/jdbc/AbstractPreparedStatement.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/main/org/firebirdsql/jdbc/AbstractPreparedStatement.java,v
+retrieving revision 1.18
+diff -u -b -B -r1.18 AbstractPreparedStatement.java
+--- src/main/org/firebirdsql/jdbc/AbstractPreparedStatement.java	13 Aug 2004 20:08:21 -0000	1.18
++++ src/main/org/firebirdsql/jdbc/AbstractPreparedStatement.java	20 Oct 2004 09:26:13 -0000
+@@ -39,12 +39,6 @@
+ public abstract class AbstractPreparedStatement extends FBStatement 
+     implements FirebirdPreparedStatement 
+ {
+-
+-    // this array contains either true or false indicating if parameter
+-    // was initialized, executeQuery, executeUpdate and execute methods
+-    // will throw an exception if this array contains at least one false value.
+-    private boolean[] isParamSet;
+-     
+     private FBField[] fields= null;
+     private boolean[] isBlob = null;
+     private boolean hasBlobs = false;
+@@ -251,7 +245,6 @@
+                      "Invalid column index.",
+                      FBSQLException.SQL_STATE_INVALID_COLUMN);
+             
+-         isParamSet[columnIndex-1] = true;
+          return fields[columnIndex-1];
+     }
+ 
+@@ -321,11 +314,16 @@
+      * @exception SQLException if a database access error occurs
+      */
+     public void clearParameters() throws  SQLException {
+-        if (isParamSet == null)
++        
++        if (fields == null)
+             return;
+         
+-        for (int i = 0; i < isParamSet.length; i++)
+-            isParamSet[i] = false;
++
++        for (int i = 0; i < fields.length; i++) {
++            fields[i] 
++                = FBField.createField(getXsqlvar(i+1), null, i, false);
++            fields[i].setConnection(c);
++        }
+         
+         XSQLVAR[] xsqlvar = fixedStmt.getInSqlda().sqlvar;
+         for (int i = 0; i < xsqlvar.length; i++) {
+@@ -453,8 +451,8 @@
+     protected boolean internalExecute(boolean sendOutParams) throws  SQLException
+     {
+         boolean canExecute = true;
+-        for (int i = 0; i < isParamSet.length; i++){
+-            canExecute = canExecute && isParamSet[i];
++        for (int i = 0; i < fields.length; i++){
++            canExecute = canExecute && fields[i].isSet();
+         }
+ 
+         if (!canExecute)
+@@ -464,7 +462,7 @@
+         
+         synchronized(syncObject) {
+             if (hasBlobs) {
+-                for (int i = 0; i < isParamSet.length; i++) {
++                for (int i = 0; i < fields.length; i++) {
+                     if (isBlob[i]) {
+                         FBFlushableField flushableField =
+                             (FBFlushableField)getField(i + 1);
+@@ -505,8 +503,8 @@
+     public void addBatch() throws  SQLException {
+         
+         boolean allParamsSet = true;
+-        for (int i = 0; i < isParamSet.length; i++) {
+-			allParamsSet &= isParamSet[i];
++        for (int i = 0; i < fields.length; i++) {
++            allParamsSet &= fields[i].isSet();
+ 		}
+         
+         if (!allParamsSet)
+@@ -617,7 +615,6 @@
+                     XSQLVAR[] vars = fixedStmt.getInSqlda().sqlvar; 
+                     for (int i = 0; i < vars.length; i++) {
+                         vars[i].copyFrom(data[i]);
+-                        isParamSet[i] = true;
+                     }
+                     
+                     try {
+@@ -885,18 +882,13 @@
+             inSqlda.sqlvar = new XSQLVAR[0];
+         }
+ 
+-        // initialize isParamSet member
+-        isParamSet = new boolean[inSqlda.sqln];
+         fields = new FBField[inSqlda.sqln];		  
+         isBlob = new boolean[inSqlda.sqln];		  
+         XSQLVAR[] inVars = inSqlda.sqlvar;
+ 
+-        for (int i = 0; i < isParamSet.length; i++){
+-            // this is probably redundant, JVM initializes members to false
+-            isParamSet[i] = false;
++        for (int i = 0; i < fields.length; i++){
+             
+       		fields[i] = FBField.createField(getXsqlvar(i+1), null, i, false);
+-
+             fields[i].setConnection(c);
+ 
+             isBlob[i] =
+Index: src/main/org/firebirdsql/jdbc/field/FBBigDecimalField.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/main/org/firebirdsql/jdbc/field/FBBigDecimalField.java,v
+retrieving revision 1.4
+diff -u -b -B -r1.4 FBBigDecimalField.java
+--- src/main/org/firebirdsql/jdbc/field/FBBigDecimalField.java	13 Aug 2004 20:11:30 -0000	1.4
++++ src/main/org/firebirdsql/jdbc/field/FBBigDecimalField.java	20 Oct 2004 09:26:14 -0000
+@@ -260,7 +260,7 @@
+         } else
+             throw (SQLException)createException(
+                 BIGDECIMAL_CONVERSION_ERROR).fillInStackTrace();
+-
++        isSet = true;
+     }
+ 
+ 
+Index: src/main/org/firebirdsql/jdbc/field/FBBlobField.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/main/org/firebirdsql/jdbc/field/FBBlobField.java,v
+retrieving revision 1.5
+diff -u -b -B -r1.5 FBBlobField.java
+--- src/main/org/firebirdsql/jdbc/field/FBBlobField.java	8 Oct 2004 22:39:12 -0000	1.5
++++ src/main/org/firebirdsql/jdbc/field/FBBlobField.java	20 Oct 2004 09:26:14 -0000
+@@ -233,6 +233,7 @@
+             this.length = ((byte[])this.data).length;
+             isCachedData = true;
+         }
++        isSet = true;
+     }
+     
+     public void setBinaryStream(InputStream in, int length) throws SQLException {
+@@ -265,6 +266,7 @@
+             this.length = ((byte[])this.data).length;
+             isCachedData = true;
+         }
++        isSet = true;
+     }
+     
+     public void flushCachedData() throws SQLException {
+@@ -314,6 +316,7 @@
+         }
+         
+         setBytes(field.encodeString(value,javaEncoding, mappingPath));
++        isSet = true;
+     }
+ 
+     public void setUnicodeStream(InputStream in, int length) throws SQLException {
+@@ -322,5 +325,6 @@
+ 
+     public void setBlob(FBBlob blob) throws SQLException {
+         field.sqldata = field.encodeLong(blob.getBlobId());
++        isSet = true;
+     }
+ }
+Index: src/main/org/firebirdsql/jdbc/field/FBDateField.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/main/org/firebirdsql/jdbc/field/FBDateField.java,v
+retrieving revision 1.3
+diff -u -b -B -r1.3 FBDateField.java
+--- src/main/org/firebirdsql/jdbc/field/FBDateField.java	27 Apr 2004 20:14:10 -0000	1.3
++++ src/main/org/firebirdsql/jdbc/field/FBDateField.java	20 Oct 2004 09:26:14 -0000
+@@ -108,5 +108,6 @@
+         }
+ 
+         field.sqldata = field.encodeDate(value);
++        isSet = true;
+     }
+ }
+Index: src/main/org/firebirdsql/jdbc/field/FBDoubleField.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/main/org/firebirdsql/jdbc/field/FBDoubleField.java,v
+retrieving revision 1.3
+diff -u -b -B -r1.3 FBDoubleField.java
+--- src/main/org/firebirdsql/jdbc/field/FBDoubleField.java	27 Apr 2004 20:14:11 -0000	1.3
++++ src/main/org/firebirdsql/jdbc/field/FBDoubleField.java	20 Oct 2004 09:26:14 -0000
+@@ -158,6 +158,7 @@
+     }
+     public void setDouble(double value) throws SQLException {
+         field.sqldata = field.encodeDouble(value);
++        isSet = true;
+     }
+     public void setLong(long value) throws SQLException {
+         setDouble((double)value);
+Index: src/main/org/firebirdsql/jdbc/field/FBField.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/main/org/firebirdsql/jdbc/field/FBField.java,v
+retrieving revision 1.10
+diff -u -b -B -r1.10 FBField.java
+--- src/main/org/firebirdsql/jdbc/field/FBField.java	10 Oct 2004 10:58:01 -0000	1.10
++++ src/main/org/firebirdsql/jdbc/field/FBField.java	20 Oct 2004 09:26:14 -0000
+@@ -152,6 +153,7 @@
+     protected String mappingPath = null;
+     protected int requiredType;
+     protected int scale = -1;
++    protected boolean isSet = false;
+ 
+     FBField(XSQLVAR field, FBResultSet rs, int numCol, int requiredType) 
+         throws SQLException 
+@@ -192,6 +194,7 @@
+ 
+     public void setNull() {
+         field.sqldata = null;
++        isSet = true;
+     }
+ 
+     public void setConnection(AbstractConnection c) {
+@@ -686,6 +689,7 @@
+         */
+         if (value == null) {
+             field.sqldata = null;
++            isSet = true;
+             return;
+         }
+ 
+@@ -787,6 +791,10 @@
+         throw (SQLException)createException(
+             BLOB_CONVERSION_ERROR).fillInStackTrace();
+     }
++
++    public boolean isSet(){
++        return isSet;
++    }
+     //
+     // This method is only for the tests
+     //
+Index: src/main/org/firebirdsql/jdbc/field/FBFloatField.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/main/org/firebirdsql/jdbc/field/FBFloatField.java,v
+retrieving revision 1.5
+diff -u -b -B -r1.5 FBFloatField.java
+--- src/main/org/firebirdsql/jdbc/field/FBFloatField.java	27 Apr 2004 20:14:11 -0000	1.5
++++ src/main/org/firebirdsql/jdbc/field/FBFloatField.java	20 Oct 2004 09:26:14 -0000
+@@ -153,6 +153,7 @@
+     }
+     public void setFloat(float value) throws SQLException {
+         field.sqldata = field.encodeFloat(value);
++        isSet = true;
+     }
+     public void setDouble(double value) throws SQLException {
+         // check if value is within bounds
+Index: src/main/org/firebirdsql/jdbc/field/FBIntegerField.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/main/org/firebirdsql/jdbc/field/FBIntegerField.java,v
+retrieving revision 1.3
+diff -u -b -B -r1.3 FBIntegerField.java
+--- src/main/org/firebirdsql/jdbc/field/FBIntegerField.java	27 Apr 2004 20:14:11 -0000	1.3
++++ src/main/org/firebirdsql/jdbc/field/FBIntegerField.java	20 Oct 2004 09:26:14 -0000
+@@ -161,6 +161,7 @@
+     }
+     public void setInteger(int value) throws SQLException {
+         field.sqldata = field.encodeInt(value);
++        isSet = true;
+     }
+     public void setByte(byte value) throws SQLException {
+         setInteger((int)value);
+Index: src/main/org/firebirdsql/jdbc/field/FBLongField.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/main/org/firebirdsql/jdbc/field/FBLongField.java,v
+retrieving revision 1.3
+diff -u -b -B -r1.3 FBLongField.java
+--- src/main/org/firebirdsql/jdbc/field/FBLongField.java	27 Apr 2004 20:14:11 -0000	1.3
++++ src/main/org/firebirdsql/jdbc/field/FBLongField.java	20 Oct 2004 09:26:14 -0000
+@@ -159,6 +159,7 @@
+     }
+     public void setLong(long value) throws SQLException {
+         field.sqldata = field.encodeLong(value);
++        isSet = true;
+     }
+     public void setInteger(int value) throws SQLException {
+         setLong((long)value);
+Index: src/main/org/firebirdsql/jdbc/field/FBLongVarCharField.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/main/org/firebirdsql/jdbc/field/FBLongVarCharField.java,v
+retrieving revision 1.5
+diff -u -b -B -r1.5 FBLongVarCharField.java
+--- src/main/org/firebirdsql/jdbc/field/FBLongVarCharField.java	8 Oct 2004 22:39:12 -0000	1.5
++++ src/main/org/firebirdsql/jdbc/field/FBLongVarCharField.java	20 Oct 2004 09:26:14 -0000
+@@ -212,6 +212,7 @@
+             this.length = data.length;
+             isCachedData = true;
+         }
++        isSet = true;
+     }
+ 
+     public void flushCachedData() throws SQLException {
+Index: src/main/org/firebirdsql/jdbc/field/FBShortField.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/main/org/firebirdsql/jdbc/field/FBShortField.java,v
+retrieving revision 1.3
+diff -u -b -B -r1.3 FBShortField.java
+--- src/main/org/firebirdsql/jdbc/field/FBShortField.java	27 Apr 2004 20:14:11 -0000	1.3
++++ src/main/org/firebirdsql/jdbc/field/FBShortField.java	20 Oct 2004 09:26:14 -0000
+@@ -121,6 +121,7 @@
+     }
+     public void setShort(short value) throws SQLException {
+         field.sqldata = field.encodeShort(value);
++        isSet = true;
+     }
+     public void setBoolean(boolean value) throws SQLException {
+         setShort((short)(value ? 1 : 0));
+Index: src/main/org/firebirdsql/jdbc/field/FBStringField.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/main/org/firebirdsql/jdbc/field/FBStringField.java,v
+retrieving revision 1.8
+diff -u -b -B -r1.8 FBStringField.java
+--- src/main/org/firebirdsql/jdbc/field/FBStringField.java	8 Oct 2004 22:39:12 -0000	1.8
++++ src/main/org/firebirdsql/jdbc/field/FBStringField.java	20 Oct 2004 09:26:14 -0000
+@@ -268,6 +268,7 @@
+             return;
+         }
+         field.sqldata = field.encodeString(value,javaEncoding, mappingPath);
++        isSet = true;
+ 
+ //        if (field.sqldata.length > field.sqllen)
+ //            throw new DataTruncation(-1, true, false, field.sqldata.length, field.sqllen);
+@@ -287,8 +288,10 @@
+             return;
+         }
+ 
+-        if (length > field.sqllen)
++        if (length > field.sqllen){
++            isSet = false;
+             throw new DataTruncation(-1, true, false, length, field.sqllen);
++        }
+ 
+         try {
+             ByteArrayOutputStream out = new ByteArrayOutputStream();
+@@ -301,13 +304,13 @@
+                 out.write(buff, 0, counter);
+                 toRead -= counter;
+             }
+-            
+             setBytes(out.toByteArray());
+         }
+         catch (IOException ioex) {
+             throw (SQLException) createException(
+                 BINARY_STREAM_CONVERSION_ERROR).fillInStackTrace();
+         }
++        isSet = true;
+     }
+     public void setCharacterStream(Reader in, int length) throws SQLException {
+         if (in == READER_NULL_VALUE) {
+@@ -337,8 +340,12 @@
+ 
+         field.sqldata = value;
+ 
+-        if (field.sqldata.length > field.sqllen)
+-            throw new DataTruncation(-1, true, false, field.sqldata.length, field.sqllen);
++        if (field.sqldata.length > field.sqllen){
++            isSet = false;
++            throw new DataTruncation(
++                    -1, true, false, field.sqldata.length, field.sqllen);
++        }
++        isSet = true;
+     }
+ 
+     //----- setDate, setTime and setTimestamp code
+Index: src/main/org/firebirdsql/jdbc/field/FBTimeField.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/main/org/firebirdsql/jdbc/field/FBTimeField.java,v
+retrieving revision 1.3
+diff -u -b -B -r1.3 FBTimeField.java
+--- src/main/org/firebirdsql/jdbc/field/FBTimeField.java	27 Apr 2004 20:14:11 -0000	1.3
++++ src/main/org/firebirdsql/jdbc/field/FBTimeField.java	20 Oct 2004 09:26:14 -0000
+@@ -103,5 +103,6 @@
+         }
+ 
+         field.sqldata = field.encodeTime(value);
++        isSet = true;
+     }
+ }
+Index: src/main/org/firebirdsql/jdbc/field/FBTimestampField.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/main/org/firebirdsql/jdbc/field/FBTimestampField.java,v
+retrieving revision 1.4
+diff -u -b -B -r1.4 FBTimestampField.java
+--- src/main/org/firebirdsql/jdbc/field/FBTimestampField.java	15 Aug 2004 00:10:34 -0000	1.4
++++ src/main/org/firebirdsql/jdbc/field/FBTimestampField.java	20 Oct 2004 09:26:14 -0000
+@@ -150,5 +150,6 @@
+         }
+ 
+         field.sqldata = field.encodeTimestamp(value);
++        isSet = true;
+     }
+ }
+Index: src/main/org/firebirdsql/jdbc/field/FBWorkaroundStringField.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/main/org/firebirdsql/jdbc/field/FBWorkaroundStringField.java,v
+retrieving revision 1.6
+diff -u -b -B -r1.6 FBWorkaroundStringField.java
+--- src/main/org/firebirdsql/jdbc/field/FBWorkaroundStringField.java	8 Oct 2004 22:39:12 -0000	1.6
++++ src/main/org/firebirdsql/jdbc/field/FBWorkaroundStringField.java	20 Oct 2004 09:26:15 -0000
+@@ -88,9 +88,11 @@
+         if (value == STRING_NULL_VALUE)
+             return;
+         
+-        if (field.sqldata.length > field.sqllen && !isSystemTable(field.relname))
++        if (field.sqldata.length > field.sqllen && !isSystemTable(field.relname)) {
++            isSet = false;
+             throw new DataTruncation(-1, true, false, field.sqldata.length, field.sqllen);
+     }    
++    }    
+     
+     /**
+      * Set string value without any check of its length. This is a workaround 
+@@ -106,6 +108,7 @@
+             return;
+         }
+         field.sqldata = field.encodeString(value,javaEncoding, mappingPath);
++        isSet = true;
+     }   
+     
+     /**
+Index: src/test/org/firebirdsql/jdbc/field/BaseTestFBField.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/test/org/firebirdsql/jdbc/field/BaseTestFBField.java,v
+retrieving revision 1.2
+diff -u -b -B -r1.2 BaseTestFBField.java
+--- src/test/org/firebirdsql/jdbc/field/BaseTestFBField.java	18 Jul 2004 09:19:20 -0000	1.2
++++ src/test/org/firebirdsql/jdbc/field/BaseTestFBField.java	20 Oct 2004 09:26:15 -0000
+@@ -71,6 +71,7 @@
+         field.setByte(TEST_BYTE);
+         field.copyOI();		  
+         assertTrue("Byte values test failure", field.getByte() == TEST_BYTE);
++        assertIsSet();
+     }
+ 
+     public void testShort() throws SQLException {
+@@ -151,6 +152,14 @@
+         assertTrue("Timestamp values test failure: expected: " + TEST_TIMESTAMP + ", actual: " + field.getTimestamp(), field.getTimestamp().equals(TEST_TIMESTAMP));
+     }
+ 
++    protected void assertIsSet() {
++        assertTrue("Field should be set", field.isSet());
++    }
++
++    protected void assertNotSet() {
++        assertFalse("Field should not be set", field.isSet());
++    }
++
+     protected byte[] readInputStream(InputStream in) {
+         try {
+             ByteArrayOutputStream out = new ByteArrayOutputStream();
+Index: src/test/org/firebirdsql/jdbc/field/TestFBDateField.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/test/org/firebirdsql/jdbc/field/TestFBDateField.java,v
+retrieving revision 1.1
+diff -u -b -B -r1.1 TestFBDateField.java
+--- src/test/org/firebirdsql/jdbc/field/TestFBDateField.java	12 Nov 2003 22:01:24 -0000	1.1
++++ src/test/org/firebirdsql/jdbc/field/TestFBDateField.java	20 Oct 2004 09:26:15 -0000
+@@ -68,6 +68,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testDouble() throws SQLException {
+@@ -76,6 +77,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testLong() throws SQLException {
+@@ -84,6 +86,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testUnicodeStream() throws SQLException {
+@@ -92,6 +95,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testByte() throws SQLException {
+@@ -100,6 +104,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testBoolean() throws SQLException {
+@@ -108,6 +113,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testBinaryStream() throws SQLException {
+@@ -116,6 +122,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testFloat() throws SQLException {
+@@ -124,6 +131,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testBytes() throws SQLException {
+@@ -132,6 +140,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testAsciiStream() throws SQLException {
+@@ -140,6 +149,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testInteger() throws SQLException {
+@@ -148,6 +158,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testBigDecimal() throws SQLException {
+@@ -156,6 +167,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 
+@@ -167,6 +179,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testTimestamp() throws SQLException {
+@@ -176,6 +189,7 @@
+ 		// we have to test string representation, because of conversion problem
+ 		assertTrue("Timestamp value test failure.",
+ 			field.getDate().toString().equals(dateStr));
++                assertIsSet();
+ 	}
+ 	public void testString() throws SQLException {
+ 		field.setString(TEST_DATE.toString());
+@@ -187,6 +201,7 @@
+ 		// stable results.
+ 		assertTrue("String value test failure",
+ 			field.getString().equals(TEST_DATE.toString()));
++                assertIsSet();
+ 	}
+ 	public void testObject() throws SQLException {
+ 		field.setObject(TEST_DATE);
+Index: src/test/org/firebirdsql/jdbc/field/TestFBDoubleField.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/test/org/firebirdsql/jdbc/field/TestFBDoubleField.java,v
+retrieving revision 1.1
+diff -u -b -B -r1.1 TestFBDoubleField.java
+--- src/test/org/firebirdsql/jdbc/field/TestFBDoubleField.java	12 Nov 2003 22:01:24 -0000	1.1
++++ src/test/org/firebirdsql/jdbc/field/TestFBDoubleField.java	20 Oct 2004 09:26:15 -0000
+@@ -64,6 +64,7 @@
+ 		field.setObject(new Double(TEST_DOUBLE));
+ 		field.copyOI();		
+ 		assertTrue(field.getObject().equals(new Double(TEST_DOUBLE)));
++                assertIsSet();
+ 	}
+ 	public void testUnicodeStream() throws SQLException {
+ 		try {
+@@ -71,6 +72,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testByte() throws SQLException {
+@@ -82,6 +84,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 
+ 	}
+@@ -89,6 +92,7 @@
+ 		field.setString(Float.toString(TEST_FLOAT));
+ 		field.copyOI();		
+ 		assertTrue(field.getString().equals(Float.toString(TEST_FLOAT)));
++                assertIsSet();
+ 	}
+ 	public void testAsciiStream() throws SQLException {
+ 		try {
+@@ -96,6 +100,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testTimestamp() throws SQLException {
+@@ -104,6 +109,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testBigDecimal() throws SQLException {
+@@ -111,6 +117,7 @@
+ 		field.setBigDecimal(testBigDecimal);
+ 		field.copyOI();		
+ 		assertTrue(field.getBigDecimal().equals(testBigDecimal));
++                assertIsSet();
+ 	}
+ 	public void testDate() throws SQLException {
+ 		try {
+@@ -118,6 +125,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testTime() throws SQLException {
+@@ -126,6 +134,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testBytes() throws SQLException {
+@@ -134,6 +143,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++	                assertNotSet();	
+ 		}
+ 
+ 	}
+@@ -143,5 +153,6 @@
+ 		field.setLong(TEST_LONG);
+ 		field.copyOI();		
+ 		assertTrue(field.getFloat() == (float)TEST_LONG);
++                assertIsSet();
+ 	}
+ }
+Index: src/test/org/firebirdsql/jdbc/field/TestFBFloatField.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/test/org/firebirdsql/jdbc/field/TestFBFloatField.java,v
+retrieving revision 1.2
+diff -u -b -B -r1.2 TestFBFloatField.java
+--- src/test/org/firebirdsql/jdbc/field/TestFBFloatField.java	20 Nov 2003 19:45:02 -0000	1.2
++++ src/test/org/firebirdsql/jdbc/field/TestFBFloatField.java	20 Oct 2004 09:26:15 -0000
+@@ -69,6 +69,7 @@
+         assertTrue(field.getObject().equals(new Float(TEST_FLOAT)));
+         */
+         assertTrue(field.getObject().equals(new Double(TEST_FLOAT)));
++            assertIsSet();
+     }
+ 	public void testUnicodeStream() throws SQLException {
+ 		try {
+@@ -76,6 +77,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testByte() throws SQLException {
+@@ -87,6 +89,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 
+ 	}
+@@ -94,6 +97,7 @@
+ 		field.setString(Float.toString(TEST_FLOAT));
+ 		field.copyOI();		
+ 		assertTrue(field.getString().equals(Float.toString(TEST_FLOAT)));
++                assertIsSet();
+ 	}
+ 	public void testAsciiStream() throws SQLException {
+ 		try {
+@@ -101,6 +105,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testTimestamp() throws SQLException {
+@@ -109,6 +114,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testBigDecimal() throws SQLException {
+@@ -116,6 +122,7 @@
+ 		field.setBigDecimal(testBigDecimal);
+ 		field.copyOI();		
+ 		assertTrue(field.getBigDecimal().equals(testBigDecimal));
++                assertIsSet();
+ 	}
+ 	public void testDate() throws SQLException {
+ 		try {
+@@ -123,6 +130,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testTime() throws SQLException {
+@@ -131,6 +139,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testBytes() throws SQLException {
+@@ -139,6 +148,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testInteger() throws SQLException {
+@@ -147,6 +157,7 @@
+ 		field.setLong(TEST_INT);
+ 		field.copyOI();		
+ 		assertTrue(field.getFloat() == (float)TEST_INT);
++                assertIsSet();
+ 	}
+ 	public void testLong() throws SQLException {
+ 		// unfortunately (long)((float)myLong) != myLong....
+@@ -154,6 +165,7 @@
+ 		field.setLong(TEST_LONG);
+ 		field.copyOI();		
+ 		assertTrue(field.getFloat() == (float)TEST_LONG);
++                assertIsSet();
+ 	}
+ 	public void testDouble() throws SQLException {
+ 		try {
+@@ -161,6 +173,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException sqlex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ }
+Index: src/test/org/firebirdsql/jdbc/field/TestFBIntegerField.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/test/org/firebirdsql/jdbc/field/TestFBIntegerField.java,v
+retrieving revision 1.1
+diff -u -b -B -r1.1 TestFBIntegerField.java
+--- src/test/org/firebirdsql/jdbc/field/TestFBIntegerField.java	12 Nov 2003 22:01:24 -0000	1.1
++++ src/test/org/firebirdsql/jdbc/field/TestFBIntegerField.java	20 Oct 2004 09:26:15 -0000
+@@ -61,6 +61,7 @@
+ 		field.setObject(new Integer(TEST_INT));
+ 		field.copyOI();
+ 		assertTrue(field.getObject().equals(new Integer(TEST_INT)));
++                assertIsSet();
+ 	}
+ 	public void testUnicodeStream() throws SQLException {
+ 		try {
+@@ -68,6 +69,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testByte() throws SQLException {
+@@ -79,6 +81,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 
+ 	}
+@@ -86,6 +89,7 @@
+ 		field.setString(Integer.toString(TEST_INT));
+ 		field.copyOI();
+ 		assertTrue(field.getString().equals(Integer.toString(TEST_INT)));
++                assertIsSet();
+ 	}
+ 	public void testAsciiStream() throws SQLException {
+ 		try {
+@@ -93,6 +97,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testTimestamp() throws SQLException {
+@@ -101,6 +106,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testBigDecimal() throws SQLException {
+@@ -108,6 +114,7 @@
+ 		field.setBigDecimal(testBigDecimal);
+ 		field.copyOI();
+ 		assertTrue(field.getBigDecimal().equals(testBigDecimal));
++                assertIsSet();
+ 	}
+ 	public void testDate() throws SQLException {
+ 		try {
+@@ -115,6 +122,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testTime() throws SQLException {
+@@ -123,6 +131,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testBytes() throws SQLException {
+@@ -131,6 +140,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 
+ 	}
+@@ -140,6 +150,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testFloat() throws SQLException {
+@@ -148,6 +159,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException sqlex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testDouble() throws SQLException {
+@@ -156,6 +168,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException sqlex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ }
+Index: src/test/org/firebirdsql/jdbc/field/TestFBLongField.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/test/org/firebirdsql/jdbc/field/TestFBLongField.java,v
+retrieving revision 1.1
+diff -u -b -B -r1.1 TestFBLongField.java
+--- src/test/org/firebirdsql/jdbc/field/TestFBLongField.java	12 Nov 2003 22:01:25 -0000	1.1
++++ src/test/org/firebirdsql/jdbc/field/TestFBLongField.java	20 Oct 2004 09:26:16 -0000
+@@ -63,6 +63,7 @@
+         field.setObject(new Long(TEST_LONG));
+         field.copyOI();
+         assertTrue(field.getObject().equals(new Long(TEST_LONG)));
++        assertIsSet();
+     }
+     public void testUnicodeStream() throws SQLException {
+         try {
+@@ -70,6 +71,7 @@
+             assertTrue("This method should fail.", false);
+         } catch(SQLException ex) {
+             //everything is ok :)
++            assertNotSet();
+         }
+     }
+     public void testByte() throws SQLException {
+@@ -81,6 +83,7 @@
+             assertTrue("This method should fail.", false);
+         } catch(SQLException ex) {
+             //everything is ok :)
++            assertNotSet();
+         }
+ 
+     }
+@@ -88,6 +91,7 @@
+         field.setString(Long.toString(TEST_LONG));
+         field.copyOI();
+         assertTrue(field.getString().equals(Long.toString(TEST_LONG)));
++        assertIsSet();
+     }
+     public void testAsciiStream() throws SQLException {
+         try {
+@@ -95,6 +99,7 @@
+             assertTrue("This method should fail.", false);
+         } catch(SQLException ex) {
+             //everything is ok :)
++            assertNotSet();
+         }
+     }
+     public void testTimestamp() throws SQLException {
+@@ -103,6 +108,7 @@
+             assertTrue("This method should fail.", false);
+         } catch(SQLException ex) {
+             //everything is ok :)
++            assertNotSet();
+         }
+     }
+     public void testBigDecimal() throws SQLException {
+@@ -112,6 +118,7 @@
+         field.setBigDecimal(testBigDecimal);
+         field.copyOI();
+         assertTrue(field.getLong() == testBigDecimal.longValue());
++        assertIsSet();
+     }
+     public void testDate() throws SQLException {
+         try {
+@@ -119,6 +126,7 @@
+             assertTrue("This method should fail.", false);
+         } catch(SQLException ex) {
+             //everything is ok :)
++            assertNotSet();
+         }
+     }
+     public void testTime() throws SQLException {
+@@ -127,6 +135,7 @@
+             assertTrue("This method should fail.", false);
+         } catch(SQLException ex) {
+             //everything is ok :)
++            assertNotSet();
+         }
+     }
+     public void testBytes() throws SQLException {
+@@ -135,6 +144,7 @@
+             assertTrue("This method should fail.", false);
+         } catch(SQLException ex) {
+             //everything is ok :)
++            assertNotSet(); 
+         }
+ 
+     }
+@@ -147,6 +157,7 @@
+             assertTrue("Float values test failure", field.getLong() == (long)TEST_FLOAT);
+         } catch(SQLException sqlex) {
+             // everything is ok
++            assertNotSet();
+         }
+     }
+     public void testDouble() throws SQLException {
+@@ -155,6 +166,7 @@
+             assertTrue("This method should fail.", false);
+         } catch(SQLException sqlex) {
+             //everything is ok :)
++            assertNotSet();
+         }
+     }
+ }
+Index: src/test/org/firebirdsql/jdbc/field/TestFBShortField.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/test/org/firebirdsql/jdbc/field/TestFBShortField.java,v
+retrieving revision 1.2
+diff -u -b -B -r1.2 TestFBShortField.java
+--- src/test/org/firebirdsql/jdbc/field/TestFBShortField.java	30 Dec 2003 13:47:31 -0000	1.2
++++ src/test/org/firebirdsql/jdbc/field/TestFBShortField.java	20 Oct 2004 09:26:16 -0000
+@@ -67,6 +67,7 @@
+ 		field.setObject(new Short(TEST_SHORT));
+ 		field.copyOI();
+ 		assertTrue(field.getObject().equals(new Integer(TEST_SHORT)));
++                assertIsSet();
+ 	}
+ 	public void testUnicodeStream() throws SQLException {
+ 		try {
+@@ -74,6 +75,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testBinaryStream() throws SQLException {
+@@ -82,6 +84,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 
+ 	}
+@@ -89,6 +92,7 @@
+ 		field.setString(Short.toString(TEST_SHORT));
+ 		field.copyOI();
+ 		assertTrue(field.getString().equals(Short.toString(TEST_SHORT)));
++                assertIsSet();
+ 	}
+ 	public void testAsciiStream() throws SQLException {
+ 		try {
+@@ -96,6 +100,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testTimestamp() throws SQLException {
+@@ -104,6 +109,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testBigDecimal() throws SQLException {
+@@ -111,6 +117,7 @@
+ 		field.setBigDecimal(testBigDecimal);
+ 		field.copyOI();
+ 		assertTrue(field.getBigDecimal().equals(testBigDecimal));
++                assertIsSet();
+ 	}
+ 	public void testDate() throws SQLException {
+ 		try {
+@@ -118,6 +125,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testTime() throws SQLException {
+@@ -126,6 +134,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testBytes() throws SQLException {
+@@ -134,6 +143,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 
+ 	}
+@@ -143,6 +153,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testLong() throws SQLException {
+@@ -151,6 +162,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testFloat() throws SQLException {
+@@ -159,6 +171,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException sqlex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testDouble() throws SQLException {
+@@ -167,6 +180,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException sqlex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 
+Index: src/test/org/firebirdsql/jdbc/field/TestFBStringField.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/test/org/firebirdsql/jdbc/field/TestFBStringField.java,v
+retrieving revision 1.3
+diff -u -b -B -r1.3 TestFBStringField.java
+--- src/test/org/firebirdsql/jdbc/field/TestFBStringField.java	21 Apr 2004 19:52:10 -0000	1.3
++++ src/test/org/firebirdsql/jdbc/field/TestFBStringField.java	20 Oct 2004 09:26:16 -0000
+@@ -71,6 +71,7 @@
+         field.setBigDecimal(testBigDecimal);
+         field.copyOI();
+         assertTrue(field.getBigDecimal().equals(testBigDecimal));
++        assertIsSet();
+     }
+ 
+     public void testString() throws SQLException {
+@@ -80,6 +81,7 @@
+         field.copyOI();
+         assertTrue("String does not equal to assigned one.",
+             field.getString().trim().equals(TEST_STRING_SHORT));
++        assertIsSet();
+         /*
+         // Commented out by R.Rokytskyy: FBStringField was changed to allow
+         // server complain about data truncation, not the driver. This was done
+@@ -99,6 +101,7 @@
+         field.copyOI();
+         assertTrue("String does not equal to assigned one.",
+             field.getString().trim().equals(TEST_STRING_SHORT));
++        assertIsSet();
+     }
+ 
+     public void testUnicodeStream() throws SQLException {
+@@ -114,6 +117,7 @@
+             assertTrue("Should fail when the sting is longer than available space", false);
+         } catch(SQLException sqlex) {
+             // everything is ok
++            assertNotSet();
+         }
+     }
+     public void testBinaryStream() throws SQLException {
+@@ -129,6 +133,7 @@
+             assertTrue("Should fail when the sting is longer than available space", false);
+         } catch(SQLException sqlex) {
+             // everything is ok
++            assertNotSet();
+         }
+     }
+     public void testAsciiStream() throws SQLException {
+@@ -144,6 +149,7 @@
+             assertTrue("Should fail when the sting is longer than available space", false);
+         } catch(SQLException sqlex) {
+             // everything is ok
++            assertNotSet();
+         }
+     }
+     public void testBytes() throws SQLException {
+@@ -157,6 +163,7 @@
+             assertTrue("Should fail when the sting is longer than available space", false);
+         } catch(SQLException sqlex) {
+             // everything is ok
++            assertNotSet();
+         }
+     }
+     public void testDate() throws SQLException {
+@@ -167,6 +174,7 @@
+         field.copyOI();
+         assertTrue("Date values test failure",
+             field.getDate().toString().equals(TEST_DATE.toString()));
++        assertIsSet();
+     }
+     public void testTime() throws SQLException {
+         field.setTime(TEST_TIME);
+@@ -181,5 +189,6 @@
+         field.setString(null);
+         field.copyOI();
+         assertTrue("Null value should be set.", field.getObject() == null);
++        assertIsSet();
+     }
+ }
+Index: src/test/org/firebirdsql/jdbc/field/TestFBTimeField.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/test/org/firebirdsql/jdbc/field/TestFBTimeField.java,v
+retrieving revision 1.1
+diff -u -b -B -r1.1 TestFBTimeField.java
+--- src/test/org/firebirdsql/jdbc/field/TestFBTimeField.java	12 Nov 2003 22:01:24 -0000	1.1
++++ src/test/org/firebirdsql/jdbc/field/TestFBTimeField.java	20 Oct 2004 09:26:16 -0000
+@@ -64,6 +64,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testDouble() throws SQLException {
+@@ -72,6 +73,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testLong() throws SQLException {
+@@ -80,6 +82,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testUnicodeStream() throws SQLException {
+@@ -88,6 +91,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testByte() throws SQLException {
+@@ -96,6 +100,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testBoolean() throws SQLException {
+@@ -104,6 +109,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testBinaryStream() throws SQLException {
+@@ -112,6 +118,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testFloat() throws SQLException {
+@@ -120,6 +127,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testBytes() throws SQLException {
+@@ -128,6 +136,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testAsciiStream() throws SQLException {
+@@ -136,6 +145,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testInteger() throws SQLException {
+@@ -144,6 +154,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testBigDecimal() throws SQLException {
+@@ -152,6 +163,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 
+@@ -163,6 +175,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testTimestamp() throws SQLException {
+@@ -172,6 +185,7 @@
+ 		// we have to test string representation, because of conversion problem
+ 		assertTrue("Timestamp value test failure.",
+ 			field.getTime().toString().equals(timeStr));
++                assertIsSet();
+ 	}
+ 	public void testString() throws SQLException {
+ 		field.setString(TEST_TIME.toString());
+@@ -183,6 +197,7 @@
+ 		field.copyOI();
+ 		assertTrue("String value test failure",
+ 			field.getString().equals(TEST_TIME.toString()));
++                assertIsSet();
+ 	}
+ 	public void testObject() throws SQLException {
+ 		field.setObject(TEST_TIME);
+@@ -194,6 +209,7 @@
+ 		field.copyOI();
+ 		assertTrue("Object value test failure",
+ 			field.getString().equals(TEST_TIME.toString()));
++                assertIsSet();
+ 	}
+ 
+ }
+Index: src/test/org/firebirdsql/jdbc/field/TestFBTimestampField.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/test/org/firebirdsql/jdbc/field/TestFBTimestampField.java,v
+retrieving revision 1.1
+diff -u -b -B -r1.1 TestFBTimestampField.java
+--- src/test/org/firebirdsql/jdbc/field/TestFBTimestampField.java	12 Nov 2003 22:01:25 -0000	1.1
++++ src/test/org/firebirdsql/jdbc/field/TestFBTimestampField.java	20 Oct 2004 09:26:16 -0000
+@@ -63,6 +63,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testDouble() throws SQLException {
+@@ -71,6 +72,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testLong() throws SQLException {
+@@ -79,6 +81,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testUnicodeStream() throws SQLException {
+@@ -87,6 +90,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testByte() throws SQLException {
+@@ -95,6 +99,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testBoolean() throws SQLException {
+@@ -103,6 +108,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testBinaryStream() throws SQLException {
+@@ -111,6 +117,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testFloat() throws SQLException {
+@@ -119,6 +126,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testBytes() throws SQLException {
+@@ -127,6 +135,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testAsciiStream() throws SQLException {
+@@ -135,6 +144,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testInteger() throws SQLException {
+@@ -143,6 +153,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 	public void testBigDecimal() throws SQLException {
+@@ -151,6 +162,7 @@
+ 			assertTrue("This method should fail.", false);
+ 		} catch(SQLException ex) {
+ 			//everything is ok :)
++                        assertNotSet();
+ 		}
+ 	}
+ 
+@@ -161,12 +173,14 @@
+ 		field.copyOI();
+ 		assertTrue("String value test failure: expected: " + TEST_TIMESTAMP + ", actual: " + field.getTimestamp(),
+ 			field.getTimestamp().equals(TEST_TIMESTAMP));
++                assertIsSet();
+ 	}
+ 	public void testObject() throws SQLException {
+ 		field.setObject(TEST_TIMESTAMP);
+ 		field.copyOI();
+ 		assertTrue("Object value test failure: expected: " + TEST_TIMESTAMP + ", actual: " + field.getTimestamp(),
+ 			field.getTimestamp().equals(TEST_TIMESTAMP));
++                assertIsSet();
+ 	}
+ 
+ }

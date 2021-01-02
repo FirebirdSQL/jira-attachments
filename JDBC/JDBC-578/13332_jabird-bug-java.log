@@ -1,0 +1,230 @@
+08:25:10.428 [tomcat-http--95] DEBUG o.s.web.servlet.DispatcherServlet - DispatcherServlet with name 'nextBaleaServlet' processing POST request for [/nws-balea/UserReportControlCards]
+08:25:10.429 [tomcat-http--95] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Looking up handler method for path /UserReportControlCards
+08:25:10.429 [tomcat-http--95] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Returning handler method [public org.springframework.web.servlet.ModelAndView eu.entegra.next.app.PageController.showLabCards(java.lang.String,eu.entegra.next.session.NextSession,eu.entegra.next.reports.UserReportControlCardsParams,javax.servlet.http.HttpServletRequest) throws java.sql.SQLException]
+08:25:10.429 [tomcat-http--95] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'pageController'
+08:25:10.432 [tomcat-http--95] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'nextProperties'
+08:25:10.432 [tomcat-http--95] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'dataSource'
+31-Mar-2019 08:25:10.772 WARNING [tomcat-http--95] org.firebirdsql.logging.JulLogger.warn Commit not completed, state was COMMITTING
+ java.lang.RuntimeException: Commit not completed
+	at org.firebirdsql.gds.ng.wire.version10.V10Transaction.commit(V10Transaction.java:94)
+	at org.firebirdsql.jca.FBManagedConnection.internalCommit(FBManagedConnection.java:640)
+	at org.firebirdsql.jca.FBLocalTransaction.internalCommit(FBLocalTransaction.java:193)
+	at org.firebirdsql.jca.FBLocalTransaction.commit(FBLocalTransaction.java:167)
+	at org.firebirdsql.jdbc.InternalTransactionCoordinator$AutoCommitCoordinator.statementCompleted(InternalTransactionCoordinator.java:373)
+	at org.firebirdsql.jdbc.InternalTransactionCoordinator.statementCompleted(InternalTransactionCoordinator.java:134)
+	at org.firebirdsql.jdbc.FBStatement.notifyStatementCompleted(FBStatement.java:259)
+	at org.firebirdsql.jdbc.AbstractPreparedStatement.notifyStatementCompleted(AbstractPreparedStatement.java:168)
+	at org.firebirdsql.jdbc.FBStatement.notifyStatementCompleted(FBStatement.java:254)
+	at org.firebirdsql.jdbc.FBStatement.completeStatement(FBStatement.java:211)
+	at org.firebirdsql.jdbc.AbstractPreparedStatement.completeStatement(AbstractPreparedStatement.java:159)
+	at org.firebirdsql.jdbc.FBStatement.completeStatement(FBStatement.java:202)
+	at org.firebirdsql.jdbc.InternalTransactionCoordinator$AutoCommitCoordinator.statementClosed(InternalTransactionCoordinator.java:355)
+	at org.firebirdsql.jdbc.InternalTransactionCoordinator.statementClosed(InternalTransactionCoordinator.java:123)
+	at org.firebirdsql.jdbc.FBStatement.close(FBStatement.java:604)
+	at org.firebirdsql.jdbc.FBStatement.close(FBStatement.java:577)
+	at org.firebirdsql.ds.StatementHandler.handleClose(StatementHandler.java:142)
+	at org.firebirdsql.ds.StatementHandler.invoke(StatementHandler.java:101)
+	at com.sun.proxy.$Proxy460.close(Unknown Source)
+	at eu.entegra.next.reports.UserReportControlCards.getAllLaboratoryCards(UserReportControlCards.java:135)
+	at eu.entegra.next.app.PageController.showLabCards(PageController.java:128)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:222)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:137)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:110)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:814)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:737)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:872)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:141)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:616)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:521)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1096)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:674)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:279)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+
+31-Mar-2019 08:25:10.774 WARNING [tomcat-http--95] org.firebirdsql.logging.JulLogger.warn Rollback not completed, state was ROLLING_BACK
+ java.lang.RuntimeException: Rollback not completed
+	at org.firebirdsql.gds.ng.wire.version10.V10Transaction.rollback(V10Transaction.java:114)
+	at org.firebirdsql.jca.FBManagedConnection.internalCommit(FBManagedConnection.java:644)
+	at org.firebirdsql.jca.FBLocalTransaction.internalCommit(FBLocalTransaction.java:193)
+	at org.firebirdsql.jca.FBLocalTransaction.commit(FBLocalTransaction.java:167)
+	at org.firebirdsql.jdbc.InternalTransactionCoordinator$AutoCommitCoordinator.statementCompleted(InternalTransactionCoordinator.java:373)
+	at org.firebirdsql.jdbc.InternalTransactionCoordinator.statementCompleted(InternalTransactionCoordinator.java:134)
+	at org.firebirdsql.jdbc.FBStatement.notifyStatementCompleted(FBStatement.java:259)
+	at org.firebirdsql.jdbc.AbstractPreparedStatement.notifyStatementCompleted(AbstractPreparedStatement.java:168)
+	at org.firebirdsql.jdbc.FBStatement.notifyStatementCompleted(FBStatement.java:254)
+	at org.firebirdsql.jdbc.FBStatement.completeStatement(FBStatement.java:211)
+	at org.firebirdsql.jdbc.AbstractPreparedStatement.completeStatement(AbstractPreparedStatement.java:159)
+	at org.firebirdsql.jdbc.FBStatement.completeStatement(FBStatement.java:202)
+	at org.firebirdsql.jdbc.InternalTransactionCoordinator$AutoCommitCoordinator.statementClosed(InternalTransactionCoordinator.java:355)
+	at org.firebirdsql.jdbc.InternalTransactionCoordinator.statementClosed(InternalTransactionCoordinator.java:123)
+	at org.firebirdsql.jdbc.FBStatement.close(FBStatement.java:604)
+	at org.firebirdsql.jdbc.FBStatement.close(FBStatement.java:577)
+	at org.firebirdsql.ds.StatementHandler.handleClose(StatementHandler.java:142)
+	at org.firebirdsql.ds.StatementHandler.invoke(StatementHandler.java:101)
+	at com.sun.proxy.$Proxy460.close(Unknown Source)
+	at eu.entegra.next.reports.UserReportControlCards.getAllLaboratoryCards(UserReportControlCards.java:135)
+	at eu.entegra.next.app.PageController.showLabCards(PageController.java:128)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:222)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:137)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:110)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:814)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:737)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:872)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:141)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:616)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:521)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1096)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:674)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:279)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+
+08:25:10.778 [tomcat-http--95] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolving exception from handler [public org.springframework.web.servlet.ModelAndView eu.entegra.next.app.PageController.showLabCards(java.lang.String,eu.entegra.next.session.NextSession,eu.entegra.next.reports.UserReportControlCardsParams,javax.servlet.http.HttpServletRequest) throws java.sql.SQLException]: org.firebirdsql.jdbc.FBSQLException: Resource Exception. Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276]
+Reason: Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276], error code: HY000
+Reason: Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276]
+Reason: Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276]
+08:25:10.781 [tomcat-http--95] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolving exception from handler [public org.springframework.web.servlet.ModelAndView eu.entegra.next.app.PageController.showLabCards(java.lang.String,eu.entegra.next.session.NextSession,eu.entegra.next.reports.UserReportControlCardsParams,javax.servlet.http.HttpServletRequest) throws java.sql.SQLException]: org.firebirdsql.jdbc.FBSQLException: Resource Exception. Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276]
+Reason: Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276], error code: HY000
+Reason: Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276]
+Reason: Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276]
+08:25:10.781 [tomcat-http--95] DEBUG o.s.w.s.m.a.ResponseStatusExceptionResolver - Resolving exception from handler [public org.springframework.web.servlet.ModelAndView eu.entegra.next.app.PageController.showLabCards(java.lang.String,eu.entegra.next.session.NextSession,eu.entegra.next.reports.UserReportControlCardsParams,javax.servlet.http.HttpServletRequest) throws java.sql.SQLException]: org.firebirdsql.jdbc.FBSQLException: Resource Exception. Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276]
+Reason: Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276], error code: HY000
+Reason: Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276]
+Reason: Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276]
+08:25:10.781 [tomcat-http--95] DEBUG o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolving exception from handler [public org.springframework.web.servlet.ModelAndView eu.entegra.next.app.PageController.showLabCards(java.lang.String,eu.entegra.next.session.NextSession,eu.entegra.next.reports.UserReportControlCardsParams,javax.servlet.http.HttpServletRequest) throws java.sql.SQLException]: org.firebirdsql.jdbc.FBSQLException: Resource Exception. Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276]
+Reason: Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276], error code: HY000
+Reason: Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276]
+Reason: Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276]
+08:25:10.782 [tomcat-http--95] DEBUG o.s.w.s.m.a.ResponseStatusExceptionResolver - Resolving exception from handler [public org.springframework.web.servlet.ModelAndView eu.entegra.next.app.PageController.showLabCards(java.lang.String,eu.entegra.next.session.NextSession,eu.entegra.next.reports.UserReportControlCardsParams,javax.servlet.http.HttpServletRequest) throws java.sql.SQLException]: org.firebirdsql.jdbc.FBSQLException: Resource Exception. Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276]
+Reason: Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276], error code: HY000
+Reason: Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276]
+Reason: Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276]
+08:25:10.782 [tomcat-http--95] DEBUG o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolving exception from handler [public org.springframework.web.servlet.ModelAndView eu.entegra.next.app.PageController.showLabCards(java.lang.String,eu.entegra.next.session.NextSession,eu.entegra.next.reports.UserReportControlCardsParams,javax.servlet.http.HttpServletRequest) throws java.sql.SQLException]: org.firebirdsql.jdbc.FBSQLException: Resource Exception. Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276]
+Reason: Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276], error code: HY000
+Reason: Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276]
+Reason: Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276]
+08:25:10.784 [tomcat-http--95] DEBUG o.s.web.servlet.DispatcherServlet - Could not complete request
+org.firebirdsql.jdbc.FBSQLException: Resource Exception. Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276]
+Reason: Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276], error code: HY000
+Reason: Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276]
+Reason: Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276]
+	at org.firebirdsql.jdbc.InternalTransactionCoordinator$AutoCommitCoordinator.statementCompleted(InternalTransactionCoordinator.java:378) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	at org.firebirdsql.jdbc.InternalTransactionCoordinator.statementCompleted(InternalTransactionCoordinator.java:134) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	at org.firebirdsql.jdbc.FBStatement.notifyStatementCompleted(FBStatement.java:259) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	at org.firebirdsql.jdbc.AbstractPreparedStatement.notifyStatementCompleted(AbstractPreparedStatement.java:168) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	at org.firebirdsql.jdbc.FBStatement.notifyStatementCompleted(FBStatement.java:254) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	at org.firebirdsql.jdbc.FBStatement.completeStatement(FBStatement.java:211) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	at org.firebirdsql.jdbc.AbstractPreparedStatement.completeStatement(AbstractPreparedStatement.java:159) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	at org.firebirdsql.jdbc.FBStatement.completeStatement(FBStatement.java:202) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	at org.firebirdsql.jdbc.InternalTransactionCoordinator$AutoCommitCoordinator.statementClosed(InternalTransactionCoordinator.java:355) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	at org.firebirdsql.jdbc.InternalTransactionCoordinator.statementClosed(InternalTransactionCoordinator.java:123) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	at org.firebirdsql.jdbc.FBStatement.close(FBStatement.java:604) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	at org.firebirdsql.jdbc.FBStatement.close(FBStatement.java:577) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	at org.firebirdsql.ds.StatementHandler.handleClose(StatementHandler.java:142) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	at org.firebirdsql.ds.StatementHandler.invoke(StatementHandler.java:101) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	at com.sun.proxy.$Proxy460.close(Unknown Source) ~[na:na]
+	at eu.entegra.next.reports.UserReportControlCards.getAllLaboratoryCards(UserReportControlCards.java:135) ~[classes/:na]
+	at eu.entegra.next.app.PageController.showLabCards(PageController.java:128) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_181]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_181]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_181]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_181]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:222) ~[spring-web-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:137) ~[spring-web-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:110) ~[spring-webmvc-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:814) ~[spring-webmvc-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:737) ~[spring-webmvc-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85) ~[spring-webmvc-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959) ~[spring-webmvc-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893) ~[spring-webmvc-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970) [spring-webmvc-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:872) [spring-webmvc-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648) [servlet-api.jar:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846) [spring-webmvc-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729) [servlet-api.jar:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291) [catalina.jar:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) [catalina.jar:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat-websocket.jar:8.0.30.C]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239) [catalina.jar:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) [catalina.jar:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212) [catalina.jar:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106) [catalina.jar:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502) [catalina.jar:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:141) [catalina.jar:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79) [catalina.jar:na]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:616) [catalina.jar:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88) [catalina.jar:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:521) [catalina.jar:na]
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1096) [tomcat-coyote.jar:8.0.30.C]
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:674) [tomcat-coyote.jar:8.0.30.C]
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:279) [tomcat-coyote.jar:8.0.30.C]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.8.0_181]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.8.0_181]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-util.jar:8.0.30.C]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_181]
+Caused by: org.firebirdsql.jca.FBXAException: Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276]
+Reason: Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276]
+	at org.firebirdsql.jca.FBManagedConnection.internalCommit(FBManagedConnection.java:651) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	at org.firebirdsql.jca.FBLocalTransaction.internalCommit(FBLocalTransaction.java:193) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	at org.firebirdsql.jca.FBLocalTransaction.commit(FBLocalTransaction.java:167) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	at org.firebirdsql.jdbc.InternalTransactionCoordinator$AutoCommitCoordinator.statementCompleted(InternalTransactionCoordinator.java:373) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	... 53 common frames omitted
+Caused by: java.sql.SQLNonTransientConnectionException: Unsupported or unexpected operation code 761887348 in processOperation [SQLState:08000, ISC error code:337248276]
+	at org.firebirdsql.gds.ng.FbExceptionBuilder$Type$4.createSQLException(FbExceptionBuilder.java:578) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	at org.firebirdsql.gds.ng.FbExceptionBuilder.toFlatSQLException(FbExceptionBuilder.java:302) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	at org.firebirdsql.gds.ng.wire.AbstractWireOperations.processOperation(AbstractWireOperations.java:211) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	at org.firebirdsql.gds.ng.wire.AbstractWireOperations.readSingleResponse(AbstractWireOperations.java:169) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	at org.firebirdsql.gds.ng.wire.AbstractWireOperations.readResponse(AbstractWireOperations.java:153) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	at org.firebirdsql.gds.ng.wire.AbstractFbWireDatabase.readResponse(AbstractFbWireDatabase.java:183) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	at org.firebirdsql.gds.ng.wire.version10.V10Transaction.finishTransaction(V10Transaction.java:132) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	at org.firebirdsql.gds.ng.wire.version10.V10Transaction.commit(V10Transaction.java:85) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	at org.firebirdsql.jca.FBManagedConnection.internalCommit(FBManagedConnection.java:640) ~[jaybird-jdk18-3.0.5.jar:3.0.5-JDK_1.8 (build: tag=v3.0.5 date=201809071640)]
+	... 56 common frames omitted
+Caused by: org.firebirdsql.jdbc.FBSQLExceptionInfo: Unsupported or unexpected operation code 761887348 in processOperation

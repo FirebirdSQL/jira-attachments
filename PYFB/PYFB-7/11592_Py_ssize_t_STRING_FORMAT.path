@@ -1,0 +1,17 @@
+Index: _kinterbasdb.h
+===================================================================
+--- _kinterbasdb.h	(revision 1088)
++++ _kinterbasdb.h	(working copy)
+@@ -166,7 +166,11 @@
+   #define PyInt_FromSsize_t PyInt_FromLong
+   #define PyInt_AsSsize_t   PyInt_AsLong
+ #else
+-  #define Py_ssize_t_STRING_FORMAT "%zd"
++  #ifndef PLATFORM_WINDOWS
++    #define Py_ssize_t_STRING_FORMAT "%zd"
++  #else
++    #define Py_ssize_t_STRING_FORMAT "%Id"
++  #endif
+   #define Py_ssize_t_EXTRACTION_CODE "n"
+ #endif
+ #define SIZE_T_TO_PYTHON_SIZE(x) ((Py_ssize_t)(x))

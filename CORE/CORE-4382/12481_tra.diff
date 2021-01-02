@@ -1,0 +1,20 @@
+Index: tra.cpp
+===================================================================
+--- tra.cpp	(revision 59342)
++++ tra.cpp	(working copy)
+@@ -381,7 +381,15 @@
+ 	// Flush pages if transaction logically modified data
+ 
+ 	if (transaction->tra_flags & TRA_write)
++	{
++		// Get rid of all savepoints except transaction one
++		// to let all intermediate garbage after update_in_place in indices and BLOBs to be cleaned up
++		while (transaction->tra_save_point && !(transaction->tra_save_point->sav_flags & SAV_trans_level))
++		{
++			VIO_verb_cleanup(tdbb, transaction);
++		}
+ 		transaction_flush(tdbb, FLUSH_TRAN, transaction->tra_number);
++	}
+ 	else if ((transaction->tra_flags & (TRA_prepare2 | TRA_reconnected)) ||
+ 		(sysTran->tra_flags & TRA_write))
+ 	{

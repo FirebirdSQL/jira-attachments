@@ -1,0 +1,22 @@
+C:\JAM_ISSUE_SIMULATION_PROOF>java -jar mobileclient.jar
+0 [MLog-Init-Reporter] INFO com.mchange.v2.log.MLog - MLog clients using slf4j l
+ogging.
+4891 [main] INFO com.mchange.v2.c3p0.C3P0Registry - Initializing c3p0-0.9.5.1 [built 16-June-2015 00:06:36 -0700; debug? true; trace: 10]
+Stop the Firebird server to see CPU spike
+Press enter to terminate event manager
+Database event manager active
+elokuuta 22, 2018 9:20:34 IP. org.firebirdsql.logging.JulLogger error
+SEVERE: java.io.IOException reading from event channel; attempting to close async channel
+java.io.IOException: An existing connection was forcibly closed by the remote host
+        at sun.nio.ch.SocketDispatcher.read0(Native Method)
+        at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+        at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+        at sun.nio.ch.IOUtil.read(Unknown Source)
+        at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+        at org.firebirdsql.gds.ng.wire.AsynchronousProcessor$SelectorTask.handle
+Readable(AsynchronousProcessor.java:173)
+        at org.firebirdsql.gds.ng.wire.AsynchronousProcessor$SelectorTask.handle
+ReadableKeys(AsynchronousProcessor.java:150)
+        at org.firebirdsql.gds.ng.wire.AsynchronousProcessor$SelectorTask.run(As
+ynchronousProcessor.java:128)
+        at java.lang.Thread.run(Unknown Source)

@@ -1,0 +1,44 @@
+--- D:/devTools/firebird-python/fdb/trunk/fdb/ibase.py	Thu Mar 13 12:53:50 2014
++++ G:/Downloaded Software/Python/fdb-1.4/fdb/ibase.py	Thu Mar 13 13:54:06 2014
+@@ -24,6 +24,7 @@
+ from ctypes import *
+ from ctypes.util import find_library
+ import sys
++import os
+ import locale
+ import types
+ import operator
+@@ -37,12 +38,30 @@
+ # http://bugs.python.org/issue16283
+ elif sys.platform == 'win32':
+     fb_library_name = find_library('fbclient.dll')
++    
++    if not fb_library_name:
++        # let's try windows registry
++        if PYTHON_MAJOR_VER == 3:
++            import winreg
++        else:
++            import _winreg as winreg
++
++        # try find via installed Firebird server
++        baseKey = 'SOFTWARE\Firebird Project\Firebird Server\Instances'
++        key = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, baseKey) 
++        instFold = winreg.QueryValueEx(key,'DefaultInstance')
++        fb_library_name = os.path.join(os.path.join(instFold[0], 'bin'), 'fbclient.dll')
++        
+ else:
+     fb_library_name = find_library('fbclient')
+-if sys.platform in ['win32', 'cygwin', 'os2', 'os2emx']:
+-    fb_library = WinDLL(fb_library_name)
++    
++if fb_library_name:
++    if sys.platform in ['win32', 'cygwin', 'os2', 'os2emx']:
++        fb_library = WinDLL(fb_library_name)
++    else:
++        fb_library = CDLL(fb_library_name)
+ else:
+-    fb_library = CDLL(fb_library_name)
++    raise Exception("The location of fbclient.dll could not be determined.")
+ 
+ #-------------------
+ 

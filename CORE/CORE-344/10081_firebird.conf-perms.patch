@@ -1,0 +1,23 @@
+Index: src/install/arch-specific/linux/classic/postinstall.sh.in
+===================================================================
+RCS file: /cvsroot/firebird/firebird2/src/install/arch-specific/linux/classic/postinstall.sh.in,v
+retrieving revision 1.8
+diff -u -r1.8 postinstall.sh.in
+--- src/install/arch-specific/linux/classic/postinstall.sh.in	28 Apr 2003 19:48:22 -0000	1.8
++++ src/install/arch-specific/linux/classic/postinstall.sh.in	28 May 2003 23:14:12 -0000
+@@ -394,6 +394,7 @@
+ 
+     chmod ug=rw,o= firebird.log
+ 
++    chmod ug=rw,o=r firebird.conf
+     chmod a=r firebird.msg
+     chmod a=r README
+     chmod ug=rw,o= help/help.fdb
+@@ -509,6 +510,7 @@
+ 
+     chmod a=rw firebird.log
+ 
++    chmod ug=rw,o=r firebird.conf
+     chmod a=r firebird.msg
+     chmod a=r README
+     chmod a=rw help/help.fdb

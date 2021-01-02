@@ -1,0 +1,241 @@
+Index: FirebirdClient/FbCommand.cs
+===================================================================
+--- FirebirdClient/FbCommand.cs	(revision 57610)
++++ FirebirdClient/FbCommand.cs	(working copy)
+@@ -35,12 +35,22 @@
+ 
+ namespace FirebirdSql.Data.FirebirdClient
+ {
+-	public sealed class FbCommand : DbCommand, ICloneable
++    /// <summary>
++    /// Specifies when implicit transactions are committed.
++    /// </summary>
++    public enum ImplicitTransactionBehavior
++    {
++        CommitOnExecute,
++        CommitOnDispose
++    }
++
++    public sealed class FbCommand : DbCommand, ICloneable
+ 	{
+ 		#region · Fields ·
+ 
+ 		private CommandType commandType;
+ 		private UpdateRowSource updatedRowSource;
++        private ImplicitTransactionBehavior implicitTransactionBehavior;
+ 		private FbConnection connection;
+ 		private FbTransaction transaction;
+ 		private FbParameterCollection parameters;
+@@ -219,6 +229,16 @@
+ 		}
+ 
+ #if	(!NET_CF)
++        [Category("Behavior")]
++        [DefaultValue(ImplicitTransactionBehavior.CommitOnExecute)]
++#endif
++        public ImplicitTransactionBehavior ImplicitTransactionBehavior
++        {
++            get { return this.implicitTransactionBehavior; }
++            set { this.implicitTransactionBehavior = value; }
++        }
++
++#if	(!NET_CF)
+ 		[Category("Behavior")]
+ 		[DefaultValue(200)]
+ #endif
+@@ -359,6 +379,7 @@
+ 		{
+ 			this.namedParameters = new List<string>();
+ 			this.updatedRowSource = UpdateRowSource.Both;
++		    this.implicitTransactionBehavior = ImplicitTransactionBehavior.CommitOnExecute;
+ 			this.commandType = CommandType.Text;
+ 			this.designTimeVisible = true;
+ 			this.commandTimeout = 30;
+@@ -434,9 +455,10 @@
+ 			command.Transaction = this.Transaction;
+ 			command.CommandType = this.CommandType;
+ 			command.UpdatedRowSource = this.UpdatedRowSource;
++			command.ImplicitTransactionBehavior = this.ImplicitTransactionBehavior;
+ 			command.CommandTimeout = this.CommandTimeout;
+ 			command.FetchSize = this.FetchSize;
+-			command.UpdatedRowSource = this.UpdatedRowSource;
++			command.UpdatedRowSource = this.UpdatedRowSource;       // again? why?
+ 
+ #if (!(NET_35 && !ENTITY_FRAMEWORK))
+ 			if (this.ExpectedColumnTypes != default(System.Data.Metadata.Edm.PrimitiveType[]))
+@@ -505,17 +527,26 @@
+ 						this.SetOutputParameters();
+ 					}
+ 
+-					this.CommitImplicitTransaction();
++                    if (this.implicitTransactionBehavior == ImplicitTransactionBehavior.CommitOnExecute)
++                    {
++                        this.CommitImplicitTransaction();
++                    }
+ 				}
+ 				catch (IscException ex)
+ 				{
+-					this.DiscardImplicitTransaction();
++                    if (this.implicitTransactionBehavior == ImplicitTransactionBehavior.CommitOnExecute)
++                    {
++                        this.DiscardImplicitTransaction();
++                    }
+ 
+-					throw new FbException(ex.Message, ex);
++				    throw new FbException(ex.Message, ex);
+ 				}
+ 				catch
+ 				{
+-					this.DiscardImplicitTransaction();
++                    if (this.implicitTransactionBehavior == ImplicitTransactionBehavior.CommitOnExecute)
++                    {
++                        this.DiscardImplicitTransaction();
++                    }
+ 
+ 					throw;
+ 				}
+@@ -618,17 +649,26 @@
+ 						val = values[0].Value;
+ 					}
+ 
+-					this.CommitImplicitTransaction();
++                    if (this.implicitTransactionBehavior == ImplicitTransactionBehavior.CommitOnExecute)
++                    {
++                        this.CommitImplicitTransaction();
++                    }
+ 				}
+ 				catch (IscException ex)
+ 				{
+-					this.DiscardImplicitTransaction();
++                    if (this.implicitTransactionBehavior == ImplicitTransactionBehavior.CommitOnExecute)
++                    {
++                        this.DiscardImplicitTransaction();
++                    }
+ 
+ 					throw new FbException(ex.Message, ex);
+ 				}
+ 				catch
+ 				{
+-					this.DiscardImplicitTransaction();
++                    if (this.implicitTransactionBehavior == ImplicitTransactionBehavior.CommitOnExecute)
++                    {
++                        this.DiscardImplicitTransaction();
++                    }
+ 
+ 					throw;
+ 				}
+@@ -823,8 +863,15 @@
+ 
+ 		internal void Release()
+ 		{
+-			// Rollback implicit transaction
+-			this.RollbackImplicitTransaction();
++            // Just keeping the old (v3.0.2) behavior here. Could be always a commit in both cases?
++            if (this.implicitTransactionBehavior == ImplicitTransactionBehavior.CommitOnExecute)
++            {
++                this.RollbackImplicitTransaction();
++            }
++            else
++            {
++                this.CommitImplicitTransaction();
++            }
+ 
+ 			// If there	are	an active reader close it
+ 			this.CloseReader();
+Index: UnitTests/TrackerIssuesTests.cs
+===================================================================
+--- UnitTests/TrackerIssuesTests.cs	(revision 57610)
++++ UnitTests/TrackerIssuesTests.cs	(working copy)
+@@ -264,6 +264,91 @@
+ 			}
+ 		}
+ 
+-		#endregion
++        [Test]
++        public void DNET280_ExplicitTransaction()
++        {
++            const int recCount = 100000;
++            
++            using (var cmd = Connection.CreateCommand())
++            {
++                cmd.CommandText = "CREATE OR ALTER PROCEDURE sp_test_empty AS BEGIN END";
++                cmd.ExecuteNonQuery();
++
++                DateTime start, finish;
++                using (var tran = Connection.BeginTransaction())
++                {
++                    cmd.CommandText = "EXECUTE PROCEDURE sp_test_empty";
++                    cmd.Transaction = tran;
++                    cmd.Prepare();
++
++                    start = DateTime.Now;
++                    for (var n = 0; n < recCount; ++n)
++                        cmd.ExecuteNonQuery();
++                    finish = DateTime.Now;
++                }
++
++                var seconds = (finish - start).TotalSeconds;
++
++                Console.WriteLine("DNET280: {0} commands in {1} seconds; {2} commands per second", recCount, seconds, recCount / seconds);
++            }
++        }
++
++        [Test]
++        public void DNET483_ImplicitTransaction_CommitOnExecute()
++        {
++            const int recCount = 100000;
++
++            using (var cmd = Connection.CreateCommand())
++            {
++                cmd.ImplicitTransactionBehavior = ImplicitTransactionBehavior.CommitOnExecute;
++                cmd.CommandText = "CREATE OR ALTER PROCEDURE sp_test_empty AS BEGIN END";
++                cmd.ExecuteNonQuery();
++
++                DateTime start, finish;
++                {
++                    cmd.CommandText = "EXECUTE PROCEDURE sp_test_empty";
++                    cmd.Prepare();
++
++                    start = DateTime.Now;
++                    for (var n = 0; n < recCount; ++n)
++                        cmd.ExecuteNonQuery();
++                    finish = DateTime.Now;
++                }
++
++                var seconds = (finish - start).TotalSeconds;
++
++                Console.WriteLine("ImplicitTransaction_CommitOnExecute: {0} commands in {1} seconds; {2} commands per second", recCount, seconds, recCount / seconds);
++            }
++        }
++
++        [Test]
++        public void DNET483_ImplicitTransaction_CommitOnDispose()
++        {
++            const int recCount = 100000;
++
++            using (var cmd = Connection.CreateCommand())
++            {
++                cmd.ImplicitTransactionBehavior = ImplicitTransactionBehavior.CommitOnDispose;
++                cmd.CommandText = "CREATE OR ALTER PROCEDURE sp_test_empty AS BEGIN END";
++                cmd.ExecuteNonQuery();
++
++                DateTime start, finish;
++                {
++                    cmd.CommandText = "EXECUTE PROCEDURE sp_test_empty";
++                    cmd.Prepare();
++
++                    start = DateTime.Now;
++                    for (var n = 0; n < recCount; ++n)
++                        cmd.ExecuteNonQuery();
++                    finish = DateTime.Now;
++                }
++
++                var seconds = (finish - start).TotalSeconds;
++
++                Console.WriteLine("ImplicitTransaction_CommitOnDispose: {0} commands in {1} seconds; {2} commands per second", recCount, seconds, recCount / seconds);
++            }
++        }
++
++        #endregion
+ 	}
+ }

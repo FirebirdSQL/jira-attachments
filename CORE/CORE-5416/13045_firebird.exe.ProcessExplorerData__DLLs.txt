@@ -1,0 +1,263 @@
+﻿Process	CPU	Private Bytes	Working Set	PID	Description	Company Name
+System Idle Process	0.10	0 K	4 K	0		
+System	2.32	2 308 K	960 552 K	4		
+ Interrupts	0.78	0 K	0 K	n/a	Hardware Interrupts and DPCs	
+ smss.exe		364 K	1 048 K	548	Диспетчер сеанса  Windows	Microsoft Corporation
+csrss.exe	< 0.01	1 824 K	4 792 K	696	Процесс исполнения клиент-сервер	Microsoft Corporation
+wininit.exe		1 096 K	4 024 K	804	Автозагрузка приложений Windows	Microsoft Corporation
+ services.exe	< 0.01	4 508 K	8 600 K	876	Приложение служб и контроллеров	Microsoft Corporation
+  svchost.exe	< 0.01	11 712 K	25 012 K	992	Хост-процесс для служб Windows	Microsoft Corporation
+   RuntimeBroker.exe		17 368 K	45 760 K	12924	Runtime Broker	Microsoft Corporation
+   ShellExperienceHost.exe	Suspended	49 796 K	72 916 K	2844	Windows Shell Experience Host	Microsoft Corporation
+   ApplicationFrameHost.exe		4 452 K	18 736 K	8452	Application Frame Host	Microsoft Corporation
+   RuntimeBroker.exe		12 240 K	38 112 K	15064	Runtime Broker	Microsoft Corporation
+   ShellExperienceHost.exe	Suspended	54 836 K	79 304 K	3912	Windows Shell Experience Host	Microsoft Corporation
+   SearchUI.exe	Suspended	69 804 K	97 084 K	5112	Search and Cortana application	Microsoft Corporation
+   ApplicationFrameHost.exe		4 144 K	17 444 K	9548	Application Frame Host	Microsoft Corporation
+   SystemSettingsBroker.exe		2 560 K	12 844 K	14256	System Settings Broker	Microsoft Corporation
+   RuntimeBroker.exe		15 052 K	50 104 K	13492	Runtime Broker	Microsoft Corporation
+   ShellExperienceHost.exe	Suspended	69 468 K	100 252 K	4376	Windows Shell Experience Host	Microsoft Corporation
+   SystemSettingsBroker.exe		2 556 K	13 128 K	14992	System Settings Broker	Microsoft Corporation
+   ApplicationFrameHost.exe		17 068 K	31 644 K	12976	Application Frame Host	Microsoft Corporation
+   Music.UI.exe	Suspended	34 612 K	30 776 K	15760	Music Application	Microsoft Corporation
+   dllhost.exe		6 108 K	12 100 K	10416	COM Surrogate	Microsoft Corporation
+   WmiPrvSE.exe		11 484 K	19 436 K	15040	WMI Provider Host	Microsoft Corporation
+   SearchUI.exe	Suspended	68 540 K	96 840 K	21300	Search and Cortana application	Microsoft Corporation
+   SystemSettings.exe	Suspended	26 924 K	37 900 K	19936	Параметры	Microsoft Corporation
+   SkypeHost.exe	Suspended	4 148 K	252 K	6508	Microsoft Skype	Microsoft Corporation
+   Calculator.exe		28 816 K	47 008 K	22052		
+   SearchUI.exe	Suspended	68 276 K	96 580 K	21408	Search and Cortana application	Microsoft Corporation
+  svchost.exe	< 0.01	10 980 K	15 940 K	212	Хост-процесс для служб Windows	Microsoft Corporation
+  svchost.exe		16 716 K	26 868 K	1032	Хост-процесс для служб Windows	Microsoft Corporation
+  svchost.exe		37 668 K	36 344 K	1056	Хост-процесс для служб Windows	Microsoft Corporation
+   WUDFHost.exe		1 576 K	6 364 K	1248	Windows Driver Foundation (WDF) - хост-процесс инфраструктуры драйверов пользовательского режима	Microsoft Corporation
+   dasHost.exe		6 464 K	16 456 K	2352	Device Association Framework Provider Host	Microsoft Corporation
+  svchost.exe	< 0.01	19 316 K	29 384 K	1092	Хост-процесс для служб Windows	Microsoft Corporation
+   audiodg.exe		6 140 K	10 760 K	21060	Изоляция графов аудиоустройств Windows 	Microsoft Corporation
+  svchost.exe	< 0.01	35 776 K	56 672 K	1164	Хост-процесс для служб Windows	Microsoft Corporation
+   sihost.exe		8 580 K	24 984 K	12456	Shell Infrastructure Host	Microsoft Corporation
+   taskhostw.exe		8 708 K	18 872 K	13188	Хост-процесс для задач Windows	Microsoft Corporation
+   sihost.exe		10 544 K	26 088 K	16256	Shell Infrastructure Host	Microsoft Corporation
+   taskhostw.exe		7 708 K	16 800 K	11484	Хост-процесс для задач Windows	Microsoft Corporation
+   sihost.exe		9 032 K	27 800 K	13004	Shell Infrastructure Host	Microsoft Corporation
+   taskhostw.exe		10 184 K	22 228 K	14504	Хост-процесс для задач Windows	Microsoft Corporation
+   taskhostw.exe		4 516 K	15 816 K	22004	Хост-процесс для задач Windows	Microsoft Corporation
+  svchost.exe		8 552 K	20 476 K	1316	Хост-процесс для служб Windows	Microsoft Corporation
+  svchost.exe		14 044 K	38 052 K	1400	Хост-процесс для служб Windows	Microsoft Corporation
+  svchost.exe	0.03	33 084 K	38 520 K	1440	Хост-процесс для служб Windows	Microsoft Corporation
+  L4301_Solar.exe		1 724 K	6 352 K	1792	Logitech Solar Service (UNICODE)	Logitech, Inc.
+  spoolsv.exe		6 644 K	11 432 K	2024	Диспетчер очереди печати	Microsoft Corporation
+  snapshotsvc.exe		868 K	4 008 K	2160	Araxis Snapshot Service	Araxis Ltd
+  schedul2.exe	3.58	4 960 K	10 568 K	2168		
+  svchost.exe		14 180 K	33 924 K	2180	Хост-процесс для служб Windows	Microsoft Corporation
+  afcdpsrv.exe	< 0.01	3 940 K	6 908 K	2200		
+  mDNSResponder.exe		1 924 K	5 972 K	2212	Bonjour Service	Apple Inc.
+  BtwRSupportService.exe		1 944 K	6 240 K	2224	Bluetooth Radio Management Support	Broadcom Corporation.
+  officeclicktorun.exe	< 0.01	31 064 K	34 344 K	2256	Microsoft Office Click-to-Run	Microsoft Corporation
+  mms_mini.exe	0.02	87 384 K	55 248 K	2320	Managed Machine Service Mini	Acronis International GmbH
+  IpOverUsbSvc.exe		7 244 K	10 272 K	2340	Windows IP Over USB PC Service	Microsoft Corporation
+  NVDisplay.Container.exe		6 928 K	12 580 K	2360	NVIDIA Container	NVIDIA Corporation
+   nvxdsync.exe	< 0.01	10 552 K	23 492 K	9332	NVIDIA User Experience Driver Component	NVIDIA Corporation
+   nvxdsync.exe	< 0.01	9 440 K	25 100 K	20640	NVIDIA User Experience Driver Component	NVIDIA Corporation
+  svchost.exe	< 0.01	9 024 K	22 376 K	2472	Хост-процесс для служб Windows	Microsoft Corporation
+  sqlwriter.exe		2 712 K	7 596 K	2484	SQL Server VSS Writer - 64 Bit	Microsoft Corporation
+  MsMpEng.exe	12.08	268 184 K	357 080 K	2528	Antimalware Service Executable	Microsoft Corporation
+  openvpnserv.exe		548 K	2 604 K	2584	OpenVPN Service	The OpenVPN Project
+   openvpn.exe	< 0.01	3 112 K	7 264 K	2668	OpenVPN Daemon	The OpenVPN Project
+    conhost.exe		1 224 K	4 960 K	2708	Console Window Host	Microsoft Corporation
+  NisSrv.exe	0.01	32 864 K	19 312 K	4836	Microsoft Network Realtime Inspection Service	Microsoft Corporation
+  mobile_backup_server.exe	0.02	17 252 K	13 504 K	1064	Acronis Mobile Backup Server	Acronis International GmbH
+  mobile_backup_status_server.exe	0.03	10 384 K	17 548 K	1108		
+  syncagentsrv.exe	< 0.01	8 752 K	18 396 K	5176		
+  SearchIndexer.exe	0.24	118 088 K	104 192 K	5300	Индексатор службы Microsoft Windows Search	Microsoft Corporation
+   SearchProtocolHost.exe		1 492 K	6 612 K	6560	Microsoft Windows Search Protocol Host	Microsoft Corporation
+   SearchFilterHost.exe		1 288 K	5 704 K	5452	Microsoft Windows Search Filter Host	Microsoft Corporation
+  svchost.exe		6 380 K	17 648 K	10776	Хост-процесс для служб Windows	Microsoft Corporation
+  msdtc.exe		3 212 K	7 756 K	7252	Координатор распределенных транзакций (Майкрософт)	Microsoft Corporation
+  svchost.exe		6 236 K	17 260 K	7116	Хост-процесс для служб Windows	Microsoft Corporation
+  svchost.exe		6 332 K	16 068 K	692	Хост-процесс для служб Windows	Microsoft Corporation
+  firebird.exe		21 226 348 K	191 904 K	8964	Firebird SQL Server	Firebird Project
+  sppsvc.exe		3 376 K	14 036 K	21112	Служба платформы защиты программного обеспечения Майкрософт	Microsoft Corporation
+  svchost.exe		2 136 K	8 824 K	7928	Хост-процесс для служб Windows	Microsoft Corporation
+ lsass.exe	4.27	12 124 K	20 028 K	888	Local Security Authority Process	Microsoft Corporation
+GoogleCrashHandler.exe		1 412 K	1 096 K	2784	Google Crash Handler	Google Inc.
+GoogleCrashHandler64.exe		1 384 K	292 K	3472	Google Crash Handler	Google Inc.
+csrss.exe	< 0.01	1 612 K	43 452 K	10700	Процесс исполнения клиент-сервер	Microsoft Corporation
+winlogon.exe		2 164 K	8 248 K	11820	Программа входа в систему Windows	Microsoft Corporation
+ dwm.exe	< 0.01	37 632 K	38 016 K	8796	Диспетчер окон рабочего стола	Microsoft Corporation
+ fontdrvhost.exe		916 K	2 544 K	16984	Usermode Font Driver Host	Microsoft Corporation
+explorer.exe	< 0.01	62 288 K	112 608 K	284	Проводник	Microsoft Corporation
+ schedhlp.exe	< 0.01	1 452 K	8 316 K	7352		
+ KeyboardLeds.exe	< 0.01	38 288 K	444 K	10572	Keyboard LEDs	KARPOLAN
+ procexp.exe		2 564 K	8 460 K	13552	Sysinternals Process Explorer	Sysinternals - www.sysinternals.com
+  procexp64.exe	0.05	212 816 K	215 016 K	572	Sysinternals Process Explorer	Sysinternals - www.sysinternals.com
+ HWMonitor.exe	0.12	9 456 K	18 608 K	1588	HWMonitor	CPUID
+TibMounterMonitor.exe		1 176 K	5 028 K	2984	Acronis TIB Mounter Monitor	Acronis International GmbH
+TrueImageMonitor.exe	0.02	14 644 K	32 336 K	2416		
+cmd.exe		1 952 K	3 524 K	10920	Обработчик команд Windows	Microsoft Corporation
+ conhost.exe		13 656 K	17 496 K	1944	Console Window Host	Microsoft Corporation
+NOCLOSE64.EXE		412 K	1 732 K	10136		
+ cmd.exe		1 976 K	3 532 K	8564	Обработчик команд Windows	Microsoft Corporation
+  conhost.exe		17 304 K	20 052 K	12204	Console Window Host	Microsoft Corporation
+csrss.exe	< 0.01	1 636 K	49 676 K	3640	Процесс исполнения клиент-сервер	Microsoft Corporation
+winlogon.exe		1 892 K	7 228 K	9520	Программа входа в систему Windows	Microsoft Corporation
+ dwm.exe		37 244 K	35 696 K	11864	Диспетчер окон рабочего стола	Microsoft Corporation
+explorer.exe	< 0.01	51 140 K	96 716 K	5696	Проводник	Microsoft Corporation
+ schedhlp.exe	< 0.01	1 380 K	7 588 K	10512		
+ KeyboardLeds.exe	< 0.01	33 176 K	440 K	7004	Keyboard LEDs	KARPOLAN
+ Skype.exe	0.02	78 924 K	109 948 K	18956	Skype 	Skype Technologies S.A.
+TibMounterMonitor.exe		1 188 K	5 012 K	16136	Acronis TIB Mounter Monitor	Acronis International GmbH
+TrueImageMonitor.exe	0.24	6 484 K	17 380 K	4524		
+Taskmgr.exe	< 0.01	18 136 K	38 384 K	13460	Диспетчер задач	Microsoft Corporation
+csrss.exe	0.02	2 980 K	15 832 K	10936	Процесс исполнения клиент-сервер	Microsoft Corporation
+winlogon.exe		2 600 K	9 192 K	6968	Программа входа в систему Windows	Microsoft Corporation
+ dwm.exe	0.03	90 308 K	73 076 K	15500	Диспетчер окон рабочего стола	Microsoft Corporation
+ fontdrvhost.exe		744 K	2 752 K	6896	Usermode Font Driver Host	Microsoft Corporation
+explorer.exe	0.02	203 332 K	238 824 K	11168	Проводник	Microsoft Corporation
+ schedhlp.exe	< 0.01	1 356 K	10 208 K	15788		
+ KeyboardLeds.exe	< 0.01	1 792 K	804 K	10500	Keyboard LEDs	KARPOLAN
+ procexp.exe		2 520 K	7 100 K	6564	Sysinternals Process Explorer	Sysinternals - www.sysinternals.com
+  procexp64.exe	1.04	120 072 K	143 520 K	11228	Sysinternals Process Explorer	Sysinternals - www.sysinternals.com
+ vmrc.exe		11 708 K	12 832 K	13980	Virtual Machine Remote Control Client	Microsoft Corporation
+ TOTALCMD64.EXE	< 0.01	39 336 K	56 900 K	18804	Total Commander	Ghisler Software GmbH
+  cmd.exe		2 144 K	4 128 K	16992	Обработчик команд Windows	Microsoft Corporation
+   conhost.exe		17 828 K	17 136 K	6652	Console Window Host	Microsoft Corporation
+  cmd.exe		2 796 K	4 656 K	11948	Обработчик команд Windows	Microsoft Corporation
+   conhost.exe	< 0.01	17 812 K	17 168 K	18988	Console Window Host	Microsoft Corporation
+   make.exe		3 876 K	6 436 K	4864		
+    cl.exe	0.08	4 836 K	9 100 K	14876	Microsoft® C/C++ Compiler Driver	Microsoft Corporation
+     cl.exe	2.98	67 256 K	72 840 K	20812	Microsoft® C/C++ Compiler Driver	Microsoft Corporation
+     cl.exe	3.07	134 068 K	92 420 K	6216	Microsoft® C/C++ Compiler Driver	Microsoft Corporation
+     cl.exe	3.15	157 076 K	149 836 K	19636	Microsoft® C/C++ Compiler Driver	Microsoft Corporation
+     cl.exe	3.09	145 124 K	137 176 K	13076	Microsoft® C/C++ Compiler Driver	Microsoft Corporation
+     cl.exe	3.09	134 296 K	94 612 K	17696	Microsoft® C/C++ Compiler Driver	Microsoft Corporation
+     cl.exe	3.46	148 592 K	137 948 K	14556	Microsoft® C/C++ Compiler Driver	Microsoft Corporation
+     cl.exe	3.37	148 204 K	138 260 K	23088	Microsoft® C/C++ Compiler Driver	Microsoft Corporation
+     cl.exe	3.16	148 892 K	140 920 K	3124	Microsoft® C/C++ Compiler Driver	Microsoft Corporation
+     cl.exe	3.00	69 928 K	75 072 K	17552	Microsoft® C/C++ Compiler Driver	Microsoft Corporation
+     cl.exe	3.44	137 660 K	106 268 K	12564	Microsoft® C/C++ Compiler Driver	Microsoft Corporation
+     cl.exe	3.46	165 072 K	157 236 K	13904	Microsoft® C/C++ Compiler Driver	Microsoft Corporation
+     cl.exe	3.32	142 988 K	133 164 K	18068	Microsoft® C/C++ Compiler Driver	Microsoft Corporation
+      mspdbsrv.exe	9.69	53 140 K	48 168 K	20692	Microsoft® Program Database	Microsoft Corporation
+     cl.exe	2.62	134 772 K	94 044 K	16284	Microsoft® C/C++ Compiler Driver	Microsoft Corporation
+     cl.exe	3.41	162 744 K	156 936 K	22416	Microsoft® C/C++ Compiler Driver	Microsoft Corporation
+     cl.exe	3.50	144 384 K	134 672 K	20136	Microsoft® C/C++ Compiler Driver	Microsoft Corporation
+     cl.exe	3.05	142 016 K	132 536 K	22632	Microsoft® C/C++ Compiler Driver	Microsoft Corporation
+     cl.exe	3.32	147 056 K	138 984 K	5612	Microsoft® C/C++ Compiler Driver	Microsoft Corporation
+     cl.exe	3.63	171 308 K	165 260 K	14940	Microsoft® C/C++ Compiler Driver	Microsoft Corporation
+     cl.exe	3.38	156 188 K	149 008 K	21664	Microsoft® C/C++ Compiler Driver	Microsoft Corporation
+     cl.exe	3.07	148 508 K	140 484 K	21008	Microsoft® C/C++ Compiler Driver	Microsoft Corporation
+ HWMonitor.exe	0.16	9 572 K	20 560 K	20632	HWMonitor	CPUID
+ outlook.exe		130 624 K	167 704 K	22028	Microsoft Outlook	Microsoft Corporation
+  chrome.exe	< 0.01	105 568 K	191 804 K	12964	Google Chrome	Google Inc.
+   chrome.exe		1 352 K	6 272 K	16748	Google Chrome	Google Inc.
+   chrome.exe		120 848 K	76 576 K	13844	Google Chrome	Google Inc.
+   chrome.exe	0.04	71 136 K	118 524 K	16224	Google Chrome	Google Inc.
+ wincvs.exe	0.09	17 300 K	42 160 K	18100	WinCvs GUI shell for CVS.	GNU
+ mspaint.exe		29 284 K	65 960 K	14144	Paint	Microsoft Corporation
+ Merge.exe		13 692 K	42 912 K	22688	Araxis Merge	Araxis Ltd
+TibMounterMonitor.exe		1 172 K	5 048 K	6340	Acronis TIB Mounter Monitor	Acronis International GmbH
+TrueImageMonitor.exe	0.23	6 420 K	17 524 K	14680		
+pageant.exe		1 220 K	9 064 K	13028	PuTTY SSH authentication agent	Simon Tatham
+Samsung Magician.exe	< 0.01	19 756 K	41 616 K	18120	Samsung Magician Application	Samsung Electronics.
+Taskmgr.exe	0.07	51 696 K	76 768 K	12980	Диспетчер задач	Microsoft Corporation
+mspdbsrv.exe		24 900 K	23 680 K	6132	Microsoft® Program Database	Microsoft Corporation
+vctip.exe	< 0.01	20 828 K	86 044 K	19912	Microsoft® VC compiler and tools experience improvement data uploader	Microsoft Corporation
+
+Process: firebird.exe Pid: 8964
+
+Type	Name
+Desktop	\Default
+Directory	\KnownDlls
+Directory	\BaseNamedObjects
+Event	\BaseNamedObjects\FIREBIRD_CONNECT_EVENT
+Event	\BaseNamedObjects\FIREBIRD_RESPONSE_EVENT
+Event	\BaseNamedObjects\fb12_monitor_e31300000000010028000000_event
+Event	\BaseNamedObjects\fb12_monitor_aa1b00000000030025000000_mutex_FM_EVT
+Event	\BaseNamedObjects\fb12_monitor_e31300000000010028000000_mutex_FM_EVT
+Event	\BaseNamedObjects\fb12_monitor_e31300000000010027000000_mutex_FM_EVT
+Event	\BaseNamedObjects\fb12_monitor_e31300000000010028000000_event
+Event	\BaseNamedObjects\fb12_monitor_a5e3743a00000100fd4a0300_event
+Event	\BaseNamedObjects\fb12_monitor_a5e3743a00000100fd4a0300_mutex_FM_EVT
+Event	\BaseNamedObjects\fb12_monitor_aa1b00000000030025000000_event
+Event	\BaseNamedObjects\fb12_monitor_a5e3743a00000100fd4a0300_mutex_FM_EVT
+Event	\BaseNamedObjects\fb12_monitor_a5e3743a00000100fd4a0300_event
+Event	\BaseNamedObjects\fb12_monitor_e31300000000010026000000_event
+Event	\BaseNamedObjects\fb12_monitor_a5e3743a00000100fd4a0300_mutex_FM_EVT
+Event	\BaseNamedObjects\fb12_monitor_e31300000000010027000000_event
+Event	\BaseNamedObjects\fb12_monitor_aa1b00000000030025000000_event
+Event	\BaseNamedObjects\fb12_monitor_e31300000000010028000000_mutex_FM_EVT
+Event	\BaseNamedObjects\fb12_monitor_a5e3743a00000100fd4a0300_mutex_FM_EVT
+Event	\BaseNamedObjects\fb12_monitor_a5e3743a00000100fd4a0300_event
+Event	\BaseNamedObjects\fb12_monitor_a5e3743a00000100fd4a0300_event
+Event	\BaseNamedObjects\fb12_monitor_aa1b00000000030025000000_mutex_FM_EVT
+Event	\BaseNamedObjects\fb12_monitor_e31300000000010026000000_mutex_FM_EVT
+File	C:\Windows\System32
+File	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_5.82.10586.0_none_396e892957c7fb25
+File	\Device\DeviceApi
+File	\Device\CNG
+File	\Device\NamedPipe\interbas\server\gds_db
+File	\Device\Afd
+File	\Device\KsecDD
+File	C:\ProgramData\firebird\fb12_monitor_e31300000000010028000000
+File	C:\ProgramData\firebird\fb12_monitor_e31300000000010028000000
+File	C:\ProgramData\firebird\fb12_monitor_aa1b00000000030025000000
+File	D:\Program_Files\Firebird_3_0_x64\firebird.msg
+File	C:\Windows\System32\ru-RU\KernelBase.dll.mui
+File	C:\ProgramData\firebird\fb12_monitor_a5e3743a00000100fd4a0300
+File	C:\ProgramData\firebird\fb12_monitor_a5e3743a00000100fd4a0300
+File	C:\ProgramData\firebird\fb12_monitor_aa1b00000000030025000000
+File	C:\ProgramData\firebird\fb12_monitor_a5e3743a00000100fd4a0300
+File	C:\ProgramData\firebird\fb12_monitor_e31300000000010027000000
+File	C:\ProgramData\firebird\fb12_monitor_a5e3743a00000100fd4a0300
+File	C:\ProgramData\firebird\fb12_monitor_e31300000000010026000000
+Key	HKLM\SYSTEM\ControlSet001\Control\SESSION MANAGER
+Key	HKLM\SYSTEM\ControlSet001\Control\Nls\Sorting\Versions
+Key	HKLM
+Key	HKLM\SYSTEM\ControlSet001\Control\NetworkProvider\HwOrder
+Key	HKLM\SYSTEM\ControlSet001\Services\WinSock2\Parameters\Protocol_Catalog9
+Key	HKLM\SYSTEM\ControlSet001\Services\WinSock2\Parameters\NameSpace_Catalog5
+Key	HKLM\SYSTEM\ControlSet001\Control\Nls\Sorting\Ids
+Key	HKU\S-1-5-21-2788350330-65104056-34123583-1010\Control Panel\International
+Mutant	\BaseNamedObjects\firebird_trace_mutex
+Mutant	\BaseNamedObjects\FirebirdServerMutexDefaultInstance
+Mutant	\BaseNamedObjects\FIREBIRD_CONNECT_MUTEX
+Section	\BaseNamedObjects\windows_shell_global_counters
+Section	\BaseNamedObjects\FIREBIRD_CONNECT_MAP
+Section	\BaseNamedObjects\fb12_monitor_a5e3743a00000100fd4a0300_mapping_0
+Section	\BaseNamedObjects\fb12_monitor_e31300000000010026000000_mutex_FM_MAP
+Section	\BaseNamedObjects\fb12_monitor_e31300000000010028000000_mapping
+Section	\BaseNamedObjects\fb12_monitor_a5e3743a00000100fd4a0300_mutex_FM_MAP
+Section	\BaseNamedObjects\fb12_monitor_aa1b00000000030025000000_mapping_0
+Section	\BaseNamedObjects\fb12_monitor_a5e3743a00000100fd4a0300_mapping_0
+Section	\BaseNamedObjects\fb12_monitor_e31300000000010028000000_mapping_0
+Section	\BaseNamedObjects\fb12_monitor_aa1b00000000030025000000_mapping
+Section	\BaseNamedObjects\fb12_monitor_aa1b00000000030025000000_mapping_0
+Section	\BaseNamedObjects\fb12_monitor_e31300000000010026000000_mapping_0
+Section	\BaseNamedObjects\fb12_monitor_e31300000000010028000000_mutex_FM_MAP
+Section	\BaseNamedObjects\fb12_monitor_e31300000000010028000000_mapping
+Section	\BaseNamedObjects\fb12_monitor_a5e3743a00000100fd4a0300_mapping_0
+Section	\BaseNamedObjects\fb12_monitor_a5e3743a00000100fd4a0300_mapping_0
+Section	\BaseNamedObjects\fb12_monitor_a5e3743a00000100fd4a0300_mapping
+Section	\BaseNamedObjects\fb12_monitor_a5e3743a00000100fd4a0300_mutex_FM_MAP
+Section	\BaseNamedObjects\fb12_monitor_e31300000000010027000000_mapping
+Section	\BaseNamedObjects\fb12_monitor_a5e3743a00000100fd4a0300_mapping
+Section	\BaseNamedObjects\fb12_monitor_e31300000000010028000000_mutex_FM_MAP
+Section	\BaseNamedObjects\fb12_monitor_a5e3743a00000100fd4a0300_mapping
+Section	\BaseNamedObjects\fb12_monitor_aa1b00000000030025000000_mapping
+Section	\BaseNamedObjects\fb12_monitor_a5e3743a00000100fd4a0300_mutex_FM_MAP
+Section	\BaseNamedObjects\fb12_monitor_a5e3743a00000100fd4a0300_mapping
+Section	\BaseNamedObjects\fb12_monitor_e31300000000010027000000_mutex_FM_MAP
+Section	\BaseNamedObjects\fb12_monitor_e31300000000010026000000_mapping
+Section	\BaseNamedObjects\fb12_monitor_aa1b00000000030025000000_mutex_FM_MAP
+Section	\BaseNamedObjects\fb12_monitor_aa1b00000000030025000000_mutex_FM_MAP
+Section	\BaseNamedObjects\fb12_monitor_a5e3743a00000100fd4a0300_mutex_FM_MAP
+Section	\BaseNamedObjects\fb12_monitor_e31300000000010028000000_mapping_0
+Section	\BaseNamedObjects\fb12_monitor_e31300000000010027000000_mapping_0
+Thread	firebird.exe(8964): 14840
+Thread	firebird.exe(8964): 11016
+Thread	firebird.exe(8964): 12996
+Thread	firebird.exe(8964): 12996
+Thread	firebird.exe(8964): 6136
+WindowStation	\Windows\WindowStations\Service-0x5-59633917$
+WindowStation	\Windows\WindowStations\Service-0x5-59633917$

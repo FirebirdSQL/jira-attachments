@@ -1,0 +1,17 @@
+--- a/src/utilities/nbackup/nbackup.cpp
++++ b/src/utilities/nbackup/nbackup.cpp
+@@ -1430,7 +1430,13 @@ void NBackup::restore_database(const Bac
+ 				// We may also add SCN check, but GUID check covers this case too
+ 				if (memcmp(&bakheader.prev_guid, &prev_guid, sizeof(Guid)) != 0)
+ 					status_exception::raise(Arg::Gds(isc_nbackup_wrong_orderbk) << bakname.c_str());
+-				seek_file(backup, bakheader.page_size);
++				// emulate seek_file(backup, bakheader.page_size); backup is stream-oriented
++				// if -decompress is used and can't be seek()'ed
++				for( int i = 0; i < bakheader.page_size - sizeof(bakheader); i++ ) {
++					char char_buf;
++					if (read_file(backup, &char_buf, 1) != 1)
++						status_exception::raise(Arg::Gds(isc_nbackup_err_eofhdrbk) << bakname.c_str());
++				}
+ 
+ 				delete_database = true;
+ 				prev_guid = bakheader.backup_guid;

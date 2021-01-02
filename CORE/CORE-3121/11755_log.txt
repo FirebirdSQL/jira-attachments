@@ -1,0 +1,694 @@
+gbak:opened file HEGNAPLO.2010.09.03.13.33.FBK
+gbak:transportable backup -- data in XDR format
+gbak:		backup file is compressed
+gbak:created database 127.0.0.1/3055:hegnaplo, page_size 16384 bytes
+gbak:started transaction
+gbak:restoring domain RDB$3504
+gbak:restoring domain RDB$3505
+gbak:restoring domain RDB$3506
+gbak:restoring domain RDB$3507
+gbak:restoring domain RDB$4310
+gbak:restoring domain RDB$4311
+gbak:restoring domain RDB$4312
+gbak:restoring domain RDB$4313
+gbak:restoring domain RDB$4314
+gbak:restoring domain RDB$4315
+gbak:restoring domain RDB$4316
+gbak:restoring domain RDB$4317
+gbak:restoring domain RDB$4318
+gbak:restoring domain RDB$4319
+gbak:restoring domain RDB$4320
+gbak:restoring domain RDB$4321
+gbak:restoring domain RDB$4322
+gbak:restoring domain RDB$4323
+gbak:restoring domain RDB$4324
+gbak:restoring domain RDB$4325
+gbak:restoring domain RDB$4326
+gbak:restoring domain RDB$4327
+gbak:restoring domain RDB$4328
+gbak:restoring domain RDB$4329
+gbak:restoring domain RDB$4330
+gbak:restoring domain RDB$4331
+gbak:restoring domain RDB$4332
+gbak:restoring domain RDB$4333
+gbak:restoring domain RDB$4334
+gbak:restoring domain RDB$4335
+gbak:restoring domain RDB$4336
+gbak:restoring domain RDB$4337
+gbak:restoring domain RDB$4338
+gbak:restoring domain RDB$4339
+gbak:restoring domain RDB$4340
+gbak:restoring domain RDB$4341
+gbak:restoring domain RDB$4342
+gbak:restoring domain RDB$4343
+gbak:restoring domain RDB$4344
+gbak:restoring domain RDB$4345
+gbak:restoring domain RDB$4346
+gbak:restoring domain RDB$4347
+gbak:restoring domain RDB$4348
+gbak:restoring domain RDB$4349
+gbak:restoring domain RDB$4350
+gbak:restoring domain RDB$4351
+gbak:restoring domain RDB$4352
+gbak:restoring domain RDB$4353
+gbak:restoring domain RDB$4354
+gbak:restoring domain RDB$4355
+gbak:restoring domain RDB$4356
+gbak:restoring domain RDB$4357
+gbak:restoring domain RDB$4358
+gbak:restoring domain RDB$4359
+gbak:restoring domain RDB$4360
+gbak:restoring domain RDB$4361
+gbak:restoring domain RDB$4362
+gbak:restoring domain RDB$4363
+gbak:restoring domain RDB$4364
+gbak:restoring domain RDB$4365
+gbak:restoring domain RDB$4366
+gbak:restoring domain RDB$4367
+gbak:restoring domain RDB$4368
+gbak:restoring domain RDB$4369
+gbak:restoring domain RDB$4370
+gbak:restoring domain RDB$4371
+gbak:restoring domain RDB$4372
+gbak:restoring domain RDB$4373
+gbak:restoring domain RDB$4374
+gbak:restoring domain RDB$4375
+gbak:restoring domain RDB$4376
+gbak:restoring domain RDB$4377
+gbak:restoring domain RDB$4378
+gbak:restoring domain RDB$4379
+gbak:restoring domain RDB$4380
+gbak:restoring domain RDB$4381
+gbak:restoring domain RDB$4382
+gbak:restoring domain RDB$4383
+gbak:restoring domain RDB$4384
+gbak:restoring domain RDB$4385
+gbak:restoring domain RDB$4386
+gbak:restoring domain RDB$4387
+gbak:restoring domain RDB$4388
+gbak:restoring domain RDB$4389
+gbak:restoring domain RDB$4390
+gbak:restoring domain RDB$4391
+gbak:restoring domain RDB$4392
+gbak:restoring domain RDB$4393
+gbak:restoring domain RDB$4394
+gbak:restoring domain RDB$4395
+gbak:restoring domain RDB$4396
+gbak:restoring domain RDB$4397
+gbak:restoring domain RDB$4398
+gbak:restoring domain RDB$4399
+gbak:restoring domain RDB$4400
+gbak:restoring domain RDB$4401
+gbak:restoring domain RDB$4402
+gbak:restoring domain RDB$4403
+gbak:restoring domain RDB$4404
+gbak:restoring domain RDB$4405
+gbak:restoring domain RDB$4406
+gbak:restoring domain RDB$4407
+gbak:restoring domain RDB$4408
+gbak:restoring domain RDB$4409
+gbak:restoring domain RDB$4410
+gbak:restoring domain RDB$4411
+gbak:restoring domain RDB$4412
+gbak:restoring domain RDB$4413
+gbak:restoring domain RDB$4414
+gbak:restoring domain RDB$4415
+gbak:restoring domain RDB$4416
+gbak:restoring domain RDB$4417
+gbak:restoring domain RDB$4418
+gbak:restoring domain RDB$4419
+gbak:restoring domain RDB$4420
+gbak:restoring domain RDB$4421
+gbak:restoring domain RDB$4422
+gbak:restoring domain RDB$4423
+gbak:restoring domain RDB$4424
+gbak:restoring domain RDB$4425
+gbak:restoring domain RDB$4426
+gbak:restoring domain RDB$4427
+gbak:restoring domain RDB$4428
+gbak:restoring domain RDB$4429
+gbak:restoring domain RDB$4430
+gbak:restoring domain RDB$4431
+gbak:restoring domain RDB$4432
+gbak:restoring domain RDB$4433
+gbak:restoring domain RDB$4434
+gbak:restoring domain RDB$4435
+gbak:restoring domain RDB$4436
+gbak:restoring domain RDB$4437
+gbak:restoring domain RDB$4438
+gbak:restoring domain RDB$4439
+gbak:restoring domain RDB$4440
+gbak:restoring domain RDB$4441
+gbak:restoring domain RDB$4442
+gbak:restoring domain RDB$4443
+gbak:restoring domain RDB$4444
+gbak:restoring domain RDB$4445
+gbak:restoring domain RDB$4446
+gbak:restoring domain RDB$4447
+gbak:restoring domain RDB$4448
+gbak:restoring domain RDB$4449
+gbak:restoring domain RDB$4450
+gbak:restoring domain RDB$4451
+gbak:restoring domain RDB$4452
+gbak:restoring domain RDB$4453
+gbak:restoring domain RDB$4454
+gbak:restoring domain RDB$4455
+gbak:restoring domain RDB$4456
+gbak:restoring domain RDB$4457
+gbak:restoring domain RDB$4458
+gbak:restoring domain RDB$4459
+gbak:restoring domain RDB$4460
+gbak:restoring domain RDB$4461
+gbak:restoring domain RDB$4462
+gbak:restoring domain RDB$4463
+gbak:restoring domain RDB$4464
+gbak:restoring domain RDB$4465
+gbak:restoring domain RDB$4466
+gbak:restoring domain RDB$4467
+gbak:restoring domain RDB$4468
+gbak:restoring domain RDB$4469
+gbak:restoring domain RDB$4470
+gbak:restoring domain RDB$4471
+gbak:restoring domain RDB$4472
+gbak:restoring domain RDB$4473
+gbak:restoring domain RDB$4474
+gbak:restoring domain RDB$4475
+gbak:restoring domain RDB$4476
+gbak:restoring domain RDB$4477
+gbak:restoring domain RDB$4478
+gbak:restoring domain RDB$4479
+gbak:restoring domain RDB$4480
+gbak:restoring domain RDB$4481
+gbak:restoring domain RDB$4482
+gbak:restoring domain RDB$4483
+gbak:restoring domain RDB$4484
+gbak:restoring domain RDB$4485
+gbak:restoring domain RDB$4486
+gbak:restoring domain RDB$4487
+gbak:restoring domain RDB$4488
+gbak:restoring domain RDB$4489
+gbak:restoring domain RDB$4490
+gbak:restoring domain RDB$4491
+gbak:restoring domain RDB$4492
+gbak:restoring domain RDB$4493
+gbak:restoring domain RDB$4494
+gbak:restoring table DBPROPERTIES
+gbak:    restoring column ID
+gbak:    restoring column PNAME
+gbak:    restoring column PTYPE
+gbak:    restoring column PVALUE
+gbak:restoring table PIPE_SECTION
+gbak:    restoring column ID
+gbak:    restoring column PARENT_ID
+gbak:    restoring column WORKSPACE_ID
+gbak:    restoring column CHILD_ORDER
+gbak:    restoring column PIPECLASS_ID
+gbak:    restoring column PED_ID
+gbak:    restoring column MATERIAL_CLASS_ID
+gbak:    restoring column INSULATION_CLASS_ID
+gbak:    restoring column INSP
+gbak:    restoring column TEST_STANDARD_ID
+gbak:    restoring column EVAL_STANDARD_ID
+gbak:    restoring column PLANNED_PRESSURE
+gbak:    restoring column PLANNED_TEMPERATURE
+gbak:    restoring column OPERATING_PRESSURE
+gbak:    restoring column OPERATING_TEMPERATURE
+gbak:    restoring column LAST_UPDATED
+gbak:    restoring column GID
+gbak:    restoring column DWGNUM
+gbak:    restoring column PID
+gbak:    restoring column PAINTED
+gbak:    restoring column INSULATED
+gbak:    restoring column SYSTEM
+gbak:    restoring column LINE_NO
+gbak:    restoring column ISOMETRIC
+gbak:restoring table PIPE_CLASS
+gbak:    restoring column ID
+gbak:    restoring column LAST_UPDATED
+gbak:    restoring column GID
+gbak:    restoring column NAME
+gbak:restoring table PED
+gbak:    restoring column ID
+gbak:    restoring column LAST_UPDATED
+gbak:    restoring column GID
+gbak:    restoring column NAME
+gbak:restoring table MATERIAL_CLASS
+gbak:    restoring column ID
+gbak:    restoring column LAST_UPDATED
+gbak:    restoring column GID
+gbak:    restoring column NAME
+gbak:restoring table INSULATION_CLASS
+gbak:    restoring column ID
+gbak:    restoring column LAST_UPDATED
+gbak:    restoring column GID
+gbak:    restoring column NAME
+gbak:restoring table TEST_STANDARD
+gbak:    restoring column ID
+gbak:    restoring column LAST_UPDATED
+gbak:    restoring column GID
+gbak:    restoring column NAME
+gbak:restoring table EVAL_STANDARD
+gbak:    restoring column ID
+gbak:    restoring column LAST_UPDATED
+gbak:    restoring column GID
+gbak:    restoring column NAME
+gbak:restoring table WELDER_CERT_TYPE
+gbak:    restoring column ID
+gbak:    restoring column LAST_UPDATED
+gbak:    restoring column GID
+gbak:    restoring column NAME
+gbak:restoring table WPS
+gbak:    restoring column ID
+gbak:    restoring column LAST_UPDATED
+gbak:    restoring column GID
+gbak:    restoring column NAME
+gbak:restoring table SF
+gbak:    restoring column ID
+gbak:    restoring column LAST_UPDATED
+gbak:    restoring column GID
+gbak:    restoring column NAME
+gbak:restoring table WELDING_EQUIPMENT
+gbak:    restoring column ID
+gbak:    restoring column LAST_UPDATED
+gbak:    restoring column GID
+gbak:    restoring column NAME
+gbak:restoring table FILLER111
+gbak:    restoring column ID
+gbak:    restoring column LAST_UPDATED
+gbak:    restoring column GID
+gbak:    restoring column NAME
+gbak:restoring table FILLER135
+gbak:    restoring column ID
+gbak:    restoring column LAST_UPDATED
+gbak:    restoring column GID
+gbak:    restoring column NAME
+gbak:restoring table FILLER141
+gbak:    restoring column ID
+gbak:    restoring column LAST_UPDATED
+gbak:    restoring column GID
+gbak:    restoring column NAME
+gbak:restoring table REL_WELD_SEAM_PART
+gbak:    restoring column WELD_SEAM_ID
+gbak:    restoring column IN_PART_ID
+gbak:    restoring column OUT_PART_ID
+gbak:    restoring column LAST_UPDATED
+gbak:    restoring column GID
+gbak:restoring table PROJECT
+gbak:    restoring column ID
+gbak:    restoring column LAST_UPDATED
+gbak:    restoring column GID
+gbak:    restoring column PROJECT_NAME
+gbak:    restoring column PROJECT_NO
+gbak:    restoring column WORK_NO
+gbak:    restoring column CUSTOMER
+gbak:    restoring column CUSTOMER_PROJECT_NO
+gbak:restoring table WELDER_CERTIFICATE
+gbak:    restoring column ID
+gbak:    restoring column WELDER_ID
+gbak:    restoring column WELDER_CERT_TYPE_ID
+gbak:    restoring column LOWER_DIAMETER
+gbak:    restoring column UPPER_DIAMETER
+gbak:    restoring column LOWER_THICKNESS
+gbak:    restoring column UPPER_THICKNESS
+gbak:    restoring column LAST_UPDATED
+gbak:    restoring column GID
+gbak:    restoring column VALID_UNTIL
+gbak:    restoring column NUMBER
+gbak:    restoring column PROC
+gbak:    restoring column TUBE
+gbak:    restoring column PLATE
+gbak:    restoring column MATERIAL_QUALITY
+gbak:    restoring column BW
+gbak:    restoring column FW
+gbak:    restoring column POZITION
+gbak:    restoring column PED
+gbak:restoring table WELDING_SEAM
+gbak:    restoring column ID
+gbak:    restoring column PARENT_ID
+gbak:    restoring column CHILD_ORDER
+gbak:    restoring column PIPESECTION_ID
+gbak:    restoring column NUM
+gbak:    restoring column BINDING_ID
+gbak:    restoring column IN_PART_LENGTH
+gbak:    restoring column WELDER_ID
+gbak:    restoring column WPS_ID
+gbak:    restoring column WELDING_EQUIPMENT_ID
+gbak:    restoring column FILLER_111_ID
+gbak:    restoring column FILLER_135_ID
+gbak:    restoring column FILLER_141_ID
+gbak:    restoring column LAST_UPDATED
+gbak:    restoring column GID
+gbak:    restoring column CREATED_ON
+gbak:    restoring column TEST_VT
+gbak:    restoring column TEST_PT
+gbak:    restoring column TEST_ET
+gbak:    restoring column TEST_RT
+gbak:restoring table REL_PART_PROJECT
+gbak:    restoring column PART_ID
+gbak:    restoring column PROJECT_ID
+gbak:    restoring column LAST_UPDATED
+gbak:    restoring column GID
+gbak:restoring table WELDER
+gbak:    restoring column ID
+gbak:    restoring column LAST_UPDATED
+gbak:    restoring column GID
+gbak:    restoring column NAME
+gbak:    restoring column MARK
+gbak:restoring table DN
+gbak:    restoring column ID
+gbak:    restoring column DIA
+gbak:    restoring column LAST_UPDATED
+gbak:    restoring column GID
+gbak:    restoring column NAME
+gbak:restoring table WORKSPACE
+gbak:    restoring column ID
+gbak:    restoring column PROJECT_ID
+gbak:    restoring column LAST_UPDATED
+gbak:    restoring column GID
+gbak:    restoring column CREATED_ON
+gbak:    restoring column LAST_ENTRY_ON
+gbak:    restoring column WORKSPACE_NAME
+gbak:    restoring column DOC_NO
+gbak:    restoring column LOCATION
+gbak:restoring table PINCERT
+gbak:    restoring column ID
+gbak:    restoring column THICKNESS
+gbak:    restoring column DIAMETER1
+gbak:    restoring column DIAMETER2
+gbak:    restoring column PROJECT_ID
+gbak:    restoring column LAST_UPDATED
+gbak:    restoring column GID
+gbak:    restoring column DESCRIPT
+gbak:    restoring column MATERIAL
+gbak:    restoring column HEATNUM
+gbak:    restoring column PINCERT
+gbak:    restoring column SUPPLIER
+gbak:restoring table PARTS
+gbak:    restoring column ID
+gbak:    restoring column SIZE_ID
+gbak:    restoring column LAST_UPDATED
+gbak:    restoring column GID
+gbak:    restoring column PART_TYPE
+gbak:    restoring column HEAT_NUM
+gbak:    restoring column PIN_CERT
+gbak:restoring table SIZES
+gbak:    restoring column ID
+gbak:    restoring column THICKNESS
+gbak:    restoring column LAST_UPDATED
+gbak:    restoring column GID
+gbak:    restoring column DIAMETER
+gbak:restoring table REL_ENUM_WORKSPACE
+gbak:    restoring column ENUM_ITEM_ID
+gbak:    restoring column WORKSPACE_ID
+gbak:    restoring column LAST_UPDATED
+gbak:    restoring column GID
+gbak:    restoring column ENUM_TABLE_NAME
+gbak:restoring generator UID_GENERATOR value: 28
+gbak:restoring stored procedure ASSOCIATE_PARTS_TO_WELDSEAM
+gbak:restoring parameter WELD_SEAM_ID for stored procedure
+gbak:restoring parameter IN_PART_ID for stored procedure
+gbak:restoring parameter OUT_PART_ID for stored procedure
+gbak:restoring stored procedure ASSOCIATE_PART_TO_PROJECT
+gbak:restoring parameter PART_ID for stored procedure
+gbak:restoring parameter PROJECT_ID for stored procedure
+gbak:    committing metadata
+gbak:    restoring index PK_REL_ENUM_WORKSPACE
+gbak:    restoring index PK_SIZE_ID
+gbak:    restoring index PK_PART_ID
+gbak:    restoring index PK_PINCERT_ID
+gbak:    restoring index UK_HEATNUMPINCERT
+gbak:    restoring index PK_WORKSPACE_ID
+gbak:    restoring index UK_WORKSPACE_NAME
+gbak:restoring data for table WORKSPACE
+gbak:   2 records restored
+gbak:    restoring index PK_DN
+gbak:    restoring index UK_DN
+gbak:restoring data for table DN
+gbak:   16 records restored
+gbak:    restoring index PK_WELDER_ID
+gbak:    restoring index PK_REL_PART_PROJECT
+gbak:    restoring index PK_WELDINGSEAM_ID
+gbak:    restoring index PK_WELDER_CERT_ID
+gbak:    restoring index PK_PROJECT_ID
+gbak:    restoring index UK_PROJECT_NAME
+gbak:    restoring index UK_PROJECT_NO
+gbak:restoring data for table PROJECT
+gbak:   1 records restored
+gbak:    restoring index PK_REL_WELD_SEAM_PART
+gbak:    restoring index PK_FILLER141_ID
+gbak:    restoring index UK_FILLER141_NAME
+gbak:    restoring index PK_FILLER135_ID
+gbak:    restoring index UK_FILLER135_NAME
+gbak:    restoring index PK_FILLER111_ID
+gbak:    restoring index UK_FILLER111_NAME
+gbak:    restoring index PK_WELDING_EQUIPMENT_ID
+gbak:    restoring index UK_WELDING_EQUIPMENT_NAME
+gbak:    restoring index PK_SF_ID
+gbak:    restoring index UK_SF_NAME
+gbak:restoring data for table SF
+gbak:   1 records restored
+gbak:    restoring index PK_WPS_ID
+gbak:    restoring index UK_WPS_NAME
+gbak:    restoring index PK_WELDER_CERT_TYPE_ID
+gbak:    restoring index UK_WELDER_CERT_TYPE_NAME
+gbak:    restoring index PK_EVAL_STANDARD_ID
+gbak:    restoring index UK_EVAL_STANDARD_NAME
+gbak:    restoring index PK_TEST_STANDARD_ID
+gbak:    restoring index UK_TEST_STANDARD_NAME
+gbak:    restoring index PK_INSULATION_CLASS_ID
+gbak:    restoring index UK_INSULATION_CLASS_NAME
+gbak:    restoring index PK_MATERIAL_CLASS_ID
+gbak:    restoring index UK_MATERIAL_CLASS_NAME
+gbak:    restoring index PK_PED_ID
+gbak:    restoring index UK_PED_NAME
+gbak:restoring data for table PED
+gbak:   6 records restored
+gbak:    restoring index PK_PIPE_CLASS_ID
+gbak:    restoring index UK_PIPE_CLASS_NAME
+gbak:restoring data for table PIPE_CLASS
+gbak:   2 records restored
+gbak:    restoring index PK_PIPESECTION_ID
+gbak:    restoring index FK_PARENT_ID
+gbak:    restoring index PK_ID
+gbak:    restoring index UK_NAME
+gbak:restoring data for table DBPROPERTIES
+gbak:   2 records restored
+gbak:    restoring trigger CHECK_37
+gbak:    restoring trigger CHECK_38
+gbak:    restoring trigger TR_BI0_3340445A
+gbak:    restoring trigger TR_3340445A_LU
+gbak:    restoring trigger TR_BI0_03705ABD
+gbak:    restoring trigger TR_03705ABD_LU
+gbak:    restoring trigger TR_BI0_5F2BD631
+gbak:    restoring trigger TR_5F2BD631_LU
+gbak:    restoring trigger TR_BI0_6B6CA5F8
+gbak:    restoring trigger TR_6B6CA5F8_LU
+gbak:    restoring trigger TR_BI0_A34AE695
+gbak:    restoring trigger TR_A34AE695_LU
+gbak:    restoring trigger TR_BI0_34D353F2
+gbak:    restoring trigger TR_34D353F2_LU
+gbak:    restoring trigger TR_BI0_183BC768
+gbak:    restoring trigger TR_183BC768_LU
+gbak:    restoring trigger TR_BI0_DBB9F085
+gbak:    restoring trigger TR_DBB9F085_LU
+gbak:    restoring trigger TR_BI0_076F450A
+gbak:    restoring trigger TR_076F450A_LU
+gbak:    restoring trigger TR_BI0_76DEB985
+gbak:    restoring trigger TR_76DEB985_LU
+gbak:    restoring trigger TR_BI0_8ACD6EA7
+gbak:    restoring trigger TR_8ACD6EA7_LU
+gbak:    restoring trigger TR_BI0_A92151B9
+gbak:    restoring trigger TR_A92151B9_LU
+gbak:    restoring trigger TR_BI0_EE703AF3
+gbak:    restoring trigger TR_EE703AF3_LU
+gbak:    restoring trigger TR_BI0_C12AF3E8
+gbak:    restoring trigger TR_C12AF3E8_LU
+gbak:    restoring trigger TR_C75A3B73_LU
+gbak:    restoring trigger TR_BI0_9721E021
+gbak:    restoring trigger TR_9721E021_LU
+gbak:    restoring trigger TR_BI0_065F3793
+gbak:    restoring trigger TR_065F3793_LU
+gbak:    restoring trigger TR_BI0_171616D3
+gbak:    restoring trigger TR_171616D3_LU
+gbak:    restoring trigger TR_2A88FDF1_LU
+gbak:    restoring trigger TR_BI0_55FEC309
+gbak:    restoring trigger TR_55FEC309_LU
+gbak:    restoring trigger TR_BI0_61A31498
+gbak:    restoring trigger TR_61A31498_LU
+gbak:    restoring trigger TR_BI0_43F16A91
+gbak:    restoring trigger TR_43F16A91_LU
+gbak:    restoring trigger TR_BI0_4D20611B
+gbak:    restoring trigger TR_4D20611B_LU
+gbak:    restoring trigger TR_BI0_70522AE4
+gbak:    restoring trigger TR_70522AE4_LU
+gbak:    restoring trigger TR_BI0_3B71C46C
+gbak:    restoring trigger TR_3B71C46C_LU
+gbak:    restoring trigger TR_65BEE429_LU
+gbak:    restoring privilege for user ZOLEE
+gbak:    restoring privilege for user ZOLEE
+gbak:    restoring privilege for user ZOLEE
+gbak:    restoring privilege for user ZOLEE
+gbak:    restoring privilege for user ZOLEE
+gbak:    restoring privilege for user PUBLIC
+gbak:    restoring privilege for user ZOLEE
+gbak:    restoring privilege for user ZOLEE
+gbak:    restoring privilege for user ZOLEE
+gbak:    restoring privilege for user ZOLEE
+gbak:    restoring privilege for user ZOLEE
+gbak:    restoring privilege for user PUBLIC
+gbak:    restoring privilege for user ZOLEE
+gbak:    restoring privilege for user ZOLEE
+gbak:    restoring privilege for user ZOLEE
+gbak:    restoring privilege for user ZOLEE
+gbak:    restoring privilege for user ZOLEE
+gbak:    restoring privilege for user PUBLIC
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user SYSDBA
+gbak:    restoring privilege for user PUBLIC
+gbak:    restoring privilege for user COOPTECH
+gbak:    restoring privilege for user WLOGUSER
+gbak:    restoring privilege for user WLOGUSER
+gbak:    restoring privilege for user WLOGUSER
+gbak:    restoring privilege for user ZOLEE
+gbak:    restoring privilege for user ZOLEE
+gbak:    restoring privilege for user ZOLEE
+gbak:    restoring SQL role: MODIFY_ROLE
+gbak:    restoring SQL role: READ_ROLE
+gbak:    restoring SQL role: RDB$ADMIN
+gbak: ERROR:attempt to store duplicate value (visible to active transactions) in unique index "RDB$INDEX_39"
+gbak:Exiting before completion due to errors

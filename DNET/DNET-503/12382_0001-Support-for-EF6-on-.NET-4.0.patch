@@ -1,0 +1,699 @@
+From 475496cbfa0273d2ce320200cb44b6e24ef3c5fa Mon Sep 17 00:00:00 2001
+From: Mark Junker <mark.junker@dataline.de>
+Date: Tue, 15 Oct 2013 13:52:51 +0200
+Subject: [PATCH] Support for EF6 on .NET 4.0
+
+---
+ .../FirebirdSql.Data.FirebirdClient.EF6.NET40.sln  |  36 +++
+ ...irebirdSql.Data.FirebirdClient.EF6.NET40.csproj | 346 +++++++++++++++++++++
+ .../Data/UnitTests/EfConfig/EfDbConfiguration.cs   |  25 ++
+ .../Data/UnitTests/EfTransactionTest.cs            |   8 +-
+ .../Data/UnitTests/EfTransactionTestWithEnlist.cs  |   7 +-
+ .../Data/UnitTests/EntityFrameworkTests.cs         |   4 +
+ .../FirebirdSql.Data.UnitTests.EF6.NET40.csproj    | 151 +++++++++
+ source/FirebirdSql/Data/UnitTests/TestsBase.cs     |   6 +-
+ 8 files changed, 576 insertions(+), 7 deletions(-)
+ create mode 100644 source/FirebirdSql.Data.FirebirdClient.EF6.NET40.sln
+ create mode 100644 source/FirebirdSql/Data/FirebirdSql.Data.FirebirdClient.EF6.NET40.csproj
+ create mode 100644 source/FirebirdSql/Data/UnitTests/EfConfig/EfDbConfiguration.cs
+ create mode 100644 source/FirebirdSql/Data/UnitTests/FirebirdSql.Data.UnitTests.EF6.NET40.csproj
+
+diff --git a/source/FirebirdSql.Data.FirebirdClient.EF6.NET40.sln b/source/FirebirdSql.Data.FirebirdClient.EF6.NET40.sln
+new file mode 100644
+index 0000000..4dea17c
+--- /dev/null
++++ b/source/FirebirdSql.Data.FirebirdClient.EF6.NET40.sln
+@@ -0,0 +1,36 @@
++Microsoft Visual Studio Solution File, Format Version 12.00
++# Visual Studio 2013
++VisualStudioVersion = 12.0.20827.3
++MinimumVisualStudioVersion = 10.0.40219.1
++Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirebirdSql.Data.FirebirdClient.EF6.NET40", "FirebirdSql\Data\FirebirdSql.Data.FirebirdClient.EF6.NET40.csproj", "{326A24F9-6259-45DB-835C-18DB80728460}"
++EndProject
++Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirebirdSql.Data.UnitTests.EF6.NET40", "FirebirdSql\Data\UnitTests\FirebirdSql.Data.UnitTests.EF6.NET40.csproj", "{D58FD6C4-BC7F-455B-B5FF-9DD7E4B94172}"
++EndProject
++Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "installer", "installer", "{D5D2A0BC-7109-4039-8861-7917D0F0E7A2}"
++	ProjectSection(SolutionItems) = preProject
++		..\installer\build.bat = ..\installer\build.bat
++		..\installer\Install.wxs = ..\installer\Install.wxs
++	EndProjectSection
++EndProject
++Global
++	GlobalSection(SolutionConfigurationPlatforms) = preSolution
++		Debug|Any CPU = Debug|Any CPU
++		Release|Any CPU = Release|Any CPU
++	EndGlobalSection
++	GlobalSection(ProjectConfigurationPlatforms) = postSolution
++		{326A24F9-6259-45DB-835C-18DB80728460}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
++		{326A24F9-6259-45DB-835C-18DB80728460}.Debug|Any CPU.Build.0 = Debug|Any CPU
++		{326A24F9-6259-45DB-835C-18DB80728460}.Release|Any CPU.ActiveCfg = Release|Any CPU
++		{326A24F9-6259-45DB-835C-18DB80728460}.Release|Any CPU.Build.0 = Release|Any CPU
++		{D58FD6C4-BC7F-455B-B5FF-9DD7E4B94172}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
++		{D58FD6C4-BC7F-455B-B5FF-9DD7E4B94172}.Debug|Any CPU.Build.0 = Debug|Any CPU
++		{D58FD6C4-BC7F-455B-B5FF-9DD7E4B94172}.Release|Any CPU.ActiveCfg = Release|Any CPU
++		{D58FD6C4-BC7F-455B-B5FF-9DD7E4B94172}.Release|Any CPU.Build.0 = Release|Any CPU
++	EndGlobalSection
++	GlobalSection(SolutionProperties) = preSolution
++		HideSolutionNode = FALSE
++	EndGlobalSection
++	GlobalSection(TextTemplating) = postSolution
++		TextTemplating = 1
++	EndGlobalSection
++EndGlobal
+diff --git a/source/FirebirdSql/Data/FirebirdSql.Data.FirebirdClient.EF6.NET40.csproj b/source/FirebirdSql/Data/FirebirdSql.Data.FirebirdClient.EF6.NET40.csproj
+new file mode 100644
+index 0000000..3d7a4e3
+--- /dev/null
++++ b/source/FirebirdSql/Data/FirebirdSql.Data.FirebirdClient.EF6.NET40.csproj
+@@ -0,0 +1,346 @@
++﻿<?xml version="1.0" encoding="utf-8"?>
++<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
++  <PropertyGroup>
++    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
++    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
++    <ProductVersion>9.0.30729</ProductVersion>
++    <SchemaVersion>2.0</SchemaVersion>
++    <ProjectGuid>{326A24F9-6259-45DB-835C-18DB80728460}</ProjectGuid>
++    <OutputType>Library</OutputType>
++    <AppDesignerFolder>Properties</AppDesignerFolder>
++    <RootNamespace>FirebirdSql.Data</RootNamespace>
++    <AssemblyName>FirebirdSql.Data.FirebirdClient</AssemblyName>
++    <SignAssembly>true</SignAssembly>
++    <AssemblyOriginatorKeyFile>Properties\FirebirdSql.Data.FirebirdClient.snk</AssemblyOriginatorKeyFile>
++    <FileUpgradeFlags>
++    </FileUpgradeFlags>
++    <UpgradeBackupLocation>
++    </UpgradeBackupLocation>
++    <PublishUrl>publish\</PublishUrl>
++    <Install>true</Install>
++    <InstallFrom>Disk</InstallFrom>
++    <UpdateEnabled>false</UpdateEnabled>
++    <UpdateMode>Foreground</UpdateMode>
++    <UpdateInterval>7</UpdateInterval>
++    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
++    <UpdatePeriodically>false</UpdatePeriodically>
++    <UpdateRequired>false</UpdateRequired>
++    <MapFileExtensions>true</MapFileExtensions>
++    <ApplicationRevision>0</ApplicationRevision>
++    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
++    <IsWebBootstrapper>false</IsWebBootstrapper>
++    <UseApplicationTrust>false</UseApplicationTrust>
++    <BootstrapperEnabled>true</BootstrapperEnabled>
++  </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
++    <DebugSymbols>true</DebugSymbols>
++    <DebugType>full</DebugType>
++    <Optimize>false</Optimize>
++    <OutputPath>bin\Debug\</OutputPath>
++    <DefineConstants>TRACE;DEBUG;NET_40;EF_6</DefineConstants>
++    <ErrorReport>prompt</ErrorReport>
++    <WarningLevel>4</WarningLevel>
++    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
++    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
++    <Prefer32Bit>false</Prefer32Bit>
++    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
++    <TargetFrameworkProfile>
++    </TargetFrameworkProfile>
++  </PropertyGroup>
++  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
++    <OutputPath>bin\Release_40_EF6\</OutputPath>
++    <DefineConstants>TRACE;NET_40;EF_6</DefineConstants>
++    <Optimize>true</Optimize>
++    <DebugType>pdbonly</DebugType>
++    <PlatformTarget>AnyCPU</PlatformTarget>
++    <ErrorReport>prompt</ErrorReport>
++    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
++    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
++    <TargetFrameworkProfile>
++    </TargetFrameworkProfile>
++  </PropertyGroup>
++  <ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
++    <Reference Include="EntityFramework">
++      <HintPath>..\..\..\lib\EF6\net40\EntityFramework.dll</HintPath>
++    </Reference>
++  </ItemGroup>
++  <ItemGroup>
++    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
++      <SpecificVersion>False</SpecificVersion>
++      <HintPath>..\..\..\lib\EF6\net40\EntityFramework.dll</HintPath>
++    </Reference>
++    <Reference Include="System" />
++    <Reference Include="System.ComponentModel.DataAnnotations" />
++    <Reference Include="System.configuration" />
++    <Reference Include="System.Core">
++      <RequiredTargetFramework>3.5</RequiredTargetFramework>
++    </Reference>
++    <Reference Include="System.Data" />
++    <Reference Include="System.Data.Linq">
++      <RequiredTargetFramework>3.5</RequiredTargetFramework>
++    </Reference>
++    <Reference Include="System.Drawing" />
++    <Reference Include="System.Runtime.Serialization">
++      <RequiredTargetFramework>3.0</RequiredTargetFramework>
++    </Reference>
++    <Reference Include="System.Security" />
++    <Reference Include="System.Transactions" />
++    <Reference Include="System.Xml" />
++  </ItemGroup>
++  <ItemGroup>
++    <Compile Include="Client\Managed\Version11\AuthResponse.cs" />
++    <Compile Include="Client\Managed\Version11\SSPIHelper.cs" />
++    <Compile Include="Client\Managed\Version12\GdsDatabase.cs" />
++    <Compile Include="Client\Managed\Version12\GdsStatement.cs" />
++    <Compile Include="Common\Extensions.cs" />
++    <Compile Include="Common\TraceHelper.cs" />
++    <Compile Include="Entity\DmlSqlGenerator.cs" />
++    <Compile Include="Entity\ExpressionTranslator.cs" />
++    <Compile Include="Entity\FirstClause.cs" />
++    <Compile Include="Entity\ISqlFragment.cs" />
++    <Compile Include="Entity\JoinSymbol.cs" />
++    <Compile Include="Entity\MetadataHelpers.cs" />
++    <Compile Include="Entity\SkipClause.cs" />
++    <Compile Include="Entity\SqlBuilder.cs" />
++    <Compile Include="Entity\SqlGenerator.cs" />
++    <Compile Include="Entity\SqlSelectStatement.cs" />
++    <Compile Include="Entity\SqlWriter.cs" />
++    <Compile Include="Entity\SsdlToFb.cs" />
++    <Compile Include="Entity\Symbol.cs" />
++    <Compile Include="Entity\SymbolPair.cs" />
++    <Compile Include="Entity\SymbolTable.cs" />
++    <Compile Include="Entity\TypeHelpers.cs" />
++    <Compile Include="FirebirdClient\FbConnectionFactory.cs" />
++    <Compile Include="FirebirdClient\FbProviderManifest.cs" />
++    <Compile Include="FirebirdClient\FbProviderServices.cs" />
++    <Compile Include="FirebirdClient\FbTransactionOptions.cs" />
++    <Compile Include="Properties\AssemblyInfo.cs" />
++    <Compile Include="Client\Common\ArrayBoundMarshal.cs" />
++    <Compile Include="Client\Common\ArrayDescMarshal.cs" />
++    <Compile Include="Client\Common\ArrayDescMarshaler.cs" />
++    <Compile Include="Client\Managed\FetchResponse.cs" />
++    <Compile Include="Client\Managed\GenericResponse.cs" />
++    <Compile Include="Client\Managed\IResponse.cs" />
++    <Compile Include="Client\Managed\SqlResponse.cs" />
++    <Compile Include="Client\Managed\Version10\GdsArray.cs" />
++    <Compile Include="Client\Managed\Version10\GdsBlob.cs" />
++    <Compile Include="Client\Managed\Version10\GdsConnection.cs" />
++    <Compile Include="Client\Managed\Version10\GdsDatabase.cs" />
++    <Compile Include="Client\Managed\Version10\GdsEventManager.cs" />
++    <Compile Include="Client\Managed\Version10\GdsServiceManager.cs" />
++    <Compile Include="Client\Managed\Version10\GdsStatement.cs" />
++    <Compile Include="Client\Managed\Version10\GdsTransaction.cs" />
++    <Compile Include="Client\Managed\Version10\IDatabaseStream.cs" />
++    <Compile Include="Client\Managed\Version10\XdrStream.cs" />
++    <Compile Include="Client\Managed\Version11\GdsDatabase.cs" />
++    <Compile Include="Client\Managed\Version11\GdsStatement.cs" />
++    <Compile Include="Client\Native\FbClientFactory.cs" />
++    <Compile Include="Client\Native\IFbClient.cs" />
++    <Compile Include="Client\ExternalEngine\ParamDsc.cs" />
++    <Compile Include="Client\Common\XSQLDA.cs" />
++    <Compile Include="Client\Common\XsqldaMarshaler.cs" />
++    <Compile Include="Client\Common\XSQLVAR.cs" />
++    <Compile Include="Client\Native\FbClient.cs" />
++    <Compile Include="Client\Native\FesArray.cs" />
++    <Compile Include="Client\Native\FesBlob.cs" />
++    <Compile Include="Client\Native\FesConnection.cs" />
++    <Compile Include="Client\Native\FesDatabase.cs" />
++    <Compile Include="Client\Native\FesServiceManager.cs" />
++    <Compile Include="Client\Native\FesStatement.cs" />
++    <Compile Include="Client\Native\FesTransaction.cs" />
++    <Compile Include="Client\ExternalEngine\ExtArray.cs" />
++    <Compile Include="Client\ExternalEngine\ExtBlob.cs" />
++    <Compile Include="Client\ExternalEngine\ExtConnection.cs" />
++    <Compile Include="Client\ExternalEngine\ExtDatabase.cs" />
++    <Compile Include="Client\ExternalEngine\ExtServiceManager.cs" />
++    <Compile Include="Client\ExternalEngine\ExtStatement.cs" />
++    <Compile Include="Client\ExternalEngine\ExtTransaction.cs" />
++    <Compile Include="Client\ExternalEngine\ExtTriggerContext.cs" />
++    <Compile Include="Client\ExternalEngine\ParamDscMarshaler.cs" />
++    <Compile Include="Client\ExternalEngine\SafeNativeMethods.cs" />
++    <Compile Include="Common\ArrayBase.cs" />
++    <Compile Include="Common\ArrayBound.cs" />
++    <Compile Include="Common\ArrayDesc.cs" />
++    <Compile Include="Common\BinaryEncoding.cs" />
++    <Compile Include="Common\BlobBase.cs" />
++    <Compile Include="Common\BlobParameterBuffer.cs" />
++    <Compile Include="Common\Charset.cs" />
++    <Compile Include="Common\ITriggerContext.cs" />
++    <Compile Include="Common\DatabaseParameterBuffer.cs" />
++    <Compile Include="Common\DbDataType.cs" />
++    <Compile Include="Common\DbField.cs" />
++    <Compile Include="Common\DbStatementType.cs" />
++    <Compile Include="Common\DbValue.cs" />
++    <Compile Include="Common\Descriptor.cs" />
++    <Compile Include="Common\EventParameterBuffer.cs" />
++    <Compile Include="Common\IDatabase.cs" />
++    <Compile Include="Common\IscCodes.cs" />
++    <Compile Include="Common\IscError.cs" />
++    <Compile Include="Common\IscException.cs" />
++    <Compile Include="Common\IscHelper.cs" />
++    <Compile Include="Common\IServiceManager.cs" />
++    <Compile Include="Common\ITransaction.cs" />
++    <Compile Include="Common\ParameterBuffer.cs" />
++    <Compile Include="Common\RemoteEvent.cs" />
++    <Compile Include="Common\RemoteEventCountsCallback.cs" />
++    <Compile Include="Common\ServiceParameterBuffer.cs" />
++    <Compile Include="Common\StatementBase.cs" />
++    <Compile Include="Common\StatementState.cs" />
++    <Compile Include="Common\TransactionParameterBuffer.cs" />
++    <Compile Include="Common\TransactionState.cs" />
++    <Compile Include="Common\TransactionUpdateEventHandler.cs" />
++    <Compile Include="Common\TypeDecoder.cs" />
++    <Compile Include="Common\TypeEncoder.cs" />
++    <Compile Include="Common\TypeHelper.cs" />
++    <Compile Include="Common\WarningMessageCallback.cs" />
++    <Compile Include="FirebirdClient\ClientFactory.cs" />
++    <Compile Include="FirebirdClient\EmptyPoolEventHandler.cs" />
++    <Compile Include="FirebirdClient\FbCharset.cs" />
++    <Compile Include="FirebirdClient\FbCommand.cs">
++      <SubType>Component</SubType>
++    </Compile>
++    <Compile Include="FirebirdClient\FbCommandBuilder.cs">
++      <SubType>Component</SubType>
++    </Compile>
++    <Compile Include="FirebirdClient\FbConnection.cs">
++      <SubType>Component</SubType>
++    </Compile>
++    <Compile Include="FirebirdClient\FbConnectionInternal.cs" />
++    <Compile Include="FirebirdClient\FbConnectionPool.cs" />
++    <Compile Include="FirebirdClient\FbConnectionString.cs" />
++    <Compile Include="FirebirdClient\FbConnectionStringBuilder.cs" />
++    <Compile Include="FirebirdClient\FbDataAdapter.cs">
++      <SubType>Component</SubType>
++    </Compile>
++    <Compile Include="FirebirdClient\FbDatabaseInfo.cs" />
++    <Compile Include="FirebirdClient\FbDataReader.cs" />
++    <Compile Include="FirebirdClient\FbDbType.cs" />
++    <Compile Include="FirebirdClient\FbEnlistmentNotification.cs" />
++    <Compile Include="FirebirdClient\FbError.cs" />
++    <Compile Include="FirebirdClient\FbErrorCollection.cs" />
++    <Compile Include="FirebirdClient\FbException.cs" />
++    <Compile Include="FirebirdClient\FbInfoMessageEventArgs.cs" />
++    <Compile Include="FirebirdClient\FbInfoMessageEventHandler.cs" />
++    <Compile Include="FirebirdClient\FbParameter.cs" />
++    <Compile Include="FirebirdClient\FbParameterCollection.cs" />
++    <Compile Include="FirebirdClient\FbPoolManager.cs" />
++    <Compile Include="Server\FbResultSet.cs" />
++    <Compile Include="FirebirdClient\FbServerType.cs" />
++    <Compile Include="FirebirdClient\FirebirdClientPermission.cs" />
++    <Compile Include="FirebirdClient\FirebirdClientPermissionAtrribute.cs" />
++    <Compile Include="FirebirdClient\FbRemoteEvent.cs" />
++    <Compile Include="FirebirdClient\FbRemoteEventEventArgs.cs" />
++    <Compile Include="FirebirdClient\FbRemoteEventEventHandler.cs" />
++    <Compile Include="FirebirdClient\FbRowUpdatedEventArgs.cs" />
++    <Compile Include="FirebirdClient\FbRowUpdatedEventHandler.cs" />
++    <Compile Include="FirebirdClient\FbRowUpdatingEventArgs.cs" />
++    <Compile Include="FirebirdClient\FbRowUpdatingEventHandler.cs" />
++    <Compile Include="FirebirdClient\FbTransaction.cs" />
++    <Compile Include="FirebirdClient\FbTransactionBehavior.cs" />
++    <Compile Include="FirebirdClient\FirebirdClientFactory.cs" />
++    <Compile Include="Isql\CommandExecutedEventArgs.cs" />
++    <Compile Include="Isql\CommandExecutedEventHandler.cs" />
++    <Compile Include="Isql\CommandExecutingEventArgs.cs" />
++    <Compile Include="Isql\CommandExecutingEventHandler.cs" />
++    <Compile Include="Isql\FbBatchExecution.cs" />
++    <Compile Include="Isql\FbScript.cs" />
++    <Compile Include="Isql\SqlStatementType.cs" />
++    <Compile Include="Isql\StringParser.cs" />
++    <Compile Include="Isql\FbStatementCollection.cs" />
++    <Compile Include="Schema\FbCharacterSets.cs" />
++    <Compile Include="Schema\FbCheckConstraints.cs" />
++    <Compile Include="Schema\FbChecksByTable.cs" />
++    <Compile Include="Schema\FbCollations.cs" />
++    <Compile Include="Schema\FbColumnPrivileges.cs" />
++    <Compile Include="Schema\FbColumns.cs" />
++    <Compile Include="Schema\FbSchema.cs" />
++    <Compile Include="Schema\FbSchemaFactory.cs" />
++    <Compile Include="Schema\FbDomains.cs" />
++    <Compile Include="Schema\FbForeignKeyColumns.cs" />
++    <Compile Include="Schema\FbForeignKeys.cs" />
++    <Compile Include="Schema\FbFunctions.cs" />
++    <Compile Include="Schema\FbGenerators.cs" />
++    <Compile Include="Schema\FbIndexColumns.cs" />
++    <Compile Include="Schema\FbIndexes.cs" />
++    <Compile Include="Schema\FbPrimaryKeys.cs" />
++    <Compile Include="Schema\FbProcedureParameters.cs" />
++    <Compile Include="Schema\FbProcedurePrivileges.cs" />
++    <Compile Include="Schema\FbProcedures.cs" />
++    <Compile Include="Schema\FbRoles.cs" />
++    <Compile Include="Schema\FbTableConstraints.cs" />
++    <Compile Include="Schema\FbTablePrivileges.cs" />
++    <Compile Include="Schema\FbTables.cs" />
++    <Compile Include="Schema\FbTriggers.cs" />
++    <Compile Include="Schema\FbUniqueKeys.cs" />
++    <Compile Include="Schema\FbViewColumns.cs" />
++    <Compile Include="Schema\FbViewPrivileges.cs" />
++    <Compile Include="Schema\FbViews.cs" />
++    <Compile Include="Services\FbBackup.cs" />
++    <Compile Include="Services\FbBackupFile.cs" />
++    <Compile Include="Services\FbBackupFileCollection.cs" />
++    <Compile Include="Services\FbBackupFlags.cs" />
++    <Compile Include="Services\FbConfiguration.cs" />
++    <Compile Include="Services\FbDatabasesInfo.cs" />
++    <Compile Include="Services\FbDatabaseTraceConfiguration.cs" />
++    <Compile Include="Services\FbDatabaseTraceEvents.cs" />
++    <Compile Include="Services\FbLog.cs" />
++    <Compile Include="Services\FbNBackup.cs" />
++    <Compile Include="Services\FbNBackupFlags.cs" />
++    <Compile Include="Services\FbNRestore.cs" />
++    <Compile Include="Services\FbRestore.cs" />
++    <Compile Include="Services\FbRestoreFlags.cs" />
++    <Compile Include="Services\FbSecurity.cs" />
++    <Compile Include="Services\FbServerConfig.cs" />
++    <Compile Include="Services\FbServerProperties.cs" />
++    <Compile Include="Services\FbService.cs" />
++    <Compile Include="Services\FbServiceState.cs" />
++    <Compile Include="Services\FbServiceTraceConfiguration.cs" />
++    <Compile Include="Services\FbServiceTraceEvents.cs" />
++    <Compile Include="Services\FbShutdownMode.cs" />
++    <Compile Include="Services\FbStatistical.cs" />
++    <Compile Include="Services\FbStatisticalFlags.cs" />
++    <Compile Include="Services\FbTrace.cs" />
++    <Compile Include="Services\FbDatabaseTraceConfigurationCollection.cs" />
++    <Compile Include="Services\FbTraceConfiguration.cs" />
++    <Compile Include="Services\FbUserData.cs" />
++    <Compile Include="Services\FbValidation.cs" />
++    <Compile Include="Services\FbValidationFlags.cs" />
++    <Compile Include="Services\ServiceOutputEventArgs.cs" />
++    <Compile Include="Services\ServiceOutputEventHandler.cs" />
++    <Compile Include="Server\FbTriggerActionType.cs" />
++    <Compile Include="Server\FbTriggerContext.cs" />
++    <Compile Include="Server\IResultSet.cs" />
++  </ItemGroup>
++  <ItemGroup>
++    <EmbeddedResource Include="Schema\FbMetaData.xml">
++      <SubType>Designer</SubType>
++    </EmbeddedResource>
++  </ItemGroup>
++  <ItemGroup>
++    <None Include="Entity\ProviderManifest.xsd" />
++    <EmbeddedResource Include="Entity\StoreSchemaDefinition.ssdl" />
++    <EmbeddedResource Include="Entity\StoreSchemaMapping.msl" />
++    <None Include="Entity\ConceptualSchemaDefinition.csdl" />
++    <None Include="Properties\FirebirdSql.Data.FirebirdClient.snk" />
++  </ItemGroup>
++  <ItemGroup>
++    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
++    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
++  </ItemGroup>
++  <ItemGroup>
++    <EmbeddedResource Include="Entity\ProviderManifest.xml" />
++    <EmbeddedResource Include="Resources\isc_error_msg.resx">
++      <SubType>Designer</SubType>
++    </EmbeddedResource>
++    <EmbeddedResource Include="Resources\sqlstate_mapping.resx">
++      <SubType>Designer</SubType>
++    </EmbeddedResource>
++  </ItemGroup>
++  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
++  <PropertyGroup>
++    <PreBuildEvent>
++    </PreBuildEvent>
++    <PostBuildEvent>
++    </PostBuildEvent>
++  </PropertyGroup>
++</Project>
+\ No newline at end of file
+diff --git a/source/FirebirdSql/Data/UnitTests/EfConfig/EfDbConfiguration.cs b/source/FirebirdSql/Data/UnitTests/EfConfig/EfDbConfiguration.cs
+new file mode 100644
+index 0000000..bb48e5a
+--- /dev/null
++++ b/source/FirebirdSql/Data/UnitTests/EfConfig/EfDbConfiguration.cs
+@@ -0,0 +1,25 @@
++﻿using FirebirdSql.Data.FirebirdClient;
++using System;
++using System.Collections.Generic;
++using System.Data.Entity;
++#if EF_6
++using System.Data.Entity.Core.Common;
++#else
++using System.Data.Common;
++#endif
++using System.Linq;
++using System.Text;
++
++namespace FirebirdSql.Data.UnitTests.EfConfig
++{
++#if EF_6
++    public class EfDbConfiguration : DbConfiguration
++    {
++        public EfDbConfiguration()
++        {
++            var providerServices = (DbProviderServices)(FirebirdClientFactory.Instance as IServiceProvider).GetService(typeof(DbProviderServices));
++            SetProviderServices("FirebirdSql.Data.FirebirdClient", providerServices);
++        }
++    }
++#endif
++}
+diff --git a/source/FirebirdSql/Data/UnitTests/EfTransactionTest.cs b/source/FirebirdSql/Data/UnitTests/EfTransactionTest.cs
+index d4cc9c5..1d8de35 100644
+--- a/source/FirebirdSql/Data/UnitTests/EfTransactionTest.cs
++++ b/source/FirebirdSql/Data/UnitTests/EfTransactionTest.cs
+@@ -1,6 +1,4 @@
+-﻿using FirebirdSql.Data.FirebirdClient;
+-using NUnit.Framework;
+-using System;
++﻿using System;
+ using System.Collections.Generic;
+ using System.Data.Entity;
+ using System.Linq;
+@@ -8,6 +6,9 @@ using System.Text;
+ using System.Threading.Tasks;
+ using System.Transactions;
+ 
++using FirebirdSql.Data.FirebirdClient;
++using NUnit.Framework;
++
+ namespace FirebirdSql.Data.UnitTests
+ {
+     [TestFixture]
+@@ -23,6 +24,7 @@ namespace FirebirdSql.Data.UnitTests
+ 		#region · Unit Tests ·
+ 
+         [Test]
++        [Ignore("This test will fail as long as Enlist=True is required in the connection string.")]
+         public void EfTransactionScope()
+         {
+             using (var context = new FbTestDbContext(Connection))
+diff --git a/source/FirebirdSql/Data/UnitTests/EfTransactionTestWithEnlist.cs b/source/FirebirdSql/Data/UnitTests/EfTransactionTestWithEnlist.cs
+index ed1a318..483f25b 100644
+--- a/source/FirebirdSql/Data/UnitTests/EfTransactionTestWithEnlist.cs
++++ b/source/FirebirdSql/Data/UnitTests/EfTransactionTestWithEnlist.cs
+@@ -1,6 +1,4 @@
+-﻿using FirebirdSql.Data.FirebirdClient;
+-using NUnit.Framework;
+-using System;
++﻿using System;
+ using System.Collections.Generic;
+ using System.Data.Entity;
+ using System.Data.Entity.ModelConfiguration.Conventions;
+@@ -9,6 +7,9 @@ using System.Text;
+ using System.Threading.Tasks;
+ using System.Transactions;
+ 
++using FirebirdSql.Data.FirebirdClient;
++using NUnit.Framework;
++
+ namespace FirebirdSql.Data.UnitTests
+ {
+     [TestFixture]
+diff --git a/source/FirebirdSql/Data/UnitTests/EntityFrameworkTests.cs b/source/FirebirdSql/Data/UnitTests/EntityFrameworkTests.cs
+index b1c65fc..04970b0 100644
+--- a/source/FirebirdSql/Data/UnitTests/EntityFrameworkTests.cs
++++ b/source/FirebirdSql/Data/UnitTests/EntityFrameworkTests.cs
+@@ -19,7 +19,11 @@
+ using System;
+ using System.Data;
+ using System.Configuration;
++#if EF_6
++using System.Data.Entity.Core.Common;
++#else
+ using System.Data.Common;
++#endif
+ using System.Data.Entity;
+ using System.Linq;
+ using System.Collections.Generic;
+diff --git a/source/FirebirdSql/Data/UnitTests/FirebirdSql.Data.UnitTests.EF6.NET40.csproj b/source/FirebirdSql/Data/UnitTests/FirebirdSql.Data.UnitTests.EF6.NET40.csproj
+new file mode 100644
+index 0000000..d07eea5
+--- /dev/null
++++ b/source/FirebirdSql/Data/UnitTests/FirebirdSql.Data.UnitTests.EF6.NET40.csproj
+@@ -0,0 +1,151 @@
++﻿<?xml version="1.0" encoding="utf-8"?>
++<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
++  <PropertyGroup>
++    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
++    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
++    <ProductVersion>9.0.30729</ProductVersion>
++    <SchemaVersion>2.0</SchemaVersion>
++    <ProjectGuid>{D58FD6C4-BC7F-455B-B5FF-9DD7E4B94172}</ProjectGuid>
++    <OutputType>Library</OutputType>
++    <AppDesignerFolder>Properties</AppDesignerFolder>
++    <RootNamespace>FirebirdSql.Data.UnitTests</RootNamespace>
++    <AssemblyName>FirebirdSql.Data.UnitTests</AssemblyName>
++    <FileUpgradeFlags>
++    </FileUpgradeFlags>
++    <OldToolsVersion>3.5</OldToolsVersion>
++    <UpgradeBackupLocation>
++    </UpgradeBackupLocation>
++    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
++    <PublishUrl>publish\</PublishUrl>
++    <Install>true</Install>
++    <InstallFrom>Disk</InstallFrom>
++    <UpdateEnabled>false</UpdateEnabled>
++    <UpdateMode>Foreground</UpdateMode>
++    <UpdateInterval>7</UpdateInterval>
++    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
++    <UpdatePeriodically>false</UpdatePeriodically>
++    <UpdateRequired>false</UpdateRequired>
++    <MapFileExtensions>true</MapFileExtensions>
++    <ApplicationRevision>0</ApplicationRevision>
++    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
++    <IsWebBootstrapper>false</IsWebBootstrapper>
++    <UseApplicationTrust>false</UseApplicationTrust>
++    <BootstrapperEnabled>true</BootstrapperEnabled>
++    <TargetFrameworkProfile />
++  </PropertyGroup>
++  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
++    <DebugSymbols>true</DebugSymbols>
++    <DebugType>full</DebugType>
++    <Optimize>false</Optimize>
++    <OutputPath>bin\Debug\</OutputPath>
++    <DefineConstants>TRACE;DEBUG;EF_6</DefineConstants>
++    <ErrorReport>prompt</ErrorReport>
++    <WarningLevel>4</WarningLevel>
++    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
++    <Prefer32Bit>false</Prefer32Bit>
++  </PropertyGroup>
++  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
++    <DebugType>pdbonly</DebugType>
++    <Optimize>true</Optimize>
++    <OutputPath>bin\Release\</OutputPath>
++    <DefineConstants>TRACE;EF_6</DefineConstants>
++    <ErrorReport>prompt</ErrorReport>
++    <WarningLevel>4</WarningLevel>
++    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
++    <Prefer32Bit>false</Prefer32Bit>
++  </PropertyGroup>
++  <PropertyGroup>
++    <SignAssembly>true</SignAssembly>
++  </PropertyGroup>
++  <PropertyGroup>
++    <AssemblyOriginatorKeyFile>Properties\FirebirdSql.Data.UnitTests.snk</AssemblyOriginatorKeyFile>
++  </PropertyGroup>
++  <ItemGroup>
++    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
++      <SpecificVersion>False</SpecificVersion>
++      <HintPath>..\..\..\..\lib\EF6\net40\EntityFramework.dll</HintPath>
++    </Reference>
++    <Reference Include="nunit.framework">
++      <HintPath>..\..\..\..\lib\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
++    </Reference>
++    <Reference Include="System" />
++    <Reference Include="System.ComponentModel.DataAnnotations" />
++    <Reference Include="System.configuration" />
++    <Reference Include="System.Core">
++      <RequiredTargetFramework>3.5</RequiredTargetFramework>
++    </Reference>
++    <Reference Include="System.Data" />
++    <Reference Include="System.Data.Entity">
++      <RequiredTargetFramework>3.5</RequiredTargetFramework>
++    </Reference>
++    <Reference Include="System.Transactions" />
++    <Reference Include="System.Xml" />
++    <Reference Include="System.Xml.Linq" />
++  </ItemGroup>
++  <ItemGroup>
++    <Compile Include="EfConfig\EfDbConfiguration.cs" />
++    <Compile Include="EfMappings\Bar.cs" />
++    <Compile Include="EfMappings\Baz.cs" />
++    <Compile Include="EfMappings\Foo.cs" />
++    <Compile Include="EfTransactionTestWithEnlist.cs" />
++    <Compile Include="EfTransactionTest.cs" />
++    <Compile Include="FbConnectionStringTests.cs" />
++    <Compile Include="FbExceptionTests.cs" />
++    <Compile Include="TrackerIssuesTests.cs" />
++    <Compile Include="Properties\AssemblyInfo.cs" />
++    <Compile Include="TestsBase.cs" />
++    <Compile Include="FbArrayTests.cs" />
++    <Compile Include="FbBlobTests.cs" />
++    <Compile Include="FbCommandBuilderTests.cs" />
++    <Compile Include="FbCommandTests.cs" />
++    <Compile Include="FbConnectionTests.cs" />
++    <Compile Include="FbDataAdapterTests.cs" />
++    <Compile Include="FbDatabaseInfoTests.cs" />
++    <Compile Include="FbDatabaseSchemaTests.cs" />
++    <Compile Include="FbDataReaderTests.cs" />
++    <Compile Include="FbImplicitTransactionTests.cs" />
++    <Compile Include="FbParameterCollectionTests.cs" />
++    <Compile Include="FbParameterTests.cs" />
++    <Compile Include="FbScriptTests.cs" />
++    <Compile Include="FbServicesTests.cs" />
++    <Compile Include="FbStoredProcCallsTests.cs" />
++    <Compile Include="FbTransactionTests.cs" />
++    <Compile Include="GuidTests.cs" />
++    <Compile Include="EntityFrameworkTests.cs" />
++    <Compile Include="TransactionScopeTests.cs" />
++  </ItemGroup>
++  <ItemGroup>
++    <ProjectReference Include="..\FirebirdSql.Data.FirebirdClient.EF6.NET40.csproj">
++      <Project>{326A24F9-6259-45DB-835C-18DB80728460}</Project>
++      <Name>FirebirdSql.Data.FirebirdClient</Name>
++      <Private>True</Private>
++    </ProjectReference>
++  </ItemGroup>
++  <ItemGroup>
++    <None Include="App.config" />
++    <None Include="packages.config" />
++    <None Include="Properties\FirebirdSql.Data.UnitTests.snk" />
++  </ItemGroup>
++  <ItemGroup>
++    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
++    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
++  </ItemGroup>
++  <ItemGroup>
++    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
++      <Visible>False</Visible>
++      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
++      <Install>false</Install>
++    </BootstrapperPackage>
++    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
++      <Visible>False</Visible>
++      <ProductName>.NET Framework 3.5 SP1</ProductName>
++      <Install>true</Install>
++    </BootstrapperPackage>
++    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
++      <Visible>False</Visible>
++      <ProductName>Windows Installer 3.1</ProductName>
++      <Install>true</Install>
++    </BootstrapperPackage>
++  </ItemGroup>
++  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
++</Project>
+\ No newline at end of file
+diff --git a/source/FirebirdSql/Data/UnitTests/TestsBase.cs b/source/FirebirdSql/Data/UnitTests/TestsBase.cs
+index db012c1..903a8af 100644
+--- a/source/FirebirdSql/Data/UnitTests/TestsBase.cs
++++ b/source/FirebirdSql/Data/UnitTests/TestsBase.cs
+@@ -21,6 +21,11 @@ using System.Collections;
+ using System.Configuration;
+ using System.Data.Entity;
+ using System.Data.Entity.Infrastructure;
++#if EF_6
++using System.Data.Entity.Core.Metadata.Edm;
++#else
++using System.Data.Metadata.Edm;
++#endif
+ using System.IO;
+ using System.Linq;
+ using System.Security.Cryptography;
+@@ -30,7 +35,6 @@ using System.Xml.Linq;
+ 
+ using NUnit.Framework;
+ using FirebirdSql.Data.FirebirdClient;
+-using System.Data.Metadata.Edm;
+ 
+ namespace FirebirdSql.Data.UnitTests
+ {
+-- 
+1.8.4.msysgit.0
+

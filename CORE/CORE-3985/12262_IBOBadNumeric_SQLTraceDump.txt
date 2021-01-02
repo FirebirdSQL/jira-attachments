@@ -1,0 +1,263 @@
+/*---
+CONNECT DATABASE 'localhost:C:\CPS-Projects\Bugs\IBOBadNumeric\BadParam.FDB'
+  user_name = 'SYSDBA'
+  password = '*********' (redacted)
+DB_HANDLE = 1
+
+SECONDS = 0.100
+----*/
+/*---
+START TRANSACTION
+DB HANDLE COUNT 1
+DB HANDLE 1 = 1
+TPB VERSION 3
+  read
+TR_HANDLE = 2
+----*/
+/*---
+DATABASE INFO
+DB_HANDLE = 1
+----*/
+/*---
+EXECUTE IMMEDIATE 2
+DB_HANDLE = 1
+TR_HANDLE = 2
+
+SELECT D.RDB$CHARACTER_SET_NAME FROM RDB$DATABASE D
+
+PARAMS = [  ]
+FIELDS = [  Version 1 SQLd 1 SQLn 1
+  [CHARSET] = 'NONE                                                                                         ' (93 of 1022 bytes)    < Type: 448 SubType: 24933 Len: 1022 Scale: 0 Data: 00A75728 > ]
+----*/
+/*---
+COMMIT
+TR_HANDLE = 2
+
+SECONDS = 0.010
+----*/
+/*---
+DISCONNECT DATABASE
+DB_HANDLE = 1
+
+SECONDS = 0.020
+----*/
+/*---
+CONNECT DATABASE 'localhost:C:\CPS-Projects\Bugs\IBOBadNumeric\BadParam.FDB'
+  user_name = 'SYSDBA'
+  password = '*********' (redacted)
+  lc_ctype = 'WIN1252'
+DB_HANDLE = 3
+
+SECONDS = 0.010
+----*/
+/*---
+DATABASE INFO
+DB_HANDLE = 3
+----*/
+/*---
+START TRANSACTION
+DB HANDLE COUNT 1
+DB HANDLE 1 = 3
+TPB VERSION 3
+  read
+  read_committed
+  rec_version
+  nowait
+TR_HANDLE = 4
+----*/
+/*---
+PREPARE STATEMENT
+TR_HANDLE = 4
+STMT_HANDLE = 5
+
+/* OldParameterOrder test query */
+SELECT R.RDB$RELATION_NAME,
+ (SELECT F.RDB$FIELD_NAME
+  FROM RDB$RELATION_FIELDS F
+  WHERE F.RDB$RELATION_NAME = R.RDB$RELATION_NAME
+    AND F.RDB$FIELD_POSITION = ? ) AS TESTFIELD
+FROM RDB$RELATIONS R
+WHERE R.RDB$RELATION_NAME = ? 
+PLAN (F INDEX (RDB$INDEX_4))
+PLAN (R INDEX (RDB$INDEX_0))
+
+FIELDS = [  Version 1 SQLd 2 SQLn 2
+  RDB$RELATIONS.RDB$RELATION_NAME = <NIL>    < Type: 453 SubType: 53 Len: 31 Scale: 0 Data: 00000000 >
+  [TESTFIELD] = <NIL>    < Type: 453 SubType: 53 Len: 31 Scale: 0 Data: 00000000 > ]
+
+SECONDS = 0.010
+----*/
+/*---
+START TRANSACTION
+DB HANDLE COUNT 1
+DB HANDLE 1 = 3
+TPB VERSION 3
+  read
+TR_HANDLE = 6
+----*/
+/*---
+EXECUTE IMMEDIATE 2
+DB_HANDLE = 3
+TR_HANDLE = 6
+
+SELECT D.RDB$CHARACTER_SET_NAME FROM RDB$DATABASE D
+
+PARAMS = [  ]
+FIELDS = [  Version 1 SQLd 1 SQLn 1
+  [CHARSET] = 'NONE                           ' (31 of 1022 bytes)    < Type: 448 SubType: 16724 Len: 1022 Scale: 0 Data: 00A75520 > ]
+----*/
+/*---
+COMMIT
+TR_HANDLE = 6
+----*/
+/*---
+PREPARE STATEMENT
+TR_HANDLE = 4
+STMT_HANDLE = 7
+
+SELECT R.RDB$RELATION_NAME
+     , R.RDB$FIELD_NAME
+     , F.RDB$CHARACTER_LENGTH
+     , F.RDB$CHARACTER_SET_ID
+     , F.RDB$COLLATION_ID
+     , R.RDB$COLLATION_ID
+FROM RDB$RELATION_FIELDS R
+JOIN RDB$FIELDS F
+  ON F.RDB$FIELD_NAME = R.RDB$FIELD_SOURCE
+WHERE F.RDB$CHARACTER_SET_ID IS NOT NULL
+ORDER BY R.RDB$RELATION_NAME
+       , R.RDB$FIELD_POSITION
+PLAN SORT (JOIN (F NATURAL, R INDEX (RDB$INDEX_3)))
+
+FIELDS = [  Version 1 SQLd 6 SQLn 6
+  RDB$RELATION_FIELDS.RDB$RELATION_NAME = <NIL>    < Type: 453 SubType: 53 Len: 31 Scale: 0 Data: 00000000 >
+  RDB$RELATION_FIELDS.RDB$FIELD_NAME = <NIL>    < Type: 453 SubType: 53 Len: 31 Scale: 0 Data: 00000000 >
+  RDB$FIELDS.RDB$CHARACTER_LENGTH = <NIL>    < Type: 501 SubType: 0 Len: 2 Scale: 0 Data: 00000000 >
+  RDB$FIELDS.RDB$CHARACTER_SET_ID = <NIL>    < Type: 501 SubType: 0 Len: 2 Scale: 0 Data: 00000000 >
+  RDB$FIELDS.RDB$COLLATION_ID = <NIL>    < Type: 501 SubType: 0 Len: 2 Scale: 0 Data: 00000000 >
+  RDB$RELATION_FIELDS.RDB$COLLATION_ID = <NIL>    < Type: 501 SubType: 0 Len: 2 Scale: 0 Data: 00000000 > ]
+----*/
+/*---
+EXECUTE STATEMENT
+TR_HANDLE = 4
+STMT_HANDLE = 7
+PARAMS = [  ]
+----*/
+/*---
+START TRANSACTION
+DB HANDLE COUNT 1
+DB HANDLE 1 = 3
+TPB VERSION 3
+  write
+  read_committed
+  rec_version
+  nowait
+TR_HANDLE = 8
+----*/
+/*---
+EXECUTE IMMEDIATE
+DB_HANDLE = 3
+TR_HANDLE = 8
+
+CREATE OR ALTER PROCEDURE BAD_NUMERIC
+(
+  BAD_IN NUMERIC(15,5)
+)
+RETURNS
+(
+  BAD_OUT NUMERIC(15,5)
+)
+
+AS
+BEGIN
+END;
+
+
+PARAMS = [  ]
+
+SECONDS = 0.010
+
+ERRCODE = 335544569
+----*/
+/*---
+INTERPRET BUFFER = 
+
+ERRCODE = 17
+----*/
+/*---
+INTERPRET BUFFER = Dynamic SQL Error
+
+ERRCODE = 21
+----*/
+/*---
+INTERPRET BUFFER = SQL error code = -817
+
+ERRCODE = 78
+----*/
+/*---
+INTERPRET BUFFER = Metadata update statement is not allowed by the current database SQL dialect 1
+
+ERRCODE = -1
+----*/
+/*---
+ROLLBACK
+TR_HANDLE = 8
+----*/
+/*---
+ALLOCATE STATEMENT
+DB_HANDLE = 3
+STMT_HANDLE = 9
+----*/
+/*---
+PREPARE STATEMENT
+TR_HANDLE = 4
+STMT_HANDLE = 9
+
+CREATE OR ALTER PROCEDURE BAD_NUMERIC
+(
+  BAD_IN NUMERIC(15,5)
+)
+RETURNS
+(
+  BAD_OUT NUMERIC(15,5)
+)
+
+AS
+BEGIN
+END;
+
+FIELDS = [  Version 1 SQLd 0 SQLn 30 ]
+----*/
+/*---
+STATEMENT INFO
+STMT_HANDLE = 9
+----*/
+/*---
+START TRANSACTION
+DB HANDLE COUNT 1
+DB HANDLE 1 = 3
+TPB VERSION 3
+  write
+  read_committed
+  rec_version
+  nowait
+TR_HANDLE = 10
+----*/
+/*---
+EXECUTE STATEMENT
+TR_HANDLE = 10
+STMT_HANDLE = 9
+PARAMS = [  ]
+
+SECONDS = 0.010
+----*/
+/*---
+ROLLBACK
+TR_HANDLE = 10
+
+SECONDS = 0.010
+----*/
+/*---
+COMMIT
+TR_HANDLE = 4
+----*/

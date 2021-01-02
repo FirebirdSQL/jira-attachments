@@ -1,0 +1,186 @@
+Mar 26 15:15:53 iMac-di-Phelipe Installer[7682]: @(#)PROGRAM:Install  PROJECT:Install-686.3
+Mar 26 15:15:53 iMac-di-Phelipe Installer[7682]: @(#)PROGRAM:Installer  PROJECT:Installer-530
+Mar 26 15:15:53 iMac-di-Phelipe Installer[7682]: Hardware: iMac8,1 @ 2.80 GHz (x 2), 4096 MB RAM
+Mar 26 15:15:53 iMac-di-Phelipe Installer[7682]: Running OS Build: Mac OS X 10.7.3 (11D50)
+Mar 26 15:15:53 iMac-di-Phelipe Installer[7682]: Env: PATH=/usr/bin:/bin:/usr/sbin:/sbin
+Mar 26 15:15:53 iMac-di-Phelipe Installer[7682]: Env: TMPDIR=/var/folders/rx/7b6sb39s7pj0z2kt7s02hn3h0000gn/T/
+Mar 26 15:15:53 iMac-di-Phelipe Installer[7682]: Env: SHELL=/bin/bash
+Mar 26 15:15:53 iMac-di-Phelipe Installer[7682]: Env: HOME=/Users/phelipe
+Mar 26 15:15:53 iMac-di-Phelipe Installer[7682]: Env: USER=phelipe
+Mar 26 15:15:53 iMac-di-Phelipe Installer[7682]: Env: LOGNAME=phelipe
+Mar 26 15:15:53 iMac-di-Phelipe Installer[7682]: Env: DISPLAY=/tmp/launch-9Fklxn/org.x:0
+Mar 26 15:15:53 iMac-di-Phelipe Installer[7682]: Env: SSH_AUTH_SOCK=/tmp/launch-J2VsmZ/Listeners
+Mar 26 15:15:53 iMac-di-Phelipe Installer[7682]: Env: Apple_Ubiquity_Message=/tmp/launch-ceOK1O/Apple_Ubiquity_Message
+Mar 26 15:15:53 iMac-di-Phelipe Installer[7682]: Env: Apple_PubSub_Socket_Render=/tmp/launch-nVE63g/Render
+Mar 26 15:15:53 iMac-di-Phelipe Installer[7682]: Env: COMMAND_MODE=unix2003
+Mar 26 15:15:53 iMac-di-Phelipe Installer[7682]: Env: __CF_USER_TEXT_ENCODING=0x1F5:0:4
+Mar 26 15:15:53 iMac-di-Phelipe Installer[7682]: Firebird Database  Installation Log
+Mar 26 15:15:53 iMac-di-Phelipe Installer[7682]: Opened from: /Users/phelipe/Downloads/FirebirdSS-2.5.1-26351-x86_64.pkg
+Mar 26 15:16:00 iMac-di-Phelipe Installer[7682]: InstallerStatusNotifications plugin loaded
+Mar 26 15:16:05 iMac-di-Phelipe runner[7686]: Administrator authorization granted.
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: ================================================================================
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: User picked Standard Install
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: Choices selected for installation:
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: 	Installa: "Firebird Database"
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: 		FirebirdSS-2.5.1-26351-x86_64.pkg : org.firebirdsql.Firebird : 2.5.0.2.5
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: ================================================================================
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: It took 0.00 seconds to summarize the package selections.
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: -[IFPKGDerivedDocument sortedPackageLocations]: result = (
+	    "file://localhost"
+	)
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: -[IFDInstallController(Private) _buildInstallPlan]: location = file://localhost
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: -[IFDInstallController(Private) _buildInstallPlan]: file://localhost/Users/phelipe/Downloads/FirebirdSS-2.5.1-26351-x86_64.pkg
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: Set authorization level to root for session
+Mar 26 15:16:05 iMac-di-Phelipe runner[7686]: Administrator authorization granted.
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: Package file://localhost/Users/phelipe/Downloads/FirebirdSS-2.5.1-26351-x86_64.pkg not supported by PK
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: Will use IF session
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: Starting installation:
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: Configuring volume "Macintosh HD"
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: Preparing disk for local booted install.
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: Free space on "Macintosh HD": 952.83 GB (952833040384 bytes).
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: Create temporary directory "/var/folders/rx/7b6sb39s7pj0z2kt7s02hn3h0000gn/T//Install.76823kEZP7"
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: Processing Firebird Database:
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: 	Determining files to install
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: 	It took 0.00 seconds to create the install plan for FirebirdSS-2.5.1-26351-x86_64.
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: 	Configuring deferred files
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: 	Assembling temporary receipt
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: 	Performing pre-extraction actions
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: 	run preinstall script for Firebird Database
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: 	Creating destination path
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: 	Validating package payload
+Mar 26 15:16:05 iMac-di-Phelipe Installer[7682]: 	Starting file extraction
+Mar 26 15:16:05 iMac-di-Phelipe pkgExtractor[7691]: 	Extracting...
+Mar 26 15:16:05 iMac-di-Phelipe pkgExtractor[7691]: BomFatalError - cpio read error: bad file format
+Mar 26 15:16:05 iMac-di-Phelipe pkgExtractor[7691]: Package Authoring Error: Package "FirebirdSS-2.5.1-26351-x86_64.pkg" is using a deprecated archive format. Running in compatibility mode.
+Mar 26 15:16:06 iMac-di-Phelipe pkgExtractor[7691]: 	0 of 0 files written in 0.64 seconds.
+Mar 26 15:16:06 iMac-di-Phelipe pkgExtractor[7691]: 	0 kilobytes installed at 0.0 MB/s.
+Mar 26 15:16:06 iMac-di-Phelipe Installer[7682]: 	run postinstall script for Firebird Database
+Mar 26 15:16:06 iMac-di-Phelipe Installer[7682]: Install failed: Il seguente passaggio di installazione non è riuscito: run postinstall script for Firebird Database. Contatta il produttore del software per ottenere assistenza.
+Mar 26 15:16:06 iMac-di-Phelipe Installer[7682]: IFDInstallController E1C7FBB0 state = 7
+Mar 26 15:16:06 iMac-di-Phelipe Installer[7682]: Displaying 'Install Failed' UI.
+Mar 26 15:16:06 iMac-di-Phelipe Installer[7682]: 'Install Failed' UI displayed message:'Il seguente passaggio di installazione non è riuscito: run postinstall script for Firebird Database. Contatta il produttore del software per ottenere assistenza.'.
+
+-----
+
+
+Mar 26 15:18:12 iMac-di-Phelipe Installer[7722]: @(#)PROGRAM:Install  PROJECT:Install-686.3
+Mar 26 15:18:12 iMac-di-Phelipe Installer[7722]: @(#)PROGRAM:Installer  PROJECT:Installer-530
+Mar 26 15:18:12 iMac-di-Phelipe Installer[7722]: Hardware: iMac8,1 @ 2.80 GHz (x 2), 4096 MB RAM
+Mar 26 15:18:12 iMac-di-Phelipe Installer[7722]: Running OS Build: Mac OS X 10.7.3 (11D50)
+Mar 26 15:18:12 iMac-di-Phelipe Installer[7722]: Env: PATH=/usr/bin:/bin:/usr/sbin:/sbin
+Mar 26 15:18:12 iMac-di-Phelipe Installer[7722]: Env: TMPDIR=/var/folders/rx/7b6sb39s7pj0z2kt7s02hn3h0000gn/T/
+Mar 26 15:18:12 iMac-di-Phelipe Installer[7722]: Env: SHELL=/bin/bash
+Mar 26 15:18:12 iMac-di-Phelipe Installer[7722]: Env: HOME=/Users/phelipe
+Mar 26 15:18:12 iMac-di-Phelipe Installer[7722]: Env: USER=phelipe
+Mar 26 15:18:12 iMac-di-Phelipe Installer[7722]: Env: LOGNAME=phelipe
+Mar 26 15:18:12 iMac-di-Phelipe Installer[7722]: Env: DISPLAY=/tmp/launch-9Fklxn/org.x:0
+Mar 26 15:18:12 iMac-di-Phelipe Installer[7722]: Env: SSH_AUTH_SOCK=/tmp/launch-J2VsmZ/Listeners
+Mar 26 15:18:12 iMac-di-Phelipe Installer[7722]: Env: Apple_Ubiquity_Message=/tmp/launch-ceOK1O/Apple_Ubiquity_Message
+Mar 26 15:18:12 iMac-di-Phelipe Installer[7722]: Env: Apple_PubSub_Socket_Render=/tmp/launch-nVE63g/Render
+Mar 26 15:18:12 iMac-di-Phelipe Installer[7722]: Env: COMMAND_MODE=unix2003
+Mar 26 15:18:12 iMac-di-Phelipe Installer[7722]: Env: __CF_USER_TEXT_ENCODING=0x1F5:0:4
+Mar 26 15:18:12 iMac-di-Phelipe Installer[7722]: Firebird Database  Installation Log
+Mar 26 15:18:12 iMac-di-Phelipe Installer[7722]: Opened from: /Users/phelipe/Downloads/FirebirdSS-2.5.1-26351-x86_64.pkg
+Mar 26 15:18:16 iMac-di-Phelipe Installer[7722]: InstallerStatusNotifications plugin loaded
+Mar 26 15:18:20 iMac-di-Phelipe runner[7725]: Administrator authorization granted.
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: ================================================================================
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: User picked Standard Install
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: Choices selected for installation:
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: 	Installa: "Firebird Database"
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: 		FirebirdSS-2.5.1-26351-x86_64.pkg : org.firebirdsql.Firebird : 2.5.0.2.5
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: ================================================================================
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: It took 0.00 seconds to summarize the package selections.
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: -[IFPKGDerivedDocument sortedPackageLocations]: result = (
+	    "file://localhost"
+	)
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: -[IFDInstallController(Private) _buildInstallPlan]: location = file://localhost
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: -[IFDInstallController(Private) _buildInstallPlan]: file://localhost/Users/phelipe/Downloads/FirebirdSS-2.5.1-26351-x86_64.pkg
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: Set authorization level to root for session
+Mar 26 15:18:20 iMac-di-Phelipe runner[7725]: Administrator authorization granted.
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: Package file://localhost/Users/phelipe/Downloads/FirebirdSS-2.5.1-26351-x86_64.pkg not supported by PK
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: Will use IF session
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: Starting installation:
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: Configuring volume "Macintosh HD"
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: Preparing disk for local booted install.
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: Free space on "Macintosh HD": 952.83 GB (952830033920 bytes).
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: Create temporary directory "/var/folders/rx/7b6sb39s7pj0z2kt7s02hn3h0000gn/T//Install.7722t51cFB"
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: Processing Firebird Database:
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: 	Determining files to install
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: 	It took 0.00 seconds to create the install plan for FirebirdSS-2.5.1-26351-x86_64.
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: 	Configuring deferred files
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: 	Assembling temporary receipt
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: 	Performing pre-extraction actions
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: 	run preinstall script for Firebird Database
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: 	Creating destination path
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: 	Validating package payload
+Mar 26 15:18:20 iMac-di-Phelipe Installer[7722]: 	Starting file extraction
+Mar 26 15:18:20 iMac-di-Phelipe pkgExtractor[7730]: 	Extracting...
+Mar 26 15:18:20 iMac-di-Phelipe pkgExtractor[7730]: BomFatalError - cpio read error: bad file format
+Mar 26 15:18:20 iMac-di-Phelipe pkgExtractor[7730]: Package Authoring Error: Package "FirebirdSS-2.5.1-26351-x86_64.pkg" is using a deprecated archive format. Running in compatibility mode.
+Mar 26 15:18:21 iMac-di-Phelipe pkgExtractor[7730]: 	0 of 0 files written in 0.52 seconds.
+Mar 26 15:18:21 iMac-di-Phelipe pkgExtractor[7730]: 	0 kilobytes installed at 0.0 MB/s.
+Mar 26 15:18:21 iMac-di-Phelipe Installer[7722]: 	run postinstall script for Firebird Database
+Mar 26 15:18:21 iMac-di-Phelipe runner[7725]: postinstall[7733]: 7
+Mar 26 15:18:21 iMac-di-Phelipe runner[7725]: postinstall[7733]: Create the Firebird group 10.5+
+Mar 26 15:18:21 iMac-di-Phelipe runner[7725]: postinstall[7733]: 
+Mar 26 15:18:22 iMac-di-Phelipe runner[7725]: postinstall[7733]: Create the Firebird user 10.5+
+Mar 26 15:18:22 iMac-di-Phelipe runner[7725]: postinstall[7733]: 
+Mar 26 15:18:22 iMac-di-Phelipe runner[7725]: postinstall[7733]:     501
+Mar 26 15:18:22 iMac-di-Phelipe runner[7725]: postinstall[7733]: 
+Mar 26 15:18:23 iMac-di-Phelipe runner[7725]: postinstall[7733]: create the firebird user 10.5+
+Mar 26 15:18:23 iMac-di-Phelipe runner[7725]: postinstall[7733]: 
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: Shutdown any existing servers
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: Install the framework
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: 
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: Set the permissions correctly
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: 
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: Remove all traces of Classic first
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: 
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: Install StartupItem in the correct place SuperServer
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: 
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: Install ourselves in the correct place Classic
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: Test inetd
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: Test xinetd.d
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: Test launchd
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: Make sure hosts.equiv files are set correctly
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: 
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: Install the saved security database
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: 
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: Install the saved aliases.conf file
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: Install the saved UDF libraries
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: 
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: cp: /tmp/*UDF_save_*: No such file or directory
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: 
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: rm: /tmp/*UDF_save_*: No such file or directory
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: 
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: Add libfbclient to dynamic loader search path
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: Tell inetd/xinetd to reload configuration files
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: Create /tmp/firebird
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: 
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: Start SuperServer
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: 
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: Starting Firebird SQL Database server
+Mar 26 15:18:24 iMac-di-Phelipe runner[7725]: postinstall[7733]: 
+Mar 26 15:18:24 iMac-di-Phelipe Installer[7722]: 	Performing post-extraction actions
+Mar 26 15:18:24 iMac-di-Phelipe Installer[7722]: 	Finishing receipt
+Mar 26 15:18:24 iMac-di-Phelipe Installer[7722]: Removing temporary directory "/var/folders/rx/7b6sb39s7pj0z2kt7s02hn3h0000gn/T//Install.7722t51cFB"
+Mar 26 15:18:24 iMac-di-Phelipe Installer[7722]: Finalize disk "Macintosh HD"
+Mar 26 15:18:24 iMac-di-Phelipe Installer[7722]: Notifying system of updated components
+Mar 26 15:18:24 iMac-di-Phelipe Installer[7722]: 
+Mar 26 15:18:24 iMac-di-Phelipe Installer[7722]: **** Summary Information ****
+Mar 26 15:18:24 iMac-di-Phelipe Installer[7722]:   Operation      Elapsed time
+Mar 26 15:18:24 iMac-di-Phelipe Installer[7722]: -----------------------------
+Mar 26 15:18:24 iMac-di-Phelipe Installer[7722]:      config      0.01 seconds
+Mar 26 15:18:24 iMac-di-Phelipe Installer[7722]:     receipt      0.15 seconds
+Mar 26 15:18:24 iMac-di-Phelipe Installer[7722]:      script      3.43 seconds
+Mar 26 15:18:24 iMac-di-Phelipe Installer[7722]:        disk      0.01 seconds
+Mar 26 15:18:24 iMac-di-Phelipe Installer[7722]:        zero      0.03 seconds
+Mar 26 15:18:24 iMac-di-Phelipe Installer[7722]:     install      4.14 seconds
+Mar 26 15:18:24 iMac-di-Phelipe Installer[7722]:    validate      0.00 seconds
+Mar 26 15:18:24 iMac-di-Phelipe Installer[7722]:     extract      0.55 seconds
+Mar 26 15:18:24 iMac-di-Phelipe Installer[7722]:     -total-      8.32 seconds
+Mar 26 15:18:24 iMac-di-Phelipe Installer[7722]: 
+Mar 26 15:18:25 iMac-di-Phelipe Installer[7722]: Starting installation:
+Mar 26 15:18:25 iMac-di-Phelipe Installer[7722]: Finalizing installation.
+Mar 26 15:18:25 iMac-di-Phelipe Installer[7722]: IFDInstallController D2D460D0 state = 5
+Mar 26 15:18:25 iMac-di-Phelipe Installer[7722]: Displaying 'Install Succeeded' UI.

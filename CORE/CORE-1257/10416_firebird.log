@@ -1,0 +1,141 @@
+
+SEVER (Client)	Thu Jun 07 22:04:19 2007
+	Guardian starting: d:\ICDreamServer\NG20\Firebird 2.0.1\bin\fbserver.exe
+
+
+
+SEVER (Server)	Sat Jun 09 19:04:32 2007
+	Database: D:\ASP2.0\DB\NGDB.FDB
+	I/O error for file "D:\ASP2.0\DB\NGDB.FDB"
+	Error while trying to write to file
+	¾Ü¾ø·ÃÎÊ¡£
+
+	internal gds software consistency check (can't find shared latch (300), file: cch.cpp line: 3640)
+
+
+SEVER (Server)	Sun Jun 10 07:04:30 2007
+	Database: D:\ASP2.0\DB\NGDB.FDB
+	I/O error for file "D:\ASP2.0\DB\NGDB.FDB"
+	Error while trying to write to file
+	¾Ü¾ø·ÃÎÊ¡£
+
+	internal gds software consistency check (can't find shared latch (300), file: cch.cpp line: 3640)
+
+
+SEVER (Server)	Sun Jun 10 08:13:03 2007
+	Database: D:\ASP2.0\DB\NGDB.FDB
+	I/O error for file "D:\ASP2.0\DB\NGDB.FDB"
+	Error while trying to write to file
+	¾Ü¾ø·ÃÎÊ¡£
+
+	internal gds software consistency check (can't find shared latch (300), file: cch.cpp line: 3640)
+
+
+SEVER (Server)	Sun Jun 10 13:04:30 2007
+	Database: D:\ASP2.0\DB\NGDB.FDB
+	I/O error for file "D:\ASP2.0\DB\NGDB.FDB"
+	Error while trying to write to file
+	¾Ü¾ø·ÃÎÊ¡£
+
+	internal gds software consistency check (can't find shared latch (300), file: cch.cpp line: 3640)
+
+
+SEVER (Server)	Sun Jun 10 13:06:30 2007
+	Database: D:\ASP2.0\DB\NGDB.FDB
+	deadlock
+
+
+SEVER (Client)	Sun Jun 10 14:37:18 2007
+	d:\ICDreamServer\NG20\Firebird 2.0.1\bin\fbserver.exe: terminated abnormally (4294967295)
+
+
+
+SEVER (Client)	Sun Jun 10 14:37:18 2007
+	INET/inet_error: read errno = 10054
+
+
+SEVER (Client)	Sun Jun 10 14:37:18 2007
+	INET/inet_error: read errno = 10054
+
+
+SEVER (Client)	Sun Jun 10 14:37:18 2007
+	INET/inet_error: send errno = 10054
+
+
+SEVER (Client)	Sun Jun 10 14:37:18 2007
+	INET/inet_error: send errno = 10054
+
+
+SEVER (Client)	Sun Jun 10 14:37:18 2007
+	INET/inet_error: read errno = 10054
+
+
+SEVER (Client)	Sun Jun 10 14:37:18 2007
+	INET/inet_error: read errno = 10054
+
+
+SEVER (Client)	Sun Jun 10 14:37:18 2007
+	INET/inet_error: read errno = 10054
+
+
+SEVER (Client)	Sun Jun 10 14:37:18 2007
+	INET/inet_error: read errno = 10054
+
+
+SEVER (Client)	Sun Jun 10 14:37:18 2007
+	INET/inet_error: read errno = 10054
+
+
+SEVER (Client)	Sun Jun 10 14:37:18 2007
+	INET/inet_error: read errno = 10054
+
+
+SEVER (Client)	Sun Jun 10 14:37:18 2007
+	INET/inet_error: send errno = 10054
+
+
+SEVER (Client)	Sun Jun 10 14:37:18 2007
+	INET/inet_error: send errno = 10054
+
+
+SEVER (Client)	Sun Jun 10 14:37:18 2007
+	INET/inet_error: send errno = 10054
+
+
+SEVER (Client)	Sun Jun 10 14:37:18 2007
+	INET/inet_error: send errno = 10054
+
+
+SEVER (Client)	Sun Jun 10 14:37:18 2007
+	INET/inet_error: send errno = 10054
+
+
+SEVER (Client)	Sun Jun 10 14:37:18 2007
+	REMOTE INTERFACE/gds__detach: Unsuccesful detach from database. 
+	Uncommitted work may have been lost
+
+
+SEVER (Client)	Sun Jun 10 14:37:18 2007
+	INET/inet_error: send errno = 10054
+
+
+SEVER (Client)	Sun Jun 10 14:37:18 2007
+	INET/inet_error: send errno = 10054
+
+
+SEVER (Client)	Sun Jun 10 14:37:19 2007
+	INET/inet_error: connect errno = 10061
+
+
+SEVER (Client)	Sun Jun 10 14:37:20 2007
+	Guardian starting: d:\ICDreamServer\NG20\Firebird 2.0.1\bin\fbserver.exe
+
+
+
+SEVER (Client)	Sun Jun 10 14:37:21 2007
+	INET/inet_error: connect errno = 10061
+
+
+SEVER (Client)	Sun Jun 10 14:37:23 2007
+	INET/inet_error: connect errno = 10061
+

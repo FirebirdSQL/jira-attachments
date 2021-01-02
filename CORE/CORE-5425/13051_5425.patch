@@ -1,0 +1,22 @@
+diff --git a/src/yvalve/PluginManager.cpp b/src/yvalve/PluginManager.cpp
+index c1f96d7..71bb21b 100644
+--- a/src/yvalve/PluginManager.cpp
++++ b/src/yvalve/PluginManager.cpp
+@@ -1091,8 +1091,6 @@ IPluginSet* PluginManager::getPlugins(CheckStatusWrapper* status, unsigned int i
+ 
+ void PluginManager::releasePlugin(IPluginBase* plugin)
+ {
+-	MutexLockGuard g(plugins->mutex, FB_FUNCTION);
+-
+ 	IReferenceCounted* parent = plugin->getOwner();
+ 
+ 	if (plugin->release() == 0)
+@@ -1100,6 +1098,8 @@ void PluginManager::releasePlugin(IPluginBase* plugin)
+ 		///fb_assert(parent);
+ 		if (parent)
+ 		{
++			MutexLockGuard g(plugins->mutex, FB_FUNCTION);
++
+ 			parent->release();
+ 			if (plugins->wakeIt)
+ 			{

@@ -1,0 +1,189 @@
+*** ./firebird-1.5.3.4870/src/jrd/isc_ipc.cpp.orig	Mon May 22 17:52:42 2006
+--- ./firebird-1.5.3.4870/src/jrd/isc_ipc.cpp	Mon May 22 21:42:00 2006
+***************
+*** 75,86 ****
+--- 75,87 ----
+  	int sig_signal;
+  	SIG_FPTR sig_routine;
+  	void *sig_arg;
+  	SLONG sig_count;
+  	IPTR sig_thread_id;
+  	USHORT sig_flags;
++ 	USHORT sig_w_siginfo;
+  } *SIG;
+  
+  #define SIG_client	1			/* Not our routine */
+  #define SIG_informs	2			/* routine tells us whether to chain */
+  
+  #define SIG_informs_continue	0	/* continue on signal processing */
+***************
+*** 213,225 ****
+  #ifndef REQUESTER
+  static void error(ISC_STATUS *, TEXT *, ISC_STATUS);
+  #endif
+  #endif
+  static void isc_signal2(int, SIG_FPTR, void *, ULONG);
+  static SLONG overflow_handler(void *);
+! static SIG que_signal(int, SIG_FPTR, void *, int);
+  
+  #if !(defined HANDLER_ADDR_ARG)
+  #ifdef SINIXZ
+  static void CLIB_ROUTINE signal_handler(int, int);
+  #else
+  static void CLIB_ROUTINE signal_handler(int, int, struct sigcontext *);
+--- 214,226 ----
+  #ifndef REQUESTER
+  static void error(ISC_STATUS *, TEXT *, ISC_STATUS);
+  #endif
+  #endif
+  static void isc_signal2(int, SIG_FPTR, void *, ULONG);
+  static SLONG overflow_handler(void *);
+! static SIG que_signal(int, SIG_FPTR, void *, int, int);
+  
+  #if !(defined HANDLER_ADDR_ARG)
+  #ifdef SINIXZ
+  static void CLIB_ROUTINE signal_handler(int, int);
+  #else
+  static void CLIB_ROUTINE signal_handler(int, int, struct sigcontext *);
+***************
+*** 677,688 ****
+--- 678,690 ----
+   *	Multiplex multiple handers into single signal.
+   *
+   **************************************/
+  
+  	SIG sig;
+  	SIG_FPTR ptr;
++ 	USHORT old_sig_w_siginfo;
+  
+  /* The signal handler needs the process id */
+  	if (!process_id)
+  		process_id = getpid();
+  
+  #if defined(WIN_NT)
+***************
+*** 730,756 ****
+  		if (signal_number != SIGALRM)
+  			vec.sv_handler = SIG_DFL;
+  		else
+  #endif
+  			vec.sa_handler = (SIG_FPTR) signal_handler;
+  		memset(&vec.sa_mask, 0, sizeof(vec.sa_mask));
+  		vec.sa_flags = SA_RESTART;
+  		sigaction(signal_number, &vec, &old_vec);
+  		ptr = (SIG_FPTR) old_vec.sa_handler;
+  #endif
+  #endif
+  		if (ptr != (SIG_FPTR) SIG_DFL &&
+  			ptr != (SIG_FPTR) SIG_HOLD &&
+  			ptr != (SIG_FPTR) SIG_IGN && ptr != (SIG_FPTR) signal_handler) {
+! 			que_signal(signal_number, (SIG_FPTR) ptr, arg, SIG_client);
+  		}
+  	}
+  
+  	/* Que up the new ISC signal handler routine */
+  
+! 	que_signal(signal_number, handler, arg, flags);
+  
+  	THD_MUTEX_UNLOCK(&sig_mutex);
+  }
+  #endif
+  #endif
+  
+--- 732,763 ----
+  		if (signal_number != SIGALRM)
+  			vec.sv_handler = SIG_DFL;
+  		else
+  #endif
+  			vec.sa_handler = (SIG_FPTR) signal_handler;
+  		memset(&vec.sa_mask, 0, sizeof(vec.sa_mask));
++ 		sigaction(signal_number, NULL, &old_vec);
++ 		old_sig_w_siginfo=old_vec.sa_flags & SA_SIGINFO;    
++ 		if (old_sig_w_siginfo)
++ 		    vec.sa_flags = SA_RESTART | SA_SIGINFO;
++ 		else
+  		    vec.sa_flags = SA_RESTART;
+  		sigaction(signal_number, &vec, &old_vec);
+  		ptr = (SIG_FPTR) old_vec.sa_handler;
+  #endif
+  #endif
+  		if (ptr != (SIG_FPTR) SIG_DFL &&
+  			ptr != (SIG_FPTR) SIG_HOLD &&
+  			ptr != (SIG_FPTR) SIG_IGN && ptr != (SIG_FPTR) signal_handler) {
+! 			que_signal(signal_number, (SIG_FPTR) ptr, arg, SIG_client, old_sig_w_siginfo);
+  		}
+  	}
+  
+  	/* Que up the new ISC signal handler routine */
+  
+! 	que_signal(signal_number, handler, arg, flags, old_sig_w_siginfo);
+  
+  	THD_MUTEX_UNLOCK(&sig_mutex);
+  }
+  #endif
+  #endif
+  
+***************
+*** 963,975 ****
+  #endif
+  
+  
+  #ifndef REQUESTER
+  static SIG que_signal(
+  					  int signal_number,
+! 					  SIG_FPTR handler, void *arg, int flags)
+  {
+  /**************************************
+   *
+   *	q u e _ s i g n a l
+   *
+   **************************************
+--- 970,982 ----
+  #endif
+  
+  
+  #ifndef REQUESTER
+  static SIG que_signal(
+  					  int signal_number,
+! 					  SIG_FPTR handler, void *arg, int flags, int sig_w_siginfo)
+  {
+  /**************************************
+   *
+   *	q u e _ s i g n a l
+   *
+   **************************************
+***************
+*** 1011,1022 ****
+--- 1018,1030 ----
+  #endif
+  
+  	sig->sig_signal = signal_number;
+  	sig->sig_routine = handler;
+  	sig->sig_arg = arg;
+  	sig->sig_flags = flags;
++ 	sig->sig_w_siginfo = sig_w_siginfo;
+  	sig->sig_thread_id = thread_id;
+  	sig->sig_count = 0;
+  
+  	sig->sig_next = signals;
+  	signals = sig;
+  
+***************
+*** 1080,1092 ****
+--- 1088,1103 ----
+  #pragma FB_COMPILER_MESSAGE("Fix! Ugly function pointer cast!")
+  #ifdef HANDLER_ADDR_ARG
+  					((void (*)(...)) (*sig->sig_routine)) (number, code, scp, addr);
+  #elif defined(SINIXZ)
+  					((void (*)(...)) (*sig->sig_routine)) (number, code);
+  #else
++ 					if (sig->sig_w_siginfo) 
+  					    ((void (*)(...)) (*sig->sig_routine)) (number, code, scp);
++ 					else 
++ 					    ((void (*)(...)) (*sig->sig_routine)) (number);
+  #endif
+  				else if (sig->sig_flags & SIG_informs) {
+  					ULONG res;
+  					/* Routine will tell us whether to chain the signal to other handlers */
+  #pragma FB_COMPILER_MESSAGE("Fix! Ugly function pointer cast!")
+  					res = ((*((SLONG(*)(void *)) sig->sig_routine))

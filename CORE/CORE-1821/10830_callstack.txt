@@ -1,0 +1,18 @@
+>	gds32.dll!DataTypeUtilBase::makeFromList(dsc * result=0x0465e634, const char * expressionName=0x02f81880, int argsCount=2, const dsc * * args=0x037dd820)  Line 322	C++
+ 	gds32.dll!MAKE_desc_from_list(dsql_req * request=0x037ddf24, dsc * desc=0x0465e634, dsql_nod * node=0x037dd5bc, dsql_nod * null_replacement=0x00000000, const char * expression_name=0x02f81880)  Line 1398 + 0x26 bytes	C++
+ 	gds32.dll!MAKE_desc(dsql_req * request=0x037ddf24, dsc * desc=0x037dd9f0, dsql_nod * node=0x037dd9ec, dsql_nod * null_replacement=0x00000000)  Line 534 + 0x19 bytes	C++
+ 	gds32.dll!pass1_searched_case(dsql_req * request=0x037ddf24, dsql_nod * input=0x037ddc60, bool proc_flag=false)  Line 7961	C++
+ 	gds32.dll!PASS1_node(dsql_req * request=0x037ddf24, dsql_nod * input=0x037ddc60, bool proc_flag=false)  Line 597 + 0xe bytes	C++
+ 	gds32.dll!pass1_update(dsql_req * request=0x00000000, dsql_nod * input=0x037ddb88, bool proc_flag=false, bool insert_or_update=false)  Line 8891 + 0xb bytes	C++
+ 	gds32.dll!PASS1_statement(dsql_req * request=0x037ddf24, dsql_nod * input=0x037ddb88, bool proc_flag=false)  Line 1738 + 0xf bytes	C++
+ 	gds32.dll!prepare(dsql_req * request=0x037ddf00, unsigned short string_length=73, const char * string=0x047cefb0, unsigned short client_dialect=3, unsigned short parser_version=2)  Line 4751 + 0x14 bytes	C++
+ 	gds32.dll!GDS_DSQL_PREPARE_CPP(int * user_status=0x0465ea58, void * * trans_handle=0x047bec2c, dsql_req * * req_handle=0x03063968, unsigned short length=73, const char * string=0x047cefb0, unsigned short dialect=3, unsigned short item_length=25, const unsigned char * items=0x02f55890, unsigned short buffer_length=32768, unsigned char * buffer=0x0306527c)  Line 1406 + 0x17 bytes	C++
+ 	gds32.dll!isc_dsql_prepare_m(int * user_status=0x038b2d08, void * * tra_handle=0x047bec2c, void * * stmt_handle=0x047c1eec, unsigned short length=0, const char * string=0x047cefb0, unsigned short dialect=3, unsigned short item_length=25, const char * items=0x02f55890, unsigned short buffer_length=32768, char * buffer=0x0306527c)  Line 3517 + 0x2a bytes	C++
+ 	gds32.dll!isc_dsql_prepare(int * user_status=0x00008000, void * * tra_handle=0x047bec2c, void * * stmt_handle=0x047c1eec, unsigned short length=0, const char * string=0x047cefb0, unsigned short dialect=3, XSQLDA * sqlda=0x047dd008)  Line 3378 + 0x2f bytes	C++
+ 	IBProv.dll!ib_v5::t_ib_statement_v5::prepare(const wchar_t * stmt=0x047c2be0, db_obj::t_db_row * const row=0x047c56c8, db_obj::t_db_statement::pr_row_flags pr_flags=pr_row_none)  Line 210 + 0x87 bytes	C++
+ 	IBProv.dll!ibp::t_ibp_command::prepare(ibp::t_ibp_transaction * pIBPTrans=0x00000000, const wchar_t * text=0x02903738, bool prepare_exec_sp=true)  Line 92	C++
+ 	IBProv.dll!ib_sql_pstmt::t_ib_sql_pstmt_update::prepare_sql_impl(ibp::t_ibp_transaction * const pTrans=, const std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > & stmt_text=, ibp::t_ibp_command * const pCmd=)  Line 71	C++
+ 	IBProv.dll!ibp_sql_pstmt::t_ibp_sql_pstmt_std_base::prepare_sql(ibp::t_ibp_transaction * const pTrans=0x033b7368, ibp::t_ibp_command * const pCmd=0x0290f350)  Line 73	C++
+ 	IBProv.dll!ibp::t_ibp_sql_pstmt_data::prepare(const std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > & command_text="UPDATE UserGroup SET ACL = ( CASE WHEN ID IN ( 1, 2 ) THEN ? ELSE ? END )", ibp::TIBPCommand * const pCommand=0x033a4900, structure::t_smart_object_ptr<ibp::t_ibp_transaction,structure::t_sptr_traits<ibp::t_ibp_transaction> > & spTrans={...})  Line 90	C++
+ 	IBProv.dll!ibp::TIBPCommand::Prepare(unsigned long __formal=1)  Line 55	C++
+ 	MFServer.exe!ATL::CCommandBase::Prepare(unsigned long cExpectedRuns=1)  Line 6589 + 0x1f bytes	C++

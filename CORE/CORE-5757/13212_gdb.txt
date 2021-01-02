@@ -1,0 +1,59 @@
+
+Thread 6 (Thread 0x7ff53a7fc700 (LWP 14258)):
+#0  pthread_cond_wait@@GLIBC_2.3.2 () at ../sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:185
+#1  0x00007ff558a0ff5b in ?? () from /usr/lib/x86_64-linux-gnu/libfbembed.so.2.5
+#2  0x00007ff5589ca80b in ?? () from /usr/lib/x86_64-linux-gnu/libfbembed.so.2.5
+#3  0x00007ff5589cb9f9 in ?? () from /usr/lib/x86_64-linux-gnu/libfbembed.so.2.5
+#4  0x00007ff5588d58d5 in ?? () from /usr/lib/x86_64-linux-gnu/libfbembed.so.2.5
+#5  0x00007ff557bcd494 in start_thread (arg=0x7ff53a7fc700) at pthread_create.c:333
+#6  0x00007ff55790faff in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:97
+
+Thread 5 (Thread 0x7ff553a4d700 (LWP 13879)):
+#0  pthread_cond_wait@@GLIBC_2.3.2 () at ../sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:185
+#1  0x00007ff558a0ff5b in ?? () from /usr/lib/x86_64-linux-gnu/libfbembed.so.2.5
+#2  0x00007ff558b7231c in ?? () from /usr/lib/x86_64-linux-gnu/libfbembed.so.2.5
+#3  0x00007ff558b76c49 in ?? () from /usr/lib/x86_64-linux-gnu/libfbembed.so.2.5
+#4  0x00007ff5588d58d5 in ?? () from /usr/lib/x86_64-linux-gnu/libfbembed.so.2.5
+#5  0x00007ff557bcd494 in start_thread (arg=0x7ff553a4d700) at pthread_create.c:333
+#6  0x00007ff55790faff in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:97
+
+Thread 4 (Thread 0x7ff551f89700 (LWP 13878)):
+#0  pthread_cond_wait@@GLIBC_2.3.2 () at ../sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:185
+#1  0x00007ff558a0ff5b in ?? () from /usr/lib/x86_64-linux-gnu/libfbembed.so.2.5
+#2  0x00007ff558b7231c in ?? () from /usr/lib/x86_64-linux-gnu/libfbembed.so.2.5
+#3  0x00007ff558b76c49 in ?? () from /usr/lib/x86_64-linux-gnu/libfbembed.so.2.5
+#4  0x00007ff5588d58d5 in ?? () from /usr/lib/x86_64-linux-gnu/libfbembed.so.2.5
+#5  0x00007ff557bcd494 in start_thread (arg=0x7ff551f89700) at pthread_create.c:333
+#6  0x00007ff55790faff in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:97
+
+Thread 3 (Thread 0x7ff5544ec700 (LWP 21116)):
+#0  0x00007ff557bd5700 in futex_abstimed_wait_cancelable (private=0, abstime=0x7ff5544ebe00, expected=0, futex_word=0x7ff5591270a0) at ../sysdeps/unix/sysv/linux/futex-internal.h:205
+#1  do_futex_wait (sem=sem@entry=0x7ff5591270a0, abstime=abstime@entry=0x7ff5544ebe00) at sem_waitcommon.c:111
+#2  0x00007ff557bd57cf in __new_sem_wait_slow (sem=0x7ff5591270a0, abstime=0x7ff5544ebe00) at sem_waitcommon.c:181
+#3  0x00007ff557bd5882 in sem_timedwait (sem=<optimized out>, abstime=<optimized out>) at sem_timedwait.c:36
+#4  0x00007ff558bef260 in ?? () from /usr/lib/x86_64-linux-gnu/libfbembed.so.2.5
+#5  0x00007ff558addcbc in ?? () from /usr/lib/x86_64-linux-gnu/libfbembed.so.2.5
+#6  0x00007ff558addd79 in ?? () from /usr/lib/x86_64-linux-gnu/libfbembed.so.2.5
+#7  0x00007ff5588d58d5 in ?? () from /usr/lib/x86_64-linux-gnu/libfbembed.so.2.5
+#8  0x00007ff557bcd494 in start_thread (arg=0x7ff5544ec700) at pthread_create.c:333
+#9  0x00007ff55790faff in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:97
+
+Thread 2 (Thread 0x7ff5551c3700 (LWP 21115)):
+#0  0x00007ff557bd5536 in futex_abstimed_wait_cancelable (private=0, abstime=0x0, expected=0, futex_word=0x7ff5591a0ff0) at ../sysdeps/unix/sysv/linux/futex-internal.h:205
+#1  do_futex_wait (sem=sem@entry=0x7ff5591a0ff0, abstime=0x0) at sem_waitcommon.c:111
+#2  0x00007ff557bd55e4 in __new_sem_wait_slow (sem=0x7ff5591a0ff0, abstime=0x0) at sem_waitcommon.c:181
+#3  0x00007ff558bef172 in ?? () from /usr/lib/x86_64-linux-gnu/libfbembed.so.2.5
+#4  0x00007ff5588d9821 in ?? () from /usr/lib/x86_64-linux-gnu/libfbembed.so.2.5
+#5  0x00007ff5588d58d5 in ?? () from /usr/lib/x86_64-linux-gnu/libfbembed.so.2.5
+#6  0x00007ff557bcd494 in start_thread (arg=0x7ff5551c3700) at pthread_create.c:333
+#7  0x00007ff55790faff in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:97
+
+Thread 1 (Thread 0x7ff559175500 (LWP 21113)):
+#0  0x00007ff557bd64ff in __libc_recv (fd=12, buf=buf@entry=0x7ff559186278, n=n@entry=8192, flags=flags@entry=0) at ../sysdeps/unix/sysv/linux/x86_64/recv.c:28
+#1  0x00005555a5806043 in recv (__flags=0, __n=8192, __buf=0x7ff559186278, __fd=<optimized out>) at /usr/include/x86_64-linux-gnu/bits/socket2.h:44
+#2  packet_receive (port=0x7ff559183370, buffer=buffer@entry=0x7ff559186278 "", buffer_length=buffer_length@entry=8192, length=length@entry=0x7fffb586c516) at ../src/remote/inet.cpp:3259
+#3  0x00005555a5807b97 in select_multi (main_port=0x7ff55918c448, buffer=0x7ff559186278 "", bufsize=8192, length=0x7fffb586c516, port=...) at ../src/remote/inet.cpp:2227
+#4  0x00005555a57f620f in SRVR_multi_thread (main_port=main_port@entry=0x7ff55918c448, flags=<optimized out>) at ../src/remote/server.cpp:636
+#5  0x00005555a57ebe11 in server_main (argc=<optimized out>, argv=<optimized out>) at ../src/remote/inet_server.cpp:430
+#6  0x00007ff5578472b1 in __libc_start_main (main=0x5555a57eb220 <main(int, char**)>, argc=1, argv=0x7fffb586ddd8, init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, stack_end=0x7fffb586ddc8) at ../csu/libc-start.c:291
+#7  0x00005555a57eb5ba in _start ()

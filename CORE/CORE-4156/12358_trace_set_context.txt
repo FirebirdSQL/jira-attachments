@@ -1,0 +1,29 @@
+Firebird 3.0:
+
+Statement 21:
+-------------------------------------------------------------------------------
+SELECT   rdb$set_context('USER_SESSION', ?, ?) session_context FROM rdb$database
+
+param0 = varchar(80), "TestProperty                                                                    "
+param1 = varchar(255), "testValue                                                                    ..."
+
+
+2013-08-04T15:35:51.9100 (4940:0000000003184F10) SET_CONTEXT
+	D:\DEVELOPMENT\PROJECT\JAYBIRDECLIPSE\CLIENT-JAVA\FBTEST.FDB (ATT_8, SYSDBA:NONE, NONE, TCPv4:127.0.0.1)
+		(TRA_2, READ_COMMITTED | REC_VERSION | WAIT | READ_WRITE)
+[USER_SESSION] TestProperty                                                                     = "testValue                                                                                                                                                                                                                                                      "
+
+Firebird 2.5:
+
+Statement 40:
+-------------------------------------------------------------------------------
+SELECT   rdb$set_context('USER_SESSION', ?, ?) session_context FROM rdb$database
+
+param0 = varchar(80), "TestProperty"
+param1 = varchar(255), "testValue"
+
+
+2013-08-04T15:36:47.1510 (5136:00000000033C6020) SET_CONTEXT
+	D:\DEVELOPMENT\PROJECT\JAYBIRDECLIPSE\CLIENT-JAVA\FBTEST.FDB (ATT_3, SYSDBA:NONE, NONE, TCPv4:127.0.0.1)
+		(TRA_2, READ_COMMITTED | REC_VERSION | WAIT | READ_WRITE)
+[USER_SESSION] TestProperty = "testValue"

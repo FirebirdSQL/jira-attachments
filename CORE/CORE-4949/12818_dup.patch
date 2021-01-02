@@ -1,0 +1,58 @@
+Index: dfw.epp
+===================================================================
+--- dfw.epp	(revision 62270)
++++ dfw.epp	(working copy)
+@@ -389,7 +389,7 @@
+ static void get_procedure_dependencies(DeferredWork*, bool, jrd_tra*);
+ static void get_trigger_dependencies(DeferredWork*, bool, jrd_tra*);
+ static void	load_trigs(thread_db*, jrd_rel*, trig_vec**);
+-static Format*	make_format(thread_db*, jrd_rel*, USHORT *, TemporaryField*);
++static Format*	make_format(thread_db*, jrd_tra*, jrd_rel*, USHORT *, TemporaryField*);
+ static void put_summary_blob(thread_db* tdbb, blb*, enum rsr_t, bid*, jrd_tra*);
+ static void put_summary_record(thread_db* tdbb, blb*, enum rsr_t, const UCHAR*, USHORT);
+ static void	setup_array(thread_db*, blb*, const TEXT*, USHORT, TemporaryField*);
+@@ -4484,8 +4484,8 @@
+ }
+ 
+ 
+-static Format* make_format(thread_db* tdbb, jrd_rel* relation, USHORT* version,
+-	TemporaryField* stack)
++static Format* make_format(thread_db* tdbb, jrd_tra* transaction, jrd_rel* relation, 
++	USHORT* version, TemporaryField* stack)
+ {
+ /**************************************
+  *
+@@ -4588,13 +4588,13 @@
+ 
+ 	jrd_req* request = CMP_find_request(tdbb, irq_format3, IRQ_REQUESTS);
+ 
+-	STORE(REQUEST_HANDLE request)
++	STORE(REQUEST_HANDLE request TRANSACTION_HANDLE transaction)
+ 		FMTS IN RDB$FORMATS
+ 		if (!REQUEST(irq_format3))
+ 			REQUEST(irq_format3) = request;
+ 		FMTS.RDB$FORMAT = format->fmt_version;
+ 		FMTS.RDB$RELATION_ID = relation->rel_id;
+-		blb* blob = BLB_create(tdbb, dbb->dbb_sys_trans, &FMTS.RDB$DESCRIPTOR);
++		blb* blob = BLB_create(tdbb, transaction, &FMTS.RDB$DESCRIPTOR);
+ 
+ 		if (sizeof(Ods::Descriptor) == sizeof(struct dsc) || dbb->dbb_ods_version < ODS_VERSION11)
+ 		{
+@@ -4901,7 +4901,7 @@
+ 				BLB_close(tdbb, blob);
+ 				USHORT version = REL.RDB$FORMAT.NULL ? 0 : REL.RDB$FORMAT;
+ 				version++;
+-				relation->rel_current_format = make_format(tdbb, relation, &version, stack);
++				relation->rel_current_format = make_format(tdbb, transaction, relation, &version, stack);
+ 				REL.RDB$FORMAT.NULL = FALSE;
+ 				REL.RDB$FORMAT = version;
+ 
+@@ -4965,7 +4965,7 @@
+ 				ERASE FMTS;
+ 			END_FOR;
+ 			CMP_release(tdbb, temp);
+-			make_format(tdbb, relation, 0, external);
++			make_format(tdbb, transaction, relation, 0, external);
+ 		}
+ 
+ 		relation->rel_flags &= ~REL_scanned;

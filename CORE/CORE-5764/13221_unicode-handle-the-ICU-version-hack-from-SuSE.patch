@@ -1,0 +1,88 @@
+From: Michal Kubecek <mkubecek@suse.cz>
+Date: Sat, 3 Mar 2018 15:53:21 +0100
+Subject: unicode: handle the ICU version hack from SuSE
+
+OpenSuSE >= 13.1 adds minor version into ICU soname to cope with
+repeated upstream ABI breakages. We therefore need to make
+unicode_util functions adapt to this.
+---
+ src/common/unicode_util.cpp | 30 ++++++++++++++++++++++++++----
+ 1 file changed, 26 insertions(+), 4 deletions(-)
+
+diff --git a/src/common/unicode_util.cpp b/src/common/unicode_util.cpp
+index 1850ea2e9600..cd30bce00c8c 100644
+--- a/src/common/unicode_util.cpp
++++ b/src/common/unicode_util.cpp
+@@ -52,6 +52,8 @@
+ 
+ // The next major ICU version after 4.8 is 49.
+ #define ICU_NEW_VERSION_MEANING	49
++// openSUSE >= 13.1 adds minor version to soname
++#define ICU_VERSION_SUSE_HACK 51
+ 
+ 
+ using namespace Firebird;
+@@ -347,7 +349,9 @@ static void formatFilename(PathName& filename, const char* templateName,
+ 	int majorVersion, int minorVersion)
+ {
+ 	string s;
+-	if (majorVersion >= ICU_NEW_VERSION_MEANING)
++	if (majorVersion >= ICU_VERSION_SUSE_HACK)
++		s.printf("%d_%d", majorVersion, minorVersion);
++	else if (majorVersion >= ICU_NEW_VERSION_MEANING)
+ 		s.printf("%d", majorVersion);
+ 	else
+ 		s.printf("%d%d", majorVersion, minorVersion);
+@@ -970,13 +974,20 @@ UnicodeUtil::ICU* UnicodeUtil::loadICU(const string& icuVersion, const string& c
+ 			&majorVersion, &minorVersion);
+ 
+ 		if (n == 1)
+-			minorVersion = 0;
++		{
++			n = sscanf((*i == "default" ? version : *i).c_str(), "%d_%d",
++			&majorVersion, &minorVersion);
++			if (n == 1)
++				minorVersion = 0;
++		}
+ 		else if (n != 2)
+ 			continue;
+ 
+ 		string configVersion;
+ 
+-		if (majorVersion >= ICU_NEW_VERSION_MEANING)
++		if (majorVersion >= ICU_VERSION_SUSE_HACK)
++			configVersion.printf("%d_%d", majorVersion, minorVersion);
++		else if (majorVersion >= ICU_NEW_VERSION_MEANING)
+ 		{
+ 			minorVersion = 0;
+ 			configVersion.printf("%d", majorVersion);
+@@ -1153,6 +1164,15 @@ UnicodeUtil::ConversionICU& UnicodeUtil::getConversionICU()
+ 			{
+ 				if ((convIcu = ImplementConversionICU::create(*major, minor)))
+ 					return *convIcu;
++				for (int j = 9; j >= 0; j--)
++				{
++					int suseMajor = 10 * (*major) + j;
++
++					if (suseMajor < ICU_VERSION_SUSE_HACK)
++						break;
++					if (convIcu = ImplementConversionICU::create(suseMajor, minor))
++						return *convIcu;
++				}
+ 			}
+ 			catch (const Exception& ex)
+ 			{
+@@ -1180,7 +1200,9 @@ string UnicodeUtil::getDefaultIcuVersion()
+ 	string rc;
+ 	UnicodeUtil::ConversionICU& icu(UnicodeUtil::getConversionICU());
+ 
+-	if (icu.vMajor >= ICU_NEW_VERSION_MEANING)
++	if (icu.vMajor >= ICU_VERSION_SUSE_HACK)
++		rc.printf("%d_%d", icu.vMajor, icu.vMinor);
++	else if (icu.vMajor >= ICU_NEW_VERSION_MEANING)
+ 		rc.printf("%d", icu.vMajor);
+ 	else
+ 		rc.printf("%d.%d", icu.vMajor, icu.vMinor);
+-- 
+2.16.2
+

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory name="waiterSF">
+        <property name="hibernate.connection.driver_class">org.firebirdsql.jdbc.FBDriver</property>
+        <property name="hibernate.connection.password">masterkey</property>
+        <property name="hibernate.connection.url">jdbc:firebirdsql:localhost/c:/pessoal/jerry/desenvolvimento/java/waiter/db/dbwaiter.fdb</property>
+        <property name="hibernate.connection.username">SYSDBA</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.FirebirdDialect</property>
+    </session-factory>
+</hibernate-configuration>

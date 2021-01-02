@@ -1,0 +1,102 @@
+--- firebird2/src/isql/isql.epp	2006-06-25 15:02:59.000000000 +0200
++++ firebird2-build/src/isql/isql.epp	2006-06-26 02:58:39.000000000 +0200
+@@ -54,7 +54,6 @@
+ #include <stdlib.h>
+ #include <stdarg.h>
+ #include <string.h>
+-#include <signal.h>
+ #include <limits.h>
+ #include <math.h>
+ #include <ctype.h>
+@@ -70,6 +69,9 @@
+ #ifdef HAVE_SIGNAL_H
+ #include <signal.h>
+ #endif
++#ifdef HAVE_TERMIOS_H
++#include <termios.h>
++#endif
+ 
+ #ifdef WIN_NT
+ #include <io.h> // mktemp
+@@ -399,6 +401,7 @@
+ static indev* Filelist;
+ static TEXT Tmpfile[MAXPATHLEN];
+ static bool Abort_flag = false;
++static bool Interrupt_flag = true;
+ static bool Echo = false;
+ static bool Time_display = false;
+ static bool Sqlda_display = false;
+@@ -3107,7 +3110,16 @@
+ 
+ 	// Open database and start tansaction
+ 
++#ifdef HAVE_SIGACTION
++	struct sigaction sig_action;
++	if (sigaction(SIGINT, NULL, &sig_action) == 0) {
++		sig_action.sa_handler = query_abort;
++		sig_action.sa_flags |= SA_RESTART;
++		sigaction(SIGINT, &sig_action, NULL);
++	}
++#else
+ 	signal(SIGINT, query_abort);
++#endif
+ 
+ 	//
+ 	// We will not execute this for now on WINDOWS. We are not prompting for
+@@ -3162,6 +3174,11 @@
+ 			break;
+ 		}
+ 
++		if (Interrupt_flag) {
++			// SIGINT caught in interactive mode
++			Interrupt_flag = false;
++		}
++
+ 		ret = get_statement(statement, stmtLength, sql_prompt);
+ 
+ 		// If there is no database yet, remind us of the need to connect 
+@@ -6433,7 +6450,7 @@
+ 		for (const XSQLVAR* const end = var + sqlda->sqld; var < end;
+ 			 var++, i++)
+ 		{
+-			if (!Abort_flag) {
++			if (!Interrupt_flag && !Abort_flag) {
+ 				// Save all the blob vars and print them at the end
+ 				// CVC: If varnum reaches 20, we must print an error instead of crashing.
+ 				const int rc = print_item(&p, var, pad[i]);
+@@ -7255,9 +7272,21 @@
+ 	}
+ 	else {
+ 		// Otherwise fetch and print records until EOF
++
++#ifdef HAVE_TERMIOS_H
++		int out_fd = fileno(isqlGlob.Out);
++		if (isatty(out_fd)) {
++			struct termios tflags;
++			if (tcgetattr(out_fd, &tflags) == 0) {
++				tflags.c_lflag |= NOFLSH;
++				tcsetattr(out_fd, TCSANOW, &tflags);
++			}
++		}
++#endif
++
+ 		const bool printHead = !List && Heading;
+ 		SLONG lines;
+-		for (lines = 0; !Abort_flag; ++lines) {
++		for (lines = 0; !Interrupt_flag && !Abort_flag; ++lines) {
+ 
+ 			// Fetch the current cursor 
+ 
+@@ -7394,7 +7423,11 @@
+  *
+  **************************************/
+ 
+-	Abort_flag = true;
++	if (Interactive) {
++		Interrupt_flag = true;
++	} else {
++		Abort_flag = true;
++	}
+ }
+ 
+ 

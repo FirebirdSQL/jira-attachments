@@ -1,0 +1,283 @@
+      3317:	find library=libpthread.so.0 [0]; searching
+      3317:	 search path=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli/tls/x86_64:/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli/tls:/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli/x86_64:/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli:/usr/local/java/jre1.7.0_07/bin/../jre/lib/amd64/jli/tls/x86_64:/usr/local/java/jre1.7.0_07/bin/../jre/lib/amd64/jli/tls:/usr/local/java/jre1.7.0_07/bin/../jre/lib/amd64/jli/x86_64:/usr/local/java/jre1.7.0_07/bin/../jre/lib/amd64/jli		(RPATH from file java)
+      3317:	  trying file=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli/tls/x86_64/libpthread.so.0
+      3317:	  trying file=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli/tls/libpthread.so.0
+      3317:	  trying file=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli/x86_64/libpthread.so.0
+      3317:	  trying file=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli/libpthread.so.0
+      3317:	  trying file=/usr/local/java/jre1.7.0_07/bin/../jre/lib/amd64/jli/tls/x86_64/libpthread.so.0
+      3317:	  trying file=/usr/local/java/jre1.7.0_07/bin/../jre/lib/amd64/jli/tls/libpthread.so.0
+      3317:	  trying file=/usr/local/java/jre1.7.0_07/bin/../jre/lib/amd64/jli/x86_64/libpthread.so.0
+      3317:	  trying file=/usr/local/java/jre1.7.0_07/bin/../jre/lib/amd64/jli/libpthread.so.0
+      3317:	 search cache=/etc/ld.so.cache
+      3317:	  trying file=/lib/x86_64-linux-gnu/libpthread.so.0
+      3317:	
+      3317:	find library=libjli.so [0]; searching
+      3317:	 search path=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli		(RPATH from file java)
+      3317:	  trying file=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli/libjli.so
+      3317:	
+      3317:	find library=libdl.so.2 [0]; searching
+      3317:	 search path=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli		(RPATH from file java)
+      3317:	  trying file=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli/libdl.so.2
+      3317:	 search cache=/etc/ld.so.cache
+      3317:	  trying file=/lib/x86_64-linux-gnu/libdl.so.2
+      3317:	
+      3317:	find library=libc.so.6 [0]; searching
+      3317:	 search path=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli		(RPATH from file java)
+      3317:	  trying file=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli/libc.so.6
+      3317:	 search cache=/etc/ld.so.cache
+      3317:	  trying file=/lib/x86_64-linux-gnu/libc.so.6
+      3317:	
+      3317:	
+      3317:	calling init: /lib/x86_64-linux-gnu/libpthread.so.0
+      3317:	
+      3317:	
+      3317:	calling init: /lib64/ld-linux-x86-64.so.2
+      3317:	
+      3317:	
+      3317:	calling init: /lib/x86_64-linux-gnu/libc.so.6
+      3317:	
+      3317:	
+      3317:	calling init: /lib/x86_64-linux-gnu/libdl.so.2
+      3317:	
+      3317:	
+      3317:	calling init: /usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli/libjli.so
+      3317:	
+      3317:	
+      3317:	initialize program: java
+      3317:	
+      3317:	
+      3317:	transferring control: java
+      3317:	
+      3317:	find library=libm.so.6 [0]; searching
+      3317:	 search path=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli		(RPATH from file java)
+      3317:	  trying file=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli/libm.so.6
+      3317:	 search cache=/etc/ld.so.cache
+      3317:	  trying file=/lib/x86_64-linux-gnu/libm.so.6
+      3317:	
+      3317:	
+      3317:	calling init: /lib/x86_64-linux-gnu/libm.so.6
+      3317:	
+      3317:	
+      3317:	calling init: /usr/local/java/jre1.7.0_07/lib/amd64/server/libjvm.so
+      3317:	
+      3317:	find library=librt.so.1 [0]; searching
+      3317:	 search path=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli		(RPATH from file java)
+      3317:	  trying file=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli/librt.so.1
+      3317:	 search cache=/etc/ld.so.cache
+      3317:	  trying file=/lib/x86_64-linux-gnu/librt.so.1
+      3317:	
+      3317:	
+      3317:	calling init: /lib/x86_64-linux-gnu/librt.so.1
+      3317:	
+      3317:	
+      3317:	calling init: /usr/local/java/jre1.7.0_07/lib/amd64/libverify.so
+      3317:	
+      3317:	
+      3317:	calling init: /usr/local/java/jre1.7.0_07/lib/amd64/libjava.so
+      3317:	
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/server/libjvm.so: error: symbol lookup error: undefined symbol: JVM_begin_signal_setting (fatal)
+      3317:	find library=libnss_compat.so.2 [0]; searching
+      3317:	 search path=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli		(RPATH from file java)
+      3317:	  trying file=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli/libnss_compat.so.2
+      3317:	 search cache=/etc/ld.so.cache
+      3317:	  trying file=/lib/x86_64-linux-gnu/libnss_compat.so.2
+      3317:	
+      3317:	find library=libnsl.so.1 [0]; searching
+      3317:	 search path=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli		(RPATH from file java)
+      3317:	  trying file=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli/libnsl.so.1
+      3317:	 search cache=/etc/ld.so.cache
+      3317:	  trying file=/lib/x86_64-linux-gnu/libnsl.so.1
+      3317:	
+      3317:	
+      3317:	calling init: /lib/x86_64-linux-gnu/libnsl.so.1
+      3317:	
+      3317:	
+      3317:	calling init: /lib/x86_64-linux-gnu/libnss_compat.so.2
+      3317:	
+      3317:	find library=libnss_nis.so.2 [0]; searching
+      3317:	 search path=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli		(RPATH from file java)
+      3317:	  trying file=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli/libnss_nis.so.2
+      3317:	 search cache=/etc/ld.so.cache
+      3317:	  trying file=/lib/x86_64-linux-gnu/libnss_nis.so.2
+      3317:	
+      3317:	find library=libnss_files.so.2 [0]; searching
+      3317:	 search path=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli		(RPATH from file java)
+      3317:	  trying file=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli/libnss_files.so.2
+      3317:	 search cache=/etc/ld.so.cache
+      3317:	  trying file=/lib/x86_64-linux-gnu/libnss_files.so.2
+      3317:	
+      3317:	
+      3317:	calling init: /lib/x86_64-linux-gnu/libnss_files.so.2
+      3317:	
+      3317:	
+      3317:	calling init: /lib/x86_64-linux-gnu/libnss_nis.so.2
+      3317:	
+      3317:	
+      3317:	calling init: /usr/local/java/jre1.7.0_07/lib/amd64/libzip.so
+      3317:	
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libzip.so: error: symbol lookup error: undefined symbol: ZIP_ReadMappedEntry (fatal)
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libjava.so: error: symbol lookup error: undefined symbol: Java_java_security_AccessController_doPrivileged (fatal)
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libjava.so: error: symbol lookup error: undefined symbol: Java_java_security_AccessController_doPrivileged (fatal)
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libzip.so: error: symbol lookup error: undefined symbol: Java_java_security_AccessController_doPrivileged (fatal)
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libjava.so: error: symbol lookup error: undefined symbol: Java_java_security_AccessController_doPrivileged (fatal)
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libzip.so: error: symbol lookup error: undefined symbol: Java_java_security_AccessController_doPrivileged (fatal)
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libjava.so: error: symbol lookup error: undefined symbol: Java_java_util_zip_ZipFile_initIDs (fatal)
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libjava.so: error: symbol lookup error: undefined symbol: Java_java_util_zip_ZipFile_open (fatal)
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libjava.so: error: symbol lookup error: undefined symbol: Java_java_util_zip_ZipFile_getTotal (fatal)
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libjava.so: error: symbol lookup error: undefined symbol: Java_java_util_zip_ZipFile_getEntry (fatal)
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libjava.so: error: symbol lookup error: undefined symbol: Java_java_util_zip_ZipFile_getEntryFlag (fatal)
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libjava.so: error: symbol lookup error: undefined symbol: Java_java_util_zip_ZipFile_getEntryTime (fatal)
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libjava.so: error: symbol lookup error: undefined symbol: Java_java_util_zip_ZipFile_getEntryCrc (fatal)
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libjava.so: error: symbol lookup error: undefined symbol: Java_java_util_zip_ZipFile_getEntrySize (fatal)
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libjava.so: error: symbol lookup error: undefined symbol: Java_java_util_zip_ZipFile_getEntryCSize (fatal)
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libjava.so: error: symbol lookup error: undefined symbol: Java_java_util_zip_ZipFile_getEntryMethod (fatal)
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libjava.so: error: symbol lookup error: undefined symbol: Java_java_util_zip_ZipFile_getEntryBytes (fatal)
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libjava.so: error: symbol lookup error: undefined symbol: Java_java_util_zip_ZipFile_freeEntry (fatal)
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libjava.so: error: symbol lookup error: undefined symbol: Java_java_util_jar_JarFile_getMetaInfEntryNames (fatal)
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libjava.so: error: symbol lookup error: undefined symbol: Java_java_util_zip_ZipFile_read (fatal)
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libjava.so: error: symbol lookup error: undefined symbol: Java_java_security_AccessController_doPrivileged (fatal)
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libzip.so: error: symbol lookup error: undefined symbol: Java_java_security_AccessController_doPrivileged (fatal)
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libjava.so: error: symbol lookup error: undefined symbol: Java_java_util_zip_Inflater_initIDs (fatal)
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libjava.so: error: symbol lookup error: undefined symbol: Java_java_util_zip_Inflater_init (fatal)
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libjava.so: error: symbol lookup error: undefined symbol: Java_java_util_zip_Inflater_inflateBytes (fatal)
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libjava.so: error: symbol lookup error: undefined symbol: Java_java_util_zip_Inflater_reset (fatal)
+      3317:	/usr/local/java/jre1.7.0_07/lib/amd64/libjava.so: error: symbol lookup error: undefined symbol: Java_java_util_zip_Inflater_getBytesWritten (fatal)
+      3317:	find library=libstdc++.so.6 [0]; searching
+      3317:	 search path=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli		(RPATH from file java)
+      3317:	  trying file=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli/libstdc++.so.6
+      3317:	 search cache=/etc/ld.so.cache
+      3317:	  trying file=/usr/lib/x86_64-linux-gnu/libstdc++.so.6
+      3317:	
+      3317:	find library=libgcc_s.so.1 [0]; searching
+      3317:	 search path=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli		(RPATH from file java)
+      3317:	  trying file=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli/libgcc_s.so.1
+      3317:	 search cache=/etc/ld.so.cache
+      3317:	  trying file=/lib/x86_64-linux-gnu/libgcc_s.so.1
+      3317:	
+      3317:	
+      3317:	calling init: /lib/x86_64-linux-gnu/libgcc_s.so.1
+      3317:	
+      3317:	
+      3317:	calling init: /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+      3317:	
+      3317:	
+      3317:	calling init: /home/mark/Downloads/libjaybird22_x64.so
+      3317:	
+      3317:	find library=fbclient.dll [0]; searching
+      3317:	 search path=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli		(RPATH from file java)
+      3317:	  trying file=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli/fbclient.dll
+      3317:	 search cache=/etc/ld.so.cache
+      3317:	 search path=/lib/x86_64-linux-gnu/tls/x86_64:/lib/x86_64-linux-gnu/tls:/lib/x86_64-linux-gnu/x86_64:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu/tls/x86_64:/usr/lib/x86_64-linux-gnu/tls:/usr/lib/x86_64-linux-gnu/x86_64:/usr/lib/x86_64-linux-gnu:/lib/tls/x86_64:/lib/tls:/lib/x86_64:/lib:/usr/lib/tls/x86_64:/usr/lib/tls:/usr/lib/x86_64:/usr/lib		(system search path)
+      3317:	  trying file=/lib/x86_64-linux-gnu/tls/x86_64/fbclient.dll
+      3317:	  trying file=/lib/x86_64-linux-gnu/tls/fbclient.dll
+      3317:	  trying file=/lib/x86_64-linux-gnu/x86_64/fbclient.dll
+      3317:	  trying file=/lib/x86_64-linux-gnu/fbclient.dll
+      3317:	  trying file=/usr/lib/x86_64-linux-gnu/tls/x86_64/fbclient.dll
+      3317:	  trying file=/usr/lib/x86_64-linux-gnu/tls/fbclient.dll
+      3317:	  trying file=/usr/lib/x86_64-linux-gnu/x86_64/fbclient.dll
+      3317:	  trying file=/usr/lib/x86_64-linux-gnu/fbclient.dll
+      3317:	  trying file=/lib/tls/x86_64/fbclient.dll
+      3317:	  trying file=/lib/tls/fbclient.dll
+      3317:	  trying file=/lib/x86_64/fbclient.dll
+      3317:	  trying file=/lib/fbclient.dll
+      3317:	  trying file=/usr/lib/tls/x86_64/fbclient.dll
+      3317:	  trying file=/usr/lib/tls/fbclient.dll
+      3317:	  trying file=/usr/lib/x86_64/fbclient.dll
+      3317:	  trying file=/usr/lib/fbclient.dll
+      3317:	
+org.firebirdsql.gds.impl.jni.InternalError: FirebirdApiBinding::Initialize - Could not find or load the firebird client library.
+	at org.firebirdsql.gds.impl.jni.JniGDSImpl.nativeInitilize(Native Method)
+	at org.firebirdsql.gds.impl.jni.JniGDSImpl.attemptToLoadAClientLibraryFromList(JniGDSImpl.java:92)
+	at org.firebirdsql.gds.impl.jni.NativeGDSImpl.<init>(NativeGDSImpl.java:56)
+	at org.firebirdsql.gds.impl.jni.NativeGDSImpl.<init>(NativeGDSImpl.java:45)
+	at org.firebirdsql.gds.impl.jni.NativeGDSFactoryPlugin.getGDS(NativeGDSFactoryPlugin.java:38)
+	at org.firebirdsql.gds.impl.GDSFactory.getGDSForType(GDSFactory.java:220)
+	at org.firebirdsql.jca.FBManagedConnectionFactory.getGDS(FBManagedConnectionFactory.java:114)
+	at org.firebirdsql.jdbc.AbstractDriver.connect(AbstractDriver.java:120)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at nl.lawinegevaar.jdbc272.Jdbc272Repro.main(Jdbc272Repro.java:8)
+      3317:	find library=libfbclient.so [0]; searching
+      3317:	 search path=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli		(RPATH from file java)
+      3317:	  trying file=/usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli/libfbclient.so
+      3317:	 search cache=/etc/ld.so.cache
+      3317:	 search path=/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/lib:/usr/lib		(system search path)
+      3317:	  trying file=/lib/x86_64-linux-gnu/libfbclient.so
+      3317:	  trying file=/usr/lib/x86_64-linux-gnu/libfbclient.so
+      3317:	  trying file=/lib/libfbclient.so
+      3317:	  trying file=/usr/lib/libfbclient.so
+      3317:	
+org.firebirdsql.gds.impl.jni.InternalError: FirebirdApiBinding::Initialize - Could not find or load the firebird client library.
+	at org.firebirdsql.gds.impl.jni.JniGDSImpl.nativeInitilize(Native Method)
+	at org.firebirdsql.gds.impl.jni.JniGDSImpl.attemptToLoadAClientLibraryFromList(JniGDSImpl.java:92)
+	at org.firebirdsql.gds.impl.jni.NativeGDSImpl.<init>(NativeGDSImpl.java:56)
+	at org.firebirdsql.gds.impl.jni.NativeGDSImpl.<init>(NativeGDSImpl.java:45)
+	at org.firebirdsql.gds.impl.jni.NativeGDSFactoryPlugin.getGDS(NativeGDSFactoryPlugin.java:38)
+	at org.firebirdsql.gds.impl.GDSFactory.getGDSForType(GDSFactory.java:220)
+	at org.firebirdsql.jca.FBManagedConnectionFactory.getGDS(FBManagedConnectionFactory.java:114)
+	at org.firebirdsql.jdbc.AbstractDriver.connect(AbstractDriver.java:120)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at nl.lawinegevaar.jdbc272.Jdbc272Repro.main(Jdbc272Repro.java:8)
+Exception in thread "main" java.lang.RuntimeException: Failed to initialize Jaybird native library. This is most likely due to a failure to load the firebird client library.
+	at org.firebirdsql.gds.impl.jni.JniGDSImpl.attemptToLoadAClientLibraryFromList(JniGDSImpl.java:105)
+	at org.firebirdsql.gds.impl.jni.NativeGDSImpl.<init>(NativeGDSImpl.java:56)
+	at org.firebirdsql.gds.impl.jni.NativeGDSImpl.<init>(NativeGDSImpl.java:45)
+	at org.firebirdsql.gds.impl.jni.NativeGDSFactoryPlugin.getGDS(NativeGDSFactoryPlugin.java:38)
+	at org.firebirdsql.gds.impl.GDSFactory.getGDSForType(GDSFactory.java:220)
+	at org.firebirdsql.jca.FBManagedConnectionFactory.getGDS(FBManagedConnectionFactory.java:114)
+	at org.firebirdsql.jdbc.AbstractDriver.connect(AbstractDriver.java:120)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at nl.lawinegevaar.jdbc272.Jdbc272Repro.main(Jdbc272Repro.java:8)
+      3317:	
+      3317:	calling fini: java [0]
+      3317:	
+      3317:	
+      3317:	calling fini: /usr/local/java/jre1.7.0_07/bin/../lib/amd64/jli/libjli.so [0]
+      3317:	
+      3317:	
+      3317:	calling fini: /lib/x86_64-linux-gnu/librt.so.1 [0]
+      3317:	
+      3317:	
+      3317:	calling fini: /lib/x86_64-linux-gnu/libnss_compat.so.2 [0]
+      3317:	
+      3317:	
+      3317:	calling fini: /lib/x86_64-linux-gnu/libnss_nis.so.2 [0]
+      3317:	
+      3317:	
+      3317:	calling fini: /lib/x86_64-linux-gnu/libnsl.so.1 [0]
+      3317:	
+      3317:	
+      3317:	calling fini: /lib/x86_64-linux-gnu/libnss_files.so.2 [0]
+      3317:	
+      3317:	
+      3317:	calling fini: /usr/local/java/jre1.7.0_07/lib/amd64/libzip.so [0]
+      3317:	
+      3317:	
+      3317:	calling fini: /usr/local/java/jre1.7.0_07/lib/amd64/libjava.so [0]
+      3317:	
+      3317:	
+      3317:	calling fini: /usr/local/java/jre1.7.0_07/lib/amd64/libverify.so [0]
+      3317:	
+      3317:	
+      3317:	calling fini: /usr/local/java/jre1.7.0_07/lib/amd64/server/libjvm.so [0]
+      3317:	
+      3317:	
+      3317:	calling fini: /lib/x86_64-linux-gnu/libpthread.so.0 [0]
+      3317:	
+      3317:	
+      3317:	calling fini: /home/mark/Downloads/libjaybird22_x64.so [0]
+      3317:	
+      3317:	
+      3317:	calling fini: /lib/x86_64-linux-gnu/libdl.so.2 [0]
+      3317:	
+      3317:	
+      3317:	calling fini: /usr/lib/x86_64-linux-gnu/libstdc++.so.6 [0]
+      3317:	
+      3317:	
+      3317:	calling fini: /lib/x86_64-linux-gnu/libm.so.6 [0]
+      3317:	
+      3317:	
+      3317:	calling fini: /lib/x86_64-linux-gnu/libgcc_s.so.1 [0]
+      3317:	

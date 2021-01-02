@@ -1,0 +1,157 @@
+From a52b6a696ee90028b4d65891b53d6a0dd369e87d Mon Sep 17 00:00:00 2001
+From: "Richard W.M. Jones" <rjones@redhat.com>
+Date: Sun, 18 Mar 2018 10:45:10 +0000
+Subject: [PATCH] Port to RISC-V 64 bit (riscv64).
+
+---
+ builds/posix/prefix.linux_riscv64       | 26 ++++++++++++++++++++++++++
+ configure.ac                            | 12 ++++++++++++
+ src/common/classes/DbImplementation.cpp | 28 +++++++++++++++-------------
+ src/common/common.h                     |  4 ++++
+ src/jrd/inf_pub.h                       |  2 +-
+ 5 files changed, 58 insertions(+), 14 deletions(-)
+ create mode 100644 builds/posix/prefix.linux_riscv64
+
+diff --git a/builds/posix/prefix.linux_riscv64 b/builds/posix/prefix.linux_riscv64
+new file mode 100644
+index 0000000000..7a35614a23
+--- /dev/null
++++ b/builds/posix/prefix.linux_riscv64
+@@ -0,0 +1,26 @@
++# The contents of this file are subject to the Interbase Public
++# License Version 1.0 (the "License"); you may not use this file
++# except in compliance with the License. You may obtain a copy
++# of the License at http://www.Inprise.com/IPL.html
++#
++# Software distributed under the License is distributed on an
++# "AS IS" basis, WITHOUT WARRANTY OF ANY KIND, either express
++# or implied. See the License for the specific language governing
++# rights and limitations under the License.
++#
++# The Original Code was created by Inprise Corporation
++# and its predecessors. Portions created by Inprise Corporation are
++# Copyright (C) Inprise Corporation.
++#
++# All Rights Reserved.
++# Contributor(s): ______________________________________.
++# Start of file prefix.linux:  $(VERSION)  $(PLATFORM)
++#
++# Richard W.M. Jones, Red Hat Inc.
++
++WARN_FLAGS=-Wall -Wno-switch -Wno-parentheses -Wno-unknown-pragmas -Wno-unused-variable -Wno-invalid-offsetof -Wno-narrowing -Wno-unused-local-typedefs
++
++PROD_FLAGS=-O3 -DLINUX -DRISCV64 -pipe -p -MMD -fPIC -fsigned-char -fmessage-length=0
++DEV_FLAGS=-ggdb -DLINUX -DRISCV64 -pipe -p -MMD -fPIC -Wall -fsigned-char -fmessage-length=0 $(WARN_FLAGS)
++
++CXXFLAGS := $(CXXFLAGS) -std=c++11
+diff --git a/configure.ac b/configure.ac
+index ee114415b6..235dc373d4 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -249,6 +249,18 @@ dnl CPU_TYPE=ppc64
+     libdir=/usr/lib64
+     ;;
+ 
++  riscv64*-*-linux*)
++    MAKEFILE_PREFIX=linux_riscv64
++    INSTALL_PREFIX=linux
++    PLATFORM=LINUX
++    AC_DEFINE(LINUX, 1, [Define this if OS is Linux])
++    EDITLINE_FLG=Y
++    SHRLIB_EXT=so
++    STD_EDITLINE=true
++    STD_ICU=true
++    libdir=/usr/lib64
++    ;;
++
+   powerpc64le-*-linux*)
+     MAKEFILE_PREFIX=linux_powerpc64el
+     INSTALL_PREFIX=linux
+diff --git a/src/common/classes/DbImplementation.cpp b/src/common/classes/DbImplementation.cpp
+index f948bddbc3..3af0eaf1ef 100644
+--- a/src/common/classes/DbImplementation.cpp
++++ b/src/common/classes/DbImplementation.cpp
+@@ -49,6 +49,7 @@ static const UCHAR CpuAlpha = 14;
+ static const UCHAR CpuArm64 = 15;
+ static const UCHAR CpuPowerPc64el = 16;
+ static const UCHAR CpuM68k = 17;
++static const UCHAR CpuRiscV64 = 18;
+ 
+ static const UCHAR OsWindows = 0;
+ static const UCHAR OsLinux = 1;
+@@ -89,7 +90,8 @@ const char* hardware[] = {
+ 	"Alpha",
+ 	"ARM64",
+ 	"PowerPC64el",
+-	"M68k"
++	"M68k",
++        "RiscV64"
+ };
+ 
+ const char* operatingSystem[] = {
+@@ -116,22 +118,22 @@ const char* compiler[] = {
+ // This table lists pre-fb3 implementation codes
+ const UCHAR backwardTable[FB_NELEM(hardware) * FB_NELEM(operatingSystem)] =
+ {
+-//				Intel	AMD		Sparc	PPC		PPC64	MIPSEL	MIPS	ARM		IA64	s390	s390x	SH		SHEB	HPPA	Alpha	ARM64	PowerPC64el
+-/* Windows */	50,		68,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,
+-/* Linux */		60,		66,		65,		69,		86,		71,		72,		75, 	76,		79, 	78,		80,		81,		82,		83,		84,		85,
+-/* Darwin */	70,		73,		0,		63,		77,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,
+-/* Solaris */	0,		0,		30,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,
+-/* HPUX */		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		31,		0,		0,		0,
+-/* AIX */			0,		0,		0,		35,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,
+-/* MVS */			0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,
+-/* FreeBSD */	61,		67,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,
+-/* NetBSD */	62,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0
++//				Intel	AMD		Sparc	PPC		PPC64	MIPSEL	MIPS	ARM		IA64	s390	s390x	SH		SHEB	HPPA	Alpha	ARM64	PowerPC64el	RiscV64
++/* Windows */	50,		68,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,
++/* Linux */		60,		66,		65,		69,		86,		71,		72,		75, 	76,		79, 	78,		80,		81,		82,		83,		84,		85,		88,
++/* Darwin */	70,		73,		0,		63,		77,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,
++/* Solaris */	0,		0,		30,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,
++/* HPUX */		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		31,		0,		0,		0,		0,
++/* AIX */			0,		0,		0,		35,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,
++/* MVS */			0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,
++/* FreeBSD */	61,		67,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,
++/* NetBSD */	62,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0,		0
+ };
+ 
+ const UCHAR backEndianess[FB_NELEM(hardware)] =
+ {
+-//	Intel	AMD		Sparc	PPC		PPC64	MIPSEL	MIPS	ARM		IA64	s390	s390x	SH		SHEB	HPPA	Alpha	ARM64	PowerPC64el	M68k
+-	0,		0,		1,		1,		1,		0,		1,		0,		0,		1,		1,		0,		1,		1,		0,		0,		0,			1
++//	Intel	AMD		Sparc	PPC		PPC64	MIPSEL	MIPS	ARM		IA64	s390	s390x	SH		SHEB	HPPA	Alpha	ARM64	PowerPC64el	M68k	RiscV64
++	0,		0,		1,		1,		1,		0,		1,		0,		0,		1,		1,		0,		1,		1,		0,		0,		0,			1,		0,
+ };
+ 
+ } // anonymous namespace
+diff --git a/src/common/common.h b/src/common/common.h
+index 9f2c8c067f..7d67bf5845 100644
+--- a/src/common/common.h
++++ b/src/common/common.h
+@@ -139,6 +139,10 @@
+ #define FB_CPU CpuArm64
+ #endif /* ARM64 */
+ 
++#ifdef RISCV64
++#define FB_CPU CpuRiscV64
++#endif /* RISCV64 */
++
+ #ifdef sparc
+ #define FB_CPU CpuUltraSparc
+ #define RISC_ALIGNMENT
+diff --git a/src/jrd/inf_pub.h b/src/jrd/inf_pub.h
+index a3513f98be..1cd8a7d8aa 100644
+--- a/src/jrd/inf_pub.h
++++ b/src/jrd/inf_pub.h
+@@ -256,7 +256,7 @@ enum  info_db_implementations
+ 	isc_info_db_impl_linux_ppc64el = 85,
+ 	isc_info_db_impl_linux_ppc64 = 86,
+ 	isc_info_db_impl_linux_m68k = 87,
+-
++        isc_info_db_impl_linux_riscv64 = 88,
+ 
+ 	isc_info_db_impl_last_value   // Leave this LAST!
+ };
+-- 
+2.15.1
+

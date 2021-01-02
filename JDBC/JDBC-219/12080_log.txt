@@ -1,0 +1,138 @@
+debug:
+0 [Thread-0] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Thread Thread-0 wants to take connection.
+4 [Thread-0] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Trying to create connection, total connections 0, max allowed 3
+157 [Thread-0] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - Got socket
+165 [Thread-0] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - user.name: Àðò¸ì
+188 [Thread-0] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - op_connect 
+189 [Thread-0] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - sent
+189 [Thread-0] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - op_accept 
+193 [Thread-0] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - received
+193 [Thread-0] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - op_attach 
+193 [Thread-0] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - sent
+215 [Thread-0] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - op_response 
+215 [Thread-0] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - readStatusVector arg:isc_arg_gds int: 0
+215 [Thread-0] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - received
+215 [Thread-0] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - op_info_database 
+215 [Thread-0] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - sent
+219 [Thread-0] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - op_response 
+219 [Thread-0] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - readStatusVector arg:isc_arg_gds int: 0
+233 [Thread-0] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - received
+233 [Thread-0] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - parseDatabaseInfo: first 2 bytes are 318 or: 62, 1
+233 [Thread-0] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - isc_info_db_sql_dialect:3
+236 [Thread-0] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - isc_info_firebird_version:LI-V2.5.1.26351 Firebird 2.5-LI-V2.5.1.26351 Firebird 2.5/tcp (TESTER)/P10
+236 [Thread-0] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - isc_info_ods_version:11
+236 [Thread-0] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - isc_info_ods_minor_version:2
+284 [Thread-0] INFO org.firebirdsql.pool.PingablePooledConnection  - Pool supports open statements across commit : true
+284 [Thread-0] INFO org.firebirdsql.pool.PingablePooledConnection  - Pool supports open statements across rollback : true
+285 [Thread-0] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Thread Thread-0 created connection.
+286 [Thread-0] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Thread Thread-0 got connection.
+313 [Thread-9] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Thread Thread-9 wants to take connection.
+313 [Thread-9] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Trying to create connection, total connections 1, max allowed 3
+322 [Thread-9] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - Got socket
+323 [Thread-9] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - user.name: Àðò¸ì
+323 [Thread-9] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - op_connect 
+324 [Thread-9] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - sent
+324 [Thread-9] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - op_accept 
+335 [Thread-9] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - received
+335 [Thread-9] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - op_attach 
+336 [Thread-9] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - sent
+363 [Thread-9] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - op_response 
+363 [Thread-9] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - readStatusVector arg:isc_arg_gds int: 0
+363 [Thread-9] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - received
+363 [Thread-9] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - op_info_database 
+363 [Thread-9] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - sent
+380 [Thread-9] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - op_response 
+380 [Thread-9] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - readStatusVector arg:isc_arg_gds int: 0
+380 [Thread-9] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - received
+380 [Thread-9] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - parseDatabaseInfo: first 2 bytes are 318 or: 62, 1
+380 [Thread-9] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - isc_info_db_sql_dialect:3
+380 [Thread-9] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - isc_info_firebird_version:LI-V2.5.1.26351 Firebird 2.5-LI-V2.5.1.26351 Firebird 2.5/tcp (TESTER)/P10
+380 [Thread-9] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - isc_info_ods_version:11
+380 [Thread-9] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - isc_info_ods_minor_version:2
+380 [Thread-9] INFO org.firebirdsql.pool.PingablePooledConnection  - Pool supports open statements across commit : true
+380 [Thread-9] INFO org.firebirdsql.pool.PingablePooledConnection  - Pool supports open statements across rollback : true
+380 [Thread-9] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Thread Thread-9 created connection.
+381 [Thread-9] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Thread Thread-9 got connection.
+381 [Thread-7] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Thread Thread-7 wants to take connection.
+381 [Thread-7] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Trying to create connection, total connections 2, max allowed 3
+398 [Thread-7] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - Got socket
+398 [Thread-7] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - user.name: Àðò¸ì
+399 [Thread-7] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - op_connect 
+399 [Thread-7] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - sent
+399 [Thread-7] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - op_accept 
+410 [Thread-7] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - received
+410 [Thread-7] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - op_attach 
+410 [Thread-7] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - sent
+430 [Thread-7] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - op_response 
+430 [Thread-7] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - readStatusVector arg:isc_arg_gds int: 0
+430 [Thread-7] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - received
+430 [Thread-7] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - op_info_database 
+431 [Thread-7] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - sent
+438 [Thread-7] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - op_response 
+438 [Thread-7] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - readStatusVector arg:isc_arg_gds int: 0
+438 [Thread-7] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - received
+438 [Thread-7] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - parseDatabaseInfo: first 2 bytes are 318 or: 62, 1
+438 [Thread-7] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - isc_info_db_sql_dialect:3
+438 [Thread-7] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - isc_info_firebird_version:LI-V2.5.1.26351 Firebird 2.5-LI-V2.5.1.26351 Firebird 2.5/tcp (TESTER)/P10
+438 [Thread-7] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - isc_info_ods_version:11
+438 [Thread-7] DEBUG org.firebirdsql.gds.impl.wire.AbstractJavaGDSImpl  - isc_info_ods_minor_version:2
+438 [Thread-7] INFO org.firebirdsql.pool.PingablePooledConnection  - Pool supports open statements across commit : true
+438 [Thread-7] INFO org.firebirdsql.pool.PingablePooledConnection  - Pool supports open statements across rollback : true
+438 [Thread-7] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Thread Thread-7 created connection.
+438 [Thread-7] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Thread Thread-7 got connection.
+439 [Thread-5] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Thread Thread-5 wants to take connection.
+439 [Thread-5] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Trying to create connection, total connections 3, max allowed 3
+439 [Thread-5] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Was not able to add more connections.
+439 [Thread-5] WARN org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Pool 10.13.1.151:taxi is empty and will block here. Thread Thread-5
+476 [Thread-0] WARN org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Pool 10.13.1.151:taxi will be unblocked
+476 [Thread-0] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Thread Thread-0 released connection.
+481 [Thread-9] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Thread Thread-9 released connection.
+success
+success
+success
+539 [Thread-7] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Thread Thread-7 released connection.
+1540 [Thread-5] WARN org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - No connection in pool. Thread Thread-5
+1540 [Thread-5] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Trying to create connection, total connections 3, max allowed 3
+1540 [Thread-5] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Was not able to add more connections.
+1540 [Thread-5] WARN org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Pool 10.13.1.151:taxi is empty and will block here. Thread Thread-5
+2540 [Thread-5] WARN org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - No connection in pool. Thread Thread-5
+2540 [Thread-5] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Trying to create connection, total connections 3, max allowed 3
+2540 [Thread-5] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Was not able to add more connections.
+2540 [Thread-5] WARN org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Pool 10.13.1.151:taxi is empty and will block here. Thread Thread-5
+3540 [Thread-5] WARN org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - No connection in pool. Thread Thread-5
+3540 [Thread-5] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Trying to create connection, total connections 3, max allowed 3
+3540 [Thread-5] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Was not able to add more connections.
+3540 [Thread-5] WARN org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Pool 10.13.1.151:taxi is empty and will block here. Thread Thread-5
+4540 [Thread-5] WARN org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - No connection in pool. Thread Thread-5
+4540 [Thread-5] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Trying to create connection, total connections 3, max allowed 3
+4540 [Thread-5] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Was not able to add more connections.
+4540 [Thread-5] WARN org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Pool 10.13.1.151:taxi is empty and will block here. Thread Thread-5
+5540 [Thread-5] WARN org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - No connection in pool. Thread Thread-5
+5541 [Thread-3] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Thread Thread-3 wants to take connection.
+5542 [Thread-3] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Trying to create connection, total connections 3, max allowed 3
+5542 [Thread-3] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Was not able to add more connections.
+5542 [Thread-3] WARN org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Pool 10.13.1.151:taxi is empty and will block here. Thread Thread-3
+äåê 27, 2011 2:03:37 AM pooltest.Main run
+SEVERE: null
+org.firebirdsql.jdbc.FBSQLException: Could not obtain connection during blocking timeout (5000 ms)
+        at org.firebirdsql.pool.PooledConnectionQueue.take(PooledConnectionQueue.java:367)
+        at org.firebirdsql.pool.AbstractConnectionPool.getPooledConnection(AbstractConnectionPool.java:230)
+        at org.firebirdsql.pool.AbstractFBConnectionPoolDataSource.getPooledConnection(AbstractFBConnectionPoolDataSource.java:359)
+        at org.firebirdsql.pool.AbstractFBConnectionPoolDataSource.getPooledConnection(AbstractFBConnectionPoolDataSource.java:379)
+        at org.firebirdsql.pool.FBWrappingDataSource.getConnection(FBWrappingDataSource.java:216)
+        at pooltest.Main.run(Main.java:46)
+        at java.lang.Thread.run(Thread.java:722)
+
+6542 [Thread-3] WARN org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - No connection in pool. Thread Thread-3
+6542 [Thread-3] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Trying to create connection, total connections 3, max allowed 3
+6542 [Thread-3] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Was not able to add more connections.
+6542 [Thread-3] WARN org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Pool 10.13.1.151:taxi is empty and will block here. Thread Thread-3
+7542 [Thread-3] WARN org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - No connection in pool. Thread Thread-3
+7542 [Thread-3] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Trying to create connection, total connections 3, max allowed 3
+7542 [Thread-3] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Was not able to add more connections.
+7542 [Thread-3] WARN org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Pool 10.13.1.151:taxi is empty and will block here. Thread Thread-3
+8542 [Thread-3] WARN org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - No connection in pool. Thread Thread-3
+8542 [Thread-3] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Trying to create connection, total connections 3, max allowed 3
+8542 [Thread-3] DEBUG org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Was not able to add more connections.
+8543 [Thread-3] WARN org.firebirdsql.pool.AbstractFBConnectionPoolDataSource  - Pool 10.13.1.151:taxi is empty and will block here. Thread Thread-3
+BUILD SUCCESSFUL (total time: 10 seconds)

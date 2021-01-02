@@ -1,0 +1,49 @@
+Index: FbBatchExecution.cs
+===================================================================
+--- FbBatchExecution.cs	(revision 53180)
++++ FbBatchExecution.cs	(working copy)
+@@ -221,6 +221,7 @@
+                         case SqlStatementType.AlterProcedure:
+                         case SqlStatementType.AlterTable:
+                         case SqlStatementType.AlterTrigger:
++                        case SqlStatementType.AlterView:
+                             // raise the event
+                             this.OnCommandExecuting(this.sqlCommand);
+ 
+@@ -797,6 +798,10 @@
+                     {
+                         return SqlStatementType.AlterTrigger;
+                     }
++                    if (StringParser.StartsWith(sqlStatement, "ALTER VIEW", true))
++                    {
++                        return SqlStatementType.AlterView;
++                    }
+                     throw new Exception("The type of the SQL statement could not be determinated.");
+ 
+                 case 'C':
+@@ -884,7 +889,8 @@
+                             {
+                                 return SqlStatementType.CreateIndex;
+                             }
+-                            if (StringParser.StartsWith(sqlStatement, "CREATE VIEW", true))
++                            if (StringParser.StartsWith(sqlStatement, "CREATE VIEW", true) ||
++                                StringParser.StartsWith(sqlStatement, "CREATE OR ALTER VIEW", true))
+                             {
+                                 return SqlStatementType.CreateView;
+                             }
+Index: SqlStatementType.cs
+===================================================================
+--- SqlStatementType.cs	(revision 53180)
++++ SqlStatementType.cs	(working copy)
+@@ -73,6 +73,11 @@
+         AlterTrigger,
+ 
+         /// <summary>
++        /// Represents the SQL statement: <b>ALTER VIEW</b>
++        /// </summary>
++        AlterView,
++
++        /// <summary>
+         /// Represents the SQL statement: <b>CLOSE</b>
+         /// </summary>
+         Close,

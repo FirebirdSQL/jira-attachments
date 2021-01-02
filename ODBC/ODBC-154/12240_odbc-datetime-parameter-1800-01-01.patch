@@ -1,0 +1,18 @@
+cvs diff -u -- OdbcConvert.cpp (in directory D:\Sources\OdbcFb\OdbcJdbc)
+Index: OdbcConvert.cpp
+===================================================================
+RCS file: /cvsroot/firebird/OdbcJdbc/OdbcConvert.cpp,v
+retrieving revision 1.34
+diff -u -r1.34 OdbcConvert.cpp
+--- OdbcConvert.cpp	18 Aug 2012 08:43:50 -0000	1.34
++++ OdbcConvert.cpp	15 Oct 2012 09:44:15 -0000
+@@ -51,7 +51,7 @@
+ #define HI_LONG(l)			((int)(l))
+ #define LO_LONG(l)          ((int)(((UQUAD)(l) >> 32) & 0xFFFFFFFF))
+ #else
+-#define MAKEQUAD(a, b)      ((QUAD)(((int)(a)) | ((UQUAD)((int)(b))) << 32))
++#define MAKEQUAD(a, b)      ((QUAD)(((unsigned int)(int)(a)) | ((UQUAD)((int)(b))) << 32))
+ #define LO_LONG(l)          ((int)(l))
+ #define HI_LONG(l)          ((int)(((UQUAD)(l) >> 32) & 0xFFFFFFFF))
+ #endif
+

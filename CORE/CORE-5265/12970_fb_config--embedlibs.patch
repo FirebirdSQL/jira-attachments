@@ -1,0 +1,26 @@
+Description: fb_config --embedlibs gives non-existing -lfbembed
+ In 3.0 embedded connections are routed as usual via the client library, which
+ uses the appropriate engine plugin. There is no libfbembed anymore.
+Author: Damyan Ivanov <dmn@debian.org>
+Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=826591
+Bug: http://tracker.firebirdsql.org/browse/CORE-5265
+
+--- a/builds/install/posix-common/fb_config.in
++++ b/builds/install/posix-common/fb_config.in
+@@ -43,7 +43,6 @@ fb_pluginsdir=@FB_PLUGDIR@
+ 
+ fb_cflags="-I$fb_incdir"
+ fb_libs="-L$fb_libdir -lfbclient"
+-fb_embedlibs="-L$fb_libdir -lfbembed"
+ 
+ BuildVersion=@FIREBIRD_VERSION@.@FB_BUILD_NUM@
+ PackageVersion=@FIREBIRD_PACKAGE_VERSION@
+@@ -93,7 +92,7 @@ while test $# -gt 0
+     case "$1" in
+         --cflags) echo $fb_cflags ;;
+         --libs) echo $fb_libs ;;
+-        --embedlibs) echo $fb_embedlibs ;;
++        --embedlibs) echo $fb_libs ;;
+         --bindir) echo $fb_bindir ;;
+         --udfdir) echo $fb_udfdir ;;
+         --sbindir) echo $fb_sbindir ;;

@@ -1,0 +1,647 @@
+diff --git a/source/FirebirdSql/Data/UnitTests/EfMappings/Bar.cs b/source/FirebirdSql/Data/UnitTests/EfMappings/Bar.cs
+new file mode 100644
+index 0000000..6a6a61d
+--- /dev/null
++++ b/source/FirebirdSql/Data/UnitTests/EfMappings/Bar.cs
+@@ -0,0 +1,23 @@
++﻿using System;
++using System.Collections.Generic;
++using System.ComponentModel.DataAnnotations;
++using System.ComponentModel.DataAnnotations.Schema;
++using System.Linq;
++using System.Text;
++using System.Threading.Tasks;
++
++namespace FirebirdSql.Data.UnitTests.EfMappings
++{
++    public class Bar
++    {
++        [Key]
++        [DatabaseGenerated(DatabaseGeneratedOption.None)]
++        public int ID { get; set; }
++
++        public string BarString { get; set; }
++
++        [ForeignKey("FooID")]
++        public Foo Foo { get; set; }
++        public int FooID { get; set; }
++    }
++}
+diff --git a/source/FirebirdSql/Data/UnitTests/EfMappings/Baz.cs b/source/FirebirdSql/Data/UnitTests/EfMappings/Baz.cs
+new file mode 100644
+index 0000000..cf6fa8c
+--- /dev/null
++++ b/source/FirebirdSql/Data/UnitTests/EfMappings/Baz.cs
+@@ -0,0 +1,24 @@
++﻿using System;
++using System.Collections.Generic;
++using System.ComponentModel.DataAnnotations;
++using System.ComponentModel.DataAnnotations.Schema;
++using System.Linq;
++using System.Text;
++using System.Threading.Tasks;
++
++namespace FirebirdSql.Data.UnitTests.EfMappings
++{
++    public class Baz
++    {
++        [Key]
++        [DatabaseGenerated(DatabaseGeneratedOption.None)]
++        public virtual int ID { get; set; }
++
++        [MaxLength(100)]
++        [Required]
++        public virtual string BazString { get; set; }
++
++        [InverseProperty("Baz")]
++        public virtual ICollection<Foo> Foos { get; set; }
++    }
++}
+diff --git a/source/FirebirdSql/Data/UnitTests/EfMappings/Foo.cs b/source/FirebirdSql/Data/UnitTests/EfMappings/Foo.cs
+new file mode 100644
+index 0000000..d887d61
+--- /dev/null
++++ b/source/FirebirdSql/Data/UnitTests/EfMappings/Foo.cs
+@@ -0,0 +1,24 @@
++﻿using System;
++using System.Collections.Generic;
++using System.ComponentModel.DataAnnotations;
++using System.ComponentModel.DataAnnotations.Schema;
++using System.Linq;
++using System.Text;
++using System.Threading.Tasks;
++
++namespace FirebirdSql.Data.UnitTests.EfMappings
++{
++    public class Foo
++    {
++        [Key]
++        [DatabaseGenerated(DatabaseGeneratedOption.None)]
++        public int ID { get; set; }
++
++        [InverseProperty("Foo")]
++        public ICollection<Bar> Bars { get; set; }
++
++        [ForeignKey("BazID")]
++        public Baz Baz { get; set; }
++        public int? BazID { get; set; }
++    }
++}
+diff --git a/source/FirebirdSql/Data/UnitTests/EfTransactionTest.cs b/source/FirebirdSql/Data/UnitTests/EfTransactionTest.cs
+new file mode 100644
+index 0000000..d4cc9c5
+--- /dev/null
++++ b/source/FirebirdSql/Data/UnitTests/EfTransactionTest.cs
+@@ -0,0 +1,110 @@
++﻿using FirebirdSql.Data.FirebirdClient;
++using NUnit.Framework;
++using System;
++using System.Collections.Generic;
++using System.Data.Entity;
++using System.Linq;
++using System.Text;
++using System.Threading.Tasks;
++using System.Transactions;
++
++namespace FirebirdSql.Data.UnitTests
++{
++    [TestFixture]
++    public class EfTransactionTest : TestsBase
++    {
++		#region · Constructors ·
++
++        public EfTransactionTest()
++		{ }
++
++		#endregion
++
++		#region · Unit Tests ·
++
++        [Test]
++        public void EfTransactionScope()
++        {
++            using (var context = new FbTestDbContext(Connection))
++            {
++                using (var transaction = new TransactionScope())
++                {
++                    try
++                    {
++                        context.Bazs.Add(new EfMappings.Baz
++                        {
++                            ID = GetId(),
++                            BazString = "BazShouldRollBack",
++                        });
++                        context.SaveChanges();
++
++                        context.Bazs.Add(new EfMappings.Baz
++                        {
++                            ID = GetId(),
++                        });
++                        context.SaveChanges();
++
++                        transaction.Complete();
++                    }
++                    catch (System.Exception)
++                    {
++                        // Exception is expected
++                    }
++                }
++            }
++
++            using (var context = new FbTestDbContext(Connection))
++            {
++                using (var transaction = new TransactionScope())
++                {
++                    // Baz4 exists ... but it must not exist because the transaction has to be rolled back!
++                    Assert.AreEqual(0, context.Bazs.Count(x => x.BazString == "BazShouldRollBack"));
++                }
++            }
++        }
++        #endregion
++
++        #region · Test initialization ·
++
++        [SetUp]
++        public override void SetUp()
++        {
++            base.SetUp();
++            Assert.IsNull(Transaction);
++
++            Connection.Close();
++            Database.SetInitializer<FbTestDbContext>(null);
++
++            using (var context = new FbTestDbContext(Connection))
++                InitEfSchema(context);
++
++            InitEntities();
++        }
++
++        private void InitEntities()
++        {
++            using (var context = new FbTestDbContext(Connection))
++            {
++                using (var scope = new TransactionScope())
++                {
++                    context.SaveChanges();
++                    context.Database.Initialize(false);
++                    scope.Complete();
++                }
++            }
++        }
++        #endregion
++
++        class FbTestDbContext : DbContext
++        {
++            public FbTestDbContext(FbConnection conn)
++                : base(conn, false)
++            {
++            }
++
++            public IDbSet<EfMappings.Foo> Foos { get; set; }
++            public IDbSet<EfMappings.Bar> Bars { get; set; }
++            public IDbSet<EfMappings.Baz> Bazs { get; set; }
++        }
++    }
++}
+diff --git a/source/FirebirdSql/Data/UnitTests/EfTransactionTestWithEnlist.cs b/source/FirebirdSql/Data/UnitTests/EfTransactionTestWithEnlist.cs
+new file mode 100644
+index 0000000..ed1a318
+--- /dev/null
++++ b/source/FirebirdSql/Data/UnitTests/EfTransactionTestWithEnlist.cs
+@@ -0,0 +1,162 @@
++﻿using FirebirdSql.Data.FirebirdClient;
++using NUnit.Framework;
++using System;
++using System.Collections.Generic;
++using System.Data.Entity;
++using System.Data.Entity.ModelConfiguration.Conventions;
++using System.Linq;
++using System.Text;
++using System.Threading.Tasks;
++using System.Transactions;
++
++namespace FirebirdSql.Data.UnitTests
++{
++    [TestFixture]
++    public class EfTransactionTestWithEnlist : TestsBase
++    {
++		#region · Constructors ·
++
++        public EfTransactionTestWithEnlist()
++		{ }
++
++		#endregion
++
++		#region · Unit Tests ·
++
++        [Test]
++        public void DbExists()
++        {
++            using (var context = new FbTestDbContext(Connection))
++            {
++                using (var scope = new TransactionScope())
++                {
++                    bool flag;
++                    // The following code must work because that is what System.Data.Entity.CreateDatabaseIfNotExists<T> requires.
++                    using (new TransactionScope(TransactionScopeOption.Suppress))
++                        flag = context.Database.Exists();
++                    Assert.IsTrue(flag);
++
++                    scope.Complete();
++                }
++            }
++        }
++
++        [Test]
++        public void DeadLockBySelectInsert()
++        {
++            using (var context = new FbTestDbContext(Connection))
++            {
++                using (var scope = new TransactionScope())
++                {
++                    var baz = context.Bazs.Find(1);
++                    var foo = new EfMappings.Foo
++                    {
++                        ID = GetId(),
++                        Baz = baz,
++                    };
++                    context.Foos.Add(foo);
++                    // The SaveChanges throws a no-wait lock when Baz is a class
++                    // that can be "proxied" because all properties/methods are virtual.
++                    Assert.DoesNotThrow(() => context.SaveChanges());
++                    scope.Complete();
++                }
++            }
++        }
++
++        [Test]
++        public void EfTransactionScopeWithEnlist()
++        {
++            using (var context = new FbTestDbContext(Connection))
++            {
++                using (var transaction = new TransactionScope())
++                {
++                    try
++                    {
++                        context.Bazs.Add(new EfMappings.Baz
++                        {
++                            ID = GetId(),
++                            BazString = "BazShouldRollBack",
++                        });
++                        context.SaveChanges();
++
++                        context.Bazs.Add(new EfMappings.Baz
++                        {
++                            ID = GetId(),
++                        });
++                        context.SaveChanges();
++
++                        transaction.Complete();
++                    }
++                    catch (System.Exception)
++                    {
++                        // Exception is expected
++                    }
++                }
++            }
++
++            using (var context = new FbTestDbContext(Connection))
++            {
++                using (var transaction = new TransactionScope())
++                {
++                    // Baz4 exists ... but it must not exist because the transaction has to be rolled back!
++                    Assert.AreEqual(0, context.Bazs.Count(x => x.BazString == "BazShouldRollBack"));
++                }
++            }
++        }
++        #endregion
++
++        #region · Test initialization ·
++
++        [SetUp]
++        public override void SetUp()
++        {
++            base.SetUp();
++            Assert.IsNull(Transaction);
++
++            Connection.Close();
++            Database.SetInitializer<FbTestDbContext>(null);
++
++            using (var context = new FbTestDbContext(Connection))
++                InitEfSchema(context);
++            
++            var csb = new FbConnectionStringBuilder(Connection.ConnectionString);
++            csb.Enlist = true;
++            Connection.ConnectionString = csb.ToString();
++
++            InitEntities();
++        }
++
++        private void InitEntities()
++        {
++            using (var context = new FbTestDbContext(Connection))
++            {
++                using (var scope = new TransactionScope())
++                {
++                    var baz = new EfMappings.Baz
++                    {
++                        ID = 1,
++                        BazString = "Baz1",
++                    };
++                    context.Bazs.Add(baz);
++
++                    context.SaveChanges();
++
++                    scope.Complete();
++                }
++            }
++        }
++        #endregion
++
++        class FbTestDbContext : DbContext
++        {
++            public FbTestDbContext(FbConnection conn)
++                : base(conn, false)
++            {
++            }
++
++            public IDbSet<EfMappings.Foo> Foos { get; set; }
++            public IDbSet<EfMappings.Bar> Bars { get; set; }
++            public IDbSet<EfMappings.Baz> Bazs { get; set; }
++        }
++    }
++}
+diff --git a/source/FirebirdSql/Data/UnitTests/EntityFrameworkTests.cs b/source/FirebirdSql/Data/UnitTests/EntityFrameworkTests.cs
+index 1bc9c56..b1c65fc 100644
+--- a/source/FirebirdSql/Data/UnitTests/EntityFrameworkTests.cs
++++ b/source/FirebirdSql/Data/UnitTests/EntityFrameworkTests.cs
+@@ -106,7 +106,7 @@ namespace FirebirdSql.Data.UnitTests
+ 		[Test]
+ 		public void QueryTest2()
+ 		{
+-			Database.SetInitializer<QueryTest1Context>(null);
++			Database.SetInitializer<QueryTest2Context>(null);
+ 			Connection.Close();
+ 			using (var c = new QueryTest2Context(Connection))
+ 			{
+@@ -138,7 +138,7 @@ namespace FirebirdSql.Data.UnitTests
+ 				base.OnModelCreating(modelBuilder);
+ 			}
+ 
+-			public IDbSet<Foo> Foos { get; set; }
++			public IDbSet<EfMappings.Foo> Foos { get; set; }
+ 		}
+ 
+ 		#endregion
+@@ -148,7 +148,7 @@ namespace FirebirdSql.Data.UnitTests
+ 		[Test]
+ 		public void QueryTest3()
+ 		{
+-			Database.SetInitializer<QueryTest1Context>(null);
++			Database.SetInitializer<QueryTest3Context>(null);
+ 			Connection.Close();
+ 			using (var c = new QueryTest3Context(Connection))
+ 			{
+@@ -174,7 +174,7 @@ namespace FirebirdSql.Data.UnitTests
+ 				base.OnModelCreating(modelBuilder);
+ 			}
+ 
+-			public IDbSet<Foo> Foos { get; set; }
++            public IDbSet<EfMappings.Foo> Foos { get; set; }
+ 		}
+ 
+ 		#endregion
+@@ -204,7 +204,7 @@ namespace FirebirdSql.Data.UnitTests
+ 				base.OnModelCreating(modelBuilder);
+ 			}
+ 
+-			public IDbSet<Bar> Bars { get; set; }
++            public IDbSet<EfMappings.Bar> Bars { get; set; }
+ 		}
+ 
+ 		#endregion
+@@ -228,25 +228,4 @@ namespace FirebirdSql.Data.UnitTests
+ 	{
+ 		public int ID { get; set; }
+ 	}
+-
+-	public class Foo
+-	{
+-		public int ID { get; set; }
+-		public int BazID { get; set; }
+-		public ICollection<Bar> Bars { get; set; }
+-		public Baz Baz { get; set; }
+-	}
+-	public class Bar
+-	{
+-		public int ID { get; set; }
+-		public int FooID { get; set; }
+-		public string BarString { get; set; }
+-		public Foo Foo { get; set; }
+-	}
+-	public class Baz
+-	{
+-		public int ID { get; set; }
+-		public string BazString { get; set; }
+-		public ICollection<Foo> Foos { get; set; }
+-	}
+ }
+diff --git a/source/FirebirdSql/Data/UnitTests/FirebirdSql.Data.UnitTests.csproj b/source/FirebirdSql/Data/UnitTests/FirebirdSql.Data.UnitTests.csproj
+index 1acd4cf..024ee8d 100644
+--- a/source/FirebirdSql/Data/UnitTests/FirebirdSql.Data.UnitTests.csproj
++++ b/source/FirebirdSql/Data/UnitTests/FirebirdSql.Data.UnitTests.csproj
+@@ -68,6 +68,7 @@
+       <HintPath>..\..\..\..\lib\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
+     </Reference>
+     <Reference Include="System" />
++    <Reference Include="System.ComponentModel.DataAnnotations" />
+     <Reference Include="System.configuration" />
+     <Reference Include="System.Core">
+       <RequiredTargetFramework>3.5</RequiredTargetFramework>
+@@ -78,8 +79,14 @@
+     </Reference>
+     <Reference Include="System.Transactions" />
+     <Reference Include="System.Xml" />
++    <Reference Include="System.Xml.Linq" />
+   </ItemGroup>
+   <ItemGroup>
++    <Compile Include="EfMappings\Bar.cs" />
++    <Compile Include="EfMappings\Baz.cs" />
++    <Compile Include="EfMappings\Foo.cs" />
++    <Compile Include="EfTransactionTestWithEnlist.cs" />
++    <Compile Include="EfTransactionTest.cs" />
+     <Compile Include="FbConnectionStringTests.cs" />
+     <Compile Include="FbExceptionTests.cs" />
+     <Compile Include="TrackerIssuesTests.cs" />
+@@ -118,6 +125,7 @@
+     <None Include="Properties\FirebirdSql.Data.UnitTests.snk" />
+   </ItemGroup>
+   <ItemGroup>
++    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+     <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+   </ItemGroup>
+   <ItemGroup>
+diff --git a/source/FirebirdSql/Data/UnitTests/TestsBase.cs b/source/FirebirdSql/Data/UnitTests/TestsBase.cs
+index 4313a3f..db012c1 100644
+--- a/source/FirebirdSql/Data/UnitTests/TestsBase.cs
++++ b/source/FirebirdSql/Data/UnitTests/TestsBase.cs
+@@ -17,13 +17,20 @@
+  */
+ 
+ using System;
+-using System.Text;
+-using System.Configuration;
+ using System.Collections;
++using System.Configuration;
++using System.Data.Entity;
++using System.Data.Entity.Infrastructure;
++using System.IO;
++using System.Linq;
+ using System.Security.Cryptography;
++using System.Text;
++using System.Xml;
++using System.Xml.Linq;
+ 
+ using NUnit.Framework;
+ using FirebirdSql.Data.FirebirdClient;
++using System.Data.Metadata.Edm;
+ 
+ namespace FirebirdSql.Data.UnitTests
+ {
+@@ -113,16 +120,44 @@ namespace FirebirdSql.Data.UnitTests
+ 
+ 		private static void CreateDatabase(string connectionString)
+ 		{
+-			FbConnection.CreateDatabase(
+-				connectionString,
+-				Convert.ToInt32(ConfigurationManager.AppSettings["PageSize"]),
+-				Boolean.Parse(ConfigurationManager.AppSettings["ForcedWrite"]),
+-				true);
++            for (int i = 0; i != 3; ++i)
++            {
++                try
++                {
++                    FbConnection.CreateDatabase(
++                        connectionString,
++                        Convert.ToInt32(ConfigurationManager.AppSettings["PageSize"]),
++                        Boolean.Parse(ConfigurationManager.AppSettings["ForcedWrite"]),
++                        true);
++                    break;
++                }
++                catch
++                {
++                    // Ignore the first 2 errors
++                    if (i == 2)
++                        throw;
++                    System.Threading.Thread.Sleep(1000);
++                }
++            }
+ 		}
+ 
+ 		private static void DropDatabase(string connectionString)
+ 		{
+-			FbConnection.DropDatabase(connectionString);
++            for (int i = 0; i != 3; ++i)
++            {
++                try
++                {
++                    FbConnection.DropDatabase(connectionString);
++                    break;
++                }
++                catch
++                {
++                    // Ignore the first 2 errors
++                    if (i == 2)
++                        throw;
++                    System.Threading.Thread.Sleep(1000);
++                }
++            }
+ 		}
+ 
+ 		private static void CreateTables(string connectionString)
+@@ -172,11 +207,11 @@ namespace FirebirdSql.Data.UnitTests
+ 			command.ExecuteNonQuery();
+ 			command.Dispose();
+ 
+-			command = new FbCommand("create table log(occured timestamp, text varchar(20));", connection);
+-			command.ExecuteNonQuery();
+-			command.Dispose();
++            command = new FbCommand("create table log(occured timestamp, text varchar(20));", connection);
++            command.ExecuteNonQuery();
++            command.Dispose();
+ 
+-			connection.Close();
++            connection.Close();
+ 		}
+ 
+ 		private static void CreateProcedures(string connectionString)
+@@ -408,6 +443,69 @@ namespace FirebirdSql.Data.UnitTests
+ 			}
+ 		}
+ 
++        private static XDocument GetEdmx(DbContext dbContext)
++        {
++            var ms = new MemoryStream();
++
++            using (var writer = XmlWriter.Create(ms))
++            {
++                EdmxWriter.WriteEdmx(dbContext, writer);
++            }
++
++            ms.Position = 0;
++
++            return XDocument.Load(ms);
++        }
++
++        private static void SplitEdmx(XDocument edmx, /* out XmlReader csdlReader, */ out XmlReader ssdlReader /* , out XmlReader mslReader */)
++        {
++            // xml namespace agnostic to make it work with any version of Entity Framework
++            var edmxNs = edmx.Root.Name.Namespace;
++
++            var storageModels = edmx.Descendants(edmxNs + "StorageModels").Single();
++            //var conceptualModels = edmx.Descendants(edmxNs + "ConceptualModels").Single();
++            //var mappings = edmx.Descendants(edmxNs + "Mappings").Single();
++
++            ssdlReader = storageModels.Elements().Single(e => e.Name.LocalName == "Schema").CreateReader();
++            //csdlReader = conceptualModels.Elements().Single(e => e.Name.LocalName == "Schema").CreateReader();
++            //mslReader = mappings.Elements().Single(e => e.Name.LocalName == "Mapping").CreateReader();
++        }
++
++        public void InitEfSchema(DbContext dbContext)
++        {
++            // Get Edmx for the context
++            var edmx = GetEdmx(dbContext);
++
++            // extract csdl, ssdl and msl artifacts from the Edmx
++            XmlReader ssdlReader;
++            SplitEdmx(edmx, out ssdlReader);
++
++            // Initialize item collections
++            //var edmItemCollection = new EdmItemCollection(new XmlReader[] { csdlReader });
++            var storeItemCollection = new StoreItemCollection(new XmlReader[] { ssdlReader });
++            //var mappingItemCollection = new StorageMappingItemCollection(edmItemCollection, storeItemCollection, new XmlReader[] { mslReader });
++
++            var script = FirebirdSql.Data.Entity.SsdlToFb.Transform(storeItemCollection, null);
++            var fbScript = new FirebirdSql.Data.Isql.FbScript(script);
++            fbScript.Parse();
++            var isOpen = Connection.State == System.Data.ConnectionState.Open;
++            if (!isOpen)
++                Connection.Open();
++            try
++            {
++                foreach (var commandText in fbScript.Results)
++                {
++                    using (var cmd = new FbCommand(commandText, Connection))
++                        cmd.ExecuteNonQuery();
++                }
++            }
++            finally
++            {
++                if (!isOpen)
++                    Connection.Close();
++            }
++        }
++
+ 		#endregion
+ 
+ 		#region	� ConnectionString Building methods �

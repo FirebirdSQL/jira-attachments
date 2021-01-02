@@ -1,0 +1,13 @@
+diff --git a/src/jrd/Mapping.cpp b/src/jrd/Mapping.cpp
+index eb880c0..354653b 100644
+--- a/src/jrd/Mapping.cpp
++++ b/src/jrd/Mapping.cpp
+@@ -725,7 +725,7 @@ public:
+ 		{
+ 			if (!(sMem->process[process].flags & MappingHeader::FLAG_ACTIVE))
+ 				break;
+-			if (!ISC_check_process_existence(processId))
++			if (!ISC_check_process_existence(sMem->process[process].id))
+ 			{
+ 				sharedMemory->eventFini(&sMem->process[process].notifyEvent);
+ 				sharedMemory->eventFini(&sMem->process[process].callbackEvent);

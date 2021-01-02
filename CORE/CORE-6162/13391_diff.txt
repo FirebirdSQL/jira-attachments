@@ -1,0 +1,97 @@
+diff --git a/src/isql/extract.epp b/src/isql/extract.epp
+index 12d6c5f19e..db376f668c 100644
+--- a/src/isql/extract.epp
++++ b/src/isql/extract.epp
+@@ -69,7 +69,7 @@ static bool extract_rel_constraints(const char* relation_name);
+ static void get_procedure_args(const char*);
+ static void list_all_grants();
+ static processing_state list_all_grants2(bool, const SCHAR*);
+-static void list_all_procs();
++static void list_all_procs(bool);
+ static void list_all_tables(LegacyTables flag, SSHORT);
+ static void list_all_triggers();
+ static void list_check();
+@@ -184,10 +184,11 @@ int EXTRACT_ddl(LegacyTables flag, const SCHAR* tabname)
+ 		list_all_tables(flag, default_char_set_id);
+ 		list_index();
+ 		list_foreign();
++		list_all_procs(false); // declare procedures before views, because views may use procedures
+ 		list_views();
+ 		list_check();
+ 		list_exception();
+-		list_all_procs();
++		list_all_procs(true); // alter previous declaration with body
+ 		list_all_triggers();
+ 		list_all_grants();
+ 		SHOW_comments(false); // Let's make this an option later.
+@@ -1172,7 +1173,7 @@ static processing_state list_all_grants2(bool show_role_list, const SCHAR* termi
+ }
+ 
+ 
+-static void list_all_procs()
++static void list_all_procs(bool with_real_body)
+ {
+ /**************************************
+  *
+@@ -1199,7 +1200,8 @@ static void list_all_procs()
+ 
+ 	//  First the dummy procedures
+ 	// create the procedures with their parameters
+-
++	if (!with_real_body) 
++	{
+ 	FOR PRC IN RDB$PROCEDURES
+ 		SORTED BY PRC.RDB$PROCEDURE_NAME
+ 		if (header)
+@@ -1207,7 +1209,7 @@ static void list_all_procs()
+ 			isqlGlob.printf("COMMIT WORK;%s", NEWLINE);
+ 			isqlGlob.printf("SET AUTODDL OFF;%s", NEWLINE);
+ 			isqlGlob.printf("SET TERM %s %s%s", Procterm, isqlGlob.global_Term, NEWLINE);
+-			isqlGlob.printf("%s/* Stored procedures */%s", NEWLINE, NEWLINE);
++			isqlGlob.printf("%s/* Stored procedures headers */%s", NEWLINE, NEWLINE);
+ 			header = false;
+ 		}
+ 		fb_utils::exact_name(PRC.RDB$PROCEDURE_NAME);
+@@ -1251,6 +1253,8 @@ static void list_all_procs()
+ 		ISQL_errmsg(gds_status);
+ 		return;
+ 	END_ERROR;
++	}
++        else {
+ 
+ 	// This query gets the procedure name and the source.  We then nest a query
+ 	// to retrieve the parameters. Alter is used, because the procedures are already there
+@@ -1259,6 +1263,13 @@ static void list_all_procs()
+ 	FOR PRC IN RDB$PROCEDURES
+ 		SORTED BY PRC.RDB$PROCEDURE_NAME
+ 
++		if (header)
++		{
++			isqlGlob.printf("SET TERM %s %s%s", Procterm, isqlGlob.global_Term, NEWLINE);
++			isqlGlob.printf("%s/* Stored procedures bodies */%s", NEWLINE, NEWLINE);
++			header = false;
++		}
++
+ 		fb_utils::exact_name(PRC.RDB$PROCEDURE_NAME);
+ 
+ 		if (isqlGlob.db_SQL_dialect > SQL_DIALECT_V6_TRANSITION)
+@@ -1284,13 +1295,17 @@ static void list_all_procs()
+ 		ISQL_errmsg(gds_status);
+ 		return;
+ 	END_ERROR;
++	}
+ 
+ 	// Only reset the terminators is there were procs to print
+ 	if (!header)
+ 	{
+ 		isqlGlob.printf("SET TERM %s %s%s", isqlGlob.global_Term, Procterm, NEWLINE);
+-		isqlGlob.printf("COMMIT WORK %s%s", isqlGlob.global_Term, NEWLINE);
+-		isqlGlob.printf("SET AUTODDL ON;%s", NEWLINE);
++		if (with_real_body)
++		{
++			isqlGlob.printf("COMMIT WORK %s%s", isqlGlob.global_Term, NEWLINE);
++			isqlGlob.printf("SET AUTODDL ON;%s", NEWLINE);
++		}
+ 	}
+ }
+ 

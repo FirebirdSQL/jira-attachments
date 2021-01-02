@@ -1,0 +1,546 @@
+Index: src/burp/burp.cpp
+===================================================================
+RCS file: /cvsroot/firebird/firebird2/src/burp/burp.cpp,v
+retrieving revision 1.175.2.1
+diff -u -r1.175.2.1 burp.cpp
+--- src/burp/burp.cpp	17 Dec 2009 12:32:24 -0000	1.175.2.1
++++ src/burp/burp.cpp	27 Apr 2010 13:12:14 -0000
+@@ -1662,10 +1662,10 @@
+ 			}
+ 			if (fil->fil_name == "stdout")
+ 			{
+-				if (tdgbl->action->act_total >= 2 || fil->fil_next)
++				if (tdgbl->action->act_total >= 2 || fil->fil_next || sw_verbose)
+ 				{
+ 					BURP_error(266, true);
+-					// msg 266 standard output is not supported when using split operation
++					// msg 266 standard output is not supported when using split operation or in verbose mode
+ 					flag = QUIT;
+ 					break;
+ 				}
+@@ -1677,6 +1677,7 @@
+ 				signal(SIGPIPE, SIG_IGN);
+ #endif
+ 				fil->fil_fd = GBAK_STDOUT_DESC();
++				tdgbl->stdIoMode = true;
+ 				break;
+ 			}
+ 			else
+@@ -1781,10 +1782,13 @@
+ 	{
+ 		fil->fil_fd = GBAK_STDIN_DESC();
+ 		tdgbl->file_desc = fil->fil_fd;
++		tdgbl->stdIoMode = true;
+ 		tdgbl->gbl_sw_files = fil->fil_next;
+ 	}
+ 	else
+ 	{
++		tdgbl->stdIoMode = false;
++
+ 		// open first file
+ #ifdef WIN_NT
+ 		if ((fil->fil_fd = MVOL_open(fil->fil_name.c_str(), MODE_READ, OPEN_EXISTING)) ==
+Index: src/burp/burp.h
+===================================================================
+RCS file: /cvsroot/firebird/firebird2/src/burp/burp.h,v
+retrieving revision 1.102
+diff -u -r1.102 burp.h
+--- src/burp/burp.h	7 Jul 2009 10:25:43 -0000	1.102
++++ src/burp/burp.h	27 Apr 2010 13:12:14 -0000
+@@ -812,7 +812,8 @@
+ 		  defaultCollations(*getDefaultMemoryPool()),
+ 		  flag_on_line(true),
+ 		  uSvc(us),
+-		  firstMap(true)
++		  firstMap(true),
++		  stdIoMode(false)
+ 	{
+ 		// this is VERY dirty hack to keep current behaviour
+ 		memset (&gbl_database_file_name, 0,
+@@ -975,6 +976,7 @@
+ 	bool flag_on_line;	// indicates whether we will bring the database on-line
+ 	Firebird::UtilSvc* uSvc;
+ 	bool firstMap;      // this is the first time we entered get_mapping()
++	bool stdIoMode;		// stdin or stdout is used as backup file
+ };
+ 
+ // CVC: This aux routine declared here to not force inclusion of burp.h with burp_proto.h
+Index: src/burp/mvol.cpp
+===================================================================
+RCS file: /cvsroot/firebird/firebird2/src/burp/mvol.cpp,v
+retrieving revision 1.65
+diff -u -r1.65 mvol.cpp
+--- src/burp/mvol.cpp	29 May 2009 11:27:28 -0000	1.65
++++ src/burp/mvol.cpp	27 Apr 2010 13:12:14 -0000
+@@ -109,15 +109,16 @@
+ {
+ 	BurpGlobals* tdgbl = BurpGlobals::getSpecific();
+ 
+-	if (strcmp(tdgbl->mvol_old_file, "stdin") != 0)
++	if (!tdgbl->stdIoMode)
+ 	{
+ 		close_platf(tdgbl->file_desc);
++	}
+ 
+-		for (burp_fil* file = tdgbl->gbl_sw_backup_files; file; file = file->fil_next)
++	for (burp_fil* file = tdgbl->gbl_sw_backup_files; file; file = file->fil_next)
++	{
++		if (file->fil_fd == tdgbl->file_desc) 
+ 		{
+-			if (file->fil_fd == tdgbl->file_desc) {
+-				file->fil_fd = INVALID_HANDLE_VALUE;
+-			}
++			file->fil_fd = INVALID_HANDLE_VALUE;
+ 		}
+ 	}
+ 
+@@ -139,15 +140,19 @@
+ 
+ 	MVOL_write(rec_end, io_cnt, io_ptr);
+ 	flush_platf(tdgbl->file_desc);
+-	if (strcmp(tdgbl->mvol_old_file, "stdout") != 0)
++
++	if (!tdgbl->stdIoMode)
+ 	{
+ 		close_platf(tdgbl->file_desc);
+-		for (burp_fil* file = tdgbl->gbl_sw_backup_files; file; file = file->fil_next)
++	}
++	for (burp_fil* file = tdgbl->gbl_sw_backup_files; file; file = file->fil_next)
++	{
++		if (file->fil_fd == tdgbl->file_desc)
+ 		{
+-			if (file->fil_fd == tdgbl->file_desc)
+-				file->fil_fd = INVALID_HANDLE_VALUE;
++			file->fil_fd = INVALID_HANDLE_VALUE;
+ 		}
+ 	}
++
+ 	tdgbl->file_desc = INVALID_HANDLE_VALUE;
+ 	BURP_free(tdgbl->mvol_io_header);
+ 	tdgbl->mvol_io_header = NULL;
+@@ -512,169 +517,178 @@
+ 	const ULONG size_to_write = BURP_UP_TO_BLOCK(*io_ptr - tdgbl->mvol_io_buffer);
+ 	ULONG left = size_to_write;
+ 
+-	for (ptr = tdgbl->mvol_io_buffer; left > 0; ptr += cnt, left -= cnt)
++	if (tdgbl->stdIoMode && tdgbl->uSvc->isService())
+ 	{
+-		if (tdgbl->action->act_action == ACT_backup_split)
++		tdgbl->uSvc->started();
++		tdgbl->uSvc->putBytes(tdgbl->mvol_io_buffer, left);
++		left = 0;
++	}
++	else
++	{
++		for (ptr = tdgbl->mvol_io_buffer; left > 0; ptr += cnt, left -= cnt)
+ 		{
+-			// Write to the current file till fil_lingth > 0, otherwise
+-			// switch to the next one
+-			if (tdgbl->action->act_file->fil_length == 0)
++			if (tdgbl->action->act_action == ACT_backup_split)
+ 			{
+-				if (tdgbl->action->act_file->fil_next)
++				// Write to the current file till fil_lingth > 0, otherwise
++				// switch to the next one
++				if (tdgbl->action->act_file->fil_length == 0)
+ 				{
+-					close_platf(tdgbl->file_desc);
+-					for (burp_fil* file = tdgbl->gbl_sw_backup_files; file; file = file->fil_next)
++					if (tdgbl->action->act_file->fil_next)
+ 					{
+-						if (file->fil_fd == tdgbl->file_desc)
+-							file->fil_fd = INVALID_HANDLE_VALUE;
++						close_platf(tdgbl->file_desc);
++						for (burp_fil* file = tdgbl->gbl_sw_backup_files; file; file = file->fil_next)
++						{
++							if (file->fil_fd == tdgbl->file_desc)
++								file->fil_fd = INVALID_HANDLE_VALUE;
++						}
++						tdgbl->action->act_file->fil_fd = INVALID_HANDLE_VALUE;
++						tdgbl->action->act_file = tdgbl->action->act_file->fil_next;
++						tdgbl->file_desc = tdgbl->action->act_file->fil_fd;
++					}
++					else
++					{
++						// This is a last file. Keep writing in a hope that there is
++						// enough free disk space ...
++						tdgbl->action->act_file->fil_length = MAX_LENGTH;
+ 					}
+-					tdgbl->action->act_file->fil_fd = INVALID_HANDLE_VALUE;
+-					tdgbl->action->act_file = tdgbl->action->act_file->fil_next;
+-					tdgbl->file_desc = tdgbl->action->act_file->fil_fd;
+-				}
+-				else
+-				{
+-					// This is a last file. Keep writing in a hope that there is
+-					// enough free disk space ...
+-					tdgbl->action->act_file->fil_length = MAX_LENGTH;
+ 				}
+ 			}
+-		}
+ 
+-		const size_t nBytesToWrite =
+-			(tdgbl->action->act_action == ACT_backup_split &&
+-				tdgbl->action->act_file->fil_length < left) ?
+-			 		tdgbl->action->act_file->fil_length : left;
++			const size_t nBytesToWrite =
++				(tdgbl->action->act_action == ACT_backup_split &&
++					tdgbl->action->act_file->fil_length < left) ?
++				 		tdgbl->action->act_file->fil_length : left;
+ 
+ #ifndef WIN_NT
+-		cnt = write(tdgbl->file_desc, ptr, nBytesToWrite);
++			cnt = write(tdgbl->file_desc, ptr, nBytesToWrite);
+ #else
+ 
+-		DWORD ret = 0;
+-		if (!WriteFile(tdgbl->file_desc, ptr, (DWORD) nBytesToWrite, &cnt, NULL))
+-		{
+-			ret = GetLastError();
+-		}
++			DWORD ret = 0;
++			if (!WriteFile(tdgbl->file_desc, ptr, (DWORD) nBytesToWrite, &cnt, NULL))
++			{
++				ret = GetLastError();
++			}
+ #endif // !WIN_NT
+-		tdgbl->mvol_io_buffer = tdgbl->mvol_io_data;
+-		if (cnt > 0)
+-		{
+-			tdgbl->mvol_cumul_count += cnt;
+-			file_not_empty();
+-			if (tdgbl->action->act_action == ACT_backup_split)
++			tdgbl->mvol_io_buffer = tdgbl->mvol_io_data;
++			if (cnt > 0)
+ 			{
+-				if (tdgbl->action->act_file->fil_length < left)
+-					tdgbl->action->act_file->fil_length = 0;
+-				else
+-					tdgbl->action->act_file->fil_length -= left;
++				tdgbl->mvol_cumul_count += cnt;
++				file_not_empty();
++				if (tdgbl->action->act_action == ACT_backup_split)
++				{
++					if (tdgbl->action->act_file->fil_length < left)
++						tdgbl->action->act_file->fil_length = 0;
++					else
++						tdgbl->action->act_file->fil_length -= left;
++				}
+ 			}
+-		}
+-		else
+-		{
+-			if (!cnt ||
++			else
++			{
++				if (!cnt ||
+ #ifndef WIN_NT
+-				errno == ENOSPC || errno == EIO || errno == ENXIO ||
+-				errno == EFBIG)
++					errno == ENOSPC || errno == EIO || errno == ENXIO ||
++					errno == EFBIG)
+ #else
+-				ret == ERROR_DISK_FULL || ret == ERROR_HANDLE_DISK_FULL)
++					ret == ERROR_DISK_FULL || ret == ERROR_HANDLE_DISK_FULL)
+ #endif // !WIN_NT
+-			{
+-				if (tdgbl->action->act_action == ACT_backup_split)
+ 				{
+-					// Close the current file and switch to the next one.
+-					// If there is no more specified files left then
+-					// issue an error and give up
+-					if (tdgbl->action->act_file->fil_next)
++					if (tdgbl->action->act_action == ACT_backup_split)
+ 					{
+-						close_platf(tdgbl->file_desc);
+-						for (burp_fil* file = tdgbl->gbl_sw_backup_files; file; file = file->fil_next)
++						// Close the current file and switch to the next one.
++						// If there is no more specified files left then
++						// issue an error and give up
++						if (tdgbl->action->act_file->fil_next)
+ 						{
+-							if (file->fil_fd == tdgbl->file_desc)
+-								file->fil_fd = INVALID_HANDLE_VALUE;
++							close_platf(tdgbl->file_desc);
++							for (burp_fil* file = tdgbl->gbl_sw_backup_files; file; file = file->fil_next)
++							{
++								if (file->fil_fd == tdgbl->file_desc)
++									file->fil_fd = INVALID_HANDLE_VALUE;
++							}
++
++							tdgbl->action->act_file->fil_fd = INVALID_HANDLE_VALUE;
++							BURP_print(272, SafeArg() <<
++										tdgbl->action->act_file->fil_name.c_str() <<
++										tdgbl->action->act_file->fil_length <<
++										tdgbl->action->act_file->fil_next->fil_name.c_str());
++							// msg 272 Warning -- free disk space exhausted for file %s,
++							// the rest of the bytes (%d) will be written to file %s
++							tdgbl->action->act_file->fil_next->fil_length +=
++								tdgbl->action->act_file->fil_length;
++							tdgbl->action->act_file = tdgbl->action->act_file->fil_next;
++							tdgbl->file_desc = tdgbl->action->act_file->fil_fd;
+ 						}
+-
+-						tdgbl->action->act_file->fil_fd = INVALID_HANDLE_VALUE;
+-						BURP_print(272, SafeArg() <<
+-									tdgbl->action->act_file->fil_name.c_str() <<
+-									tdgbl->action->act_file->fil_length <<
+-									tdgbl->action->act_file->fil_next->fil_name.c_str());
+-						// msg 272 Warning -- free disk space exhausted for file %s,
+-						// the rest of the bytes (%d) will be written to file %s
+-						tdgbl->action->act_file->fil_next->fil_length +=
+-							tdgbl->action->act_file->fil_length;
+-						tdgbl->action->act_file = tdgbl->action->act_file->fil_next;
+-						tdgbl->file_desc = tdgbl->action->act_file->fil_fd;
++						else
++						{
++							BURP_error(270, true);
++							// msg 270 free disk space exhausted
++						}
++						cnt = 0;
++						continue;
+ 					}
+-					else
++
++					if (tdgbl->uSvc->isService())
+ 					{
+ 						BURP_error(270, true);
+ 						// msg 270 free disk space exhausted
+ 					}
+-					cnt = 0;
+-					continue;
+-				}
+ 
+-				if (tdgbl->uSvc->isService())
+-				{
+-					BURP_error(270, true);
+-					// msg 270 free disk space exhausted
+-				}
+-
+-				// Note: there is an assumption here, that if header data is being
+-				// written, it is really being rewritten, so at least all the
+-				// header data will be written
++					// Note: there is an assumption here, that if header data is being
++					// written, it is really being rewritten, so at least all the
++					// header data will be written
+ 
+-				if (left != size_to_write)
+-				{
+-					// Wrote some, move remainder up in buffer.
++					if (left != size_to_write)
++					{
++						// Wrote some, move remainder up in buffer.
+ 
+-					// NOTE: We should NOT use memcpy here.  We're moving overlapped
+-					// data and memcpy does not guanantee the order the data
+-					// is moved in
+-					memcpy(tdgbl->mvol_io_data, ptr, left);
++						// NOTE: We should NOT use memcpy here.  We're moving overlapped
++						// data and memcpy does not guanantee the order the data
++						// is moved in
++						memcpy(tdgbl->mvol_io_data, ptr, left);
++					}
++					left += tdgbl->mvol_io_data - tdgbl->mvol_io_header;
++					bool full_buffer;
++					if (left >=  tdgbl->mvol_io_buffer_size)
++						full_buffer = true;
++					else
++						full_buffer = false;
++					tdgbl->file_desc = next_volume(tdgbl->file_desc, MODE_WRITE, full_buffer);
++					if (full_buffer)
++					{
++						left -= tdgbl->mvol_io_buffer_size;
++						memcpy(tdgbl->mvol_io_data,
++							   tdgbl->mvol_io_header + tdgbl->mvol_io_buffer_size,
++							   left);
++						tdgbl->mvol_cumul_count += tdgbl->mvol_io_buffer_size;
++						tdgbl->mvol_io_buffer = tdgbl->mvol_io_data;
++					}
++					else
++						tdgbl->mvol_io_buffer = tdgbl->mvol_io_header;
++					break;
+ 				}
+-				left += tdgbl->mvol_io_data - tdgbl->mvol_io_header;
+-				bool full_buffer;
+-				if (left >=  tdgbl->mvol_io_buffer_size)
+-					full_buffer = true;
+-				else
+-					full_buffer = false;
+-				tdgbl->file_desc = next_volume(tdgbl->file_desc, MODE_WRITE, full_buffer);
+-				if (full_buffer)
++				else if (!SYSCALL_INTERRUPTED(errno))
+ 				{
+-					left -= tdgbl->mvol_io_buffer_size;
+-					memcpy(tdgbl->mvol_io_data,
+-						   tdgbl->mvol_io_header + tdgbl->mvol_io_buffer_size,
+-						   left);
+-					tdgbl->mvol_cumul_count += tdgbl->mvol_io_buffer_size;
+-					tdgbl->mvol_io_buffer = tdgbl->mvol_io_data;
++					BURP_error_redirect(0, 221);
++					// msg 221 Unexpected I/O error while writing to backup file
+ 				}
+-				else
+-					tdgbl->mvol_io_buffer = tdgbl->mvol_io_header;
+-				break;
+ 			}
+-			else if (!SYSCALL_INTERRUPTED(errno))
+-			{
+-				BURP_error_redirect(0, 221);
+-				// msg 221 Unexpected I/O error while writing to backup file
++			if (left < cnt) {	// this is impossible, but...
++				cnt = left;
+ 			}
+-		}
+-		if (left < cnt) {	// this is impossible, but...
+-			cnt = left;
+-		}
+ 
+-	} // for
++		} // for
+ 
+ #ifdef DEBUG
+-	{
+-		int dbg_cnt;
+-		if (debug_on)
+ 		{
+-			for (dbg_cnt = 0; dbg_cnt < cnt; dbg_cnt++)
+-				printf("%d,\n", *(ptr + dbg_cnt));
++			int dbg_cnt;
++			if (debug_on)
++			{
++				for (dbg_cnt = 0; dbg_cnt < cnt; dbg_cnt++)
++					printf("%d,\n", *(ptr + dbg_cnt));
++			}
+ 		}
+-	}
+ #endif
++	}
+ 
+ 	// After the first block of first volume is written (using a default block size)
+ 	// change the block size to one that reflects the user's blocking factor.  By
+Index: src/jrd/svc.cpp
+===================================================================
+RCS file: /cvsroot/firebird/firebird2/src/jrd/svc.cpp,v
+retrieving revision 1.285.2.9
+diff -u -r1.285.2.9 svc.cpp
+--- src/jrd/svc.cpp	17 Dec 2009 12:32:27 -0000	1.285.2.9
++++ src/jrd/svc.cpp	27 Apr 2010 13:12:15 -0000
+@@ -2278,9 +2278,15 @@
+ 	while (len)
+ 	{
+ 		// Wait for space in buffer
++		bool flagFirst = true;
+ 		while (full())
+ 		{
+-			THREAD_SLEEP(1);
++			if (flagFirst)
++			{
++				svc_sem_full.release();
++				flagFirst = false;
++			}
++			svc_sem_empty.tryEnter(0, 1);
+ 			if (checkForShutdown() || (svc_flags & SVC_detached))
+ 			{
+ 				return;
+@@ -2324,6 +2330,7 @@
+ 		svc_flags &= ~SVC_timeout;
+ 	}
+ 
++	bool flagFirst = true;
+ 	while (length)
+ 	{
+ 		if ((empty() && (svc_flags & SVC_finished)) || checkForShutdown())
+@@ -2333,7 +2340,12 @@
+ 
+ 		if (empty())
+ 		{
+-			THREAD_SLEEP(1);
++			if (flagFirst)
++			{
++				svc_sem_empty.release();
++				flagFirst = false;
++			}
++			svc_sem_full.tryEnter(0, 1);
+ 		}
+ #ifdef HAVE_GETTIMEOFDAY
+ 		GETTIMEOFDAY(&end_time);
+@@ -2353,6 +2365,7 @@
+ 
+ 		while (head != svc_stdout_tail && length > 0)
+ 		{
++			flagFirst = true;
+ 			const UCHAR ch = svc_stdout[head];
+ 			head = add_one(head);
+ 			length--;
+Index: src/jrd/svc.h
+===================================================================
+RCS file: /cvsroot/firebird/firebird2/src/jrd/svc.h,v
+retrieving revision 1.79.2.4
+diff -u -r1.79.2.4 svc.h
+--- src/jrd/svc.h	17 Dec 2009 12:32:27 -0000	1.79.2.4
++++ src/jrd/svc.h	27 Apr 2010 13:12:15 -0000
+@@ -278,9 +278,12 @@
+ 		FB_THREAD_ID workerThread;
+ 		Firebird::Mutex mtx;
+ 	};
++
+ private:
+ 	StatusStringsHelper	svc_thread_strings;
+ 
++	Firebird::Semaphore svc_sem_empty, svc_sem_full;
++
+ 	//Service existence guard
+ 	class ExistenceGuard
+ 	{
+Index: src/msgs/messages2.sql
+===================================================================
+RCS file: /cvsroot/firebird/firebird2/src/msgs/messages2.sql,v
+retrieving revision 1.102.2.7
+diff -u -r1.102.2.7 messages2.sql
+--- src/msgs/messages2.sql	1 Feb 2010 14:27:48 -0000	1.102.2.7
++++ src/msgs/messages2.sql	27 Apr 2010 13:12:16 -0000
+@@ -2431,7 +2431,7 @@
+ ('gbak_file_outof_sequence', 'open_files', 'burp.c', NULL, 12, 263, NULL, 'file @1 out of sequence', NULL, NULL);
+ ('gbak_join_file_missing', 'open_files', 'burp.c', NULL, 12, 264, NULL, 'can''t join -- one of the files missing', NULL, NULL);
+ ('gbak_stdin_not_supptd', 'open_files', 'burp.c', NULL, 12, 265, NULL, ' standard input is not supported when using join operation', NULL, NULL);
+-('gbak_stdout_not_supptd', 'open_files', 'burp.c', NULL, 12, 266, NULL, 'standard output is not supported when using split operation', NULL, NULL);
++('gbak_stdout_not_supptd', 'open_files', 'burp.c', NULL, 12, 266, NULL, 'standard output is not supported when using split operation or in verbose mode', NULL, NULL);
+ ('gbak_bkup_corrupt', 'open_files', 'burp.c', NULL, 12, 267, NULL, 'backup file @1 might be corrupt', NULL, NULL);
+ ('gbak_unk_db_file_spec', 'open_files', 'burp.c', NULL, 12, 268, NULL, 'database file specification missing', NULL, NULL);
+ ('gbak_hdr_write_failed', 'MVOL_init_write', 'mvol.c', NULL, 12, 269, NULL, 'can''t write a header record to file @1', NULL, NULL);
+Index: src/utilities/fbsvcmgr.cpp
+===================================================================
+RCS file: /cvsroot/firebird/firebird2/src/utilities/fbsvcmgr.cpp,v
+retrieving revision 1.35.2.7
+diff -u -r1.35.2.7 fbsvcmgr.cpp
+--- src/utilities/fbsvcmgr.cpp	17 Dec 2009 13:10:24 -0000	1.35.2.7
++++ src/utilities/fbsvcmgr.cpp	27 Apr 2010 13:12:16 -0000
+@@ -473,7 +473,7 @@
+ 
+ const SvcSwitches actionSwitch[] =
+ {
+-	{"action_backup", putSingleTag, backupOptions, isc_action_svc_backup, isc_info_svc_line},
++	{"action_backup", putSingleTag, backupOptions, isc_action_svc_backup, isc_info_svc_to_eof},
+ 	{"action_restore", putSingleTag, restoreOptions, isc_action_svc_restore, isc_info_svc_line},
+ 	{"action_properties", putSingleTag, propertiesOptions, isc_action_svc_properties, 0},
+ 	{"action_repair", putSingleTag, repairOptions, isc_action_svc_repair, 0},
+@@ -527,7 +527,10 @@
+ {
+ 	string s;
+ 	bool rc = getLine(s, p);
+-	printf ("%s", s.c_str());
++	if (rc)
++	{
++		fwrite(s.c_str(), 1, s.length(), stdout);
++	}
+ 	return rc;
+ }
+ 
+@@ -772,6 +775,7 @@
+ 		}
+ 	}
+ 
++	fflush(stdout);
+ 	return ret;
+ }
+ 

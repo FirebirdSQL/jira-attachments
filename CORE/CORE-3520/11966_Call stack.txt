@@ -1,0 +1,117 @@
+Unhandled exception at 0x02d5a326 in minidump.mdmp: 0xC0000005: Access violation writing location 0x0203daac.
+
+
+ 	fbclient.dll!garbage_collector(void * arg=0x0003d978)  Line 4117	C++
+ 	fbclient.dll!`anonymous namespace'::threadStart(void * arg=0x00ec09e0)  Line 283	C++
+>	msvcr80.dll!_callthreadstartex()  Line 348 + 0x6 bytes	C
+ 	msvcr80.dll!_threadstartex(void * ptd=0x0229a430)  Line 326 + 0x5 bytes	C
+ 	kernel32.dll!@BaseThreadInitThunk@12()  + 0x12 bytes	
+ 	ntdll.dll!___RtlUserThreadStart@8()  + 0x27 bytes	
+ 	ntdll.dll!__RtlUserThreadStart@8()  + 0x1b bytes	
+
+
+
+
+
+
+
+-----------------------------------
+
+Clean-up going on in another thread:
+
+ 	ntdll.dll!_KiFastSystemCallRet@0() 	
+ 	ntdll.dll!_NtWaitForMultipleObjects@20()  + 0xc bytes	
+ 	kernel32.dll!_WaitForMultipleObjectsEx@20()  + 0xf5 bytes	
+ 	kernel32.dll!_WaitForMultipleObjects@16()  + 0x18 bytes	
+ 	fbclient.dll!ISC_event_wait(short count=1, event_t * * events=0x056bf3a8, long * values=0x056bf3b0, long micro_seconds=0, void (void *)* timeout_handler=0x00000000, void * handler_arg=0x00000000)  Line 1292	C++
+ 	fbclient.dll!stall(thread * thread=0x0000cc93)  Line 966	C++
+ 	fbclient.dll!SCH_enter()  Line 445	C++
+ 	fbclient.dll!subsystem_enter()  Line 6156	C++
+ 	fbclient.dll!isc_dsql_free_statement(int * user_status=0x056bf490, void * * stmt_handle=0x034e706c, unsigned short option=2)  Line 3227	C++
+ 	IBProv.dll!ib_v5::t_ib_statement_v5::drop()  Line 514	C++
+ 	IBProv.dll!ib_v5::t_ib_statement_v5::~t_ib_statement_v5()  Line 62	C++
+ 	IBProv.dll!ib_v5::t_ib_statement_v5::`scalar deleting destructor'()  + 0xf bytes	C++
+ 	IBProv.dll!structure::t_basic_smem_obj<structure::t_multi_thread_traits,structure::t_void_allocator>::release()  Line 98	C++
+ 	IBProv.dll!ibp::t_ibp_command::~t_ibp_command()  Line 104 + 0x80 bytes	C++
+ 	IBProv.dll!ibp::t_ibp_command::`scalar deleting destructor'()  + 0xf bytes	C++
+ 	IBProv.dll!structure::t_basic_smem_obj<structure::t_multi_thread_traits,structure::t_void_allocator>::release()  Line 98	C++
+ 	IBProv.dll!ibp::t_ibp_sql_pstmt_data::tag_data::~tag_data()  + 0x71 bytes	C++
+ 	IBProv.dll!ibp::t_ibp_sql_pstmt_data::~t_ibp_sql_pstmt_data()  + 0x44 bytes	C++
+ 	IBProv.dll!ibp::TIBPCommand::~TIBPCommand()  Line 57 + 0x57 bytes	C++
+ 	IBProv.dll!ibp::TIBPCommand::`scalar deleting destructor'()  + 0x8 bytes	C++
+ 	IBProv.dll!ole_lib::TBaseUnknown2::NondelegatingRelease()  Line 104	C++
+ 	oledb32.dll!CAccessorTracker::~CAccessorTracker()  + 0x40 bytes	
+ 	oledb32.dll!CCCM::~CCCM()  + 0x89 bytes	
+ 	oledb32.dll!ATL::CComPolyObject<CCCM>::~CComPolyObject<CCCM>()  + 0x60 bytes	
+ 	oledb32.dll!ATL::CComPolyObject<CCCM>::Release()  - 0x1a bytes	
+ 	oledb32.dll!ATL::CComContainedObject<CDSLWrapper>::Release()  + 0x13 bytes	
+ 	oledb32.dll!ATL::CComContainedObject<CMultipleResults<CRCM> >::Release()  + 0x13 bytes	
+ 	MFServer.exe!ATL::CCommandBase::ReleaseCommand()  Line 6580	C++
+>	MFServer.exe!ATL::CCommandBase::~CCommandBase()  Line 6505	C++
+ 	MFServer.exe!ATL::CCommand<CMDynamicAccessorWithParams,ATL::CRowset,ATL::CNoMultipleResults>::~CCommand<CMDynamicAccessorWithParams,ATL::CRowset,ATL::CNoMultipleResults>()  + 0x38 bytes	C++
+ 	MFServer.exe!boost::checked_delete<CMCommandWithParams<ATL::CRowset,ATL::CNoMultipleResults> >(CMCommandWithParams<ATL::CRowset,ATL::CNoMultipleResults> * x=0x01081268)  Line 34 + 0x1b bytes	C++
+ 	MFServer.exe!boost::detail::sp_counted_impl_p<CMCommandWithParams<ATL::CRowset,ATL::CNoMultipleResults> >::dispose()  Line 78 + 0x9 bytes	C++
+ 	MFServer.exe!boost::shared_ptr<CCachedDBSessionEx>::~shared_ptr<CCachedDBSessionEx>()  + 0x4a bytes	C++
+ 	MFServer.exe!std::pair<ATL::CStringT<wchar_t,StrTraitMFC<wchar_t,ATL::ChTraitsCRT<wchar_t> > > const ,boost::tuples::tuple<boost::shared_ptr<CMCommandWithParams<ATL::CRowset,ATL::CNoMultipleResults> >,unsigned long,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type> >::~pair<ATL::CStringT<wchar_t,StrTraitMFC<wchar_t,ATL::ChTraitsCRT<wchar_t> > > const ,boost::tuples::tuple<boost::shared_ptr<CMCommandWithParams<ATL::CRowset,ATL::CNoMultipleResults> >,unsigned long,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type> >()  + 0x40 bytes	C++
+ 	MFServer.exe!std::_Tree<std::_Tmap_traits<ATL::CStringT<wchar_t,StrTraitMFC<wchar_t,ATL::ChTraitsCRT<wchar_t> > >,boost::tuples::tuple<boost::shared_ptr<CMCommandWithParams<ATL::CRowset,ATL::CNoMultipleResults> >,unsigned long,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>,std::less<ATL::CStringT<wchar_t,StrTraitMFC<wchar_t,ATL::ChTraitsCRT<wchar_t> > > >,std::allocator<std::pair<ATL::CStringT<wchar_t,StrTraitMFC<wchar_t,ATL::ChTraitsCRT<wchar_t> > > const ,boost::tuples::tuple<boost::shared_ptr<CMCommandWithParams<ATL::CRowset,ATL::CNoMultipleResults> >,unsigned long,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type> > >,0> >::erase(std::_Tree<std::_Tmap_traits<ATL::CStringT<wchar_t,StrTraitMFC<wchar_t,ATL::ChTraitsCRT<wchar_t> > >,boost::tuples::tuple<boost::shared_ptr<CMCommandWithParams<ATL::CRowset,ATL::CNoMultipleResults> >,unsigned long,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>,std::less<ATL::CStringT<wchar_t,StrTraitMFC<wchar_t,ATL::ChTraitsCRT<wchar_t> > > >,std::allocator<std::pair<ATL::CStringT<wchar_t,StrTraitMFC<wchar_t,ATL::ChTraitsCRT<wchar_t> > > const ,boost::tuples::tuple<boost::shared_ptr<CMCommandWithParams<ATL::CRowset,ATL::CNoMultipleResults> >,unsigned long,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type> > >,0> >::const_iterator _Where=({...},{...}))  Line 925	C++
+ 	MFServer.exe!CCachedDBSession::ClearCommand(std::_Tree<std::_Tmap_traits<ATL::CStringT<wchar_t,StrTraitMFC<wchar_t,ATL::ChTraitsCRT<wchar_t> > >,boost::tuples::tuple<boost::shared_ptr<CMCommandWithParams<ATL::CRowset,ATL::CNoMultipleResults> >,unsigned long,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>,std::less<ATL::CStringT<wchar_t,StrTraitMFC<wchar_t,ATL::ChTraitsCRT<wchar_t> > > >,std::allocator<std::pair<ATL::CStringT<wchar_t,StrTraitMFC<wchar_t,ATL::ChTraitsCRT<wchar_t> > > const ,boost::tuples::tuple<boost::shared_ptr<CMCommandWithParams<ATL::CRowset,ATL::CNoMultipleResults> >,unsigned long,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type> > >,0> >::iterator itrWhere=({...},{...}))  Line 842	C++
+ 	MFServer.exe!CCachedDBSession::CloseTimedOutCommandsNTS(unsigned long dwTimeoutInMilliseconds=3600000, std::vector<unsigned long,std::allocator<unsigned long> > & vecAges=[0]())  Line 368 + 0x10 bytes	C++
+ 	MFServer.exe!CCachedDBSession::CloseTimedOutCommands(unsigned long dwTimeoutInSeconds=3600)  Line 317	C++
+ 	MFServer.exe!CDBSessionCache::MonitoringAlgorithm_CloseTimedOutSessionsAndCommands()  Line 355	C++
+ 	MFServer.exe!CDBSessionCache::MonitoringAlgorithm()  Line 312	C++
+ 	MFServer.exe!CDBSessionCache::ThreadProcDBSessionCache(void * pParam=0x00000000)  Line 465	C++
+ 	MFServer.exe!_AfxThreadEntry(void * pParam=0x01f7f4f4)  Line 109 + 0x5 bytes	C++
+ 	MFServer.exe!_callthreadstartex()  Line 348 + 0x6 bytes	C
+ 	MFServer.exe!_threadstartex(void * ptd=0x01036530)  Line 326 + 0x5 bytes	C
+ 	kernel32.dll!@BaseThreadInitThunk@12()  + 0x12 bytes	
+ 	ntdll.dll!___RtlUserThreadStart@8()  + 0x27 bytes	
+ 	ntdll.dll!__RtlUserThreadStart@8()  + 0x1b bytes	
+
+
+
+---------------------------------------
+
+Login sequence in another thread:
+
+ 	ntdll.dll!_KiFastSystemCallRet@0() 	
+ 	ntdll.dll!_NtWaitForMultipleObjects@20()  + 0xc bytes	
+ 	kernel32.dll!_WaitForMultipleObjectsEx@20()  + 0xf5 bytes	
+ 	kernel32.dll!_WaitForMultipleObjects@16()  + 0x18 bytes	
+ 	fbclient.dll!ISC_event_wait(short count=1, event_t * * events=0x07fcd40c, long * values=0x07fcd414, long micro_seconds=0, void (void *)* timeout_handler=0x00000000, void * handler_arg=0x00000000)  Line 1292	C++
+ 	fbclient.dll!stall(thread * thread=0x00006e69)  Line 966	C++
+ 	fbclient.dll!SCH_enter()  Line 445	C++
+ 	fbclient.dll!subsystem_enter()  Line 6156	C++
+ 	fbclient.dll!isc_attach_database(int * user_status=0x07fcd840, short file_length=0, const char * file_name=0x03e666d0, void * * public_handle=0x034e4dc0, short dpb_length=33, const char * dpb=0x07fcd900)  Line 1090	C++
+ 	IBProv.dll!fb_base::t_fb_attach_database::exec(const std::map<enum db_obj::t_dbpropid,std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,std::less<enum db_obj::t_dbpropid>,oledb_lib::TOLEDBMemoryAllocator> & params=[13](...), isc_base::t_isc_connection * connection=0x034e4da8, isc_base::t_isc_connection_settings & cns={...})  Line 194 + 0x9e bytes	C++
+ 	IBProv.dll!isc_base::t_isc_connection::initialize(const std::map<enum db_obj::t_dbpropid,std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,std::less<enum db_obj::t_dbpropid>,oledb_lib::TOLEDBMemoryAllocator> & params=[13](...), oledb_lib::TDBPropSets & PropSets={...}, ibp::TSTD_InfoProperties * pStdInfoProps=0x0a442160)  Line 102 + 0x11 bytes	C++
+ 	IBProv.dll!ibp::TIBPDataSource::Initialize()  Line 232	C++
+ 	oledb32.dll!CDBInitialize::DoInitialize()  + 0x4c bytes	
+ 	oledb32.dll!CDBInitialize::Initialize()  + 0x5a bytes	
+ 	oledb32.dll!CDCMPool::CreateResource()  + 0x186 bytes	
+ 	comsvcs.dll!CHolder::SafeDispenserDriver::CreateResource()  + 0x25 bytes	
+ 	comsvcs.dll!CHolder::AllocResource()  + 0xbe bytes	
+ 	oledb32.dll!CDCMPool::DrawResource()  + 0xbe bytes	
+ 	oledb32.dll!CDCMPoolManager::DrawResource()  + 0x7c bytes	
+ 	oledb32.dll!CDPO::Initialize()  + 0xb9 bytes	
+>	MFServer.exe!CDBSession::Open(bool bAlwaysCommit=false, const CConnectionString & connstring={...}, boost::shared_ptr<CCachedDBSession> shpCachedDBSession={...}, bool bEnlisting=false, _MF_DBEngine edbeEngine=eDBEngineFirebird, long isoIsolationLevel=65536, bool bCanProceedWithoutTransaction=false, bool bStartTransaction=true, tagDBPROPSET * pPropSets=0x00000000, unsigned long ulPropSets=1)  Line 331 + 0xb bytes	C++
+ 	MFServer.exe!CDBSession::Open(const CConnectionString & connstring={...}, _MF_DBEngine edbeEngine=eDBEngineFirebird, long isoIsolationLevel=65536, bool bCanProceedWithoutTransaction=false, bool bStartTransaction=true, tagDBPROPSET * pPropSets=0x07fceed8, unsigned long ulPropSets=134016728)  Line 257	C++
+ 	MFServer.exe!CServerDBSession::Open(const CConnectionString & connstring={...}, long isoIsolationLevel=65536)  Line 36	C++
+ 	MFServer.exe!RPCLoginHelper::LogInAuthenticatedUser(const _GUID & guidVault={...}, bool bAdministrativeLogin=true, const wchar_t * pwszAccountName=0x0101cec8, bool bIsAdmin=true, const wchar_t * pwszHostName=0x00558f08, const CTimeZoneInformation & tzinfoClient={...}, _SESSIONID * psessID=0x07fcf330, CMFSession * * ppmfsess=0x07fcf1d4, _GUID * pguidAttachment=0x07fcf370, CTimeZoneInformation * ptzinfoVault=0x07fcf284)  Line 391 + 0x3d bytes	C++
+ 	MFServer.exe!RPCLoginHelper::MF_LogInImpl(const _GUID & guidVault={...}, unsigned char bAdministrativeLogin='', const wchar_t * pwszHostName=0x00558f08, const CTimeZoneInformation & tzinfoClient={...}, const wchar_t * pwszAuthType=0x00558fe8, unsigned long ulAttemptIdentifier=3601, unsigned long ulInputLength=88, unsigned char * pInput=0x00559008, unsigned long * pulOutputLength=0x07fcfb40, unsigned char * * ppOutput=0x07fcfb44, unsigned long * pulAttemptIdentifier=0x07fcfb50, unsigned char * pbDone=0x02c045a8, _GUID * pguidAttachment=0x02c045b8, unsigned long * plcidLocaleForSorting=0x02c045c8, CMF_SessionInfoServer * psessinfoserver=0x07457f90)  Line 160 + 0x6f bytes	C++
+ 	MFServer.exe!MF_LogIn_2394(void * IDL_handle=0x02ba6090, const wchar_t * pwszVaultGUID=0x00558eac, unsigned char bAdministrativeLogin='', const wchar_t * pwszHostName=0x00558f08, _MF_Bytes_2091 bytesTZInfo_={...}, const wchar_t * pwszAuthType=0x00558fe8, unsigned long ulAttemptIdentifier=3601, unsigned long ulInputLength=88, unsigned char * pInput=0x00559008, _MF_Bytes_2091 * pOutput_=0x07fcfb40, unsigned long * pulAttemptIdentifier=0x07fcfb50, unsigned char * pbDone=0x02c045a8, _GUID * pguidAttachment=0x02c045b8, unsigned long * plcidLocaleForSorting=0x02c045c8, _MF_SessionInfoServer_2394 * psessinfoserver_=0x07457f90, _MF_RPCErrorInfoArray_0001 * pErrors=0x02c045d8)  Line 180 + 0x61 bytes	C++
+ 	rpcrt4.dll!_Invoke@12()  + 0x2a bytes	
+ 	rpcrt4.dll!_NdrStubCall2@16()  + 0x27f bytes	
+ 	rpcrt4.dll!_NdrServerCall2@4()  + 0x1e bytes	
+ 	rpcrt4.dll!_DispatchToStubInCNoAvrf@12()  + 0x41 bytes	
+ 	rpcrt4.dll!RPC_INTERFACE::DispatchToStubWorker()  + 0xcf bytes	
+ 	rpcrt4.dll!LRPC_SCALL::DispatchRequest()  - 0x2b0d bytes	
+ 	rpcrt4.dll!LRPC_SCALL::HandleRequest()  - 0x539 bytes	
+ 	rpcrt4.dll!LRPC_ADDRESS::ProcessIO()  + 0x229 bytes	
+ 	rpcrt4.dll!ProcessLrpcComplete()  + 0x24 bytes	
+ 	rpcrt4.dll!LOADABLE_TRANSPORT::ProcessIOEvents()  + 0x145 bytes	
+ 	rpcrt4.dll!ProcessIOEventsWrapper()  + 0xd bytes	
+ 	rpcrt4.dll!BaseCachedThreadRoutine()  + 0x5c bytes	
+ 	rpcrt4.dll!ThreadStartRoutine()  + 0x1e bytes	
+ 	kernel32.dll!@BaseThreadInitThunk@12()  + 0x12 bytes	
+ 	ntdll.dll!___RtlUserThreadStart@8()  + 0x27 bytes	
+ 	ntdll.dll!__RtlUserThreadStart@8()  + 0x1b bytes	

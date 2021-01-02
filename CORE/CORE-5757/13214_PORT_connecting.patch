@@ -1,0 +1,244 @@
+diff --git a/src/remote/inet.cpp b/src/remote/inet.cpp
+index 2f1f63dea0..a6e99f2b7e 100644
+--- a/src/remote/inet.cpp
++++ b/src/remote/inet.cpp
+@@ -154,14 +154,15 @@ const int NOTASOCKET = EBADF;
+ 
+ static void SOCLOSE(SOCKET& socket)
+ {
+-	if (socket != INVALID_SOCKET)
++	SOCKET s = socket;
++	if (s != INVALID_SOCKET)
+ 	{
++		socket = INVALID_SOCKET;
+ #ifdef WIN_NT
+-		closesocket(socket);
++		closesocket(s);
+ #else
+-		close(socket);
++		close(s);
+ #endif
+-		socket = INVALID_SOCKET;
+ 	}
+ };
+ 
+@@ -421,6 +422,7 @@ static void		alarm_handler(int);
+ static rem_port*		alloc_port(rem_port*, const USHORT = 0);
+ static rem_port*		aux_connect(rem_port*, PACKET*);
+ static rem_port*		aux_request(rem_port*, PACKET*);
++static void				abort_aux_connection(rem_port*);
+ 
+ #if !defined(WIN_NT)
+ static bool		check_host(rem_port*);
+@@ -1450,6 +1452,17 @@ static rem_port* alloc_port(rem_port* const parent, const USHORT flags)
+ 	return port;
+ }
+ 
++
++static void abort_aux_connection(rem_port* port)
++{
++	if (port->port_flags & PORT_connecting)
++	{
++		shutdown(port->port_channel, 2);
++		SOCLOSE(port->port_channel);
++	}
++}
++
++
+ static rem_port* aux_connect(rem_port* port, PACKET* packet)
+ {
+ /**************************************
+@@ -1502,6 +1515,9 @@ static rem_port* aux_connect(rem_port* port, PACKET* packet)
+ 			}
+ 		}
+ 
++		if (port->port_channel == INVALID_SOCKET)
++			return NULL;
++
+ 		const SOCKET n = accept(port->port_channel, (struct sockaddr*) &address, &l);
+ 		inetErrNo = INET_ERRNO;
+ 
+@@ -1523,7 +1539,7 @@ static rem_port* aux_connect(rem_port* port, PACKET* packet)
+ 	new_port->port_dummy_packet_interval = port->port_dummy_packet_interval;
+ 	new_port->port_dummy_timeout = new_port->port_dummy_packet_interval;
+ 	new_port->port_flags = port->port_flags & PORT_no_oob;
+-	new_port->port_flags |= PORT_async;
++	new_port->port_flags |= (PORT_async| PORT_connecting);
+ 	P_RESP* response = &packet->p_resp;
+ 
+ 	// Set up new socket
+@@ -1639,14 +1655,14 @@ static rem_port* aux_request( rem_port* port, PACKET* packet)
+ 
+ 	setFastLoopbackOption(n);
+ 
+-    rem_port* const new_port = alloc_port(port->port_parent, PORT_async);
++    rem_port* const new_port = alloc_port(port->port_parent,
++    	(port->port_flags & PORT_no_oob) | PORT_async | PORT_connecting);
+ 	port->port_async = new_port;
+ 	new_port->port_dummy_packet_interval = port->port_dummy_packet_interval;
+ 	new_port->port_dummy_timeout = new_port->port_dummy_packet_interval;
+ 
+ 	new_port->port_server_flags = port->port_server_flags;
+ 	new_port->port_channel = (int) n;
+-	new_port->port_flags |= port->port_flags & PORT_no_oob;
+ 
+ 	P_RESP* response = &packet->p_resp;
+ 
+@@ -1751,6 +1767,7 @@ static void disconnect(rem_port* const port)
+ 
+ 	Firebird::MutexLockGuard guard(port_mutex);
+ 	port->port_state = rem_port::DISCONNECTED;
++	port->port_flags &= ~PORT_connecting;
+ 
+ 	if (port->port_async)
+ 	{
+@@ -1812,6 +1829,9 @@ static void force_close(rem_port* port)
+  *
+  **************************************/
+ 
++	if (port->port_async)
++		abort_aux_connection(port->port_async);
++
+ 	if (port->port_state != rem_port::PENDING)
+ 		return;
+ 
+@@ -2226,7 +2246,8 @@ static bool select_multi(rem_port* main_port, UCHAR* buffer, SSHORT bufsize, SSH
+ 
+ 			if (!packet_receive(port, buffer, bufsize, length))
+ 			{
+-				if (port->port_flags & PORT_disconnect) {
++				if (port->port_flags & (PORT_disconnect | PORT_connecting))
++				{
+ 					continue;
+ 				}
+ 				*length = 0;
+@@ -2308,7 +2329,7 @@ static void select_port(rem_port* main_port, Select* selct, RemPortPtr& port)
+ 		switch (result)
+ 		{
+ 		case Select::SEL_BAD:
+-			if (port->port_state == rem_port::BROKEN)
++			if (port->port_state == rem_port::BROKEN || (port->port_flags & PORT_connecting))
+ 				continue;
+ 			return;
+ 
+diff --git a/src/remote/os/win32/wnet.cpp b/src/remote/os/win32/wnet.cpp
+index 92f269b69c..87ccfb827d 100644
+--- a/src/remote/os/win32/wnet.cpp
++++ b/src/remote/os/win32/wnet.cpp
+@@ -685,9 +685,9 @@ static rem_port* aux_request( rem_port* vport, PACKET* packet)
+ 	const DWORD server_pid = (vport->port_server_flags & SRVR_multi_client) ?
+ 		++event_counter : GetCurrentProcessId();
+ 	rem_port* const new_port = alloc_port(vport->port_parent);
+-	vport->port_async = new_port;
+ 	new_port->port_server_flags = vport->port_server_flags;
+-	new_port->port_flags = vport->port_flags & PORT_no_oob;
++	new_port->port_flags = (vport->port_flags & PORT_no_oob) | PORT_connecting;
++	vport->port_async = new_port;
+ 
+ 	TEXT str_pid[32];
+ 	wnet_make_file_name(str_pid, server_pid);
+@@ -784,6 +784,7 @@ static void disconnect(rem_port* port)
+ 
+ 	// If this is a sub-port, unlink it from its parent
+ 	port->unlinkParent();
++	port->port_flags &= ~PORT_connecting;
+ 
+ 	if (port->port_server_flags & SRVR_server)
+ 	{
+diff --git a/src/remote/remote.h b/src/remote/remote.h
+index 0c29adc9be..a5979b8934 100644
+--- a/src/remote/remote.h
++++ b/src/remote/remote.h
+@@ -589,6 +589,7 @@ const USHORT PORT_lazy			= 0x0100;	// Deferred operations are allowed
+ const USHORT PORT_server		= 0x0200;	// Server (not client) port
+ const USHORT PORT_detached		= 0x0400;	// op_detach, op_drop_database or op_service_detach was processed
+ const USHORT PORT_rdb_shutdown	= 0x0800;	// Database is shut down
++const USHORT PORT_connecting	= 0x1000;	// Aux connection waits for a channel to be activated by client
+ 
+ // Port itself
+ 
+diff --git a/src/remote/server.cpp b/src/remote/server.cpp
+index f78ba5b802..2026086c1f 100644
+--- a/src/remote/server.cpp
++++ b/src/remote/server.cpp
+@@ -1352,21 +1352,35 @@ static void aux_request( rem_port* port, /*P_REQ* request,*/ PACKET* send)
+ 
+ 	if (aux_port)
+ 	{
++		fb_assert(aux_port->port_flags & PORT_connecting);
++		bool connected = false;
++
+ 		ISC_STATUS* const save_status2 = aux_port->port_status_vector;
+ 		aux_port->port_status_vector = status_vector;
+ 
+-		if (aux_port->connect(send))
++		try
+ 		{
+-			aux_port->port_context = rdb;
+-			aux_port->port_status_vector = save_status2;
++			connected = aux_port->connect(send) != NULL;
++			if (connected)
++			{
++				aux_port->port_context = rdb;
++				aux_port->port_flags &= ~PORT_connecting;
++			}
+ 		}
+-		else
++		catch (const Firebird::status_exception& ex)
+ 		{
+-			iscLogStatus(NULL, aux_port->port_status_vector);
+-			fb_assert(port->port_async == aux_port);
+-			port->port_async = NULL;
+-			aux_port->disconnect();
++			iscLogException("", ex);
+ 		}
++
++		aux_port->port_status_vector = save_status2;
++
++		if (!connected)
++		{
++			iscLogStatus(NULL, status_vector);
++ 			fb_assert(port->port_async == aux_port);
++ 			port->port_async = NULL;
++ 			aux_port->disconnect();
++ 		}
+ 	}
+ 
+ 	// restore the port status vector
+@@ -4105,8 +4119,9 @@ ISC_STATUS rem_port::receive_msg(P_DATA * data, PACKET* sendL)
+ 				prior = message->msg_prior;
+ #else
+ 				prior = tail->rrq_xdr;
+-				while (prior->msg_next != message)
+-					prior = prior->msg_next;
++
++			while (prior->msg_next != message)
++				prior = prior->msg_next;
+ #endif
+ 
+ 			// allocate a new message block and put it in the cache
+diff --git a/src/remote/xnet.cpp b/src/remote/xnet.cpp
+index 33fd60178c..db910028fb 100644
+--- a/src/remote/xnet.cpp
++++ b/src/remote/xnet.cpp
+@@ -930,10 +930,10 @@ static rem_port* aux_request(rem_port* port, PACKET* packet)
+ 											  channel_s2c_client_ptr, xcc->xcc_send_channel->xch_size,
+ 											  channel_c2s_client_ptr, xcc->xcc_recv_channel->xch_size);
+ 
+-		port->port_async = new_port;
+ 		new_port->port_xcc = xcc;
+-		new_port->port_flags = port->port_flags & PORT_no_oob;
++		new_port->port_flags = (port->port_flags & PORT_no_oob) | PORT_connecting;
+ 		new_port->port_server_flags = port->port_server_flags;
++		port->port_async = new_port;
+ 
+ 		P_RESP* response = &packet->p_resp;
+ 		response->p_resp_data.cstr_length = 0;
+@@ -1489,6 +1489,7 @@ static void disconnect(rem_port* port)
+ 
+ 	// If this is a sub-port, unlink it from it's parent
+ 	port->unlinkParent();
++	port->port_flags &= ~PORT_connecting;
+ 
+ 	if (port->port_flags & PORT_server)
+ 		xnet_ports->unRegisterPort(port);

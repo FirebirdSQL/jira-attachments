@@ -1,0 +1,210 @@
+
+Thread 17 (Thread 0x7f7feee9f700 (LWP 16836)):
+#0  pthread_cond_wait@@GLIBC_2.3.2 () at ../sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:185
+#1  0x00007f7ff4fd3f5b in ISC_event_wait (event=0x7f7ff573ef98, value=value@entry=153, micro_seconds=micro_seconds@entry=0) at ../src/jrd/isc_sync.cpp:1884
+#2  0x00007f7ff4f8e80b in Jrd::EventManager::watcher_thread (this=0x7f7ff5723df0) at ../src/jrd/event.cpp:1477
+#3  0x00007f7ff4f8f9f9 in Jrd::EventManager::watcher_thread (arg=arg@entry=0x7f7ff5723df0) at ../src/jrd/../jrd/event_proto.h:93
+#4  0x00007f7ff4e998d5 in (anonymous namespace)::ThreadArgs::run (this=<synthetic pointer>) at ../src/jrd/ThreadStart.cpp:128
+#5  (anonymous namespace)::threadStart (arg=0x7f7ff5763080) at ../src/jrd/ThreadStart.cpp:139
+#6  0x00007f7ff4191494 in start_thread (arg=0x7f7feee9f700) at pthread_create.c:333
+#7  0x00007f7ff3ed3aff in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:97
+
+Thread 16 (Thread 0x7f7fee59e700 (LWP 16811)):
+#0  pthread_cond_wait@@GLIBC_2.3.2 () at ../sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:185
+#1  0x00007f7ff4fd3f5b in ISC_event_wait (event=0x7f7ff5740140, value=value@entry=1, micro_seconds=micro_seconds@entry=0) at ../src/jrd/isc_sync.cpp:1884
+#2  0x00007f7ff513631c in Jrd::LockManager::blocking_action_thread (this=this@entry=0x7f7ff5724ec8) at ../src/lock/lock.cpp:1580
+#3  0x00007f7ff513ac49 in Jrd::LockManager::blocking_action_thread (arg=arg@entry=0x7f7ff5724ec8) at ../src/lock/../lock/lock_proto.h:468
+#4  0x00007f7ff4e998d5 in (anonymous namespace)::ThreadArgs::run (this=<synthetic pointer>) at ../src/jrd/ThreadStart.cpp:128
+#5  (anonymous namespace)::threadStart (arg=0x7f7ff5763080) at ../src/jrd/ThreadStart.cpp:139
+#6  0x00007f7ff4191494 in start_thread (arg=0x7f7fee59e700) at pthread_create.c:333
+#7  0x00007f7ff3ed3aff in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:97
+
+Thread 15 (Thread 0x7f7fed43e700 (LWP 16810)):
+#0  pthread_cond_wait@@GLIBC_2.3.2 () at ../sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:185
+#1  0x00007f7ff4fd3f5b in ISC_event_wait (event=0x7f7ff5742140, value=value@entry=1, micro_seconds=micro_seconds@entry=0) at ../src/jrd/isc_sync.cpp:1884
+#2  0x00007f7ff513631c in Jrd::LockManager::blocking_action_thread (this=this@entry=0x7f7ff57211b0) at ../src/lock/lock.cpp:1580
+#3  0x00007f7ff513ac49 in Jrd::LockManager::blocking_action_thread (arg=arg@entry=0x7f7ff57211b0) at ../src/lock/../lock/lock_proto.h:468
+#4  0x00007f7ff4e998d5 in (anonymous namespace)::ThreadArgs::run (this=<synthetic pointer>) at ../src/jrd/ThreadStart.cpp:128
+#5  (anonymous namespace)::threadStart (arg=0x7f7ff56e6110) at ../src/jrd/ThreadStart.cpp:139
+#6  0x00007f7ff4191494 in start_thread (arg=0x7f7fed43e700) at pthread_create.c:333
+#7  0x00007f7ff3ed3aff in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:97
+
+Thread 14 (Thread 0x7f7fe4dac700 (LWP 16795)):
+#0  0x00007f7ff4199700 in futex_abstimed_wait_cancelable (private=0, abstime=0x7f7fe4dabd10, expected=0, futex_word=0x7f7fe4dabe40) at ../sysdeps/unix/sysv/linux/futex-internal.h:205
+#1  do_futex_wait (sem=sem@entry=0x7f7fe4dabe40, abstime=abstime@entry=0x7f7fe4dabd10) at sem_waitcommon.c:111
+#2  0x00007f7ff41997cf in __new_sem_wait_slow (sem=0x7f7fe4dabe40, abstime=0x7f7fe4dabd10) at sem_waitcommon.c:181
+#3  0x00007f7ff4199882 in sem_timedwait (sem=sem@entry=0x7f7fe4dabe40, abstime=abstime@entry=0x7f7fe4dabd10) at sem_timedwait.c:36
+#4  0x000055c7128ccd90 in Firebird::SignalSafeSemaphore::tryEnter (this=0x7f7fe4dabe40, seconds=<optimized out>, milliseconds=<optimized out>) at ../src/common/classes/semaphore.cpp:171
+#5  0x000055c7128ad74d in Worker::wait (this=this@entry=0x7f7fe4dabe30, timeout=timeout@entry=60) at ../src/remote/server.cpp:5600
+#6  0x000055c7128b1f80 in loopThread () at ../src/remote/server.cpp:5413
+#7  0x00007f7ff4e998d5 in (anonymous namespace)::ThreadArgs::run (this=<synthetic pointer>) at ../src/jrd/ThreadStart.cpp:128
+#8  (anonymous namespace)::threadStart (arg=0x7f7ff56e6440) at ../src/jrd/ThreadStart.cpp:139
+#9  0x00007f7ff4191494 in start_thread (arg=0x7f7fe4dac700) at pthread_create.c:333
+#10 0x00007f7ff3ed3aff in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:97
+
+Thread 13 (Thread 0x7f7fe55ad700 (LWP 16794)):
+#0  0x00007f7ff4199700 in futex_abstimed_wait_cancelable (private=0, abstime=0x7f7fe55acd10, expected=0, futex_word=0x7f7fe55ace40) at ../sysdeps/unix/sysv/linux/futex-internal.h:205
+#1  do_futex_wait (sem=sem@entry=0x7f7fe55ace40, abstime=abstime@entry=0x7f7fe55acd10) at sem_waitcommon.c:111
+#2  0x00007f7ff41997cf in __new_sem_wait_slow (sem=0x7f7fe55ace40, abstime=0x7f7fe55acd10) at sem_waitcommon.c:181
+#3  0x00007f7ff4199882 in sem_timedwait (sem=sem@entry=0x7f7fe55ace40, abstime=abstime@entry=0x7f7fe55acd10) at sem_timedwait.c:36
+#4  0x000055c7128ccd90 in Firebird::SignalSafeSemaphore::tryEnter (this=0x7f7fe55ace40, seconds=<optimized out>, milliseconds=<optimized out>) at ../src/common/classes/semaphore.cpp:171
+#5  0x000055c7128ad74d in Worker::wait (this=this@entry=0x7f7fe55ace30, timeout=timeout@entry=60) at ../src/remote/server.cpp:5600
+#6  0x000055c7128b1f80 in loopThread () at ../src/remote/server.cpp:5413
+#7  0x00007f7ff4e998d5 in (anonymous namespace)::ThreadArgs::run (this=<synthetic pointer>) at ../src/jrd/ThreadStart.cpp:128
+#8  (anonymous namespace)::threadStart (arg=0x7f7ff56e8158) at ../src/jrd/ThreadStart.cpp:139
+#9  0x00007f7ff4191494 in start_thread (arg=0x7f7fe55ad700) at pthread_create.c:333
+#10 0x00007f7ff3ed3aff in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:97
+
+Thread 12 (Thread 0x7f7fe5dae700 (LWP 16793)):
+#0  0x00007f7ff4199700 in futex_abstimed_wait_cancelable (private=0, abstime=0x7f7fe5dadd10, expected=0, futex_word=0x7f7fe5dade40) at ../sysdeps/unix/sysv/linux/futex-internal.h:205
+#1  do_futex_wait (sem=sem@entry=0x7f7fe5dade40, abstime=abstime@entry=0x7f7fe5dadd10) at sem_waitcommon.c:111
+#2  0x00007f7ff41997cf in __new_sem_wait_slow (sem=0x7f7fe5dade40, abstime=0x7f7fe5dadd10) at sem_waitcommon.c:181
+#3  0x00007f7ff4199882 in sem_timedwait (sem=sem@entry=0x7f7fe5dade40, abstime=abstime@entry=0x7f7fe5dadd10) at sem_timedwait.c:36
+#4  0x000055c7128ccd90 in Firebird::SignalSafeSemaphore::tryEnter (this=0x7f7fe5dade40, seconds=<optimized out>, milliseconds=<optimized out>) at ../src/common/classes/semaphore.cpp:171
+#5  0x000055c7128ad74d in Worker::wait (this=this@entry=0x7f7fe5dade30, timeout=timeout@entry=60) at ../src/remote/server.cpp:5600
+#6  0x000055c7128b1f80 in loopThread () at ../src/remote/server.cpp:5413
+#7  0x00007f7ff4e998d5 in (anonymous namespace)::ThreadArgs::run (this=<synthetic pointer>) at ../src/jrd/ThreadStart.cpp:128
+#8  (anonymous namespace)::threadStart (arg=0x7f7ff5762e18) at ../src/jrd/ThreadStart.cpp:139
+#9  0x00007f7ff4191494 in start_thread (arg=0x7f7fe5dae700) at pthread_create.c:333
+#10 0x00007f7ff3ed3aff in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:97
+
+Thread 11 (Thread 0x7f7fe65af700 (LWP 16792)):
+#0  0x00007f7ff4199700 in futex_abstimed_wait_cancelable (private=0, abstime=0x7f7fe65aed10, expected=0, futex_word=0x7f7fe65aee40) at ../sysdeps/unix/sysv/linux/futex-internal.h:205
+#1  do_futex_wait (sem=sem@entry=0x7f7fe65aee40, abstime=abstime@entry=0x7f7fe65aed10) at sem_waitcommon.c:111
+#2  0x00007f7ff41997cf in __new_sem_wait_slow (sem=0x7f7fe65aee40, abstime=0x7f7fe65aed10) at sem_waitcommon.c:181
+#3  0x00007f7ff4199882 in sem_timedwait (sem=sem@entry=0x7f7fe65aee40, abstime=abstime@entry=0x7f7fe65aed10) at sem_timedwait.c:36
+#4  0x000055c7128ccd90 in Firebird::SignalSafeSemaphore::tryEnter (this=0x7f7fe65aee40, seconds=<optimized out>, milliseconds=<optimized out>) at ../src/common/classes/semaphore.cpp:171
+#5  0x000055c7128ad74d in Worker::wait (this=this@entry=0x7f7fe65aee30, timeout=timeout@entry=60) at ../src/remote/server.cpp:5600
+#6  0x000055c7128b1f80 in loopThread () at ../src/remote/server.cpp:5413
+#7  0x00007f7ff4e998d5 in (anonymous namespace)::ThreadArgs::run (this=<synthetic pointer>) at ../src/jrd/ThreadStart.cpp:128
+#8  (anonymous namespace)::threadStart (arg=0x7f7ff5722f70) at ../src/jrd/ThreadStart.cpp:139
+#9  0x00007f7ff4191494 in start_thread (arg=0x7f7fe65af700) at pthread_create.c:333
+#10 0x00007f7ff3ed3aff in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:97
+
+Thread 10 (Thread 0x7f7fe6db0700 (LWP 16791)):
+#0  0x00007f7ff4199700 in futex_abstimed_wait_cancelable (private=0, abstime=0x7f7fe6dafd10, expected=0, futex_word=0x7f7fe6dafe40) at ../sysdeps/unix/sysv/linux/futex-internal.h:205
+#1  do_futex_wait (sem=sem@entry=0x7f7fe6dafe40, abstime=abstime@entry=0x7f7fe6dafd10) at sem_waitcommon.c:111
+#2  0x00007f7ff41997cf in __new_sem_wait_slow (sem=0x7f7fe6dafe40, abstime=0x7f7fe6dafd10) at sem_waitcommon.c:181
+#3  0x00007f7ff4199882 in sem_timedwait (sem=sem@entry=0x7f7fe6dafe40, abstime=abstime@entry=0x7f7fe6dafd10) at sem_timedwait.c:36
+#4  0x000055c7128ccd90 in Firebird::SignalSafeSemaphore::tryEnter (this=0x7f7fe6dafe40, seconds=<optimized out>, milliseconds=<optimized out>) at ../src/common/classes/semaphore.cpp:171
+#5  0x000055c7128ad74d in Worker::wait (this=this@entry=0x7f7fe6dafe30, timeout=timeout@entry=60) at ../src/remote/server.cpp:5600
+#6  0x000055c7128b1f80 in loopThread () at ../src/remote/server.cpp:5413
+#7  0x00007f7ff4e998d5 in (anonymous namespace)::ThreadArgs::run (this=<synthetic pointer>) at ../src/jrd/ThreadStart.cpp:128
+#8  (anonymous namespace)::threadStart (arg=0x7f7ff5762e18) at ../src/jrd/ThreadStart.cpp:139
+#9  0x00007f7ff4191494 in start_thread (arg=0x7f7fe6db0700) at pthread_create.c:333
+#10 0x00007f7ff3ed3aff in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:97
+
+Thread 9 (Thread 0x7f7fe7fff700 (LWP 16790)):
+#0  0x00007f7ff4199700 in futex_abstimed_wait_cancelable (private=0, abstime=0x7f7fe7ffed10, expected=0, futex_word=0x7f7fe7ffee40) at ../sysdeps/unix/sysv/linux/futex-internal.h:205
+#1  do_futex_wait (sem=sem@entry=0x7f7fe7ffee40, abstime=abstime@entry=0x7f7fe7ffed10) at sem_waitcommon.c:111
+#2  0x00007f7ff41997cf in __new_sem_wait_slow (sem=0x7f7fe7ffee40, abstime=0x7f7fe7ffed10) at sem_waitcommon.c:181
+#3  0x00007f7ff4199882 in sem_timedwait (sem=sem@entry=0x7f7fe7ffee40, abstime=abstime@entry=0x7f7fe7ffed10) at sem_timedwait.c:36
+#4  0x000055c7128ccd90 in Firebird::SignalSafeSemaphore::tryEnter (this=0x7f7fe7ffee40, seconds=<optimized out>, milliseconds=<optimized out>) at ../src/common/classes/semaphore.cpp:171
+#5  0x000055c7128ad74d in Worker::wait (this=this@entry=0x7f7fe7ffee30, timeout=timeout@entry=60) at ../src/remote/server.cpp:5600
+#6  0x000055c7128b1f80 in loopThread () at ../src/remote/server.cpp:5413
+#7  0x00007f7ff4e998d5 in (anonymous namespace)::ThreadArgs::run (this=<synthetic pointer>) at ../src/jrd/ThreadStart.cpp:128
+#8  (anonymous namespace)::threadStart (arg=0x7f7ff5763480) at ../src/jrd/ThreadStart.cpp:139
+#9  0x00007f7ff4191494 in start_thread (arg=0x7f7fe7fff700) at pthread_create.c:333
+#10 0x00007f7ff3ed3aff in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:97
+
+Thread 8 (Thread 0x7f7fedc50700 (LWP 16789)):
+#0  0x00007f7ff4199700 in futex_abstimed_wait_cancelable (private=0, abstime=0x7f7fedc4fd10, expected=0, futex_word=0x7f7fedc4fe40) at ../sysdeps/unix/sysv/linux/futex-internal.h:205
+#1  do_futex_wait (sem=sem@entry=0x7f7fedc4fe40, abstime=abstime@entry=0x7f7fedc4fd10) at sem_waitcommon.c:111
+#2  0x00007f7ff41997cf in __new_sem_wait_slow (sem=0x7f7fedc4fe40, abstime=0x7f7fedc4fd10) at sem_waitcommon.c:181
+#3  0x00007f7ff4199882 in sem_timedwait (sem=sem@entry=0x7f7fedc4fe40, abstime=abstime@entry=0x7f7fedc4fd10) at sem_timedwait.c:36
+#4  0x000055c7128ccd90 in Firebird::SignalSafeSemaphore::tryEnter (this=0x7f7fedc4fe40, seconds=<optimized out>, milliseconds=<optimized out>) at ../src/common/classes/semaphore.cpp:171
+#5  0x000055c7128ad74d in Worker::wait (this=this@entry=0x7f7fedc4fe30, timeout=timeout@entry=60) at ../src/remote/server.cpp:5600
+#6  0x000055c7128b1f80 in loopThread () at ../src/remote/server.cpp:5413
+#7  0x00007f7ff4e998d5 in (anonymous namespace)::ThreadArgs::run (this=<synthetic pointer>) at ../src/jrd/ThreadStart.cpp:128
+#8  (anonymous namespace)::threadStart (arg=0x7f7ff5720ef8) at ../src/jrd/ThreadStart.cpp:139
+#9  0x00007f7ff4191494 in start_thread (arg=0x7f7fedc50700) at pthread_create.c:333
+#10 0x00007f7ff3ed3aff in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:97
+
+Thread 7 (Thread 0x7f7ff0011700 (LWP 16788)):
+#0  0x00007f7ff4199700 in futex_abstimed_wait_cancelable (private=0, abstime=0x7f7ff0010d10, expected=0, futex_word=0x7f7ff0010e40) at ../sysdeps/unix/sysv/linux/futex-internal.h:205
+#1  do_futex_wait (sem=sem@entry=0x7f7ff0010e40, abstime=abstime@entry=0x7f7ff0010d10) at sem_waitcommon.c:111
+#2  0x00007f7ff41997cf in __new_sem_wait_slow (sem=0x7f7ff0010e40, abstime=0x7f7ff0010d10) at sem_waitcommon.c:181
+#3  0x00007f7ff4199882 in sem_timedwait (sem=sem@entry=0x7f7ff0010e40, abstime=abstime@entry=0x7f7ff0010d10) at sem_timedwait.c:36
+#4  0x000055c7128ccd90 in Firebird::SignalSafeSemaphore::tryEnter (this=0x7f7ff0010e40, seconds=<optimized out>, milliseconds=<optimized out>) at ../src/common/classes/semaphore.cpp:171
+#5  0x000055c7128ad74d in Worker::wait (this=this@entry=0x7f7ff0010e30, timeout=timeout@entry=60) at ../src/remote/server.cpp:5600
+#6  0x000055c7128b1f80 in loopThread () at ../src/remote/server.cpp:5413
+#7  0x00007f7ff4e998d5 in (anonymous namespace)::ThreadArgs::run (this=<synthetic pointer>) at ../src/jrd/ThreadStart.cpp:128
+#8  (anonymous namespace)::threadStart (arg=0x7f7ff5720ef8) at ../src/jrd/ThreadStart.cpp:139
+#9  0x00007f7ff4191494 in start_thread (arg=0x7f7ff0011700) at pthread_create.c:333
+#10 0x00007f7ff3ed3aff in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:97
+
+Thread 6 (Thread 0x7f7fe77fe700 (LWP 16787)):
+#0  0x00007f7ff4199700 in futex_abstimed_wait_cancelable (private=0, abstime=0x7f7fe77fdd10, expected=0, futex_word=0x7f7fe77fde40) at ../sysdeps/unix/sysv/linux/futex-internal.h:205
+#1  do_futex_wait (sem=sem@entry=0x7f7fe77fde40, abstime=abstime@entry=0x7f7fe77fdd10) at sem_waitcommon.c:111
+#2  0x00007f7ff41997cf in __new_sem_wait_slow (sem=0x7f7fe77fde40, abstime=0x7f7fe77fdd10) at sem_waitcommon.c:181
+#3  0x00007f7ff4199882 in sem_timedwait (sem=sem@entry=0x7f7fe77fde40, abstime=abstime@entry=0x7f7fe77fdd10) at sem_timedwait.c:36
+#4  0x000055c7128ccd90 in Firebird::SignalSafeSemaphore::tryEnter (this=0x7f7fe77fde40, seconds=<optimized out>, milliseconds=<optimized out>) at ../src/common/classes/semaphore.cpp:171
+#5  0x000055c7128ad74d in Worker::wait (this=this@entry=0x7f7fe77fde30, timeout=timeout@entry=60) at ../src/remote/server.cpp:5600
+#6  0x000055c7128b1f80 in loopThread () at ../src/remote/server.cpp:5413
+#7  0x00007f7ff4e998d5 in (anonymous namespace)::ThreadArgs::run (this=<synthetic pointer>) at ../src/jrd/ThreadStart.cpp:128
+#8  (anonymous namespace)::threadStart (arg=0x7f7ff56e8158) at ../src/jrd/ThreadStart.cpp:139
+#9  0x00007f7ff4191494 in start_thread (arg=0x7f7fe77fe700) at pthread_create.c:333
+#10 0x00007f7ff3ed3aff in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:97
+
+Thread 5 (Thread 0x7f7fef7a0700 (LWP 16786)):
+#0  0x00007f7ff4199700 in futex_abstimed_wait_cancelable (private=0, abstime=0x7f7fef79fd10, expected=0, futex_word=0x7f7fef79fe40) at ../sysdeps/unix/sysv/linux/futex-internal.h:205
+#1  do_futex_wait (sem=sem@entry=0x7f7fef79fe40, abstime=abstime@entry=0x7f7fef79fd10) at sem_waitcommon.c:111
+#2  0x00007f7ff41997cf in __new_sem_wait_slow (sem=0x7f7fef79fe40, abstime=0x7f7fef79fd10) at sem_waitcommon.c:181
+#3  0x00007f7ff4199882 in sem_timedwait (sem=sem@entry=0x7f7fef79fe40, abstime=abstime@entry=0x7f7fef79fd10) at sem_timedwait.c:36
+#4  0x000055c7128ccd90 in Firebird::SignalSafeSemaphore::tryEnter (this=0x7f7fef79fe40, seconds=<optimized out>, milliseconds=<optimized out>) at ../src/common/classes/semaphore.cpp:171
+#5  0x000055c7128ad74d in Worker::wait (this=this@entry=0x7f7fef79fe30, timeout=timeout@entry=60) at ../src/remote/server.cpp:5600
+#6  0x000055c7128b1f80 in loopThread () at ../src/remote/server.cpp:5413
+#7  0x00007f7ff4e998d5 in (anonymous namespace)::ThreadArgs::run (this=<synthetic pointer>) at ../src/jrd/ThreadStart.cpp:128
+#8  (anonymous namespace)::threadStart (arg=0x7f7ff56e8158) at ../src/jrd/ThreadStart.cpp:139
+#9  0x00007f7ff4191494 in start_thread (arg=0x7f7fef7a0700) at pthread_create.c:333
+#10 0x00007f7ff3ed3aff in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:97
+
+Thread 4 (Thread 0x7f7fecc2d700 (LWP 16785)):
+#0  0x00007f7ff4199700 in futex_abstimed_wait_cancelable (private=0, abstime=0x7f7fecc2cd10, expected=0, futex_word=0x7f7fecc2ce40) at ../sysdeps/unix/sysv/linux/futex-internal.h:205
+#1  do_futex_wait (sem=sem@entry=0x7f7fecc2ce40, abstime=abstime@entry=0x7f7fecc2cd10) at sem_waitcommon.c:111
+#2  0x00007f7ff41997cf in __new_sem_wait_slow (sem=0x7f7fecc2ce40, abstime=0x7f7fecc2cd10) at sem_waitcommon.c:181
+#3  0x00007f7ff4199882 in sem_timedwait (sem=sem@entry=0x7f7fecc2ce40, abstime=abstime@entry=0x7f7fecc2cd10) at sem_timedwait.c:36
+#4  0x000055c7128ccd90 in Firebird::SignalSafeSemaphore::tryEnter (this=0x7f7fecc2ce40, seconds=<optimized out>, milliseconds=<optimized out>) at ../src/common/classes/semaphore.cpp:171
+#5  0x000055c7128ad74d in Worker::wait (this=this@entry=0x7f7fecc2ce30, timeout=timeout@entry=60) at ../src/remote/server.cpp:5600
+#6  0x000055c7128b1f80 in loopThread () at ../src/remote/server.cpp:5413
+#7  0x00007f7ff4e998d5 in (anonymous namespace)::ThreadArgs::run (this=<synthetic pointer>) at ../src/jrd/ThreadStart.cpp:128
+#8  (anonymous namespace)::threadStart (arg=0x7f7ff5720ef8) at ../src/jrd/ThreadStart.cpp:139
+#9  0x00007f7ff4191494 in start_thread (arg=0x7f7fecc2d700) at pthread_create.c:333
+#10 0x00007f7ff3ed3aff in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:97
+
+Thread 3 (Thread 0x7f7ff0ab0700 (LWP 13804)):
+#0  0x00007f7ff4199700 in futex_abstimed_wait_cancelable (private=0, abstime=0x7f7ff0aafe00, expected=0, futex_word=0x7f7ff56eb0a0) at ../sysdeps/unix/sysv/linux/futex-internal.h:205
+#1  do_futex_wait (sem=sem@entry=0x7f7ff56eb0a0, abstime=abstime@entry=0x7f7ff0aafe00) at sem_waitcommon.c:111
+#2  0x00007f7ff41997cf in __new_sem_wait_slow (sem=0x7f7ff56eb0a0, abstime=0x7f7ff0aafe00) at sem_waitcommon.c:181
+#3  0x00007f7ff4199882 in sem_timedwait (sem=sem@entry=0x7f7ff56eb0a0, abstime=abstime@entry=0x7f7ff0aafe00) at sem_timedwait.c:36
+#4  0x00007f7ff51b3260 in Firebird::SignalSafeSemaphore::tryEnter (this=this@entry=0x7f7ff56eb0a0, seconds=seconds@entry=1800, milliseconds=1800000, milliseconds@entry=0) at ../src/common/classes/semaphore.cpp:171
+#5  0x00007f7ff50a1cbc in Jrd::ConfigStorage::touchThreadFunc (this=this@entry=0x7f7ff56e81a8) at ../src/jrd/trace/TraceConfigStorage.cpp:352
+#6  0x00007f7ff50a1d79 in Jrd::ConfigStorage::touchThread (arg=arg@entry=0x7f7ff56e81a8) at ../src/jrd/trace/TraceConfigStorage.cpp:338
+#7  0x00007f7ff4e998d5 in (anonymous namespace)::ThreadArgs::run (this=<synthetic pointer>) at ../src/jrd/ThreadStart.cpp:128
+#8  (anonymous namespace)::threadStart (arg=0x7f7ff56f6078) at ../src/jrd/ThreadStart.cpp:139
+#9  0x00007f7ff4191494 in start_thread (arg=0x7f7ff0ab0700) at pthread_create.c:333
+#10 0x00007f7ff3ed3aff in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:97
+
+Thread 2 (Thread 0x7f7ff1787700 (LWP 13803)):
+#0  0x00007f7ff4199536 in futex_abstimed_wait_cancelable (private=0, abstime=0x0, expected=0, futex_word=0x7f7ff5764ff0) at ../sysdeps/unix/sysv/linux/futex-internal.h:205
+#1  do_futex_wait (sem=sem@entry=0x7f7ff5764ff0, abstime=0x0) at sem_waitcommon.c:111
+#2  0x00007f7ff41995e4 in __new_sem_wait_slow (sem=0x7f7ff5764ff0, abstime=0x0) at sem_waitcommon.c:181
+#3  0x00007f7ff4199679 in __new_sem_wait (sem=sem@entry=0x7f7ff5764ff0) at sem_wait.c:29
+#4  0x00007f7ff51b3172 in Firebird::SignalSafeSemaphore::enter (this=0x7f7ff5764ff0) at ../src/common/classes/semaphore.cpp:132
+#5  0x00007f7ff4e9d821 in (anonymous namespace)::shutdownThread () at ../src/jrd/why.cpp:933
+#6  0x00007f7ff4e998d5 in (anonymous namespace)::ThreadArgs::run (this=<synthetic pointer>) at ../src/jrd/ThreadStart.cpp:128
+#7  (anonymous namespace)::threadStart (arg=0x7f7ff5763480) at ../src/jrd/ThreadStart.cpp:139
+#8  0x00007f7ff4191494 in start_thread (arg=0x7f7ff1787700) at pthread_create.c:333
+#9  0x00007f7ff3ed3aff in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:97
+
+Thread 1 (Thread 0x7f7ff5739500 (LWP 13802)):
+#0  0x00007f7ff419a4ff in __libc_recv (fd=20, buf=buf@entry=0x7f7ff574a278, n=n@entry=8192, flags=flags@entry=0) at ../sysdeps/unix/sysv/linux/x86_64/recv.c:28
+#1  0x000055c7128be0f3 in recv (__flags=0, __n=8192, __buf=0x7f7ff574a278, __fd=<optimized out>) at /usr/include/x86_64-linux-gnu/bits/socket2.h:44
+#2  packet_receive (port=0x7f7ff57559a8, buffer=buffer@entry=0x7f7ff574a278 "", buffer_length=buffer_length@entry=8192, length=length@entry=0x7ffebc5421c6) at ../src/remote/inet.cpp:3280
+#3  0x000055c7128bfc47 in select_multi (main_port=0x7f7ff5750448, buffer=0x7f7ff574a278 "", bufsize=8192, length=0x7ffebc5421c6, port=...) at ../src/remote/inet.cpp:2247
+#4  0x000055c7128ae20f in SRVR_multi_thread (main_port=0x7f7ff5750448, flags=<optimized out>) at ../src/remote/server.cpp:636
+#5  0x000055c7128a3e11 in server_main (argc=<optimized out>, argv=<optimized out>) at ../src/remote/inet_server.cpp:430
+#6  0x00007f7ff3e0b2b1 in __libc_start_main (main=0x55c7128a3220 <main(int, char**)>, argc=1, argv=0x7ffebc543a88, init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, stack_end=0x7ffebc543a78) at ../csu/libc-start.c:291
+#7  0x000055c7128a35ba in _start ()
+Detaching from program: /usr/sbin/fb_smp_server, process 13802
+quit

@@ -1,0 +1,164 @@
+Process:         fb_inet_server [624]
+Path:            /Library/Frameworks/Firebird.framework/Versions/A/Resources/bin/fb_inet_server
+Identifier:      fb_inet_server
+Version:         ???
+Code Type:       X86-64 (Native)
+Parent Process:  launchproxy [615]
+Responsible:     launchproxy [615]
+User ID:         502
+
+Date/Time:       2014-09-01 14:29:21.239 +1000
+OS Version:      Mac OS X 10.9.4 (13E28)
+Report Version:  11
+Anonymous UUID:  0853FA20-9789-DC4E-69C9-0DBC3D944416
+
+
+Crashed Thread:  0  Dispatch queue: com.apple.main-thread
+
+Exception Type:  EXC_CRASH (SIGABRT)
+Exception Codes: 0x0000000000000000, 0x0000000000000000
+
+Application Specific Information:
+abort() called
+*** error for object 0x1006d0420: pointer being freed was not allocated
+ 
+
+Thread 0 Crashed:: Dispatch queue: com.apple.main-thread
+0   libsystem_kernel.dylib        	0x00007fff8f01b866 __pthread_kill + 10
+1   libsystem_pthread.dylib       	0x00007fff8659a35c pthread_kill + 92
+2   libsystem_c.dylib             	0x00007fff8b06ab1a abort + 125
+3   libsystem_malloc.dylib        	0x00007fff8c35107f free + 411
+4   fbintl                        	0x0000000101389daa LD_setup_attributes + 186
+5   com.firebirdsql.Firebird      	0x00000001000cf8a3 Jrd::IntlManager::setupCollationAttributes(Firebird::StringBase<Firebird::StringComparator> const&, Firebird::StringBase<Firebird::StringComparator> const&, Firebird::StringBase<Firebird::StringComparator> const&, Firebird::StringBase<Firebird::StringComparator>&) + 703
+6   com.firebirdsql.Firebird      	0x00000001000a40c1 create_collation(Jrd::thread_db*, short, Jrd::DeferredWork*, Jrd::jrd_tra*) + 1025
+7   com.firebirdsql.Firebird      	0x00000001000a9958 DFW_perform_work(Jrd::jrd_tra*) + 328
+8   com.firebirdsql.Firebird      	0x00000001000aacff DFW_perform_system_work(Jrd::thread_db*) + 63
+9   com.firebirdsql.Firebird      	0x0000000100051abf INI_format(char const*, char const*) + 1535
+10  com.firebirdsql.Firebird      	0x00000001000de23c jrd8_create_database + 1852
+11  com.firebirdsql.Firebird      	0x000000010001ee48 isc_create_database + 680
+12  com.firebirdsql.Firebird      	0x000000010019cac9 attach_database2(rem_port*, P_OP, char const*, int, unsigned char const*, int, packet*) + 409
+13  com.firebirdsql.Firebird      	0x000000010019cc35 attach_database(rem_port*, P_OP, p_atch*, packet*) + 181
+14  com.firebirdsql.Firebird      	0x00000001001a0306 process_packet2(rem_port*, packet*, packet*, rem_port**) + 230
+15  com.firebirdsql.Firebird      	0x00000001001a09a9 process_packet + 25
+16  com.firebirdsql.Firebird      	0x000000010019a96c SRVR_main + 124
+17  com.firebirdsql.Firebird      	0x000000010019a861 server_main + 1009
+18  fb_inet_server                	0x0000000100000f04 start + 52
+
+Thread 1:
+0   libsystem_kernel.dylib        	0x00007fff8f01be6a __workq_kernreturn + 10
+1   libsystem_pthread.dylib       	0x00007fff8659af08 _pthread_wqthread + 330
+2   libsystem_pthread.dylib       	0x00007fff8659dfb9 start_wqthread + 13
+
+Thread 2:
+0   libsystem_kernel.dylib        	0x00007fff8f01be6a __workq_kernreturn + 10
+1   libsystem_pthread.dylib       	0x00007fff8659af08 _pthread_wqthread + 330
+2   libsystem_pthread.dylib       	0x00007fff8659dfb9 start_wqthread + 13
+
+Thread 3:: Dispatch queue: com.apple.libdispatch-manager
+0   libsystem_kernel.dylib        	0x00007fff8f01c662 kevent64 + 10
+1   libdispatch.dylib             	0x00007fff84e49421 _dispatch_mgr_invoke + 239
+2   libdispatch.dylib             	0x00007fff84e49136 _dispatch_mgr_thread + 52
+
+Thread 4:
+0   libsystem_kernel.dylib        	0x00007fff8f01be6a __workq_kernreturn + 10
+1   libsystem_pthread.dylib       	0x00007fff8659af08 _pthread_wqthread + 330
+2   libsystem_pthread.dylib       	0x00007fff8659dfb9 start_wqthread + 13
+
+Thread 0 crashed with X86 Thread State (64-bit):
+  rax: 0x0000000000000000  rbx: 0x00007fff732d3310  rcx: 0x00007fff5fbfc7a8  rdx: 0x0000000000000000
+  rdi: 0x0000000000000507  rsi: 0x0000000000000006  rbp: 0x00007fff5fbfc7d0  rsp: 0x00007fff5fbfc7a8
+   r8: 0x00000000ffffffc0   r9: 0x0000000000000000  r10: 0x0000000008000000  r11: 0x0000000000000206
+  r12: 0x0000000100688000  r13: 0x0000000100658000  r14: 0x0000000000000006  r15: 0x0000000000000000
+  rip: 0x00007fff8f01b866  rfl: 0x0000000000000206  cr2: 0x00000001006f3000
+  
+Logical CPU:     0
+Error Code:      0x02000148
+Trap Number:     133
+
+
+Binary Images:
+       0x100000000 -        0x100000ff7 +fb_inet_server (???) <B741537A-A6B2-32F9-9951-9EC6C837CB26> /Library/Frameworks/Firebird.framework/Resources/bin/fb_inet_server
+       0x100003000 -        0x1002f2fff +com.firebirdsql.Firebird (__VERSION__) <3D72D330-7CF2-340A-821A-38631ACB8E76> /Library/Frameworks/Firebird.framework/Versions/A/Firebird
+       0x100404000 -        0x100498fff +libicuuc.dylib (30) <4EA12B06-9CE4-3E73-8FD0-DA30140A2207> /Library/Frameworks/Firebird.framework/Versions/A/Libraries/libicuuc.dylib
+       0x1004cc000 -        0x100610ff7 +libicudata.dylib (30) <1649AA3C-3AFD-3B0D-AA38-F3B36B3BA1C2> /Library/Frameworks/Firebird.framework/Versions/A/Libraries/libicudata.dylib
+       0x100613000 -        0x100648ff7 +libicui18n.dylib (30) <B16F5549-AE74-33A5-AECD-0FE29FB95395> /Library/Frameworks/Firebird.framework/Versions/A/Libraries/libicui18n.dylib
+       0x101389000 -        0x101451fff +fbintl (???) <4FD04C44-E91F-395A-AFAF-61EA384D6D5A> /Library/Frameworks/Firebird.framework/Resources/English.lproj/var/intl/fbintl
+    0x7fff65aaf000 -     0x7fff65ae2817  dyld (239.4) <042C4CED-6FB2-3B1C-948B-CAF2EE3B9F7A> /usr/lib/dyld
+    0x7fff82c08000 -     0x7fff82c0fffb  libcopyfile.dylib (103.92.1) <CF29DFF6-0589-3590-834C-82E2316612E8> /usr/lib/system/libcopyfile.dylib
+    0x7fff835ba000 -     0x7fff835bbff7  libSystem.B.dylib (1197.1.1) <E6BCC031-4342-318C-A1AD-A8E9AEAE716F> /usr/lib/libSystem.B.dylib
+    0x7fff835bc000 -     0x7fff835cdff7  libsystem_asl.dylib (217.1.4) <655FB343-52CF-3E2F-B14D-BEBF5AAEF94D> /usr/lib/system/libsystem_asl.dylib
+    0x7fff8372a000 -     0x7fff83778ff9  libstdc++.6.dylib (60) <0241E6A4-1368-33BE-950B-D0A175C41F54> /usr/lib/libstdc++.6.dylib
+    0x7fff84e46000 -     0x7fff84e60fff  libdispatch.dylib (339.92.1) <C4E4A18D-3C3B-3C9C-8709-A4270D998DE7> /usr/lib/system/libdispatch.dylib
+    0x7fff85ea4000 -     0x7fff85ea5fff  libunc.dylib (28) <62682455-1862-36FE-8A04-7A6B91256438> /usr/lib/system/libunc.dylib
+    0x7fff86598000 -     0x7fff8659fff7  libsystem_pthread.dylib (53.1.4) <AB498556-B555-310E-9041-F67EC9E00E2C> /usr/lib/system/libsystem_pthread.dylib
+    0x7fff870ec000 -     0x7fff870ecff7  libkeymgr.dylib (28) <3AA8D85D-CF00-3BD3-A5A0-E28E1A32A6D8> /usr/lib/system/libkeymgr.dylib
+    0x7fff87184000 -     0x7fff8733cffb  libicucore.A.dylib (511.34) <616A65D6-3F20-3EAB-8CA8-273AD890261C> /usr/lib/libicucore.A.dylib
+    0x7fff873e0000 -     0x7fff875c5fff  com.apple.CoreFoundation (6.9 - 855.17) <729BD6DA-1F63-3E72-A148-26F21EBF52BB> /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+    0x7fff876b9000 -     0x7fff876bfff7  libsystem_platform.dylib (24.90.1) <3C3D3DA8-32B9-3243-98EC-D89B9A1670B3> /usr/lib/system/libsystem_platform.dylib
+    0x7fff8772b000 -     0x7fff8772eff7  libdyld.dylib (239.4) <A1273A02-4928-3BAC-A846-6C069DC1A0A6> /usr/lib/system/libdyld.dylib
+    0x7fff87c33000 -     0x7fff87c3dfff  libcommonCrypto.dylib (60049) <8C4F0CA0-389C-3EDC-B155-E62DD2187E1D> /usr/lib/system/libcommonCrypto.dylib
+    0x7fff87ea6000 -     0x7fff87ea7ff7  libDiagnosticMessagesClient.dylib (100) <4CDB0F7B-C0AF-3424-BC39-495696F0DB1E> /usr/lib/libDiagnosticMessagesClient.dylib
+    0x7fff88439000 -     0x7fff8843aff7  libsystem_blocks.dylib (63) <FB856CD1-2AEA-3907-8E9B-1E54B6827F82> /usr/lib/system/libsystem_blocks.dylib
+    0x7fff88818000 -     0x7fff8881dfff  libmacho.dylib (845) <1D2910DF-C036-3A82-A3FD-44FF73B5FF9B> /usr/lib/system/libmacho.dylib
+    0x7fff888a7000 -     0x7fff888ceffb  libsystem_info.dylib (449.1.3) <7D41A156-D285-3849-A2C3-C04ADE797D98> /usr/lib/system/libsystem_info.dylib
+    0x7fff88f0f000 -     0x7fff88f33fff  libxpc.dylib (300.90.2) <AB40CD57-F454-3FD4-B415-63B3C0D5C624> /usr/lib/system/libxpc.dylib
+    0x7fff89404000 -     0x7fff89406ff3  libsystem_configuration.dylib (596.15) <4998CB6A-9D54-390A-9F57-5D1AC53C135C> /usr/lib/system/libsystem_configuration.dylib
+    0x7fff89aee000 -     0x7fff89af3ff7  libunwind.dylib (35.3) <78DCC358-2FC1-302E-B395-0155B47CB547> /usr/lib/system/libunwind.dylib
+    0x7fff89ce0000 -     0x7fff89ce7fff  libcompiler_rt.dylib (35) <4CD916B2-1B17-362A-B403-EF24A1DAC141> /usr/lib/system/libcompiler_rt.dylib
+    0x7fff8a016000 -     0x7fff8a03fff7  libc++abi.dylib (49.1) <21A807D3-6732-3455-B77F-743E9F916DF0> /usr/lib/libc++abi.dylib
+    0x7fff8afcd000 -     0x7fff8affdfff  libncurses.5.4.dylib (42) <BF763D62-9149-37CB-B1D2-F66A2510E6DD> /usr/lib/libncurses.5.4.dylib
+    0x7fff8b00e000 -     0x7fff8b097ff7  libsystem_c.dylib (997.90.3) <6FD3A400-4BB2-3B95-B90C-BE6E9D0D78FA> /usr/lib/system/libsystem_c.dylib
+    0x7fff8c340000 -     0x7fff8c35bff7  libsystem_malloc.dylib (23.10.1) <A695B4E4-38E9-332E-A772-29D31E3F1385> /usr/lib/system/libsystem_malloc.dylib
+    0x7fff8c35c000 -     0x7fff8c365ff3  libsystem_notify.dylib (121) <52571EC3-6894-37E4-946E-064B021ED44E> /usr/lib/system/libsystem_notify.dylib
+    0x7fff8e339000 -     0x7fff8e37bff7  libauto.dylib (185.5) <F45C36E8-B606-3886-B5B1-B6745E757CA8> /usr/lib/libauto.dylib
+    0x7fff8eb8d000 -     0x7fff8ed3af27  libobjc.A.dylib (551.1) <AD7FD984-271E-30F4-A361-6B20319EC73B> /usr/lib/libobjc.A.dylib
+    0x7fff8f001000 -     0x7fff8f005ff7  libcache.dylib (62) <BDC1E65B-72A1-3DA3-A57C-B23159CAAD0B> /usr/lib/system/libcache.dylib
+    0x7fff8f006000 -     0x7fff8f022ff7  libsystem_kernel.dylib (2422.110.17) <873931CE-D1AF-3596-AADB-D2E63C9AB29F> /usr/lib/system/libsystem_kernel.dylib
+    0x7fff8fa6d000 -     0x7fff8fabffff  libc++.1.dylib (120) <4F68DFC5-2077-39A8-A449-CAC5FDEE7BDE> /usr/lib/libc++.1.dylib
+    0x7fff8fd72000 -     0x7fff8fd7afff  libsystem_dnssd.dylib (522.92.1) <17B03FFD-92C5-3282-9981-EBB28B456207> /usr/lib/system/libsystem_dnssd.dylib
+    0x7fff902cb000 -     0x7fff902cdff7  libquarantine.dylib (71) <7A1A2BCB-C03D-3A25-BFA4-3E569B2D2C38> /usr/lib/system/libquarantine.dylib
+    0x7fff902d4000 -     0x7fff90303fd2  libsystem_m.dylib (3047.16) <B7F0E2E4-2777-33FC-A787-D6430B630D54> /usr/lib/system/libsystem_m.dylib
+    0x7fff90304000 -     0x7fff90315ff7  libz.1.dylib (53) <42E0C8C6-CA38-3CA4-8619-D24ED5DD492E> /usr/lib/libz.1.dylib
+    0x7fff90316000 -     0x7fff90317fff  libsystem_sandbox.dylib (278.11.1) <0D0B13EA-6B7A-3AC8-BE60-B548543BEB77> /usr/lib/system/libsystem_sandbox.dylib
+    0x7fff90318000 -     0x7fff9033fff7  libsystem_network.dylib (241.3) <8B1E1F1D-A5CC-3BAE-8B1E-ABC84337A364> /usr/lib/system/libsystem_network.dylib
+    0x7fff9049b000 -     0x7fff9049cffb  libremovefile.dylib (33) <3543F917-928E-3DB2-A2F4-7AB73B4970EF> /usr/lib/system/libremovefile.dylib
+    0x7fff90710000 -     0x7fff90714ff7  libsystem_stats.dylib (93.90.3) <337946FC-B2E1-3DFA-A8B5-30DA8D584D75> /usr/lib/system/libsystem_stats.dylib
+    0x7fff90725000 -     0x7fff90773fff  libcorecrypto.dylib (161.1) <F3973C28-14B6-3006-BB2B-00DD7F09ABC7> /usr/lib/system/libcorecrypto.dylib
+    0x7fff907a0000 -     0x7fff907a7ff8  liblaunch.dylib (842.92.1) <A40A0C7B-3216-39B4-8AE0-B5D3BAF1DA8A> /usr/lib/system/liblaunch.dylib
+
+External Modification Summary:
+  Calls made by other processes targeting this process:
+    task_for_pid: 0
+    thread_create: 0
+    thread_set_state: 0
+  Calls made by this process:
+    task_for_pid: 0
+    thread_create: 0
+    thread_set_state: 0
+  Calls made by all processes on this machine:
+    task_for_pid: 1082
+    thread_create: 0
+    thread_set_state: 0
+
+VM Region Summary:
+ReadOnly portion of Libraries: Total=82.4M resident=24.9M(30%) swapped_out_or_unallocated=57.5M(70%)
+Writable regions: Total=22.5M written=1492K(6%) resident=1760K(8%) swapped_out=0K(0%) unallocated=20.8M(92%)
+ 
+REGION TYPE                      VIRTUAL
+===========                      =======
+Dispatch continuations             2048K
+Kernel Alloc Once                     4K
+MALLOC                             9396K
+MALLOC (admin)                       16K
+STACK GUARD                        56.0M
+Stack                              9824K
+VM_ALLOCATE                        1432K
+__DATA                             1336K
+__LINKEDIT                         67.4M
+__TEXT                             14.9M
+__UNICODE                           544K
+mapped file                        1028K
+shared memory                         4K
+===========                      =======
+TOTAL                             163.4M
+

@@ -1,0 +1,172 @@
+Thread 2404 ("wait_for_request never returns"):
+
+ 	ntdll.dll!_KiFastSystemCallRet@0() 	
+ 	ntdll.dll!_ZwWaitForSingleObject@12()  + 0xc bytes	
+ 	kernel32.dll!_WaitForSingleObjectEx@12()  + 0x8b bytes	
+ 	kernel32.dll!_WaitForSingleObject@8()  + 0x12 bytes	
+ 	gds32.dll!wait_for_request(lrq * request=0x00000000, short lck_wait=1, long * status_vector=0x472185bd)  Line 4907 + 0x15 bytes	C++
+ 	gds32.dll!grant_or_que(lrq * request=0x00000000, lbl * lock=0x00000000, short lck_wait=-6928)  Line 2904	C++
+ 	gds32.dll!LOCK_enq(long prior_request=0, long parent_request=25472, unsigned short series=2, const unsigned char * value=0x0237e1e8, unsigned short length=4, unsigned char type='', int (void *)* ast_routine=0x012be510, void * ast_argument=0x0237e194, long data=0, short lck_wait=1, long * status_vector=0x18d5eb88, long owner_offset=32)  Line 557 + 0x10 bytes	C++
+ 	gds32.dll!internal_enqueue(Jrd::thread_db * tdbb=0x00000000, Jrd::Lock * lock=0x00000000, unsigned short level=6, short wait=1, bool convert_flg=false)  Line 1580 + 0x43 bytes	C++
+ 	gds32.dll!LCK_lock(Jrd::thread_db * tdbb=0x18d5eb88, Jrd::Lock * lock=0x0509da58, unsigned short level=6, short wait=1)  Line 628 + 0x1a bytes	C++
+ 	gds32.dll!LCK_lock_non_blocking(Jrd::thread_db * tdbb=0x00000000, Jrd::Lock * lock=0x0509da58, unsigned short level=6, short wait=1)  Line 676 + 0xd bytes	C++
+ 	gds32.dll!RLCK_reserve_relation(Jrd::thread_db * tdbb=0x18d5e6e0, Jrd::jrd_tra * transaction=0x02b97cd8, Jrd::jrd_rel * relation=0x03d48724, bool write_flag=true, bool error_flag=true)  Line 107 + 0x16 bytes	C++
+ 	gds32.dll!store(Jrd::thread_db * tdbb=0x02b97cd8, Jrd::jrd_nod * node=0x0237e0c4, short which_trig=0)  Line 3480	C++
+ 	gds32.dll!looper(Jrd::thread_db * tdbb=0x18d5e6e0, Jrd::jrd_req * request=0x03cf2db4, Jrd::jrd_nod * in_node=0x00cf92b8)  Line 2419 + 0x9 bytes	C++
+ 	gds32.dll!execute_looper(Jrd::thread_db * tdbb=0x00000000, Jrd::jrd_req * request=0x00000000, Jrd::jrd_tra * transaction=0x18d5e68c, Jrd::jrd_req::req_s next_state=req_proceed)  Line 1275	C++
+ 	gds32.dll!EXE_send(Jrd::thread_db * tdbb=0x18d5e6e0, Jrd::jrd_req * request=0x03cf2db4, unsigned short msg=59168, unsigned short length=560, const unsigned char * buffer=0x01bec430)  Line 833 + 0x13 bytes	C++
+ 	gds32.dll!jrd8_start_and_send(long * user_status=0x18d5eb88, Jrd::jrd_req * * req_handle=0x02b97cd8, Jrd::jrd_tra * * tra_handle=0x00f7cef0, unsigned short msg_type=0, unsigned short msg_length=560, char * msg=0x01bec430, short level=0)  Line 3717	C++
+ 	gds32.dll!isc_start_and_send(long * user_status=0x18d5eb88, void * * req_handle=0x01bee064, void * * tra_handle=0x01bee050, unsigned short msg_type=0, unsigned short msg_length=560, const char * msg=0x01bec430, short level=0)  Line 4665 + 0x30 bytes	C++
+ 	gds32.dll!execute_request(dsql_req * request=0x01bee00c, void * * trans_handle=0x0174d1ec, unsigned short in_blr_length=54, const unsigned char * in_blr=0x00f7c404, unsigned short in_msg_length=90, unsigned char * in_msg=0x00000000, unsigned short out_blr_length=0, unsigned char * out_blr=0x00000000, unsigned short out_msg_length=0, unsigned char * out_msg=0x00000000, bool singleton=false)  Line 3339 + 0x28 bytes	C++
+ 	gds32.dll!GDS_DSQL_EXECUTE_CPP(long * user_status=0x18d5eb00, void * * trans_handle=0x0174d1ec, dsql_req * * req_handle=0x00f7cd60, unsigned short in_blr_length=54, const unsigned char * in_blr=0x00f7c404, unsigned short in_msg_type=0, unsigned short in_msg_length=90, unsigned char * in_msg=0x00f7cfc0, unsigned short out_blr_length=0, unsigned char * out_blr=0x00000000, unsigned short out_msg_type=53740, unsigned short out_msg_length=0, unsigned char * out_msg=0x00000000)  Line 568 + 0x27 bytes	C++
+ 	gds32.dll!dsql8_execute(long * user_status=0x18d5eb88, void * * trans_handle=0x0174d1ec, dsql_req * * req_handle=0x00f7cd60, unsigned short in_blr_length=54, const char * in_blr=0x00f7c404, unsigned short in_msg_type=0, unsigned short in_msg_length=90, char * in_msg=0x00f7cfc0, unsigned short out_blr_length=0, char * out_blr=0x00000000, unsigned short out_msg_type=0, unsigned short out_msg_length=0, char * out_msg=0x00000000)  Line 294 + 0x41 bytes	C++
+ 	gds32.dll!isc_dsql_execute2_m(long * user_status=0x18d5eb88, void * * tra_handle=0x0174d1ec, void * * stmt_handle=0x02a9af04, unsigned short in_blr_length=54, const char * in_blr=0x00f7c404, unsigned short in_msg_type=0, unsigned short in_msg_length=90, char * in_msg=0x00f7cfc0, unsigned short out_blr_length=0, char * out_blr=0x00000000, unsigned short out_msg_type=0, unsigned short out_msg_length=0, char * out_msg=0x00000000)  Line 2321 + 0x5b bytes	C++
+ 	gds32.dll!isc_dsql_execute2(long * user_status=0x18d50000, void * * tra_handle=0x0174d1ec, void * * stmt_handle=0x02a9af04, unsigned short dialect=1, XSQLDA * in_sqlda=0x02a84148, XSQLDA * out_sqlda=0x02b282f0)  Line 2237 + 0x43 bytes	C++
+ 	IBProv.dll!ib_v5::t_ib_statement_v5::execute(db_obj::t_db_row * const in_param=0x02a80238, db_obj::t_db_row * const out_param=0x02b0c848, long * const rows_affected=0x18d5ed08)  Line 388 + 0x8d bytes	C++
+ 	IBProv.dll!ibp::t_ibp_command::execute2(ibp::t_ibp_transaction * const pIBPTrans=0x00000000, long * const pcRowsAffected=0x18d5ed08)  Line 211	C++
+ 	IBProv.dll!ib_sql_pstmt::t_ib_sql_pstmt_delete::execute_sql(ibp::TIBPSession * const __formal=, ibp::t_ibp_transaction * const pDBTrans=, ibp::t_ibp_command * const pDBCmd=, ibp::t_ibp_command_pstmt_params_info * const pParamsInfo=, ibp::TIBP_ParametersData * const pParams=, structure::t_smart_object_ptr<db_obj::t_db_result_set,structure::t_sptr_traits<db_obj::t_db_result_set> > & spResultSet=, long * const pcRowsAffected=, ibp::TIBPSession * const __formal=)  Line 47	C++
+ 	IBProv.dll!ibp::t_ibp_sql_pstmt_data::single_exec(ibp::TIBPCommand * const pCommand=0x0175afd8, ibp::t_ibp_transaction * const pDBTrans=0x02c30f08, ibp::TIBP_ParametersData * const pParams=0x02bc2810, long * const pcRowsAffected=0x18d5ed08, db_obj::t_db_exec_triggers * const pTriggers=0x18d5ee18)  Line 205 + 0x2c bytes	C++
+ 	IBProv.dll!ibp::t_ibp_sql_pstmt_data::execute(ibp::TIBPCommand * const pCommand=0x0175aeb0, ibp::t_ibp_transaction * const pDBTrans=0x02c30f08, structure::t_smart_vector<ibp::TIBP_ParametersData,oledb_lib::TOLEDBMemoryAllocator,structure::t_smart_vec_traits_data<ibp::TIBP_ParametersData> > & ParamSets={...}, structure::t_smart_vector<ibp::TIBP_SingleResult,oledb_lib::TOLEDBMemoryAllocator,structure::t_smart_vec_traits_data<ibp::TIBP_SingleResult> > & Results={...}, long * const pcRowsAffected=0x18d5f028, db_obj::t_db_exec_triggers * const pTriggers=0x18d5ee18)  Line 155 + 0x47 bytes	C++
+ 	IBProv.dll!ibp::TIBPCommand::Execute(IUnknown * const pUnkOuter=0x014c1494, const _GUID & riid={...}, tagDBPARAMS * const pParams=0x02c30f08, long * pcRowsAffected=0x18d5f028, IUnknown * * const ppRowset=0x18d5ef08)  Line 172	C++
+ 	oledb32.dll!CCommandText::Execute()  - 0x1d442 bytes	
+ 	18d5eefc()	
+ 	oledb32.dll!CCommandText::Execute()  - 0x1d442 bytes	
+	MFServer.exe!ATL::CCommand<ATL::CAccessor<CAccessorObjectTypeItem>,ATL::CRowset,ATL::CNoMultipleResults>::Execute(IUnknown * * ppInterface=0x18d5f258, tagDBPARAMS * pParams=0x18d5f034, tagDBPROPSET * pPropSet=0x00000000, long * pRowsAffected=0x00000000, unsigned long ulPropSets=4294967295)  Line 6882 + 0x20 bytes	C++
+ 	MFServer.exe!ATL::CCommand<ATL::CAccessor<CAccessorObjectTypeItem>,ATL::CRowset,ATL::CNoMultipleResults>::Open(tagDBPROPSET * pPropSet=0x00000000, long * pRowsAffected=0x00000000, bool bBind=false, unsigned long ulPropSets=0)  Line 6779 + 0x2e bytes	C++
+ 	MFServer.exe!RPCObjectTypesHelper::AddObjectTypeItemInternal(CDBSession & dbsess={...}, CMF_ValueListItem & vlitem={...}, const CMF_ACL * pacl=0x18d5f380, bool bUpdateObjectTypeVersionID=true, bool bRemoved=false, __int64 i64RemovedAt=0)  Line 452 + 0x24 bytes	C++
+ 	MFServer.exe!RPCObjectTypesHelper::AddObjectTypeItemInternal(CDBSession & dbsess={...}, CMF_ValueListItem & vlitem={...}, const CMF_ACL * pacl=0x18d5f380, bool bUpdateObjectTypeVersionID=true)  Line 227 + 0x26 bytes	C++
+ 	MFServer.exe!RPCPropertyDefsHelper::AddDocClass(CDBSession & dbsess={...}, CMF_DocClass & docclass={...}, bool bAllowAddingPredefinedClass=true, bool bUpdateValueListVersionID=true)  Line 81 + 0x20 bytes	C++
+ 	MFServer.exe!RPCObjectTypesHelper::CreateDefaultClass(CDBSession & dbsess={...}, const CMF_ObjectType & objtype={...})  Line 5417 + 0x25 bytes	C++
+ 	MFServer.exe!RPCObjectTypesHelper::ConvertValueListToObjectType(CDBSession & dbsess={...}, const CMFSession * pmfsess=0x00f3ff10, long lValueList=101)  Line 5499 + 0x1e bytes	C++
+ 	MFServer.exe!MF_ConvertValueListToObjectType(void * IDL_handle=0x002bdb28, _SESSIONID sessID={...}, long lValueList=101, unsigned long * pulErrorCount=0x18d5fad8, _RPCErrorInfo * * ppErrorValues=0x18d5fae8)  Line 1077 + 0x30 bytes	C++
+ 	rpcrt4.dll!_Invoke@12()  + 0x30 bytes	
+ 	rpcrt4.dll!_NdrStubCall2@16()  + 0x215 bytes	
+ 	rpcrt4.dll!_NdrServerCall2@4()  + 0x19 bytes	
+ 	rpcrt4.dll!_DispatchToStubInC@12()  + 0x17 bytes	
+ 	rpcrt4.dll!RPC_INTERFACE::DispatchToStubWorker()  + 0xa1 bytes	
+ 	rpcrt4.dll!RPC_INTERFACE::DispatchToStub()  + 0x41 bytes	
+ 	rpcrt4.dll!LRPC_SCALL::DealWithRequestMessage()  + 0x131 bytes	
+ 	rpcrt4.dll!LRPC_ADDRESS::DealWithLRPCRequest()  + 0x9c bytes	
+ 	rpcrt4.dll!LRPC_ADDRESS::ReceiveLotsaCalls()  - 0x236f bytes	
+ 	rpcrt4.dll!RecvLotsaCallsWrapper()  + 0xd bytes	
+ 	rpcrt4.dll!BaseCachedThreadRoutine()  + 0x53 bytes	
+ 	rpcrt4.dll!ThreadStartRoutine()  + 0x1a bytes	
+ 	kernel32.dll!_BaseThreadStart@8()  + 0x37 bytes	
+
+Thread 4332 ("wait_for_request never returns"):
+
+ 	ntdll.dll!_KiFastSystemCallRet@0() 	
+ 	ntdll.dll!_ZwWaitForSingleObject@12()  + 0xc bytes	
+ 	kernel32.dll!_WaitForSingleObjectEx@12()  + 0x8b bytes	
+ 	kernel32.dll!_WaitForSingleObject@8()  + 0x12 bytes	
+ 	gds32.dll!wait_for_request(lrq * request=0x00000000, short lck_wait=1, long * status_vector=0x472185bd)  Line 4907 + 0x15 bytes	C++
+ 	gds32.dll!grant_or_que(lrq * request=0x00000000, lbl * lock=0x00000000, short lck_wait=-5028)  Line 2904	C++
+ 	gds32.dll!LOCK_enq(long prior_request=0, long parent_request=25472, unsigned short series=2, const unsigned char * value=0x0cd6ecc4, unsigned short length=4, unsigned char type='', int (void *)* ast_routine=0x012be510, void * ast_argument=0x0cd6ec70, long data=0, short lck_wait=1, long * status_vector=0x0220f310, long owner_offset=56)  Line 557 + 0x10 bytes	C++
+ 	gds32.dll!internal_enqueue(Jrd::thread_db * tdbb=0x00000000, Jrd::Lock * lock=0x00000000, unsigned short level=4, short wait=1, bool convert_flg=false)  Line 1580 + 0x43 bytes	C++
+ 	gds32.dll!LCK_lock(Jrd::thread_db * tdbb=0x0220f310, Jrd::Lock * lock=0x0509da58, unsigned short level=4, short wait=1)  Line 628 + 0x1a bytes	C++
+ 	gds32.dll!LCK_lock_non_blocking(Jrd::thread_db * tdbb=0x00000000, Jrd::Lock * lock=0x0509da58, unsigned short level=4, short wait=1)  Line 676 + 0xd bytes	C++
+ 	gds32.dll!RLCK_reserve_relation(Jrd::thread_db * tdbb=0x0220ee68, Jrd::jrd_tra * transaction=0x0237a1f8, Jrd::jrd_rel * relation=0x0507f5e4, bool write_flag=true, bool error_flag=true)  Line 107 + 0x16 bytes	C++
+ 	gds32.dll!modify(Jrd::thread_db * tdbb=0x00000000, Jrd::jrd_nod * node=0x0cd62b08, short which_trig=0)  Line 2728	C++
+ 	gds32.dll!looper(Jrd::thread_db * tdbb=0x0220ee68, Jrd::jrd_req * request=0x0cd60a98, Jrd::jrd_nod * in_node=0x00d679ac)  Line 2307 + 0xa bytes	C++
+ 	gds32.dll!execute_looper(Jrd::thread_db * tdbb=0x00000000, Jrd::jrd_req * request=0x00000000, Jrd::jrd_tra * transaction=0x0220ee14, Jrd::jrd_req::req_s next_state=req_proceed)  Line 1275	C++
+ 	gds32.dll!EXE_send(Jrd::thread_db * tdbb=0x0220ee68, Jrd::jrd_req * request=0x0cd60a98, unsigned short msg=11424, unsigned short length=12, const unsigned char * buffer=0x0503da68)  Line 833 + 0x13 bytes	C++
+ 	gds32.dll!jrd8_start_and_send(long * user_status=0x0220f310, Jrd::jrd_req * * req_handle=0x0237a1f8, Jrd::jrd_tra * * tra_handle=0x00f7c3d4, unsigned short msg_type=0, unsigned short msg_length=12, char * msg=0x0503da68, short level=0)  Line 3717	C++
+ 	gds32.dll!isc_start_and_send(long * user_status=0x0220f310, void * * req_handle=0x0503e064, void * * tra_handle=0x0503e050, unsigned short msg_type=0, unsigned short msg_length=12, const char * msg=0x0503da68, short level=0)  Line 4665 + 0x30 bytes	C++
+ 	gds32.dll!execute_request(dsql_req * request=0x0503e00c, void * * trans_handle=0x02b34fcc, unsigned short in_blr_length=11, const unsigned char * in_blr=0x00f7cd38, unsigned short in_msg_length=10, unsigned char * in_msg=0x00000000, unsigned short out_blr_length=0, unsigned char * out_blr=0x00000000, unsigned short out_msg_length=0, unsigned char * out_msg=0x00000000, bool singleton=false)  Line 3339 + 0x28 bytes	C++
+ 	gds32.dll!GDS_DSQL_EXECUTE_CPP(long * user_status=0x0220f300, void * * trans_handle=0x02b34fcc, dsql_req * * req_handle=0x00f7bc5c, unsigned short in_blr_length=11, const unsigned char * in_blr=0x00f7cd38, unsigned short in_msg_type=0, unsigned short in_msg_length=10, unsigned char * in_msg=0x00f7cb20, unsigned short out_blr_length=0, unsigned char * out_blr=0x00000000, unsigned short out_msg_type=20428, unsigned short out_msg_length=0, unsigned char * out_msg=0x00000000)  Line 568 + 0x27 bytes	C++
+ 	gds32.dll!dsql8_execute(long * user_status=0x0220f310, void * * trans_handle=0x02b34fcc, dsql_req * * req_handle=0x00f7bc5c, unsigned short in_blr_length=11, const char * in_blr=0x00f7cd38, unsigned short in_msg_type=0, unsigned short in_msg_length=10, char * in_msg=0x00f7cb20, unsigned short out_blr_length=0, char * out_blr=0x00000000, unsigned short out_msg_type=0, unsigned short out_msg_length=0, char * out_msg=0x00000000)  Line 294 + 0x41 bytes	C++
+ 	gds32.dll!isc_dsql_execute2_m(long * user_status=0x0220f310, void * * tra_handle=0x02b34fcc, void * * stmt_handle=0x02aa47f4, unsigned short in_blr_length=11, const char * in_blr=0x00f7cd38, unsigned short in_msg_type=0, unsigned short in_msg_length=10, char * in_msg=0x00f7cb20, unsigned short out_blr_length=0, char * out_blr=0x00000000, unsigned short out_msg_type=0, unsigned short out_msg_length=0, char * out_msg=0x00000000)  Line 2321 + 0x5b bytes	C++
+ 	gds32.dll!isc_dsql_execute2(long * user_status=0x02200000, void * * tra_handle=0x02b34fcc, void * * stmt_handle=0x02aa47f4, unsigned short dialect=1, XSQLDA * in_sqlda=0x02b0b868, XSQLDA * out_sqlda=0x06c77eb0)  Line 2237 + 0x43 bytes	C++
+ 	IBProv.dll!ib_v5::t_ib_statement_v5::execute(db_obj::t_db_row * const in_param=0x02a88688, db_obj::t_db_row * const out_param=0x02b1f248, long * const rows_affected=0x0220f490)  Line 388 + 0x8d bytes	C++
+ 	IBProv.dll!ibp::t_ibp_command::execute2(ibp::t_ibp_transaction * const pIBPTrans=0x00000000, long * const pcRowsAffected=0x0220f490)  Line 211	C++
+ 	IBProv.dll!ib_sql_pstmt::t_ib_sql_pstmt_delete::execute_sql(ibp::TIBPSession * const __formal=, ibp::t_ibp_transaction * const pDBTrans=, ibp::t_ibp_command * const pDBCmd=, ibp::t_ibp_command_pstmt_params_info * const pParamsInfo=, ibp::TIBP_ParametersData * const pParams=, structure::t_smart_object_ptr<db_obj::t_db_result_set,structure::t_sptr_traits<db_obj::t_db_result_set> > & spResultSet=, long * const pcRowsAffected=, ibp::TIBPSession * const __formal=)  Line 47	C++
+ 	IBProv.dll!ibp::t_ibp_sql_pstmt_data::single_exec(ibp::TIBPCommand * const pCommand=0x01753ad8, ibp::t_ibp_transaction * const pDBTrans=0x02c30fd0, ibp::TIBP_ParametersData * const pParams=0x02bc3440, long * const pcRowsAffected=0x0220f490, db_obj::t_db_exec_triggers * const pTriggers=0x0220f5a0)  Line 205 + 0x2c bytes	C++
+ 	IBProv.dll!ibp::t_ibp_sql_pstmt_data::execute(ibp::TIBPCommand * const pCommand=0x017539f8, ibp::t_ibp_transaction * const pDBTrans=0x02c30fd0, structure::t_smart_vector<ibp::TIBP_ParametersData,oledb_lib::TOLEDBMemoryAllocator,structure::t_smart_vec_traits_data<ibp::TIBP_ParametersData> > & ParamSets={...}, structure::t_smart_vector<ibp::TIBP_SingleResult,oledb_lib::TOLEDBMemoryAllocator,structure::t_smart_vec_traits_data<ibp::TIBP_SingleResult> > & Results={...}, long * const pcRowsAffected=0x0220f858, db_obj::t_db_exec_triggers * const pTriggers=0x0220f5a0)  Line 155 + 0x47 bytes	C++
+ 	IBProv.dll!ibp::TIBPCommand::Execute(IUnknown * const pUnkOuter=0x014ba4cc, const _GUID & riid={...}, tagDBPARAMS * const pParams=0x02c30fd0, long * pcRowsAffected=0x0220f858, IUnknown * * const ppRowset=0x0220f690)  Line 172	C++
+ 	oledb32.dll!CCommandText::Execute()  - 0x1d442 bytes	
+ 	0220f684()	
+ 	oledb32.dll!CCommandText::Execute()  - 0x1d442 bytes	
+	MFServer.exe!ATL::CCommand<ATL::CAccessor<CAccessorObjectTypeRefreshed>,ATL::CRowset,ATL::CNoMultipleResults>::Execute(IUnknown * * ppInterface=0x0220f81c, tagDBPARAMS * pParams=0x0220f7bc, tagDBPROPSET * pPropSet=0x00000000, long * pRowsAffected=0x0220f858, unsigned long ulPropSets=0)  Line 6882 + 0x1d bytes	C++
+ 	MFServer.exe!ATL::CCommand<ATL::CAccessor<CAccessorObjectTypeRefreshed>,ATL::CRowset,ATL::CNoMultipleResults>::Open(tagDBPROPSET * pPropSet=0x00000000, long * pRowsAffected=0x0220f858, bool bBind=false, unsigned long ulPropSets=0)  Line 6779 + 0x2b bytes	C++
+ 	MFServer.exe!RefreshExternalObjects::UpdateRefreshTimestamp(const ATL::CSession & sess={...}, long lObjectType=102, bool bSetStartTime=true, const tagDBTIMESTAMP * pts=0x0220fafc)  Line 3811 + 0x22 bytes	C++
+ 	MFServer.exe!RefreshExternalObjects::RefreshCachedExternalObjectType(CDBSession & dbsessLocal={...}, bool bBackgroundOperation=true, const CMF_ObjectType & objtype={...}, bool bTestOnly=false, bool bUpdateObjectTypeVersionID=true)  Line 527 + 0x2c bytes	C++
+ 	MFServer.exe!RefreshExternalObjects::RefreshCachedExternalObjectType(CDBSession & dbsessLocal={...}, bool bBackgroundOperation=true, long lObjectType=102)  Line 278 + 0x29 bytes	C++
+ 	MFServer.exe!RefreshExternalObjects::RefreshCachedExternalObjectType(CMFVault * pvault=0x00f3fb08, bool bBackgroundOperation=true, long lObjectType=102)  Line 250 + 0x28 bytes	C++
+ 	MFServer.exe!CBackgroundOperation_RefreshExternalObjectType::OnExecuteOperation()  Line 1538 + 0x2c bytes	C++
+ 	MFServer.exe!CBackgroundOperationWithThread::ThreadProc(void * pParam=0x00000000)  Line 1445	C++
+ 	MFServer.exe!_callthreadstartex()  Line 348 + 0x6 bytes	C
+ 	MFServer.exe!_threadstartex(void * ptd=0x1ccc2b00)  Line 326 + 0x5 bytes	C
+ 	kernel32.dll!_BaseThreadStart@8()  + 0x37 bytes	
+
+Thread 628 ("cache_writer"):
+
+	ntdll.dll!_KiFastSystemCallRet@0() 	
+ 	ntdll.dll!_ZwWaitForMultipleObjects@20()  + 0xc bytes	
+ 	kernel32.dll!_WaitForMultipleObjectsEx@20()  - 0x48 bytes	
+ 	kernel32.dll!_WaitForMultipleObjects@16()  + 0x18 bytes	
+ 	gds32.dll!ISC_event_wait(short count=1, event_t * * events=0x03bdff40, long * values=0x03bdff64, long micro_seconds=10000000, void (void *)* timeout_handler=0x00000000, void * handler_arg=0x00000000)  Line 1291	C++
+ 	gds32.dll!cache_writer(void * arg=0x00003591)  Line 3971 + 0x18 bytes	C++
+ 	gds32.dll!`anonymous namespace'::threadStart(void * arg=0x00f75c3c)  Line 283	C++
+ 	msvcr71.dll!__endthreadex()  + 0xa0 bytes	
+ 	kernel32.dll!_BaseThreadStart@8()  + 0x37 bytes	
+
+Thread 4592 ("garbage_collector"):
+
+	ntdll.dll!_KiFastSystemCallRet@0() 	
+ 	ntdll.dll!_ZwWaitForMultipleObjects@20()  + 0xc bytes	
+ 	kernel32.dll!_WaitForMultipleObjectsEx@20()  - 0x48 bytes	
+ 	kernel32.dll!_WaitForMultipleObjects@16()  + 0x18 bytes	
+ 	gds32.dll!ISC_event_wait(short count=1, event_t * * events=0x04ffff38, long * values=0x04ffff30, long micro_seconds=10000000, void (void *)* timeout_handler=0x00000000, void * handler_arg=0x00000000)  Line 1291	C++
+ 	gds32.dll!garbage_collector(void * arg=0x0009da58)  Line 3920 + 0x18 bytes	C++
+ 	gds32.dll!`anonymous namespace'::threadStart(void * arg=0x00f75c3c)  Line 283	C++
+ 	msvcr71.dll!__endthreadex()  + 0xa0 bytes	
+ 	kernel32.dll!_BaseThreadStart@8()  + 0x37 bytes	
+
+Thread 536 ("cache_writer"):
+
+	ntdll.dll!_KiFastSystemCallRet@0() 	
+ 	ntdll.dll!_ZwWaitForMultipleObjects@20()  + 0xc bytes	
+ 	kernel32.dll!_WaitForMultipleObjectsEx@20()  - 0x48 bytes	
+ 	kernel32.dll!_WaitForMultipleObjects@16()  + 0x18 bytes	
+ 	gds32.dll!ISC_event_wait(short count=1, event_t * * events=0x0684ff40, long * values=0x0684ff64, long micro_seconds=10000000, void (void *)* timeout_handler=0x00000000, void * handler_arg=0x00000000)  Line 1291	C++
+ 	gds32.dll!cache_writer(void * arg=0x00000001)  Line 3971 + 0x18 bytes	C++
+ 	gds32.dll!`anonymous namespace'::threadStart(void * arg=0x00f7c178)  Line 283	C++
+ 	msvcr71.dll!__endthreadex()  + 0xa0 bytes	
+ 	kernel32.dll!_BaseThreadStart@8()  + 0x37 bytes	
+
+
+Thread 6072 ("garbage_collector"):
+
+	ntdll.dll!_KiFastSystemCallRet@0() 	
+ 	ntdll.dll!_ZwWaitForMultipleObjects@20()  + 0xc bytes	
+ 	kernel32.dll!_WaitForMultipleObjectsEx@20()  - 0x48 bytes	
+ 	kernel32.dll!_WaitForMultipleObjects@16()  + 0x18 bytes	
+ 	gds32.dll!ISC_event_wait(short count=1, event_t * * events=0x06c4ff38, long * values=0x06c4ff30, long micro_seconds=10000000, void (void *)* timeout_handler=0x00000000, void * handler_arg=0x00000000)  Line 1291	C++
+ 	gds32.dll!garbage_collector(void * arg=0x0047da58)  Line 3920 + 0x18 bytes	C++
+ 	gds32.dll!`anonymous namespace'::threadStart(void * arg=0x00f7c178)  Line 283	C++
+ 	msvcr71.dll!__endthreadex()  + 0xa0 bytes	
+ 	kernel32.dll!_BaseThreadStart@8()  + 0x37 bytes	
+
+Thread 4900 ("cache_writer"):
+
+	ntdll.dll!_KiFastSystemCallRet@0() 	
+ 	ntdll.dll!_ZwWaitForMultipleObjects@20()  + 0xc bytes	
+ 	kernel32.dll!_WaitForMultipleObjectsEx@20()  - 0x48 bytes	
+ 	kernel32.dll!_WaitForMultipleObjects@16()  + 0x18 bytes	
+ 	gds32.dll!ISC_event_wait(short count=1, event_t * * events=0x045dff40, long * values=0x045dff64, long micro_seconds=10000000, void (void *)* timeout_handler=0x00000000, void * handler_arg=0x00000000)  Line 1291	C++
+ 	gds32.dll!cache_writer(void * arg=0x00000001)  Line 3971 + 0x18 bytes	C++
+ 	gds32.dll!`anonymous namespace'::threadStart(void * arg=0x00f7c718)  Line 283	C++
+ 	msvcr71.dll!__endthreadex()  + 0xa0 bytes	
+ 	kernel32.dll!_BaseThreadStart@8()  + 0x37 bytes	
+
+Thread 2352 ("garbage_collector"):
+
+	ntdll.dll!_KiFastSystemCallRet@0() 	
+ 	ntdll.dll!_ZwWaitForMultipleObjects@20()  + 0xc bytes	
+ 	kernel32.dll!_WaitForMultipleObjectsEx@20()  - 0x48 bytes	
+ 	kernel32.dll!_WaitForMultipleObjects@16()  + 0x18 bytes	
+ 	gds32.dll!ISC_event_wait(short count=1, event_t * * events=0x07e4ff38, long * values=0x07e4ff30, long micro_seconds=10000000, void (void *)* timeout_handler=0x00000000, void * handler_arg=0x00000000)  Line 1291	C++
+ 	gds32.dll!garbage_collector(void * arg=0x0097da58)  Line 3920 + 0x18 bytes	C++
+ 	gds32.dll!`anonymous namespace'::threadStart(void * arg=0x00f7c718)  Line 283	C++
+ 	msvcr71.dll!__endthreadex()  + 0xa0 bytes	
+ 	kernel32.dll!_BaseThreadStart@8()  + 0x37 bytes	

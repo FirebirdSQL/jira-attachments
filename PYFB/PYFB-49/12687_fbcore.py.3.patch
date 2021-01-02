@@ -1,0 +1,77 @@
+Index: fdb/fdb/fbcore.py
+===================================================================
+--- firebird-code/python/fdb/trunk/fdb/fbcore.py	(revision 61013)
++++ firebird-code/python/fdb/trunk/fdb/fbcore.py	(working copy)
+@@ -169,6 +169,16 @@
+ threadsafety = 1
+ paramstyle = 'qmark'
+ 
++class _weakrefCallback(object):
++    """Wrap callback function used in weakrefs so that in will only be call if still exists.
++    """
++    def __init__(self, func):
++        self.__funcref = weakref.ref(func)
++    def __call__(self, *args, **kwargs):
++        func = self.__funcref()
++        if func:
++            func(*args, **kwargs)
++
+ def load_api(fb_library_name=None):
+     """Initializes bindings to Firebird Client Library unless they are already initialized.
+     Called automatically by :func:`fdb.connect` and :func:`fdb.create_database`.
+@@ -1614,7 +1624,7 @@
+         # management functionality to bypass the conceptually read-only nature
+         # of the Connection.group property.
+         if group:
+-            self.__group = weakref.ref(group,self.__remove_group)
++            self.__group = weakref.ref(group,_weakrefCallback(self.__remove_group))
+         else:
+             self.__group = None
+     #: (Read Only) :class:`ConnectionGroup` this Connection belongs to, or None.
+@@ -1941,7 +1951,7 @@
+         self.__sql = operation
+         self.__internal = internal
+         if internal:
+-            self.cursor = weakref.proxy(cursor,self.__cursor_deleted)
++            self.cursor = weakref.proxy(cursor,_weakrefCallback(self.__cursor_deleted))
+         else:
+             self.cursor = cursor
+         self._stmt_handle = None
+@@ -3278,7 +3288,7 @@
+     def __ps_deleted(self,obj):
+         self._ps = None
+     def _set_as_internal(self):
+-        self._connection = weakref.proxy(self._connection,self.__connection_deleted)
++        self._connection = weakref.proxy(self._connection,_weakrefCallback(self.__connection_deleted))
+     def callproc(self, procname, parameters=None):
+         """Call a stored database procedure with the given name.
+ 
+@@ -3355,7 +3365,7 @@
+         if isinstance(operation, PreparedStatement):
+             if operation.cursor is not self:
+                 raise ValueError("PreparedStatement was created by different Cursor.")
+-            self._ps = weakref.proxy(operation,self.__ps_deleted)
++            self._ps = weakref.proxy(operation,_weakrefCallback(self.__ps_deleted))
+         else:
+             self._ps = PreparedStatement(operation, self, True)
+         self._ps._execute(parameters)
+@@ -3662,7 +3672,9 @@
+             raise ProgrammingError("Transaction object is not active")
+     def __close_cursors(self):
+         for cursor in self._cursors:
+-            cursor().close()
++            c = cursor()
++            if c:
++                c.close()
+     def __con_in_list(self,connection):
+         for con in self._connections:
+             if con() == connection:
+@@ -3910,7 +3922,7 @@
+         else:
+             con = self._connections[0]()
+         c = Cursor(con, self)
+-        self._cursors.append(weakref.ref(c, self.__remove_cursor))
++        self._cursors.append(weakref.ref(c, _weakrefCallback(self.__remove_cursor)))
+         return c
+     def trans_info(self, request):
+         """Pythonic wrapper around :meth:`transaction_info` call.

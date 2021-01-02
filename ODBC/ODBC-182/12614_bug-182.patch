@@ -1,0 +1,122 @@
+Index: OdbcConvert.cpp
+===================================================================
+--- OdbcConvert.cpp	(revision 54)
++++ OdbcConvert.cpp	(revision 55)
+@@ -1013,6 +1013,18 @@
+ 	if ( !pointerTo )										\
+ 		return SQL_SUCCESS;
+ 
++#define ODBCCONVERT_CHECKNULLW(pointerTo)					\
++	if( indicatorFrom && *(short*)indicatorFrom == SQL_NULL_DATA )			\
++	{														\
++		if ( indicatorTo )									\
++			*indicatorTo = SQL_NULL_DATA;					\
++		if ( pointerTo )									\
++			*(wchar_t*)pointerTo = 0;                          \
++		return SQL_SUCCESS;									\
++	}														\
++	if ( !pointerTo )										\
++		return SQL_SUCCESS;
++
+ #define ODBCCONVERT_CHECKNULL_COMMON(C_TYPE_TO)				\
+ 	if ( from->isIndicatorSqlDa )							\
+ 	{														\
+@@ -1327,7 +1339,7 @@
+ 	SQLLEN *indicatorTo = getAdressBindIndTo((char*)to->indicatorPtr);						\
+ 	SQLLEN * indicatorFrom = getAdressBindIndFrom((char*)from->indicatorPtr);				\
+ 																								\
+-	ODBCCONVERT_CHECKNULL( pointer );															\
++	ODBCCONVERT_CHECKNULLW( pointer );															\
+ 																								\
+ 	int len = to->length;																		\
+ 																								\
+@@ -1614,7 +1626,7 @@
+ 	SQLLEN * indicatorTo = getAdressBindIndTo((char*)to->indicatorPtr);
+ 	SQLLEN * indicatorFrom = getAdressBindIndFrom((char*)from->indicatorPtr);
+ 
+-	ODBCCONVERT_CHECKNULL( pointer );
++	ODBCCONVERT_CHECKNULLW( pointer );
+ 
+ 	SQLGUID *g = (SQLGUID*)getAdressBindDataFrom((char*)from->dataPtr);
+ 	int len, outlen = to->length / sizeof( wchar_t );
+@@ -1731,7 +1743,7 @@
+ 	SQLLEN *indicatorTo = getAdressBindIndTo((char*)to->indicatorPtr);
+ 	SQLLEN * indicatorFrom = getAdressBindIndFrom((char*)from->indicatorPtr);
+ 
+-	ODBCCONVERT_CHECKNULL( pointerTo );
++	ODBCCONVERT_CHECKNULLW( pointerTo );
+ 
+ 	int len = to->length;
+ 
+@@ -1837,7 +1849,7 @@
+ 	SQLLEN * indicatorTo = getAdressBindIndTo((char*)to->indicatorPtr);
+ 	SQLLEN * indicatorFrom = getAdressBindIndFrom((char*)from->indicatorPtr);
+ 
+-	ODBCCONVERT_CHECKNULL( pointerTo );
++	ODBCCONVERT_CHECKNULLW( pointerTo );
+ 
+ 	int len = to->length;
+ 
+@@ -1956,7 +1968,7 @@
+ 	SQLLEN * indicatorTo = getAdressBindIndTo((char*)to->indicatorPtr);
+ 	SQLLEN * indicatorFrom = getAdressBindIndFrom((char*)from->indicatorPtr);
+ 
+-	ODBCCONVERT_CHECKNULL( pointer );
++	ODBCCONVERT_CHECKNULLW( pointer );
+ 
+ 	SQLUSMALLINT mday, month;
+ 	SQLSMALLINT year;
+@@ -2138,7 +2150,7 @@
+ 	SQLLEN * indicatorTo = getAdressBindIndTo((char*)to->indicatorPtr);
+ 	SQLLEN * indicatorFrom = getAdressBindIndFrom((char*)from->indicatorPtr);
+ 
+-	ODBCCONVERT_CHECKNULL( pointer );
++	ODBCCONVERT_CHECKNULLW( pointer );
+ 
+ 	SQLUSMALLINT hour, minute, second;
+ 	int ntime = *(int*)getAdressBindDataFrom((char*)from->dataPtr);
+@@ -2334,7 +2346,7 @@
+ 	SQLLEN * indicatorTo = getAdressBindIndTo((char*)to->indicatorPtr);
+ 	SQLLEN * indicatorFrom = getAdressBindIndFrom((char*)from->indicatorPtr);
+ 
+-	ODBCCONVERT_CHECKNULL( pointer );
++	ODBCCONVERT_CHECKNULLW( pointer );
+ 
+ 	QUAD pointerFrom = *(QUAD*)getAdressBindDataFrom((char*)from->dataPtr);
+ 	int ndate = LO_LONG(pointerFrom);
+@@ -2837,7 +2849,7 @@
+ 	SQLLEN * indicatorTo = getAdressBindIndTo((char*)to->indicatorPtr);
+ 	SQLLEN * indicatorFrom = getAdressBindIndFrom((char*)from->indicatorPtr);
+ 
+-	ODBCCONVERT_CHECKNULL( pointer );
++	ODBCCONVERT_CHECKNULLW( pointer );
+ 
+ 	char * ptBlob = (char*)getAdressBindDataFrom((char*)from->dataPtr);
+ 	Blob *& blob = from->dataBlobPtr;
+@@ -3192,7 +3204,7 @@
+ 	SQLLEN * indicatorTo = getAdressBindIndTo((char*)to->indicatorPtr);
+ 	SQLLEN * indicatorFrom = getAdressBindIndFrom((char*)from->indicatorPtr);
+ 
+-	ODBCCONVERT_CHECKNULL( pointerTo );
++	ODBCCONVERT_CHECKNULLW( pointerTo );
+ 
+ 	bool fetched = from->currentFetched == parentStmt->getCurrentFetched();
+ 
+@@ -3950,7 +3962,7 @@
+ 	SQLLEN * indicatorTo = getAdressBindIndTo((char*)to->indicatorPtr);
+ 	SQLLEN * indicatorFrom = getAdressBindIndFrom((char*)from->indicatorPtr);
+ 
+-	ODBCCONVERT_CHECKNULL( pointerTo );
++	ODBCCONVERT_CHECKNULLW( pointerTo );
+ 
+ 	bool fetched = from->currentFetched == parentStmt->getCurrentFetched();
+ 
+@@ -4093,7 +4105,7 @@
+ 	SQLLEN * indicatorTo = getAdressBindIndTo((char*)to->indicatorPtr);
+ 	SQLLEN * indicatorFrom = getAdressBindIndFrom((char*)from->indicatorPtr);
+ 
+-	ODBCCONVERT_CHECKNULL( pointerTo );
++	ODBCCONVERT_CHECKNULLW( pointerTo );
+ 	
+ 	SQLRETURN ret = SQL_SUCCESS;
+ 	unsigned short lenVar = *(unsigned short*)pointerFrom;

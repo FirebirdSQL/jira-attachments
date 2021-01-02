@@ -1,0 +1,108 @@
+Index: DatabaseParameterBuffer.java
+===================================================================
+--- DatabaseParameterBuffer.java	(revision 9331)
++++ DatabaseParameterBuffer.java	(working copy)
+@@ -112,7 +112,7 @@
+     int NO_DB_TRIGGERS          = ISCConstants.isc_dpb_no_db_triggers;
+     int TRUSTED_AUTH            = ISCConstants.isc_dpb_trusted_auth;
+     int PROCESS_NAME            = ISCConstants.isc_dpb_process_name;
+-    
++
+     /**
+      * Add argument with no parameters.
+      * 
+Index: impl/jni/ParameterBufferBase.java
+===================================================================
+--- impl/jni/ParameterBufferBase.java	(revision 9331)
++++ impl/jni/ParameterBufferBase.java	(working copy)
+@@ -19,6 +19,7 @@
+ 
+ package org.firebirdsql.gds.impl.jni;
+ 
++import java.io.UnsupportedEncodingException;
+ import java.util.List;
+ import java.util.ArrayList;
+ import java.util.Arrays;
+@@ -160,8 +161,13 @@
+         void writeTo(ByteArrayOutputStream outputStream) {
+             outputStream.write(type);
+ 
+-            final byte[] valueBytes = this.value.getBytes();
+-            final int valueLength = valueBytes.length;
++          final byte[] valueBytes;
++          try {
++            valueBytes = this.value.getBytes("UTF8");
++          } catch (UnsupportedEncodingException e) {
++            throw new RuntimeException(e);
++          }
++          final int valueLength = valueBytes.length;
+ 
+             writeLength(valueLength, outputStream);
+             for (int i = 0; i < valueLength; i++)
+Index: impl/wire/AbstractJavaGDSImpl.java
+===================================================================
+--- impl/wire/AbstractJavaGDSImpl.java	(revision 9331)
++++ impl/wire/AbstractJavaGDSImpl.java	(working copy)
+@@ -427,6 +427,8 @@
+                         DatabaseParameterBuffer.PROCESS_NAME, 
+                         processName);
+ 
++        databaseParameterBuffer.addArgument(ISCConstants.isc_dpb_utf8_filename, 1);
++
+ 				db.out.writeTyped(ISCConstants.isc_dpb_version1, (Xdrable) databaseParameterBuffer);
+ 				db.out.flush();
+ 				if (debug)
+Index: impl/wire/ParameterBufferBase.java
+===================================================================
+--- impl/wire/ParameterBufferBase.java	(revision 9331)
++++ impl/wire/ParameterBufferBase.java	(working copy)
+@@ -20,6 +20,7 @@
+ package org.firebirdsql.gds.impl.wire;
+ 
+ 
++import java.io.UnsupportedEncodingException;
+ import java.util.List;
+ import java.util.ArrayList;
+ import java.util.Arrays;
+@@ -210,7 +211,7 @@
+             {
+             outputStream.write(type);
+ 
+-            final byte[] valueBytes = this.value.getBytes();
++            final byte[] valueBytes = this.value.getBytes("UTF8");
+             final int valueLength = valueBytes.length;
+ 
+             writeLength(valueLength, outputStream);
+@@ -220,7 +221,11 @@
+ 
+         int getLength()
+             {
+-            return value.getBytes().length + 2;
++              try {
++                return value.getBytes("UTF8").length + 2;
++              } catch (UnsupportedEncodingException e) {
++                throw new RuntimeException(e);
++              }
+             }
+ 
+        String getValueAsString()
+Index: ISCConstants.java
+===================================================================
+--- ISCConstants.java	(revision 9331)
++++ ISCConstants.java	(working copy)
+@@ -135,8 +135,13 @@
+     public final static int isc_dpb_no_db_triggers          = 72;
+     public final static int isc_dpb_trusted_auth            = 73;
+     public final static int isc_dpb_process_name            = 74;
+-    
+-    
++
++    // Firebird 2.5 constants
++    public final static int isc_dpb_trusted_role            = 75;
++    public final static int isc_dpb_org_filename            = 76;
++    public final static int isc_dpb_utf8_filename           = 77;
++    public final static int isc_dpb_ext_call_depth          = 78;
++
+     /*
+      * Driver-specific DPB params that will be removed before sending them
+      * to the server. These params influence only client side.

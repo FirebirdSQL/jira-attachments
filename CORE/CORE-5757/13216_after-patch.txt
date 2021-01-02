@@ -1,0 +1,76 @@
+
+Thread 13 (Thread 0x7f0a6ffff700 (LWP 9337)):
+#0  pthread_cond_wait@@GLIBC_2.3.2 () at ../sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:185
+#1  0x00007f0a926e6f5b in ISC_event_wait (event=0x7f0a92e51f98, value=value@entry=2178, micro_seconds=micro_seconds@entry=0) at ../src/jrd/isc_sync.cpp:1884
+#2  0x00007f0a926a180b in Jrd::EventManager::watcher_thread (this=0x7f0a92e339f8) at ../src/jrd/event.cpp:1477
+#3  0x00007f0a926a29f9 in Jrd::EventManager::watcher_thread (arg=arg@entry=0x7f0a92e339f8) at ../src/jrd/../jrd/event_proto.h:93
+#4  0x00007f0a925ac8d5 in (anonymous namespace)::ThreadArgs::run (this=<synthetic pointer>) at ../src/jrd/ThreadStart.cpp:128
+#5  (anonymous namespace)::threadStart (arg=0x7f0a92e76480) at ../src/jrd/ThreadStart.cpp:139
+#6  0x00007f0a918a4494 in start_thread (arg=0x7f0a6ffff700) at pthread_create.c:333
+#7  0x00007f0a915e6aff in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:97
+
+Thread 10 (Thread 0x7f0a85ffb700 (LWP 9329)):
+#0  pthread_cond_wait@@GLIBC_2.3.2 () at ../sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:185
+#1  0x00007f0a926e6f5b in ISC_event_wait (event=0x7f0a92e53140, value=value@entry=1, micro_seconds=micro_seconds@entry=0) at ../src/jrd/isc_sync.cpp:1884
+#2  0x00007f0a9284931c in Jrd::LockManager::blocking_action_thread (this=this@entry=0x7f0a92e36a60) at ../src/lock/lock.cpp:1580
+#3  0x00007f0a9284dc49 in Jrd::LockManager::blocking_action_thread (arg=arg@entry=0x7f0a92e36a60) at ../src/lock/../lock/lock_proto.h:468
+#4  0x00007f0a925ac8d5 in (anonymous namespace)::ThreadArgs::run (this=<synthetic pointer>) at ../src/jrd/ThreadStart.cpp:128
+#5  (anonymous namespace)::threadStart (arg=0x7f0a92e76480) at ../src/jrd/ThreadStart.cpp:139
+#6  0x00007f0a918a4494 in start_thread (arg=0x7f0a85ffb700) at pthread_create.c:333
+#7  0x00007f0a915e6aff in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:97
+
+Thread 7 (Thread 0x7f0a877fe700 (LWP 9325)):
+#0  pthread_cond_wait@@GLIBC_2.3.2 () at ../sysdeps/unix/sysv/linux/x86_64/pthread_cond_wait.S:185
+#1  0x00007f0a926e6f5b in ISC_event_wait (event=0x7f0a92e55140, value=value@entry=1, micro_seconds=micro_seconds@entry=0) at ../src/jrd/isc_sync.cpp:1884
+#2  0x00007f0a9284931c in Jrd::LockManager::blocking_action_thread (this=this@entry=0x7f0a92e37ec8) at ../src/lock/lock.cpp:1580
+#3  0x00007f0a9284dc49 in Jrd::LockManager::blocking_action_thread (arg=arg@entry=0x7f0a92e37ec8) at ../src/lock/../lock/lock_proto.h:468
+#4  0x00007f0a925ac8d5 in (anonymous namespace)::ThreadArgs::run (this=<synthetic pointer>) at ../src/jrd/ThreadStart.cpp:128
+#5  (anonymous namespace)::threadStart (arg=0x7f0a92dfb158) at ../src/jrd/ThreadStart.cpp:139
+#6  0x00007f0a918a4494 in start_thread (arg=0x7f0a877fe700) at pthread_create.c:333
+#7  0x00007f0a915e6aff in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:97
+
+Thread 3 (Thread 0x7f0a8e1c3700 (LWP 9290)):
+#0  0x00007f0a918ac700 in futex_abstimed_wait_cancelable (private=0, abstime=0x7f0a8e1c2e00, expected=0, futex_word=0x7f0a92dfe0a0) at ../sysdeps/unix/sysv/linux/futex-internal.h:205
+#1  do_futex_wait (sem=sem@entry=0x7f0a92dfe0a0, abstime=abstime@entry=0x7f0a8e1c2e00) at sem_waitcommon.c:111
+#2  0x00007f0a918ac7cf in __new_sem_wait_slow (sem=0x7f0a92dfe0a0, abstime=0x7f0a8e1c2e00) at sem_waitcommon.c:181
+#3  0x00007f0a918ac882 in sem_timedwait (sem=sem@entry=0x7f0a92dfe0a0, abstime=abstime@entry=0x7f0a8e1c2e00) at sem_timedwait.c:36
+#4  0x00007f0a928c6260 in Firebird::SignalSafeSemaphore::tryEnter (this=this@entry=0x7f0a92dfe0a0, seconds=seconds@entry=1800, milliseconds=1800000, milliseconds@entry=0) at ../src/common/classes/semaphore.cpp:171
+#5  0x00007f0a927b4cbc in Jrd::ConfigStorage::touchThreadFunc (this=this@entry=0x7f0a92dfb1a8) at ../src/jrd/trace/TraceConfigStorage.cpp:352
+#6  0x00007f0a927b4d79 in Jrd::ConfigStorage::touchThread (arg=arg@entry=0x7f0a92dfb1a8) at ../src/jrd/trace/TraceConfigStorage.cpp:338
+#7  0x00007f0a925ac8d5 in (anonymous namespace)::ThreadArgs::run (this=<synthetic pointer>) at ../src/jrd/ThreadStart.cpp:128
+#8  (anonymous namespace)::threadStart (arg=0x7f0a92e09078) at ../src/jrd/ThreadStart.cpp:139
+#9  0x00007f0a918a4494 in start_thread (arg=0x7f0a8e1c3700) at pthread_create.c:333
+#10 0x00007f0a915e6aff in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:97
+
+Thread 2 (Thread 0x7f0a8ee9a700 (LWP 9289)):
+#0  0x00007f0a918ac536 in futex_abstimed_wait_cancelable (private=0, abstime=0x0, expected=0, futex_word=0x7f0a92e77ff0) at ../sysdeps/unix/sysv/linux/futex-internal.h:205
+#1  do_futex_wait (sem=sem@entry=0x7f0a92e77ff0, abstime=0x0) at sem_waitcommon.c:111
+#2  0x00007f0a918ac5e4 in __new_sem_wait_slow (sem=0x7f0a92e77ff0, abstime=0x0) at sem_waitcommon.c:181
+#3  0x00007f0a918ac679 in __new_sem_wait (sem=sem@entry=0x7f0a92e77ff0) at sem_wait.c:29
+#4  0x00007f0a928c6172 in Firebird::SignalSafeSemaphore::enter (this=0x7f0a92e77ff0) at ../src/common/classes/semaphore.cpp:132
+#5  0x00007f0a925b0821 in (anonymous namespace)::shutdownThread () at ../src/jrd/why.cpp:933
+#6  0x00007f0a925ac8d5 in (anonymous namespace)::ThreadArgs::run (this=<synthetic pointer>) at ../src/jrd/ThreadStart.cpp:128
+#7  (anonymous namespace)::threadStart (arg=0x7f0a92e76480) at ../src/jrd/ThreadStart.cpp:139
+#8  0x00007f0a918a4494 in start_thread (arg=0x7f0a8ee9a700) at pthread_create.c:333
+#9  0x00007f0a915e6aff in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:97
+
+Thread 1 (Thread 0x7f0a92e4c500 (LWP 9288)):
+#0  0x00007f0a918ad4ff in __libc_recv (fd=24, buf=buf@entry=0x7f0a92e5d278, n=n@entry=8192, flags=flags@entry=0) at ../sysdeps/unix/sysv/linux/x86_64/recv.c:28
+#1  0x000055e85b8d90f3 in recv (__flags=0, __n=8192, __buf=0x7f0a92e5d278, __fd=<optimized out>) at /usr/include/x86_64-linux-gnu/bits/socket2.h:44
+#2  packet_receive (port=0x7f0a84461e58, buffer=buffer@entry=0x7f0a92e5d278 "", buffer_length=buffer_length@entry=8192, length=length@entry=0x7ffdaf27cab6) at ../src/remote/inet.cpp:3280
+#3  0x000055e85b8dac47 in select_multi (main_port=0x7f0a92e63448, buffer=0x7f0a92e5d278 "", bufsize=8192, length=0x7ffdaf27cab6, port=...) at ../src/remote/inet.cpp:2247
+#4  0x000055e85b8c920f in SRVR_multi_thread (main_port=0x7f0a92e63448, flags=<optimized out>) at ../src/remote/server.cpp:636
+#5  0x000055e85b8bee11 in server_main (argc=<optimized out>, argv=<optimized out>) at ../src/remote/inet_server.cpp:430
+#6  0x00007f0a9151e2b1 in __libc_start_main (main=0x55e85b8be220 <main(int, char**)>, argc=1, argv=0x7ffdaf27e378, init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, stack_end=0x7ffdaf27e368) at ../csu/libc-start.c:291
+#7  0x000055e85b8be5ba in _start ()
+Undefined kill command: "11".  Try "help kill".
+Continuing with signal SIGSEGV.
+[Thread 0x7f0a6ffff700 (LWP 9337) exited]
+[Thread 0x7f0a85ffb700 (LWP 9329) exited]
+[Thread 0x7f0a877fe700 (LWP 9325) exited]
+[Thread 0x7f0a8e1c3700 (LWP 9290) exited]
+[Thread 0x7f0a92e4c500 (LWP 9288) exited]
+
+Program terminated with signal SIGSEGV, Segmentation fault.
+The program no longer exists.
+quit

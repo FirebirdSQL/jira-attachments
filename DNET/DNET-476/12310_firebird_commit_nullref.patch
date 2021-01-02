@@ -1,0 +1,30 @@
+Index: NETProvider/source/FirebirdSql/Data/Client/Native/FesTransaction.cs
+===================================================================
+--- NETProvider/source/FirebirdSql/Data/Client/Native/FesTransaction.cs	(revision 57976)
++++ NETProvider/source/FirebirdSql/Data/Client/Native/FesTransaction.cs	(working copy)
+@@ -237,9 +237,10 @@
+ 
+ 				this.db.TransactionCount--;
+ 
+-				if (this.Update != null)
++				var update = this.Update;
++				if (update != null)
+ 				{
+-					this.Update(this, new EventArgs());
++					update(this, new EventArgs());
+ 				}
+ 
+ 				this.state = TransactionState.NoTransaction;
+@@ -265,9 +266,10 @@
+ 
+ 				this.db.TransactionCount--;
+ 
+-				if (this.Update != null)
++				var update = this.Update;
++				if (update != null)
+ 				{
+-					this.Update(this, new EventArgs());
++					update(this, new EventArgs());
+ 				}
+ 
+ 				this.state = TransactionState.NoTransaction;

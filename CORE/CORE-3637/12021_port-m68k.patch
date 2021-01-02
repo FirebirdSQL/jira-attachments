@@ -1,0 +1,124 @@
+Description: port to m68k
+ port to m68k, based on alpha/hppa port patch
+ from http://tracker.firebirdsql.org/browse/CORE-3184?page=com.atlassian.jira.plugin.system.issuetabpanels%3Aall-tabpanel
+Author: Thorsten Glaser <tg@mirbsd.de>
+
+Index: firebird2.5-2.5.1.26349-0~rc1.ds4/configure.in
+===================================================================
+--- firebird2.5-2.5.1.26349-0~rc1.ds4.orig/configure.in	2011-10-14 21:49:10.000000000 +0000
++++ firebird2.5-2.5.1.26349-0~rc1.ds4/configure.in	2011-10-14 21:50:38.000000000 +0000
+@@ -297,6 +297,17 @@
+    SHRLIB_EXT=so
+    ;;
+ 
++  m68k*-*-linux*)
++    MAKEFILE_PREFIX=linux_generic
++    INSTALL_PREFIX=linux
++    PLATFORM=LINUX
++    AC_DEFINE(LINUX, 1, [Define this if OS is Linux])
++    AC_DEFINE(M68K, 1, [Define this if CPU is m68k])
++    EDITLINE_FLG=Y
++    SHRLIB_EXT=so
++    ATOMIC_LIBS=-latomic_ops
++    ;;
++
+   *-*-linux* | *-*-gnu*)
+     MAKEFILE_PREFIX=linux_generic
+     INSTALL_PREFIX=linux
+@@ -918,6 +929,7 @@
+ dnl
+ dnl      VMS           (n)                       -> no
+ dnl      sun_68k       ((n+1) & ~1)              -> even
++dnl      linux_m68k    ((n+1) & ~1)              -> even
+ dnl      XENIX         ((n+1) & ~1)              -> even
+ dnl      netware_386   ((n+1) & ~1)              -> even
+ dnl      all others    ((n + b - 1) & ~(b - 1))  -> multiple of b
+Index: firebird2.5-2.5.1.26349-0~rc1.ds4/src/include/fb_types.h
+===================================================================
+--- firebird2.5-2.5.1.26349-0~rc1.ds4.orig/src/include/fb_types.h	2011-10-14 21:43:39.000000000 +0000
++++ firebird2.5-2.5.1.26349-0~rc1.ds4/src/include/fb_types.h	2011-10-14 21:49:10.000000000 +0000
+@@ -145,6 +145,7 @@
+ 
+ /* Number of elements in an array */
+ #define FB_NELEM(x)	((int)(sizeof(x) / sizeof(x[0])))
++/* note: with m68k, this is overkill, cf. src/misc/align.cpp */
+ #define FB_ALIGN(n, b) ((n + b - 1) & ~(b - 1))
+ 
+ // Intl types
+Index: firebird2.5-2.5.1.26349-0~rc1.ds4/src/jrd/utl.cpp
+===================================================================
+--- firebird2.5-2.5.1.26349-0~rc1.ds4.orig/src/jrd/utl.cpp	2011-10-14 21:43:39.000000000 +0000
++++ firebird2.5-2.5.1.26349-0~rc1.ds4/src/jrd/utl.cpp	2011-10-14 21:49:10.000000000 +0000
+@@ -227,7 +227,8 @@
+ 	"Firebird/linux SH",			// 80
+ 	"Firebird/linux SHEB",			// 81
+ 	"Firebird/linux HPPA",			// 82
+-	"Firebird/linux ALPHA"			// 83
++	"Firebird/linux ALPHA",			// 83
++	"Firebird/linux M68k",			// 84
+ };
+ 
+ 
+Index: firebird2.5-2.5.1.26349-0~rc1.ds4/src/jrd/inf_pub.h
+===================================================================
+--- firebird2.5-2.5.1.26349-0~rc1.ds4.orig/src/jrd/inf_pub.h	2011-10-14 21:43:39.000000000 +0000
++++ firebird2.5-2.5.1.26349-0~rc1.ds4/src/jrd/inf_pub.h	2011-10-14 21:49:10.000000000 +0000
+@@ -215,6 +215,7 @@
+ 	isc_info_db_impl_linux_sheb = 81,
+ 	isc_info_db_impl_linux_hppa = 82,
+ 	isc_info_db_impl_linux_alpha = 83,
++	isc_info_db_impl_linux_m68k = 84,
+ 
+ 	isc_info_db_impl_last_value   // Leave this LAST!
+ };
+Index: firebird2.5-2.5.1.26349-0~rc1.ds4/src/jrd/pag.cpp
+===================================================================
+--- firebird2.5-2.5.1.26349-0~rc1.ds4.orig/src/jrd/pag.cpp	2011-10-14 21:43:40.000000000 +0000
++++ firebird2.5-2.5.1.26349-0~rc1.ds4/src/jrd/pag.cpp	2011-10-14 21:49:10.000000000 +0000
+@@ -162,9 +162,10 @@
+ static const int CLASS_LINUX_SHEB = 39;		// LINUX/SH (big-endian)
+ static const int CLASS_LINUX_HPPA = 40;		// LINUX/HPPA
+ static const int CLASS_LINUX_ALPHA = 41;	// LINUX/ALPHA
++static const int CLASS_LINUX_M68K = 42;		// LINUX/m68k
+ 
+ static const int CLASS_MAX10 = CLASS_LINUX_AMD64;	// This should not be changed, no new ports with ODS10
+-static const int CLASS_MAX = CLASS_LINUX_ALPHA;
++static const int CLASS_MAX = CLASS_LINUX_M68K;
+ 
+ // ARCHITECTURE COMPATIBILITY CLASSES
+ 
+@@ -263,7 +264,8 @@
+ 	archLittleEndian, // CLASS_LINUX_SH
+ 	archBigEndian,    // CLASS_LINUX_SHEB
+ 	archBigEndian,    // CLASS_LINUX_HPPA
+-	archLittleEndian  // CLASS_LINUX_ALPHA
++	archLittleEndian, // CLASS_LINUX_ALPHA
++	archBigEndian,    // CLASS_LINUX_M68K
+ };
+ 
+ #ifdef __sun
+@@ -327,6 +329,8 @@
+ const SSHORT CLASS		= CLASS_LINUX_HPPA;
+ #elif defined(ALPHA)
+ const SSHORT CLASS		= CLASS_LINUX_ALPHA;
++#elif defined(M68K)
++const SSHORT CLASS		= CLASS_LINUX_M68K;
+ #else
+ #error no support on other hardware for Linux
+ #endif
+Index: firebird2.5-2.5.1.26349-0~rc1.ds4/src/jrd/common.h
+===================================================================
+--- firebird2.5-2.5.1.26349-0~rc1.ds4.orig/src/jrd/common.h	2011-10-14 21:43:40.000000000 +0000
++++ firebird2.5-2.5.1.26349-0~rc1.ds4/src/jrd/common.h	2011-10-14 21:49:10.000000000 +0000
+@@ -192,6 +192,11 @@
+ #define RISC_ALIGNMENT
+ #endif /* alpha */
+ 
++#ifdef M68K
++#define IMPLEMENTATION  isc_info_db_impl_linux_m68k /* 84  */
++#define RISC_ALIGNMENT
++#endif /* m68k */
++
+ #endif /* LINUX */
+ 
+ 

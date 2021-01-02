@@ -1,0 +1,20 @@
+Index: NETProvider_20/source/FirebirdSql/Data/UnitTests/FbConnectionTest.cs
+===================================================================
+RCS file: /cvsroot/firebird/NETProvider/NETProvider_20/source/FirebirdSql/Data/UnitTests/FbConnectionTest.cs,v
+retrieving revision 1.4
+diff -u -r1.4 FbConnectionTest.cs
+--- NETProvider_20/source/FirebirdSql/Data/UnitTests/FbConnectionTest.cs	30 Oct 2005 14:18:01 -0000	1.4
++++ NETProvider_20/source/FirebirdSql/Data/UnitTests/FbConnectionTest.cs	25 Apr 2006 13:18:39 -0000
+@@ -125,6 +125,12 @@
+ 			// Clear pools
+ 			FbConnection.ClearAllPools();
+ 		}
++		
++		[Test]
++		public void ConnectionPoolClearAllTest() { 
++			FbConnection.ClearAllPools(); 
++		}
++
+ 
+ 		[Test]
+ 		public void FbConnectionStringBuilderTest()

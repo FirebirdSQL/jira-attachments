@@ -1,0 +1,118 @@
+### Eclipse Workspace Patch 1.0
+#P client-java
+Index: src/main/org/firebirdsql/jdbc/FBSQLException.java
+===================================================================
+RCS file: /cvsroot/firebird/client-java/src/main/org/firebirdsql/jdbc/FBSQLException.java,v
+retrieving revision 1.20
+diff -u -r1.20 FBSQLException.java
+--- src/main/org/firebirdsql/jdbc/FBSQLException.java	21 Jan 2010 22:32:23 -0000	1.20
++++ src/main/org/firebirdsql/jdbc/FBSQLException.java	20 Feb 2010 15:38:43 -0000
+@@ -19,7 +19,6 @@
+ 
+ package org.firebirdsql.jdbc;
+ 
+-import java.io.IOException;
+ import java.sql.SQLException;
+ 
+ import javax.resource.ResourceException;
+@@ -45,67 +44,39 @@
+     public static final String SQL_STATE_CONNECTION_FAILURE_IN_TX = "08007";
+     public static final String SQL_STATE_COMM_LINK_FAILURE = "08S01";
+     
+-    private Exception original;
+-    private String message;
+-    
+     public FBSQLException(Exception ex) {
+         super(ex.getMessage(), SQL_STATE_GENERAL_ERROR, ex);
+-        original = ex;
+-        message = "Exception. " + ex.getMessage();
+     }
+     
+-    public FBSQLException(IOException ioex) {
+-        super(ioex.getMessage(), SQL_STATE_GENERAL_ERROR, ioex);
+-        original = ioex;
+-        message = "I/O Exception. " + ioex.getMessage();
+-    }
+-
+     public FBSQLException(GDSException ex) {
+-        super(ex.getMessage(), SQL_STATE_GENERAL_ERROR);
+-        original = ex;
+-        message = "GDS Exception. "+ ex.getIntParam() + ". " + ex.getMessage();
++        super("GDS Exception. "+ ex.getIntParam() + ". " + ex.getMessage(), SQL_STATE_GENERAL_ERROR, ex.getFbErrorCode());
+     }
+ 
+     public FBSQLException(ResourceException ex) {
+-        super(ex.getMessage(), 
++        super(getResourceMessage(ex), 
+                 ex.getErrorCode() != null ? ex.getErrorCode() : SQL_STATE_GENERAL_ERROR);
+ 
+         // try to unwrap wrapped GDS exception, in this case FBResourceException
+         // will never appear on the stack
+         if (ex instanceof FBResourceException && ex.getLinkedException() != null) 
+-            original = ex.getLinkedException();
++            initCause(ex.getLinkedException());
+         else 
+-            original = ex;
+-
+-        if (original instanceof GDSException) 
+-            message = "GDS Exception. "+ ((GDSException)original).getIntParam() + ". " + ex.getMessage();
+-        else
+-            message = "Resource Exception. " + ex.getMessage();
++            initCause(ex);
+     }
+     
+     public FBSQLException(String message) {
+         super(message, SQL_STATE_GENERAL_ERROR);
+-        this.message = message;
+     }
+ 
+     public FBSQLException(String message, SQLException ex) {
+-        super(message, SQL_STATE_GENERAL_ERROR);
+-        this.message = message;
+-        setNextException(ex);
++        super(message, 
++        		ex.getSQLState() != null ? ex.getSQLState() : SQL_STATE_GENERAL_ERROR, ex.getErrorCode());
+     }
+ 
+     public FBSQLException(String message, String sqlState) {
+         super(message, sqlState);
+-        this.message = message;
+     }
+     
+-    public int getErrorCode() {
+-        if (original instanceof GDSException)
+-            return ((GDSException)original).getIntParam();
+-        else
+-            return 0;
+-    }
+-
+     /**
+      * @deprecated use {@link #getCause()} instead. 
+      */
+@@ -113,11 +84,20 @@
+         return (Exception)getCause();
+     }
+ 
+-    public Throwable getCause() {
+-        return original;
+-    }
+-    
+-    public String getMessage() {
+-        return message;
++    /**
++     * Helper method to create message text for constructor accepting ResourceException ({@link #FBSQLException(ResourceException)}
++     * 
++     * @param ex ResourceException
++     * @return Exception message
++     */
++    private static String getResourceMessage(ResourceException ex) {
++    	Throwable cause = ex;
++    	if (ex instanceof FBResourceException && ex.getLinkedException() != null) 
++            cause = ex.getLinkedException();
++    	
++    	if (cause instanceof GDSException)
++            return "GDS Exception. "+ ((GDSException)cause).getIntParam() + ". " + ex.getMessage();
++        else
++            return "Resource Exception. " + ex.getMessage();
+     }
+ }

@@ -1,0 +1,13 @@
+Index: Data/FirebirdClient/FbConnectionPool.cs
+===================================================================
+--- Data/FirebirdClient/FbConnectionPool.cs	(revision 53955)
++++ Data/FirebirdClient/FbConnectionPool.cs	(working copy)
+@@ -314,7 +314,7 @@
+ 					}
+ 				}
+ 				
+-				pool.cleanupTimer.Dispose();
++				//pool.cleanupTimer.Dispose();
+ 			}
+ 		}
+ 
